@@ -1,0 +1,47 @@
+"latex-workshop.latex.tools": [
+  {
+    "name": "latexmk",
+    "command": "latexmk",
+    "args": [
+      "-xelatex",
+      "-file-line-error",
+      "-synctex=1",
+      "-interaction=nonstopmode",
+      "%DOC%"
+    ]
+  },
+  {
+    "name": "biber",
+    "command": "biber",
+    "args": [
+      "%DOCFILE%"
+    ]
+  },
+  {
+    "name": "xelatex",
+    "command": "xelatex",
+    "args": [
+      "-synctex=1",
+      "-interaction=nonstopmode",
+      "-file-line-error",
+      "%DOC%"
+    ]
+  }
+],
+"latex-workshop.latex.recipes": [
+  {
+    "name": "latexmk (xelatex)",
+    "tools": [
+      "latexmk"
+    ]
+  },
+  {
+    "name": "xelatex -> biber -> xelatex*2",
+    "tools": [
+      "xelatex",
+      "biber",
+      "xelatex",
+      "xelatex"
+    ]
+  }
+]
