@@ -5,7 +5,6 @@
 \label{chap:pendahuluan}
 % --- Latar Belakang ---
 \section{Latar Belakang}
-
 Kemajuan signifikan dalam pengembangan \textit{large language model} telah menghasilkan peningkatan kemampuan dalam pemrosesan bahasa alami, pemahaman konteks, dan penalaran. Model seperti GPT, LLaMA, Mistral, dan Gemini digunakan secara luas dalam sistem dialog, agen percakapan, dan berbagai aplikasi yang bergantung pada interaksi bahasa. Meskipun performanya meningkat, sejumlah tantangan metodologis masih muncul, khususnya terkait sensitivitas model terhadap identitas pengguna atau konfigurasi \textit{persona} yang diberikan selama proses interaksi.
 
 Beberapa studi menunjukkan bahwa \textit{large language model} bersifat responsif terhadap \textit{persona}-yang-disematkan kepada model. Penelitian mengenai bias penalaran implisit menunjukkan bahwa penugasan \textit{persona} tertentu dapat mengubah hasil penalaran pada tugas yang tidak mengandung informasi sosial \parencite{gupta2024biasrunsdeep}. Studi lain mengkaji pengaruh \textit{persona} eksplisit dan \textit{persona} implisit terhadap gaya respons dan perilaku model dalam skenario percakapan \parencite{tseng2024twotales}. Selain itu, penelitian mengenai pemodelan pengguna menunjukkan bahwa variasi karakteristik pengguna dapat memengaruhi keluaran model dalam aspek penalaran, preferensi, dan stabilitas respons \parencite{naous2025userlm}. Temuan tersebut mengindikasikan bahwa \textit{large language model} tidak hanya memproses instruksi, tetapi juga bereaksi terhadap atribut identitas yang diberikan melalui \textit{persona}.
@@ -15,7 +14,6 @@ Walaupun demikian, penelitian yang ada masih memiliki batasan metodologis. Mayor
 Berdasarkan kebutuhan tersebut, penelitian ini disusun untuk menginvestigasi pengaruh \textit{persona} terhadap penalaran, kualitas keluaran, dan kecenderungan \textit{human bias} pada berbagai \textit{large language model} melalui pendekatan \textit{multi model} dan \textit{multi persona} yang terstruktur. Penelitian ini bertujuan untuk mengisi kesenjangan penelitian yang belum ditangani oleh studi sebelumnya dengan menetapkan kontribusi utama sebagai berikut:
 
 \begin{enumerate}
-    \item Merancang dan membangun kerangka evaluasi terotomatisasi yang memungkinkan pelaksanaan eksperimen berskala besar pada berbagai model dan berbagai \textit{persona}.
     \item Mengevaluasi dampak persona terhadap performa penalaran dan kualitas keluaran model pada beragam kategori tugas, termasuk penalaran numerik, penalaran logis, dan respons berbasis skenario sosial.
     \item Menganalisis pola human bias yang muncul akibat penugasan persona, termasuk bias yang memengaruhi penalaran, gaya bahasa, dan struktur respons.
     \item Membandingkan sensitivitas dan robustnes berbagai model terhadap variasi persona untuk mengidentifikasi model yang menunjukkan konsistensi yang lebih tinggi dalam konteks penggunaan yang heterogen.
