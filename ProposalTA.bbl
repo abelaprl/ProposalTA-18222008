@@ -19,90 +19,208 @@
 
 \refsection{0}
   \datalist[entry]{cms/global//global/global}
-    \entry{BPBI}{misc}{}
-      \field{sortinit}{B}
-      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+    \entry{gupta2024biasrunsdeep}{inproceedings}{}
+      \name{author}{7}{}{%
+        {{un=0,uniquepart=base,hash=362d644df9822cff6c079a862ffc0433}{%
+           family={Gupta},
+           familyi={G\bibinitperiod},
+           given={Shashank},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=720c2d0df823292d55ff0c065ec375ca}{%
+           family={Shrivastava},
+           familyi={S\bibinitperiod},
+           given={Vaishnavi},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=82c947884058fba088bf3b8f0f4fd1dc}{%
+           family={Deshpande},
+           familyi={D\bibinitperiod},
+           given={Ameet},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0fd961fe6ef2e9446aea0a874c620393}{%
+           family={Kalyan},
+           familyi={K\bibinitperiod},
+           given={Ashwin},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2db5de0aa2d8b8effcc6e63e976b4edb}{%
+           family={Clark},
+           familyi={C\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a9e0631f7cb86b51f2dbfd908c164960}{%
+           family={Sabharwal},
+           familyi={S\bibinitperiod},
+           given={Ashish},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d52b94839fda8bece4ad0c811146f04f}{%
+           family={Khot},
+           familyi={K\bibinitperiod},
+           given={Tushar},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{0d0464b9e9d69978ec3641a8542e3388}
+      \strng{fullhash}{c1f47fe6e9e40b451faafc2be4439a00}
+      \strng{bibnamehash}{c1f47fe6e9e40b451faafc2be4439a00}
+      \strng{authorbibnamehash}{c1f47fe6e9e40b451faafc2be4439a00}
+      \strng{authornamehash}{0d0464b9e9d69978ec3641a8542e3388}
+      \strng{authorfullhash}{c1f47fe6e9e40b451faafc2be4439a00}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
+      \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Buku {Praktis} {Bahasa} {Indonesia} 1/{Kata} - {Wikisumber} bahasa {Indonesia}}
-      \field{urlday}{22}
-      \field{urlmonth}{10}
-      \field{urlyear}{2025}
+      \field{booktitle}{Proceedings of the Twelfth International Conference on Learning Representations}
+      \field{note}{ICLR 2024}
+      \field{title}{Bias Runs Deep: Implicit Reasoning Biases in Persona-Assigned LLMs}
       \field{year}{2024}
-      \field{urldateera}{ce}
       \verb{urlraw}
-      \verb https://id.wikisource.org/wiki/Buku_Praktis_Bahasa_Indonesia_1/Kata
+      \verb https://openreview.net/forum?id=kGteeZ18Ir
       \endverb
       \verb{url}
-      \verb https://id.wikisource.org/wiki/Buku_Praktis_Bahasa_Indonesia_1/Kata
+      \verb https://openreview.net/forum?id=kGteeZ18Ir
       \endverb
     \endentry
-    \entry{laudon2020}{book}{}
-      \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=2a3d8893ad04ba3c98081349c47e2f6c}{%
-           family={Laudon},
-           familyi={L\bibinitperiod},
-           given={Kenneth\bibnamedelima C.},
-           giveni={K\bibinitperiod\bibinitdelim C\bibinitperiod},
+    \entry{naous2025userlm}{article}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=bc688bd9fe1fc959a305bc7e023aa4c8}{%
+           family={Naous},
+           familyi={N\bibinitperiod},
+           given={Tarek},
+           giveni={T\bibinitperiod},
            givenun=0}}%
-        {{un=0,uniquepart=base,hash=7104f050b378ef23f0bc36c2b73e5ea2}{%
-           family={Laudon},
-           familyi={L\bibinitperiod},
-           given={Jane\bibnamedelima P.},
-           giveni={J\bibinitperiod\bibinitdelim P\bibinitperiod},
+        {{un=0,uniquepart=base,hash=7978960d5ceb9c56d2a47f5758f65eae}{%
+           family={Giorgi},
+           familyi={G\bibinitperiod},
+           given={John\bibnamedelima M.},
+           giveni={J\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4ace90c265c6197d5004fc5e48b83196}{%
+           family={Saxon},
+           familyi={S\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7f6446b28102cd299044dff93bae3ae9}{%
+           family={Brooks},
+           familyi={B\bibinitperiod},
+           given={Ethan\bibnamedelima C.},
+           giveni={E\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=21208f1a8ee0fba74718e422e7c72252}{%
+           family={Rajani},
+           familyi={R\bibinitperiod},
+           given={Nazneen},
+           giveni={N\bibinitperiod},
            givenun=0}}%
       }
-      \list{location}{1}{%
-        {Jakarta}%
-      }
-      \list{publisher}{1}{%
-        {Pearson Education}%
-      }
-      \strng{namehash}{a99ce1573b42821945806f73f25db5a4}
-      \strng{fullhash}{a99ce1573b42821945806f73f25db5a4}
-      \strng{bibnamehash}{a99ce1573b42821945806f73f25db5a4}
-      \strng{authorbibnamehash}{a99ce1573b42821945806f73f25db5a4}
-      \strng{authornamehash}{a99ce1573b42821945806f73f25db5a4}
-      \strng{authorfullhash}{a99ce1573b42821945806f73f25db5a4}
-      \field{sortinit}{L}
-      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \strng{namehash}{f2a4854c92ee6d740a728a697ac4ee86}
+      \strng{fullhash}{00358f5910fd93ccf787152b5baa2864}
+      \strng{bibnamehash}{00358f5910fd93ccf787152b5baa2864}
+      \strng{authorbibnamehash}{00358f5910fd93ccf787152b5baa2864}
+      \strng{authornamehash}{f2a4854c92ee6d740a728a697ac4ee86}
+      \strng{authorfullhash}{00358f5910fd93ccf787152b5baa2864}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Sistem Informasi Manajemen}
-      \field{year}{2020}
+      \field{labeltitlesource}{author}
+      \field{eprintclass}{cs.CL}
+      \field{eprinttype}{arXiv}
+      \field{note}{Under review}
+      \field{title}{Training and Evaluating User Language Models}
+      \field{year}{2025}
+      \verb{eprint}
+      \verb 2510.06552
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2510.06552
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2510.06552
+      \endverb
     \endentry
-    \entry{pressman2019}{book}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=4d3f81788d99cf425c4b6e0a454baab0}{%
-           family={Pressman},
-           familyi={P\bibinitperiod},
-           given={Roger\bibnamedelima S.},
-           giveni={R\bibinitperiod\bibinitdelim S\bibinitperiod},
+    \entry{tseng2024twotales}{inproceedings}{}
+      \name{author}{7}{}{%
+        {{un=0,uniquepart=base,hash=684495f451c3572e012d8515f44f2374}{%
+           family={Tseng},
+           familyi={T\bibinitperiod},
+           given={Yu-Min},
+           giveni={Y\bibinithyphendelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5674465584994f4b086ab3f5d3948284}{%
+           family={Huang},
+           familyi={H\bibinitperiod},
+           given={Yu-Chao},
+           giveni={Y\bibinithyphendelim C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=50e4f15dc7d88ed1a4a1ade3b78a7ad4}{%
+           family={Hsiao},
+           familyi={H\bibinitperiod},
+           given={Teng-Yun},
+           giveni={T\bibinithyphendelim Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b1da215fb0e7791a840666cb21208cec}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Wei-Lin},
+           giveni={W\bibinithyphendelim L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f040d117c637e5171efdc68cd6620dc0}{%
+           family={Huang},
+           familyi={H\bibinitperiod},
+           given={Chao-Wei},
+           giveni={C\bibinithyphendelim W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=35e758a191c33f93b0ba91c8506b7262}{%
+           family={Meng},
+           familyi={M\bibinitperiod},
+           given={Yu},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f0995e21442083712fc384a0a90860c4}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Yun-Nung},
+           giveni={Y\bibinithyphendelim N\bibinitperiod},
            givenun=0}}%
       }
       \list{location}{1}{%
-        {Yogyakarta}%
+        {Miami, Florida, USA}%
       }
       \list{publisher}{1}{%
-        {McGraw-Hill Education}%
+        {Association for Computational Linguistics}%
       }
-      \strng{namehash}{4d3f81788d99cf425c4b6e0a454baab0}
-      \strng{fullhash}{4d3f81788d99cf425c4b6e0a454baab0}
-      \strng{bibnamehash}{4d3f81788d99cf425c4b6e0a454baab0}
-      \strng{authorbibnamehash}{4d3f81788d99cf425c4b6e0a454baab0}
-      \strng{authornamehash}{4d3f81788d99cf425c4b6e0a454baab0}
-      \strng{authorfullhash}{4d3f81788d99cf425c4b6e0a454baab0}
-      \field{sortinit}{P}
-      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \strng{namehash}{0d201940e8b71e947c4696435d80e14d}
+      \strng{fullhash}{373aa94ea484fb1da50ed6538c153550}
+      \strng{bibnamehash}{373aa94ea484fb1da50ed6538c153550}
+      \strng{authorbibnamehash}{373aa94ea484fb1da50ed6538c153550}
+      \strng{authornamehash}{0d201940e8b71e947c4696435d80e14d}
+      \strng{authorfullhash}{373aa94ea484fb1da50ed6538c153550}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Rekayasa Perangkat Lunak: Pendekatan Praktisi}
-      \field{year}{2019}
+      \field{booktitle}{Findings of the Association for Computational Linguistics: EMNLP 2024}
+      \field{title}{Two Tales of Persona in LLMs: A Survey of Role-Playing and Personalization}
+      \field{year}{2024}
+      \field{pages}{16612\bibrangedash 16631}
+      \range{pages}{20}
+      \verb{urlraw}
+      \verb https://aclanthology.org/2024.findings-emnlp.969/
+      \endverb
+      \verb{url}
+      \verb https://aclanthology.org/2024.findings-emnlp.969/
+      \endverb
     \endentry
   \enddatalist
 \endrefsection

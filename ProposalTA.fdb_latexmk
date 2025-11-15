@@ -1,17 +1,17 @@
 # Fdb version 4
-["biber ProposalTA"] 1763201064.57927 "ProposalTA.bcf" "ProposalTA.bbl" "ProposalTA" 1763202625.42811 0
-  "ProposalTA.bcf" 1763202623.48625 203575 c5c59cd022b56705194710b6d53b624e "xelatex"
-  "daftar-pustaka.bib" 1762746839.26207 4705 c3960d076b2756c1d7b38569d4a3de5f ""
+["biber ProposalTA"] 1763213044.28563 "ProposalTA.bcf" "ProposalTA.bbl" "ProposalTA" 1763213182.90996 0
+  "ProposalTA.bcf" 1763213181.59361 203795 1f25db944fef340ed5db7cf220dbe050 "xelatex"
+  "daftar-pustaka.bib" 1763212625.53641 1518 eac6d1ad8c34ae531ddd77fb249b385f ""
   (generated)
   "ProposalTA.bbl"
   "ProposalTA.blg"
   (rewritten before read)
-["xdvipdfmx"] 1763202624.28188 "ProposalTA.xdv" "ProposalTA.pdf" "ProposalTA" 1763202625.45257 0
-  "ProposalTA.xdv" 1763202623.52119 282688 1fa3a97a0d17aff667c8a0cd1e03f93b "xelatex"
+["xdvipdfmx"] 1763213181.73958 "ProposalTA.xdv" "ProposalTA.pdf" "ProposalTA" 1763213182.94251 0
+  "ProposalTA.xdv" 1763213181.62077 313672 e91a3c935192fb18d29bff4e91636523 "xelatex"
   (generated)
   "ProposalTA.pdf"
   (rewritten before read)
-["xelatex"] 1763202618.14267 "ProposalTA.tex" "ProposalTA.xdv" "ProposalTA" 1763202625.43139 0
+["xelatex"] 1763213175.00539 "ProposalTA.tex" "ProposalTA.xdv" "ProposalTA" 1763213182.91599 0
   "/etc/texmf/web2c/texmf.cnf" 1762933463.62717 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
@@ -152,20 +152,20 @@
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/web2c/xetex/xelatex.fmt" 1762933535 10846519 6b1bfb4c12635fdd3916d5ea0669f58c ""
-  "Bab I - Pendahuluan.tex" 1762746839.24734 3603 3dcf66a73c5a889768666cae5db9fdfb ""
+  "Bab I - Pendahuluan.tex" 1763213150.33306 6245 ece53cd2f37e2eed8f204360f0f71476 ""
   "Bab II - Studi-Literatur.tex" 1762746839.24734 13157 21ca6659c9f3013034a15c3780f97534 ""
   "Bab III - Analisis-Masalah.tex" 1762746839.24734 1284 0626182ae5f9dede88f8f0b33cccc52e ""
   "Bab IV - Desain-Konsep-Solusi.tex" 1762746839.24734 624 c65591445ca2ba2483afff6f3e703f89 ""
   "Bab V - Rencana-Selanjutnya.tex" 1762746839.24734 678 eec1b664bdd37dff5b15ad7d7307f337 ""
-  "ProposalTA.aux" 1763202623.43598 9701 12cc867e4256e81ff5fc476bd6401597 "xelatex"
-  "ProposalTA.bbl" 1763201065.66473 3845 b1f32df785638c0000792d8ab72a7679 "biber ProposalTA"
-  "ProposalTA.lof" 1763202623.51421 677 a7c730741b4d94fe634aea3adbee0238 "xelatex"
-  "ProposalTA.lol" 1763202623.51814 208 92351c0660c7c8888f65642d957d8aa8 "xelatex"
-  "ProposalTA.lot" 1763202623.51524 1350 7d944f3f2226575e16fdd8b91113b7ee "xelatex"
-  "ProposalTA.out" 1763202623.47562 6732 a9c3a0d9adfe6c97340c7e98089ec31d "xelatex"
-  "ProposalTA.run.xml" 1763202623.50764 2420 213a90b5970b004a123579c946b55427 "xelatex"
-  "ProposalTA.tex" 1763202611.09437 12751 f890a769fed86bf9162b97b31a773ac0 ""
-  "ProposalTA.toc" 1763202623.51039 3761 f0fa3e40a7db7c4e33ab64fa8de298a2 "xelatex"
+  "ProposalTA.aux" 1763213181.54685 9896 34dd5a99693a982bfac77a48ca21780d "xelatex"
+  "ProposalTA.bbl" 1763213045.90005 8619 8967537551f09cdb82c18aaf938bcf83 "biber ProposalTA"
+  "ProposalTA.lof" 1763213181.61305 614 c30de1d30e2eae92f7d5ad91f98f2bda "xelatex"
+  "ProposalTA.lol" 1763213181.61751 209 0d250e65c08367c00cceccd0215c9a59 "xelatex"
+  "ProposalTA.lot" 1763213181.61549 1288 a34bfc3f5043d51989ae6f188d53fe62 "xelatex"
+  "ProposalTA.out" 1763213181.58273 6732 a9c3a0d9adfe6c97340c7e98089ec31d "xelatex"
+  "ProposalTA.run.xml" 1763213181.60856 2420 9a5185985474368acd6b7888e88dbccf "xelatex"
+  "ProposalTA.tex" 1763212013.17526 12763 083daf25a9618fa3e1c0701c78d2200b ""
+  "ProposalTA.toc" 1763213181.61057 3701 d7a984e5b19353e6a3973325769e2369 "xelatex"
   "image/gambar1.png" 1762746839.26207 307807 00ac1a189b214fb803a9c675fe502af8 ""
   "image/ganesha.jpg" 1762746839.26207 204312 0727b11a021a00ed8072dfbbb26b807b ""
   "table/tabel1.tex" 1762746839.26207 425 a9ef616ea781b22049ec2a8262475eac ""
