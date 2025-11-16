@@ -1,17 +1,17 @@
 # Fdb version 4
-["biber ProposalTA"] 1763213044.28563 "ProposalTA.bcf" "ProposalTA.bbl" "ProposalTA" 1763213466.09344 0
-  "ProposalTA.bcf" 1763213464.05746 203795 1f25db944fef340ed5db7cf220dbe050 "xelatex"
+["biber ProposalTA"] 1763274375.96991 "ProposalTA.bcf" "ProposalTA.bbl" "ProposalTA" 1763275528.51119 0
+  "ProposalTA.bcf" 1763275525.76864 204013 31aa35a06e89fb7d845f102e07210fbf "xelatex"
   "daftar-pustaka.bib" 1763212625.53641 1518 eac6d1ad8c34ae531ddd77fb249b385f ""
   (generated)
   "ProposalTA.bbl"
   "ProposalTA.blg"
   (rewritten before read)
-["xdvipdfmx"] 1763213465.01341 "ProposalTA.xdv" "ProposalTA.pdf" "ProposalTA" 1763213466.12173 0
-  "ProposalTA.xdv" 1763213464.08379 311940 c5e7e23b33a910824d45f8426cb59699 "xelatex"
+["xdvipdfmx"] 1763275527.39963 "ProposalTA.xdv" "ProposalTA.pdf" "ProposalTA" 1763275528.54206 0
+  "ProposalTA.xdv" 1763275525.80291 329236 56370b0153ef9a3e48d5d4a5feecd6d4 "xelatex"
   (generated)
   "ProposalTA.pdf"
   (rewritten before read)
-["xelatex"] 1763213457.67951 "ProposalTA.tex" "ProposalTA.xdv" "ProposalTA" 1763213466.09793 0
+["xelatex"] 1763275519.4183 "ProposalTA.tex" "ProposalTA.xdv" "ProposalTA" 1763275528.51588 0
   "/etc/texmf/web2c/texmf.cnf" 1762933463.62717 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
@@ -152,20 +152,20 @@
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/web2c/xetex/xelatex.fmt" 1762933535 10846519 6b1bfb4c12635fdd3916d5ea0669f58c ""
-  "Bab I - Pendahuluan.tex" 1763213449.36198 6068 13cfb55f73c008bdcd56558b8a600bb3 ""
+  "Bab I - Pendahuluan.tex" 1763275509.93475 8057 80c4f5fb715cc5f90e0695b5067b5d77 ""
   "Bab II - Studi-Literatur.tex" 1762746839.24734 13157 21ca6659c9f3013034a15c3780f97534 ""
   "Bab III - Analisis-Masalah.tex" 1762746839.24734 1284 0626182ae5f9dede88f8f0b33cccc52e ""
   "Bab IV - Desain-Konsep-Solusi.tex" 1762746839.24734 624 c65591445ca2ba2483afff6f3e703f89 ""
   "Bab V - Rencana-Selanjutnya.tex" 1762746839.24734 678 eec1b664bdd37dff5b15ad7d7307f337 ""
-  "ProposalTA.aux" 1763213464.00679 9896 4bc3b2d3bbd125a684bac15a57f81682 "xelatex"
-  "ProposalTA.bbl" 1763213045.90005 8619 8967537551f09cdb82c18aaf938bcf83 "biber ProposalTA"
-  "ProposalTA.lof" 1763213464.07782 614 c30de1d30e2eae92f7d5ad91f98f2bda "xelatex"
-  "ProposalTA.lol" 1763213464.08061 209 0d250e65c08367c00cceccd0215c9a59 "xelatex"
-  "ProposalTA.lot" 1763213464.07961 1288 a34bfc3f5043d51989ae6f188d53fe62 "xelatex"
-  "ProposalTA.out" 1763213464.04556 6732 a9c3a0d9adfe6c97340c7e98089ec31d "xelatex"
-  "ProposalTA.run.xml" 1763213464.07252 2420 9a5185985474368acd6b7888e88dbccf "xelatex"
+  "ProposalTA.aux" 1763275525.66811 10341 342c5afd9f5bc0acda51a1032166863c "xelatex"
+  "ProposalTA.bbl" 1763274377.28348 8619 8967537551f09cdb82c18aaf938bcf83 "biber ProposalTA"
+  "ProposalTA.lof" 1763275525.80291 803 8aa1de66a75db9b9d1c80a5effad1c96 "xelatex"
+  "ProposalTA.lol" 1763275525.80291 210 18bb3d8b2fb55deac3a72fbb1d1a4855 "xelatex"
+  "ProposalTA.lot" 1763275525.80291 1477 a2a626ab023620d18f03a391f74ba9de "xelatex"
+  "ProposalTA.out" 1763275525.71946 6790 ae21487610aa47fe7e0a85a0c6ff62f1 "xelatex"
+  "ProposalTA.run.xml" 1763275525.79755 2420 9a5185985474368acd6b7888e88dbccf "xelatex"
   "ProposalTA.tex" 1763212013.17526 12763 083daf25a9618fa3e1c0701c78d2200b ""
-  "ProposalTA.toc" 1763213464.07594 3701 c4ab04d198866b12e26eff95dc462f59 "xelatex"
+  "ProposalTA.toc" 1763275525.80036 3902 06e8510d85e7fad1843328312186c02e "xelatex"
   "image/gambar1.png" 1762746839.26207 307807 00ac1a189b214fb803a9c675fe502af8 ""
   "image/ganesha.jpg" 1762746839.26207 204312 0727b11a021a00ed8072dfbbb26b807b ""
   "table/tabel1.tex" 1762746839.26207 425 a9ef616ea781b22049ec2a8262475eac ""

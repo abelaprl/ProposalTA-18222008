@@ -14,25 +14,42 @@ Walaupun demikian, penelitian yang ada masih memiliki batasan metodologis. Mayor
 Berdasarkan kebutuhan tersebut, penelitian ini disusun untuk menginvestigasi pengaruh \textit{persona} terhadap penalaran, kualitas keluaran, dan kecenderungan \textit{human bias} pada berbagai \textit{large language model} melalui pendekatan \textit{multi model} dan \textit{multi persona} yang terstruktur. Penelitian ini bertujuan untuk mengisi kesenjangan penelitian yang belum ditangani oleh studi sebelumnya dengan menetapkan kontribusi utama sebagai berikut:
 
 \begin{enumerate}
-    \item Mengevaluasi dampak persona terhadap performa penalaran dan kualitas keluaran model pada beragam kategori tugas, termasuk penalaran numerik, penalaran logis, dan respons berbasis skenario sosial.
-    \item Menganalisis pola human bias yang muncul akibat penugasan persona, termasuk bias yang memengaruhi penalaran, gaya bahasa, dan struktur respons.
-    \item Membandingkan sensitivitas dan robustnes berbagai model terhadap variasi persona untuk mengidentifikasi model yang menunjukkan konsistensi yang lebih tinggi dalam konteks penggunaan yang heterogen.
+    \item Mengevaluasi dampak \textit{persona} terhadap performa penalaran dan kualitas keluaran model pada beragam kategori tugas, termasuk penalaran numerik, penalaran logis, dan respons berbasis skenario sosial.
+    \item Menganalisis pola \textit{human bias} yang muncul akibat penugasan \textit{persona}, termasuk bias yang memengaruhi penalaran, gaya bahasa, dan struktur respons.
+    \item Membandingkan sensitivitas dan \textit{robustness} berbagai model terhadap variasi \textit{persona} untuk mengidentifikasi model yang menunjukkan konsistensi yang lebih tinggi dalam konteks penggunaan yang heterogen.
 \end{enumerate}
+
 
 
 % --- Rumusan Masalah ---
 \section{Rumusan Masalah}
-Rumusan Masalah berisi masalah utama yang dibahas dalam tugas akhir. Rumusan masalah yang baik memiliki struktur sebagai berikut:
+
+Rumusan masalah dalam penelitian ini disusun berdasarkan kebutuhan untuk memahami bagaimana \textit{large language model} bereaksi terhadap variasi \textit{persona} pada berbagai kategori tugas. Penelitian sebelumnya menunjukkan bahwa penugasan \textit{persona} dapat memengaruhi penalaran, bias implisit, kualitas keluaran, serta stabilitas respons model \parencite{gupta2024biasrunsdeep, tseng2024twotales, naous2025userlm}. Temuan tersebut mengindikasikan bahwa \textit{large language model} tidak hanya memproses instruksi secara literal, tetapi juga bereaksi terhadap atribut identitas yang disematkan melalui \textit{persona}.
+
+Walaupun demikian, penelitian yang ada masih terbatas pada jumlah model yang sedikit, cakupan \textit{persona} yang sempit, dan jenis tugas yang tidak mencerminkan keragaman kebutuhan evaluasi penalaran. Selain itu, belum tersedia kerangka evaluasi yang mampu menganalisis pengaruh \textit{persona} pada banyak model dan banyak kategori tugas secara konsisten. Kekurangan tersebut menimbulkan kebutuhan untuk merancang pendekatan yang lebih sistematis dan terstruktur untuk mengevaluasi dampak \textit{persona}.
+
+Berdasarkan kebutuhan tersebut, rumusan masalah dalam penelitian ini adalah sebagai berikut.
+
 \begin{enumerate}
-\item	Pokok persoalan dari kondisi atau situasi yang ada saat ini. Dengan kata lain, jelaskan kelemahan atau kekurangan dari kondisi, situasi, atau solusi yang dijelaskan pada latar belakang. Ini merupakan pokok rumusan masalah.
-\item	Elaborasi lebih lanjut urgensi penyelesaian masalah tersebut (mengapa penting untuk diselesaikan dan akibat yang dapat terjadi jika tidak diselesaikan).
-\item	Usulan singkat terkait dengan solusi yang ditawarkan untuk menyelesaikan persoalan.
-Penting untuk diperhatikan bahwa persoalan yang dideskripsikan pada subbab ini akan dipertanggungjawabkan di bab Evaluasi (apakah terselesaikan atau tidak).
+    \item Bagaimana pengaruh variasi \textit{persona} terhadap performa penalaran pada berbagai tugas yang dievaluasi pada sejumlah \textit{large language model}.
+    \item Bagaimana variasi \textit{persona} memengaruhi kualitas keluaran model.
+    \item Bagaimana pola \textit{human bias} muncul dan berubah ketika model diberikan \textit{persona} tertentu.
+    \item Sejauh mana sensitivitas terhadap \textit{persona} berbeda pada berbagai \textit{large language model}, dan model mana yang menunjukkan tingkat \textit{robustness} yang lebih tinggi terhadap variasi tersebut.
 \end{enumerate}
 
+
 % --- Tujuan ---
-\section{Tujuan}
-Tuliskan tujuan utama dan/atau tujuan detail yang akan dicapai dalam pelaksanaan tugas akhir. Fokuskan pada hasil akhir yang ingin diperoleh setelah tugas akhir diselesaikan, terkait dengan penyelesaian persoalan pada rumusan masalah. Penting untuk diperhatikan bahwa tujuan yang dideskripsikan pada subbab ini akan dipertanggungjawabkan di akhir pelaksanaan tugas akhir apakah tercapai atau tidak. Tuliskan kriteria keberhasilan tugas akhir ini.
+\section{Tujuan Penelitian}
+
+Tujuan penelitian dirumuskan berdasarkan pokok persoalan yang telah dijelaskan pada rumusan masalah. Penelitian ini bertujuan untuk menghasilkan pemahaman yang lebih sistematis dan komprehensif mengenai sejauh mana \textit{persona} memengaruhi performa dan perilaku \textit{large language model} pada berbagai kategori tugas. Untuk mencapai tujuan tersebut, penelitian ini menetapkan beberapa sasaran utama sebagai berikut.
+
+\begin{enumerate}
+    \item Menghasilkan analisis empiris mengenai pengaruh \textit{persona} terhadap performa penalaran yang ditunjukkan oleh berbagai \textit{large language model} pada beragam jenis tugas.
+    \item Mengidentifikasi perubahan kualitas keluaran model yang muncul akibat penugasan \textit{persona} pada skenario interaksi yang berbeda.
+    \item Menganalisis pola \textit{human bias} yang diinduksi oleh \textit{persona} tertentu serta implikasinya terhadap konsistensi dan stabilitas respons model.
+    \item Menyusun perbandingan sensitivitas berbagai model terhadap variasi \textit{persona} guna menilai tingkat \textit{robustness} yang ditunjukkan oleh setiap model.
+    \item Mengembangkan rancangan \textit{evaluation pipeline} yang memungkinkan pelaksanaan eksperimen \textit{multi model} dan \textit{multi persona} secara terotomatisasi.
+\end{enumerate}
 
 % --- Batasan Masalah ---
 \section{Batasan Masalah}

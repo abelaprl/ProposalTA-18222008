@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2025.11.12)  15 NOV 2025 20:30
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2025.11.12)  16 NOV 2025 13:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1188,23 +1188,23 @@ Bab I.
 [1
 
 
-] [2]
-Overfull \hbox (6.58292pt too wide) in paragraph at lines 46--47
+] [2] [3]
+Overfull \hbox (6.58292pt too wide) in paragraph at lines 63--64
 []\TU/TimesNewRoman(0)/m/n/12 Langkah-langkah pencarian, pengelompokan, dan pen
 apisan literatur atau sum-
  []
 
 
-Overfull \hbox (0.90164pt too wide) in paragraph at lines 46--47
+Overfull \hbox (0.90164pt too wide) in paragraph at lines 63--64
 \TU/TimesNewRoman(0)/m/n/12 ber informasi untuk mengumpulkan informasi yang rel
 evan tentang topik yang
  []
 
-) (./Bab II - Studi-Literatur.tex [3]
+) (./Bab II - Studi-Literatur.tex [4]
 Bab II.
 File: image/gambar1.png Graphic file (type bmp)
 <image/gambar1.png>
-[4
+[5
 
 ]
 Overfull \hbox (5.19266pt too wide) in paragraph at lines 30--31
@@ -1212,13 +1212,13 @@ Overfull \hbox (5.19266pt too wide) in paragraph at lines 30--31
 si sebaiknya digambar ulang,
  []
 
-[5] (./table/tabel1.tex) [6] [7]
+[6] (./table/tabel1.tex) [7] [8]
 Overfull \hbox (13.9993pt too wide) in paragraph at lines 161--161
 |[]\TU/TimesNewRoman(0)/b/n/12 Beberapa Contoh Penulisan Rumus atau Persamaan M
 atematika Meng-
  []
 
-[8]
+[9]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
 nput line 206.
  (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
@@ -1226,37 +1226,37 @@ File: lstlang1.sty 2023/02/27 1.9 listings language file
 )
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
 (Font)              Font shape `TU/lmtt/b/n' tried instead on input line 215.
- [9]
+ [10]
 
-LaTeX Warning: Citation 'BPBI' on page 10 undefined on input line 227.
+LaTeX Warning: Citation 'BPBI' on page 11 undefined on input line 227.
 
 
 Overfull \hbox (19.22398pt too wide) in paragraph at lines 232--238
  [][] 
  []
 
-[10]) (./Bab III - Analisis-Masalah.tex [11] [12]
+[11]) (./Bab III - Analisis-Masalah.tex [12] [13]
 Bab III.
 
-LaTeX Warning: Citation 'laudon2020' on page 13 undefined on input line 10.
+LaTeX Warning: Citation 'laudon2020' on page 14 undefined on input line 10.
 
 
-LaTeX Warning: Citation '' on page 13 undefined on input line 10.
+LaTeX Warning: Citation '' on page 14 undefined on input line 10.
 
 
-LaTeX Warning: Citation 'pressman2019' on page 13 undefined on input line 10.
+LaTeX Warning: Citation 'pressman2019' on page 14 undefined on input line 10.
 
-[13
+[14
 
-]) (./Bab IV - Desain-Konsep-Solusi.tex [14] [15]
+]) (./Bab IV - Desain-Konsep-Solusi.tex [15] [16]
 Bab IV.
-) (./Bab V - Rencana-Selanjutnya.tex [16
+) (./Bab V - Rencana-Selanjutnya.tex [17
 
 ]
 Bab V.
-) [17
+) [18
 
-] [18
+] [19
 
 
 ] (./ProposalTA.aux)
@@ -1269,7 +1269,7 @@ L3 programming layer <2024-01-22>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `ProposalTA.out' has not changed.
-(rerunfilecheck)             Checksum: A9C3A0D9ADFE6C97340C7E98089EC31D;6732.
+(rerunfilecheck)             Checksum: AE21487610AA47FE7E0A85A0C6FF62F1;6790.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                ProposalTA
@@ -1280,12 +1280,12 @@ Package logreq Info: Writing requests to 'ProposalTA.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 31369 strings out of 474878
- 618117 string characters out of 5762515
- 1952763 words of memory out of 5000000
- 53032 multiletter control sequences out of 15000+600000
+ 31372 strings out of 474878
+ 618147 string characters out of 5762515
+ 1952835 words of memory out of 5000000
+ 53035 multiletter control sequences out of 15000+600000
  563474 words of font info for 85 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  79i,14n,93p,1199b,6219s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on ProposalTA.xdv (25 pages, 311940 bytes).
+Output written on ProposalTA.xdv (26 pages, 329236 bytes).
