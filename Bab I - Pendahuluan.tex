@@ -48,12 +48,45 @@ Tujuan penelitian ditetapkan untuk menjawab permasalahan yang telah dirumuskan. 
 
 % --- Batasan Masalah ---
 \section{Batasan Masalah}
-Tuliskan batasan-batasan yang diambil dalam pelaksanaan tugas akhir. Batasan ini dapat dihindari (bersifat opsional, tidak perlu ada) jika topik atau judul tugas akhir dibuat cukup spesifik.
+
+Batasan masalah ditetapkan agar ruang lingkup penelitian terkelola dan selaras dengan tujuan penelitian. Penelitian ini tidak bertujuan mengevaluasi seluruh aspek perilaku model bahasa, tetapi fokus pada pengaruh \textit{user persona}. Batasan penelitian ini adalah sebagai berikut.
+
+\begin{enumerate}
+    \item Penelitian hanya menganalisis dua jenis \textit{user persona}, yaitu \textit{user persona} eksplisit dan \textit{user persona} implisit. Penelitian tidak mencakup \textit{role-playing persona} yang memberikan identitas kepada model maupun mekanisme \textit{personalization} berbasis histori pengguna.
+    \item Pengujian terbatas pada model bahasa berbasis teks yang dapat diakses melalui API. Model multimodal, model yang memerlukan \textit{fine-tuning}, atau model yang memerlukan pelatihan ulang tidak termasuk dalam cakupan penelitian.
+    \item Evaluasi dibatasi pada tugas berbasis teks, termasuk penalaran numerik, penalaran logis, pertanyaan pengetahuan umum, skenario sosial, dan skenario moral. Tugas vision-language atau \textit{speech} tidak dibahas.
+    \item Penilaian kualitas keluaran dilakukan melalui evaluasi terotomatisasi dan analisis komparatif. Penilaian berbasis partisipan manusia tidak dilakukan.
+    \item Penelitian menggunakan \textit{evaluation pipeline} berbasis eksekusi prompt tanpa melakukan modifikasi pada parameter internal model.
+    \item Analisis bias terbatas pada \textit{human bias} yang muncul sebagai akibat variasi \textit{user persona}, dan tidak mencakup bias makro yang bersumber dari data pelatihan model.
+\end{enumerate}
 
 % --- Metodologi Pengerjaan TA ---
 \section{Metodologi}
-Tuliskan semua tahapan yang akan dilalui selama pelaksanaan tugas akhir. Tahapan ini spesifik untuk menyelesaikan persoalan tugas akhir. Khusus untuk penyusunan proposal ini, jelaskan secara detail:
+
+Metodologi pada tahap penyusunan proposal ini disusun untuk memastikan bahwa proses perumusan masalah, penentuan ruang lingkup penelitian, dan penyusunan kerangka teoretis dilakukan secara sistematis. Metodologi ini tidak mencakup tahapan implementasi eksperimen, yang akan dijabarkan pada Bab III, melainkan berfokus pada kegiatan awal yang diperlukan untuk menghasilkan proposal penelitian yang terarah dan berbasis kajian ilmiah.
+
+\subsection{Tahap 1: Investigasi Awal dan Pengumpulan Fakta}
+
+Tahap awal dilakukan untuk memahami konteks permasalahan dan mengidentifikasi isu ilmiah yang relevan dengan topik penelitian. Langkah yang dilakukan meliputi:
 \begin{enumerate}
-\item	Tahapan investigasi pengumpulan fakta di latar belakang untuk merumuskan masalah.
-\item	Langkah-langkah pencarian, pengelompokan, dan penapisan literatur atau sumber informasi untuk mengumpulkan informasi yang relevan tentang topik yang diangkat, termasuk teori (konsep atau teori apa saja yang perlu dicari), hal-hal yang telah dicapai oleh orang lain (cara mencari dan kata kuncinya), dan berbagai informasi pendukung, untuk mencari solusi terhadap masalah yang dibahas. Gunakan metodologi yang tepat dalam menggali informasi dan dokumentasikan prosesnya (termasuk rekaman wawancara atau survei) di dalam Lampiran, termasuk tautan ke video atau foto. Hasil penggalian informasi ini akan dijelaskan secara sistematis di Bab II Studi Literatur.
+    \item Mengidentifikasi fenomena sensitivitas \textit{large language model} terhadap identitas pengguna berdasarkan contoh kasus, laporan empiris, dan temuan penelitian sebelumnya.
+    \item Meninjau keluaran awal beberapa model bahasa melalui eksplorasi terbatas untuk mengamati indikasi pengaruh \textit{user persona} eksplisit dan \textit{user persona} implisit terhadap penalaran dan gaya respons.
+    \item Menyimpulkan pola permasalahan yang muncul untuk kemudian dirumuskan sebagai pokok masalah penelitian.
 \end{enumerate}
+
+\subsection{Tahap 2: Pencarian, Pengelompokan, dan Penapisan Literatur}
+
+Tahap ini dilakukan untuk memperoleh landasan ilmiah yang kuat dalam menyusun kerangka teoretis dan menentukan arah penelitian. Kegiatan yang dilakukan mencakup:
+\begin{enumerate}
+    \item Melakukan pencarian literatur menggunakan mesin pencarian akademik seperti Google Scholar, Semantic Scholar, arXiv, dan ACL Anthology dengan kata kunci antara lain \textit{user persona}, \textit{implicit persona}, \textit{identity-conditioned prompting}, \textit{LLM sensitivity}, \textit{reasoning evaluation}, dan \textit{bias in LLM}.
+    \item Menyeleksi publikasi yang relevan, termasuk penelitian mengenai pengaruh identitas pengguna terhadap keluaran model bahasa, teori penalaran pada model bahasa, evaluasi berbasis prompt, dan bias implisit.
+    \item Mengelompokkan literatur ke dalam kategori konseptual, yaitu:  
+    (a) konsep dasar \textit{large language model},  
+    (b) teori dan klasifikasi \textit{persona} eksplisit dan implisit,  
+    (c) penelitian terdahulu mengenai identitas pengguna dan pengaruhnya terhadap keluaran model,  
+    (d) metode evaluasi penalaran dan analisis bias.
+    \item Menganalisis dan merangkum kontribusi, metodologi, serta keterbatasan setiap publikasi yang terpilih untuk memastikan bahwa kerangka teoretis proposal didasarkan pada referensi yang valid dan mutakhir.
+    \item Mendokumentasikan seluruh proses penelusuran literatur, termasuk daftar kata kunci, sumber pencarian, dan kriteria penapisan yang digunakan. Dokumentasi tambahan, seperti rekaman proses eksplorasi awal atau catatan observasi, akan dicantumkan pada bagian lampiran.
+\end{enumerate}
+
+Tahap-tahap tersebut menghasilkan landasan konseptual dan rumusan permasalahan yang digunakan dalam penyusunan proposal tugas akhir. Hasil kajian literatur secara rinci akan disajikan pada Bab II Studi Literatur.
