@@ -347,7 +347,6 @@
       \field{journaltitle}{arXiv preprint arXiv:2112.04359}
       \field{title}{Ethical and Social Risks of Harm from Language Models}
       \field{year}{2021}
-      \true{nocite}
       \verb{urlraw}
       \verb https://arxiv.org/abs/2112.04359
       \endverb

@@ -4975,10 +4975,13 @@
     <bcf:citekey order="4" intorder="3">naous2025userlm</bcf:citekey>
     <bcf:citekey order="5" intorder="1">zhou2023largemodelsensitive</bcf:citekey>
     <bcf:citekey order="6" intorder="1">turpin2023language</bcf:citekey>
-    <bcf:citekey order="7" intorder="1">BPBI</bcf:citekey>
-    <bcf:citekey order="8" intorder="1">laudon2020</bcf:citekey>
-    <bcf:citekey order="9" intorder="1">pressman2019</bcf:citekey>
-    <bcf:citekey order="10" intorder="1" nocite="1">*</bcf:citekey>
+    <bcf:citekey order="7" intorder="1">weidinger2021ethical</bcf:citekey>
+    <bcf:citekey order="8" intorder="1">gupta2024biasrunsdeep</bcf:citekey>
+    <bcf:citekey order="9" intorder="1">tseng2024twotales</bcf:citekey>
+    <bcf:citekey order="10" intorder="1">BPBI</bcf:citekey>
+    <bcf:citekey order="11" intorder="1">laudon2020</bcf:citekey>
+    <bcf:citekey order="12" intorder="1">pressman2019</bcf:citekey>
+    <bcf:citekey order="13" intorder="1" nocite="1">*</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="cms">

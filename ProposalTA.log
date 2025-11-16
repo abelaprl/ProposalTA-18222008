@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2025.11.12)  16 NOV 2025 17:23
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2025.11.12)  16 NOV 2025 18:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1192,62 +1192,58 @@ Bab I.
 Bab II.
 [7
 
-] [8]
+] [8] [9] [10] [11]
 File: image/gambar1.png Graphic file (type bmp)
 <image/gambar1.png>
 
-Overfull \hbox (5.19266pt too wide) in paragraph at lines 50--51
+Overfull \hbox (5.19266pt too wide) in paragraph at lines 114--115
 []\TU/TimesNewRoman(0)/m/n/12 Gambar yang didapat di suatu pustaka atau referen
 si sebaiknya digambar ulang,
  []
 
-[9] (./table/tabel1.tex
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-) [10] [11]
-Overfull \hbox (13.9993pt too wide) in paragraph at lines 181--181
+[12] [13] (./table/tabel1.tex) [14] [15]
+Overfull \hbox (13.9993pt too wide) in paragraph at lines 245--245
 |[]\TU/TimesNewRoman(0)/b/n/12 Beberapa Contoh Penulisan Rumus atau Persamaan M
 atematika Meng-
  []
 
-[12] [13]
+[16]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 226.
+nput line 290.
  (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 )
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 235.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 299.
 
 
-LaTeX Warning: Citation 'BPBI' on page 14 undefined on input line 247.
+LaTeX Warning: Citation 'BPBI' on page 17 undefined on input line 311.
 
-
-Overfull \hbox (19.22398pt too wide) in paragraph at lines 252--258
+[17]
+Overfull \hbox (19.22398pt too wide) in paragraph at lines 316--322
  [][] 
  []
 
-[14] [15]) (./Bab III - Analisis-Masalah.tex [16]
+[18]) (./Bab III - Analisis-Masalah.tex [19]
 Bab III.
 
-LaTeX Warning: Citation 'laudon2020' on page 17 undefined on input line 10.
+LaTeX Warning: Citation 'laudon2020' on page 20 undefined on input line 10.
 
 
-LaTeX Warning: Citation '' on page 17 undefined on input line 10.
+LaTeX Warning: Citation '' on page 20 undefined on input line 10.
 
 
-LaTeX Warning: Citation 'pressman2019' on page 17 undefined on input line 10.
+LaTeX Warning: Citation 'pressman2019' on page 20 undefined on input line 10.
 
-[17
+[20
 
-]) (./Bab IV - Desain-Konsep-Solusi.tex [18] [19]
+]) (./Bab IV - Desain-Konsep-Solusi.tex [21] [22]
 Bab IV.
-) (./Bab V - Rencana-Selanjutnya.tex [20
+) (./Bab V - Rencana-Selanjutnya.tex [23
 
 ]
 Bab V.
-) [21
+) [24
 
 ]
 Overfull \hbox (64.1498pt too wide) in paragraph at lines 401--401
@@ -1262,10 +1258,10 @@ he International Conference on Machine Learning, \TU/TimesNewRoman(0)/m/n/12 12
 697–
  []
 
-[22
+[25
 
 
-] [23] (./ProposalTA.aux)
+] [26] (./ProposalTA.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -1275,7 +1271,7 @@ L3 programming layer <2024-01-22>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `ProposalTA.out' has not changed.
-(rerunfilecheck)             Checksum: E655EF392503A756B8AC953A7BA18EE2;7636.
+(rerunfilecheck)             Checksum: E76B2FD7AB5A4D7CF1EDCAC8DD69615A;9701.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                ProposalTA
@@ -1286,12 +1282,12 @@ Package logreq Info: Writing requests to 'ProposalTA.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 31384 strings out of 474878
- 618757 string characters out of 5762515
- 1958990 words of memory out of 5000000
- 53048 multiletter control sequences out of 15000+600000
+ 31392 strings out of 474878
+ 618897 string characters out of 5762515
+ 1959220 words of memory out of 5000000
+ 53056 multiletter control sequences out of 15000+600000
  563466 words of font info for 84 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  79i,14n,93p,1199b,6187s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on ProposalTA.xdv (31 pages, 419812 bytes).
+Output written on ProposalTA.xdv (34 pages, 513872 bytes).

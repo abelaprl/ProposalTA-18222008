@@ -8,17 +8,81 @@ Bab ini membahas konsep dan penelitian terdahulu yang menjadi landasan bagi anal
 % -------------------------------------------------------------
 \section{Large Language Model}
 
-\textit{Large language model} (LLM) merupakan model generatif berbasis transformator yang dilatih menggunakan data teks berskala besar untuk mempelajari pola dan struktur bahasa alami. Berbeda dari model bahasa sebelumnya, LLM modern tidak hanya melakukan prediksi kata berikutnya, tetapi juga mampu memahami konteks percakapan, mengikuti instruksi, dan menghasilkan respons yang menyerupai pola komunikasi manusia. Kapasitas model yang besar memungkinkan pembentukan representasi bahasa yang lebih kaya, sehingga model dapat digunakan untuk berbagai tugas, mulai dari penjawaban pertanyaan hingga penalaran berbasis skenario.
+%-- 2.1 Large Language Model --
+\subsection{Konsep dan Karakteristik Dasar}
 
-Model seperti GPT, LLaMA, Mistral, dan Gemini termasuk dalam kategori ini. Model tersebut dilatih menggunakan data dalam jumlah yang sangat besar sehingga mampu menangkap hubungan semantik, gaya bahasa, serta pola komunikasi yang umum digunakan manusia. Dengan basis representasi yang luas, model dapat menyesuaikan cara menjawab sesuai bentuk instruksi yang diberikan pengguna, bahkan ketika instruksi tersebut tidak dinyatakan secara langsung.
+\textit{Large language model} (LLM) merupakan model generatif berbasis arsitektur transformator yang dilatih menggunakan data dalam skala sangat besar. Model ini mempelajari pola bahasa melalui hubungan antartoken, sehingga mampu membangun representasi yang mencakup makna, hubungan semantik, serta isyarat pragmatik yang muncul dalam teks. Dengan skala pelatihan yang luas, LLM dapat digunakan pada berbagai tugas tanpa memerlukan penyesuaian khusus untuk setiap tugas.
 
-Salah satu karakteristik penting LLM adalah sensitivitas terhadap konteks linguistik. Model tidak hanya memproses isi pertanyaan, tetapi juga memperhitungkan cara pertanyaan disampaikan. Penggunaan kata tertentu, tingkat formalitas, atau cara pengguna menyusun kalimat dapat memengaruhi respons yang dihasilkan. Studi menunjukkan bahwa perbedaan kecil dalam gaya penulisan dapat mengubah cara model menafsirkan instruksi, sehingga model memberikan respons yang berbeda meskipun inti pertanyaannya sama \parencite{zhou2023largemodelsensitive}.
+Secara konseptual, LLM bekerja dengan memprediksi token berikutnya berdasarkan konteks sebelumnya. Namun, proses prediksi ini tidak sekadar berbasis frekuensi kata, melainkan menggunakan representasi kontekstual yang memungkinkan model memahami instruksi, gaya penulisan, maupun kecenderungan komunikasi. Model seperti GPT, LLaMA, Mistral, dan Gemini mengadopsi pendekatan ini dan menunjukkan kemampuan generalisasi yang kuat terhadap tugas bahasa yang kompleks.
 
-Selain memahami instruksi, LLM juga menunjukkan kemampuan penalaran dasar. Dengan bertambahnya ukuran model dan kualitas data pelatihan, model mampu menyelesaikan soal matematika sederhana, menjawab pertanyaan berbasis pengetahuan umum, hingga memberikan pertimbangan moral dalam skenario tertentu. Namun, kemampuan penalaran ini tidak selalu stabil. Model dapat memberikan jawaban yang berbeda hanya karena terdapat perubahan kecil dalam konteks pertanyaan, gaya bahasa, atau cara instruksi disampaikan \parencite{turpin2023language}. Kondisi ini menunjukkan bahwa penalaran model tidak sepenuhnya bergantung pada logika internal, tetapi dipengaruhi oleh sinyal eksternal yang muncul pada saat instruksi diberikan.
+Karakteristik utama LLM antara lain fleksibilitas dalam mengikuti instruksi, kemampuan menyusun penalaran, serta penyesuaian terhadap pola komunikasi pengguna. Kemampuan ini muncul dari kombinasi arsitektur dasar transformator, skala parameter yang besar, dan keragaman data pelatihan. Karena model tidak dibuat untuk satu domain tertentu, tetapi dilatih pada data lintas konteks, gaya, dan situasi, LLM dapat mengadaptasi perilaku komunikasinya berdasarkan variasi kecil dalam instruksi.
 
-Perilaku adaptif terhadap konteks ini menjadikan LLM tidak hanya sebagai sistem komputasi linguistik, tetapi juga sebagai sistem yang bereaksi terhadap elemen sosial dalam percakapan. Ketika pengguna menambahkan informasi mengenai identitasnya—baik secara eksplisit melalui deskripsi, maupun implisit melalui gaya penulisan—LLM dapat menyesuaikan gaya dan struktur responsnya. Fenomena ini menjadi landasan penting untuk memahami bagaimana \textit{user persona} dapat memengaruhi perilaku model.
+\subsection{Representasi Bahasa dan Pemahaman Instruksi}
 
-Dengan memahami karakteristik dasar LLM dan bagaimana model merespons instruksi, penelitian mengenai pengaruh \textit{persona} dapat dilakukan secara lebih terarah. Proses ini dijelaskan lebih lanjut pada bagian berikutnya, yang membahas bagaimana model membentuk representasi internal dari instruksi dan konteks percakapan.
+LLM memproses teks melalui beberapa tahapan representasi internal. Teks diuraikan menjadi token, kemudian dipetakan ke dalam ruang representasi berdimensi tinggi melalui \textit{embedding}. Representasi awal ini kemudian diperkaya melalui lapisan-lapisan transformator yang memanfaatkan mekanisme perhatian untuk menentukan hubungan antar token dalam konteks yang lebih luas. Hasilnya adalah representasi kontekstual yang mencerminkan interpretasi model terhadap instruksi atau percakapan.
+
+Representasi ini tidak bersifat statis. Makna sebuah token dapat berubah bergantung pada cara pengguna menyampaikan instruksi. Perbedaan gaya penulisan, urutan informasi, atau tingkat formalitas dapat menghasilkan representasi internal yang berbeda, sehingga memunculkan respons yang berbeda pula. Penelitian Zhou et al. \parencite{zhou2023largemodelsensitive} menunjukkan bahwa perubahan kecil dalam framing, seperti perbedaan nada atau cara bertanya, dapat menggeser perhatian model dan mengubah struktur jawaban yang dihasilkan.
+
+Sebagai ilustrasi, perbedaan instruksi berikut sering kali menghasilkan respons yang berbeda meskipun inti pertanyaannya sama:
+\begin{itemize}
+    \item “Jelaskan secara singkat apa itu regularisasi.”
+    \item “Saya sedang menulis laporan akademik. Bisakah Anda menjelaskan secara formal apa yang dimaksud dengan regularisasi?”
+\end{itemize}
+Instruksi kedua biasanya memicu model untuk memberikan penjelasan yang lebih panjang, lebih berhati-hati, dan lebih formal. Perbedaan ini mencerminkan bagaimana representasi instruksi terbentuk berdasarkan konteks linguistik dan pragmatik.
+
+\subsection{Penalaran dan Dinamika Perilaku Model}
+
+Selain pemahaman instruksi, LLM juga menunjukkan kemampuan melakukan penalaran. Model dapat menyelesaikan soal penalaran numerik sederhana, menjawab pertanyaan berbasis pengetahuan umum, hingga memberikan penilaian terhadap skenario sosial atau moral. Namun, kemampuan ini tidak sepenuhnya stabil. Turpin et al. \parencite{turpin2023language} menemukan bahwa penalaran yang dihasilkan model dapat berubah hanya karena variasi kecil pada bentuk instruksi, walaupun substansi tugas tetap sama.
+
+Hal ini terjadi karena model tidak melakukan penalaran melalui prosedur logis eksplisit, tetapi melalui dinamika representasi internal yang sensitif terhadap konteks. Sebuah instruksi yang lebih panjang atau lebih formal dapat memicu struktur penalaran yang lebih sistematis, sementara instruksi yang lebih langsung dapat menghasilkan jawaban tanpa uraian langkah-langkah penalaran yang jelas. Perubahan ini memperlihatkan bahwa struktur penalaran yang muncul merupakan fungsi dari konteks interaksi, bukan semata-mata fungsi dari logika masalah yang diberikan.
+
+Ketidakstabilan ini penting untuk dipahami karena berhubungan langsung dengan penelitian mengenai \textit{user persona}. Jika perubahan kecil pada instruksi dapat mengubah penalaran, maka variasi identitas pengguna yang tersirat dalam tulisan juga berpotensi memicu perubahan serupa.
+
+\subsection{Dimensi Sosial dalam Pemrosesan Bahasa}
+
+Model bahasa modern tidak hanya mempelajari struktur dan makna bahasa, tetapi juga pola interaksi sosial yang tercermin dalam data pelatihan. Weidinger et al. \parencite{weidinger2021ethical} menunjukkan bahwa LLM dapat menginternalisasi norma sosial, stereotip, serta pola komunikasi yang umum digunakan manusia. Dalam banyak kasus, gaya bahasa tertentu diinterpretasikan sebagai sinyal sosial mengenai siapa pengguna tersebut, misalnya usia, latar profesional, atau tingkat pendidikan.
+
+Ketika instruksi ditulis dengan gaya santai, model sering kali memberikan respons yang lebih ringkas atau lebih langsung. Sebaliknya, ketika instruksi ditulis dengan gaya formal, respons yang dihasilkan cenderung lebih berhati-hati dan mengikuti struktur penjelasan akademis. Perbedaan respons ini bukan sekadar akibat gaya penulisan, tetapi akibat inferensi sosial yang dilakukan model berdasarkan pola komunikasi dalam data pelatihan.
+
+Fenomena ini menunjukkan bahwa pemrosesan bahasa oleh LLM memiliki dimensi sosial yang signifikan. Instruksi diperlakukan bukan hanya sebagai teks, tetapi sebagai bentuk interaksi manusia yang membawa sinyal identitas. Sensitivitas terhadap sinyal ini merupakan salah satu alasan mengapa \textit{user persona} dapat memengaruhi penalaran, struktur respons, maupun kecenderungan bias dalam keluaran model.
+
+% --2.2 Persona dalam Interaksi Model Bahasa --
+\section{Persona dalam Interaksi Model Bahasa}
+
+\subsection{Definisi dan Ruang Lingkup Persona}
+
+Dalam kajian sistem bahasa alami, \textit{persona} merujuk pada serangkaian atribut yang digunakan untuk menggambarkan identitas atau karakteristik pengguna. Atribut tersebut dapat berupa informasi sosial, demografis, profesional, atau gaya komunikasi yang merepresentasikan cara seseorang berinteraksi dalam percakapan. Persona berfungsi sebagai konteks tambahan yang dapat memengaruhi bagaimana sebuah sistem dialog memahami maksud pengguna dan membentuk respons.
+
+Dalam konteks \textit{large language model}, persona tidak hanya dipandang sebagai label identitas, tetapi juga sebagai bagian dari sinyal yang terkandung dalam bahasa. Karena model belajar dari data pelatihan yang mencerminkan cara manusia berkomunikasi, model juga mempelajari keterkaitan antara gaya bahasa dan identitas sosial. Dengan demikian, persona tidak hanya bekerja sebagai informasi eksplisit, tetapi dapat tersirat melalui variasi linguistik seperti pilihan kata, nada, struktur kalimat, atau keformalan tulisan.
+
+Ruang lingkup persona dalam sistem bahasa mencakup berbagai kategori identitas, seperti gender, usia, minat, latar profesional, afiliasi budaya, ataupun preferensi komunikasi. Representasi persona tersebut tidak selalu hadir dalam bentuk pernyataan langsung, tetapi sering kali dinyatakan melalui konteks linguistik yang halus tanpa deklarasi eksplisit mengenai siapa pengguna tersebut.
+
+\subsection{Persona Eksplisit dan Persona Implisit}
+
+Fenomena persona dalam interaksi dengan model bahasa dapat dibagi menjadi dua bentuk utama, yaitu persona eksplisit dan persona implisit. Keduanya memberikan sinyal identitas, tetapi melalui mekanisme dan intensitas yang berbeda.
+
+Persona eksplisit muncul ketika identitas pengguna dinyatakan secara langsung dalam instruksi atau konteks percakapan. Contohnya adalah ketika pengguna menuliskan “Saya adalah mahasiswa teknik informatika” atau “Sebagai seorang dokter, saya ingin memahami...”. Ungkapan seperti ini memberikan sinyal yang jelas kepada model mengenai latar pengguna, sehingga model dapat menyesuaikan struktur respons agar lebih sesuai dengan karakteristik tersebut. Gupta et al. \parencite{gupta2024biasrunsdeep} menunjukkan bahwa penugasan persona eksplisit semacam ini dapat mengubah hasil penalaran model, meskipun tugas yang diberikan tidak berkaitan dengan identitas sosial pengguna. Perubahan respons tidak hanya menyangkut gaya bahasa, tetapi juga dapat memengaruhi kesimpulan logis yang diberikan model.
+
+Sebaliknya, persona implisit muncul ketika identitas pengguna tidak dinyatakan secara langsung, tetapi disimpulkan oleh model berdasarkan isyarat linguistik. Penelitian Tseng et al. \parencite{tseng2024twotales} menunjukkan bahwa model memiliki kecenderungan melakukan inferensi identitas pengguna dari gaya penulisan, struktur kalimat, pilihan kata, atau tingkat formalitas. Fenomena ini dapat terjadi meskipun pengguna tidak bermaksud menyampaikan identitas tertentu. Sebagai contoh, gaya penulisan formal dengan istilah akademis sering diasosiasikan dengan latar pendidikan tertentu, sedangkan gaya penulisan santai dapat diasosiasikan dengan kategori usia atau tingkat kedekatan sosial.
+
+Inferensi identitas tersebut bukan hasil dari aturan yang ditetapkan secara eksplisit dalam model, tetapi merupakan konsekuensi dari pola komunikasi manusia yang terserap selama proses pelatihan. Model mempelajari bahwa gaya bahasa tertentu sering muncul bersama atribut sosial tertentu, sehingga ketika gaya tersebut muncul dalam instruksi, model cenderung mengaktifkan pola respons yang sesuai dengan kategori identitas yang diasosiasikan. Fenomena ini menjadi dasar penting bagi studi mengenai pengaruh persona implisit terhadap perilaku dan penalaran model.
+
+\subsection{Peran Persona dalam Interaksi dengan LLM}
+
+Persona, baik eksplisit maupun implisit, berperan sebagai sinyal kontekstual yang memengaruhi interpretasi dan respons model bahasa. Ketika identitas pengguna muncul dalam bentuk atribut sosial atau gaya komunikasi tertentu, model akan memperlakukannya sebagai bagian dari konteks yang relevan. Konteks ini kemudian membentuk representasi internal yang memengaruhi bagaimana model memahami pertanyaan, menafsirkan maksud, dan menyusun jawaban.
+
+Peran persona dalam interaksi ini dapat dilihat dari dua dimensi utama. Pertama, persona dapat memengaruhi aspek linguistik respons, seperti pilihan kata, tingkat formalitas, pola argumentasi, atau struktur penjelasan. Model cenderung menyesuaikan respons agar selaras dengan gaya komunikasi yang diasosiasikan dengan persona tertentu. Kedua, persona dapat memengaruhi penalaran model melalui apa yang disebut sebagai \textit{reasoning shift}, yaitu perubahan struktur penalaran yang terjadi akibat variasi identitas pengguna meskipun subtansi tugas tetap sama.
+
+Sebagai ilustrasi, suatu pertanyaan logika sederhana yang diajukan oleh pengguna dengan persona profesional tertentu dapat memicu model untuk memberikan respons yang lebih sistematis atau lebih berhati-hati. Sebaliknya, pertanyaan yang diajukan dengan gaya informal dapat menghasilkan respons yang lebih ringkas dengan struktur penalaran minimal. Perubahan ini menunjukkan bahwa persona berfungsi sebagai variabel kondisi yang membentuk dinamika interaksi antara pengguna dan model.
+
+
+
+
+
+
+
+
+
 
 
 
