@@ -42,32 +42,42 @@
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \contentsline {subsection}{\numberline {II.2.3}Peran Persona dalam Interaksi dengan LLM}{11}{subsection.2.2.3}%
-\contentsline {section}{\numberline {II.3}Penulisan Gambar, Tabel, Rumus, dan Kode}{12}{section.2.3}%
-\contentsline {subsection}{\numberline {II.3.1}Gambar}{12}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {II.3.2}Tabel}{13}{subsection.2.3.2}%
-\contentsline {subsubsection}{\numberline {II.3.2.1}Tabel yang Muat dalam Satu Halaman}{13}{subsubsection.2.3.2.1}%
-\contentsline {subsubsection}{\numberline {II.3.2.2}Mengimpor Tabel dari Berkas Eksternal}{14}{subsubsection.2.3.2.2}%
-\contentsline {subsubsection}{\numberline {II.3.2.3}Tabel yang Sangat Panjang}{14}{subsubsection.2.3.2.3}%
-\contentsline {subsubsection}{\numberline {II.3.2.4}Beberapa Contoh Penulisan Rumus atau Persamaan Matematika Menggunakan LaTeX Termasuk Penomorannya}{16}{subsubsection.2.3.2.4}%
-\contentsline {subsection}{\numberline {II.3.3}Algoritma, Pseudocode, atau Kode}{17}{subsection.2.3.3}%
-\contentsline {section}{\numberline {II.4}Beberapa Kesalahan Penulisan yang Sering Terjadi}{18}{section.2.4}%
-\contentsline {subsection}{\numberline {II.4.1}Penggunaan Kata "di mana" atau "dimana"}{18}{subsection.2.4.1}%
-\contentsline {subsection}{\numberline {II.4.2}Penggunaan Kata "sedangkan" dan "sehingga"}{18}{subsection.2.4.2}%
-\contentsline {subsection}{\numberline {II.4.3}Penggunaan Istilah yang Tidak Baku}{18}{subsection.2.4.3}%
-\contentsline {subsection}{\numberline {II.4.4}Pemisah Desimal dan Ribuan}{19}{subsection.2.4.4}%
-\contentsline {subsection}{\numberline {II.4.5}Daftar atau \textit {List}}{19}{subsection.2.4.5}%
-\contentsline {subsection}{\numberline {II.4.6}Penggunaan Kata "masing-masing" dan "setiap"}{19}{subsection.2.4.6}%
-\contentsline {chapter}{\numberline {III}ANALISIS MASALAH}{20}{chapter.3}%
-\contentsline {section}{\numberline {III.1}Analisis Kondisi Saat Ini}{20}{section.3.1}%
-\contentsline {section}{\numberline {III.2}Analisis Kebutuhan}{20}{section.3.2}%
-\contentsline {subsection}{\numberline {III.2.1}Identifikasi Masalah Pengguna}{20}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {III.2.2}Kebutuhan Fungsional}{21}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {III.2.3}Kebutuhan Nonfungsional}{21}{subsection.3.2.3}%
-\contentsline {section}{\numberline {III.3}Analisis Pemilihan Solusi}{21}{section.3.3}%
-\contentsline {subsection}{\numberline {III.3.1}Alternatif Solusi}{21}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {III.3.2}Analisis Penentuan Solusi}{21}{subsection.3.3.2}%
-\contentsline {chapter}{\numberline {IV}DESAIN KONSEP SOLUSI}{23}{chapter.4}%
-\contentsline {chapter}{\numberline {V}RENCANA SELANJUTNYA}{24}{chapter.5}%
+\contentsline {section}{\numberline {II.3}Pengaruh Persona terhadap Perilaku LLM}{12}{section.2.3}%
+\contentsline {subsection}{\numberline {II.3.1}Pengaruh Persona terhadap Penalaran Model}{12}{subsection.2.3.1}%
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\contentsline {subsection}{\numberline {II.3.2}Pengaruh Persona terhadap Gaya dan Struktur Respons}{13}{subsection.2.3.2}%
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\contentsline {subsection}{\numberline {II.3.3}Faktor yang Memperkuat Efek Persona}{13}{subsection.2.3.3}%
+\contentsline {section}{\numberline {II.4}Penulisan Gambar, Tabel, Rumus, dan Kode}{14}{section.2.4}%
+\contentsline {subsection}{\numberline {II.4.1}Gambar}{15}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {II.4.2}Tabel}{16}{subsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {II.4.2.1}Tabel yang Muat dalam Satu Halaman}{16}{subsubsection.2.4.2.1}%
+\contentsline {subsubsection}{\numberline {II.4.2.2}Mengimpor Tabel dari Berkas Eksternal}{16}{subsubsection.2.4.2.2}%
+\contentsline {subsubsection}{\numberline {II.4.2.3}Tabel yang Sangat Panjang}{17}{subsubsection.2.4.2.3}%
+\contentsline {subsubsection}{\numberline {II.4.2.4}Beberapa Contoh Penulisan Rumus atau Persamaan Matematika Menggunakan LaTeX Termasuk Penomorannya}{18}{subsubsection.2.4.2.4}%
+\contentsline {subsection}{\numberline {II.4.3}Algoritma, Pseudocode, atau Kode}{20}{subsection.2.4.3}%
+\contentsline {section}{\numberline {II.5}Beberapa Kesalahan Penulisan yang Sering Terjadi}{20}{section.2.5}%
+\contentsline {subsection}{\numberline {II.5.1}Penggunaan Kata "di mana" atau "dimana"}{20}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {II.5.2}Penggunaan Kata "sedangkan" dan "sehingga"}{20}{subsection.2.5.2}%
+\contentsline {subsection}{\numberline {II.5.3}Penggunaan Istilah yang Tidak Baku}{21}{subsection.2.5.3}%
+\contentsline {subsection}{\numberline {II.5.4}Pemisah Desimal dan Ribuan}{21}{subsection.2.5.4}%
+\contentsline {subsection}{\numberline {II.5.5}Daftar atau \textit {List}}{21}{subsection.2.5.5}%
+\contentsline {subsection}{\numberline {II.5.6}Penggunaan Kata "masing-masing" dan "setiap"}{22}{subsection.2.5.6}%
+\contentsline {chapter}{\numberline {III}ANALISIS MASALAH}{23}{chapter.3}%
+\contentsline {section}{\numberline {III.1}Analisis Kondisi Saat Ini}{23}{section.3.1}%
+\contentsline {section}{\numberline {III.2}Analisis Kebutuhan}{23}{section.3.2}%
+\contentsline {subsection}{\numberline {III.2.1}Identifikasi Masalah Pengguna}{23}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {III.2.2}Kebutuhan Fungsional}{24}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {III.2.3}Kebutuhan Nonfungsional}{24}{subsection.3.2.3}%
+\contentsline {section}{\numberline {III.3}Analisis Pemilihan Solusi}{24}{section.3.3}%
+\contentsline {subsection}{\numberline {III.3.1}Alternatif Solusi}{24}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {III.3.2}Analisis Penentuan Solusi}{24}{subsection.3.3.2}%
+\contentsline {chapter}{\numberline {IV}DESAIN KONSEP SOLUSI}{26}{chapter.4}%
+\contentsline {chapter}{\numberline {V}RENCANA SELANJUTNYA}{27}{chapter.5}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
