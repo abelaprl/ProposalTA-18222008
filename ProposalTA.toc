@@ -52,32 +52,56 @@
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \contentsline {subsection}{\numberline {II.3.3}Faktor yang Memperkuat Efek Persona}{13}{subsection.2.3.3}%
-\contentsline {section}{\numberline {II.4}Penulisan Gambar, Tabel, Rumus, dan Kode}{14}{section.2.4}%
-\contentsline {subsection}{\numberline {II.4.1}Gambar}{15}{subsection.2.4.1}%
-\contentsline {subsection}{\numberline {II.4.2}Tabel}{16}{subsection.2.4.2}%
-\contentsline {subsubsection}{\numberline {II.4.2.1}Tabel yang Muat dalam Satu Halaman}{16}{subsubsection.2.4.2.1}%
-\contentsline {subsubsection}{\numberline {II.4.2.2}Mengimpor Tabel dari Berkas Eksternal}{16}{subsubsection.2.4.2.2}%
-\contentsline {subsubsection}{\numberline {II.4.2.3}Tabel yang Sangat Panjang}{17}{subsubsection.2.4.2.3}%
-\contentsline {subsubsection}{\numberline {II.4.2.4}Beberapa Contoh Penulisan Rumus atau Persamaan Matematika Menggunakan LaTeX Termasuk Penomorannya}{18}{subsubsection.2.4.2.4}%
-\contentsline {subsection}{\numberline {II.4.3}Algoritma, Pseudocode, atau Kode}{20}{subsection.2.4.3}%
-\contentsline {section}{\numberline {II.5}Beberapa Kesalahan Penulisan yang Sering Terjadi}{20}{section.2.5}%
-\contentsline {subsection}{\numberline {II.5.1}Penggunaan Kata "di mana" atau "dimana"}{20}{subsection.2.5.1}%
-\contentsline {subsection}{\numberline {II.5.2}Penggunaan Kata "sedangkan" dan "sehingga"}{20}{subsection.2.5.2}%
-\contentsline {subsection}{\numberline {II.5.3}Penggunaan Istilah yang Tidak Baku}{21}{subsection.2.5.3}%
-\contentsline {subsection}{\numberline {II.5.4}Pemisah Desimal dan Ribuan}{21}{subsection.2.5.4}%
-\contentsline {subsection}{\numberline {II.5.5}Daftar atau \textit {List}}{21}{subsection.2.5.5}%
-\contentsline {subsection}{\numberline {II.5.6}Penggunaan Kata "masing-masing" dan "setiap"}{22}{subsection.2.5.6}%
-\contentsline {chapter}{\numberline {III}ANALISIS MASALAH}{23}{chapter.3}%
-\contentsline {section}{\numberline {III.1}Analisis Kondisi Saat Ini}{23}{section.3.1}%
-\contentsline {section}{\numberline {III.2}Analisis Kebutuhan}{23}{section.3.2}%
-\contentsline {subsection}{\numberline {III.2.1}Identifikasi Masalah Pengguna}{23}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {III.2.2}Kebutuhan Fungsional}{24}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {III.2.3}Kebutuhan Nonfungsional}{24}{subsection.3.2.3}%
-\contentsline {section}{\numberline {III.3}Analisis Pemilihan Solusi}{24}{section.3.3}%
-\contentsline {subsection}{\numberline {III.3.1}Alternatif Solusi}{24}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {III.3.2}Analisis Penentuan Solusi}{24}{subsection.3.3.2}%
-\contentsline {chapter}{\numberline {IV}DESAIN KONSEP SOLUSI}{26}{chapter.4}%
-\contentsline {chapter}{\numberline {V}RENCANA SELANJUTNYA}{27}{chapter.5}%
+\contentsline {section}{\numberline {II.4}Bias dalam Respons LLM}{14}{section.2.4}%
+\contentsline {subsection}{\numberline {II.4.1}Bentuk-bentuk Bias pada Model Bahasa}{14}{subsection.2.4.1}%
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\contentsline {subsection}{\numberline {II.4.2}Konsekuensi Bias terhadap Keluaran Model}{15}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {II.4.3}Kaitannya dengan Variasi Persona}{16}{subsection.2.4.3}%
+\contentsline {section}{\numberline {II.5}Evaluasi Penalaran dan Benchmark}{16}{section.2.5}%
+\contentsline {subsection}{\numberline {II.5.1}Benchmark Penalaran dan Pengetahuan}{17}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {II.5.2}Benchmark Sosial dan Moral}{17}{subsection.2.5.2}%
+\contentsline {subsection}{\numberline {II.5.3}Tantangan Evaluasi Berbasis Persona}{18}{subsection.2.5.3}%
+\contentsline {section}{\numberline {II.6}Penelitian Terdahulu dan Kesenjangan Penelitian}{18}{section.2.6}%
+\contentsline {subsection}{\numberline {II.6.1}Ringkasan Literatur Terkait}{19}{subsection.2.6.1}%
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\contentsline {subsection}{\numberline {II.6.2}Keterbatasan Penelitian Sebelumnya}{20}{subsection.2.6.2}%
+\contentsline {subsection}{\numberline {II.6.3}Posisi dan Kontribusi Penelitian Ini}{20}{subsection.2.6.3}%
+\contentsline {section}{\numberline {II.7}Penulisan Gambar, Tabel, Rumus, dan Kode}{21}{section.2.7}%
+\contentsline {subsection}{\numberline {II.7.1}Gambar}{21}{subsection.2.7.1}%
+\contentsline {subsection}{\numberline {II.7.2}Tabel}{22}{subsection.2.7.2}%
+\contentsline {subsubsection}{\numberline {II.7.2.1}Tabel yang Muat dalam Satu Halaman}{22}{subsubsection.2.7.2.1}%
+\contentsline {subsubsection}{\numberline {II.7.2.2}Mengimpor Tabel dari Berkas Eksternal}{23}{subsubsection.2.7.2.2}%
+\contentsline {subsubsection}{\numberline {II.7.2.3}Tabel yang Sangat Panjang}{23}{subsubsection.2.7.2.3}%
+\contentsline {subsubsection}{\numberline {II.7.2.4}Beberapa Contoh Penulisan Rumus atau Persamaan Matematika Menggunakan LaTeX Termasuk Penomorannya}{25}{subsubsection.2.7.2.4}%
+\contentsline {subsection}{\numberline {II.7.3}Algoritma, Pseudocode, atau Kode}{26}{subsection.2.7.3}%
+\contentsline {section}{\numberline {II.8}Beberapa Kesalahan Penulisan yang Sering Terjadi}{27}{section.2.8}%
+\contentsline {subsection}{\numberline {II.8.1}Penggunaan Kata "di mana" atau "dimana"}{27}{subsection.2.8.1}%
+\contentsline {subsection}{\numberline {II.8.2}Penggunaan Kata "sedangkan" dan "sehingga"}{27}{subsection.2.8.2}%
+\contentsline {subsection}{\numberline {II.8.3}Penggunaan Istilah yang Tidak Baku}{27}{subsection.2.8.3}%
+\contentsline {subsection}{\numberline {II.8.4}Pemisah Desimal dan Ribuan}{28}{subsection.2.8.4}%
+\contentsline {subsection}{\numberline {II.8.5}Daftar atau \textit {List}}{28}{subsection.2.8.5}%
+\contentsline {subsection}{\numberline {II.8.6}Penggunaan Kata "masing-masing" dan "setiap"}{28}{subsection.2.8.6}%
+\contentsline {chapter}{\numberline {III}ANALISIS MASALAH}{29}{chapter.3}%
+\contentsline {section}{\numberline {III.1}Analisis Kondisi Saat Ini}{29}{section.3.1}%
+\contentsline {section}{\numberline {III.2}Analisis Kebutuhan}{29}{section.3.2}%
+\contentsline {subsection}{\numberline {III.2.1}Identifikasi Masalah Pengguna}{29}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {III.2.2}Kebutuhan Fungsional}{30}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {III.2.3}Kebutuhan Nonfungsional}{30}{subsection.3.2.3}%
+\contentsline {section}{\numberline {III.3}Analisis Pemilihan Solusi}{30}{section.3.3}%
+\contentsline {subsection}{\numberline {III.3.1}Alternatif Solusi}{30}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {III.3.2}Analisis Penentuan Solusi}{30}{subsection.3.3.2}%
+\contentsline {chapter}{\numberline {IV}DESAIN KONSEP SOLUSI}{32}{chapter.4}%
+\contentsline {chapter}{\numberline {V}RENCANA SELANJUTNYA}{33}{chapter.5}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 

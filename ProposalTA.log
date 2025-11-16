@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2025.11.12)  16 NOV 2025 18:26
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2025.11.12)  16 NOV 2025 18:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1192,58 +1192,75 @@ Bab I.
 Bab II.
 [7
 
-] [8] [9] [10] [11] [12] [13] [14]
+] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18]
+Overfull \hbox (8.69006pt too wide) in paragraph at lines 184--185
+[]\TU/TimesNewRoman(0)/m/n/12 Penelitian lain menyoroti aspek ketidakstabilan p
+enalaran model. Turpin et al. ([][][]Turpin
+ []
+
+
+Overfull \hbox (0.22066pt too wide) in paragraph at lines 184--185
+\TU/TimesNewRoman(0)/m/n/12 dkk. [][]2023[][][][]) menunjukkan bahwa perubahan 
+kecil pada struktur instruksi dapat meng-
+ []
+
+[19] [20]
+Overfull \hbox (5.37509pt too wide) in paragraph at lines 206--207
+[]\TU/TimesNewRoman(0)/m/n/12 Secara keseluruhan, penelitian-penelitian tersebu
+t menunjukkan perlunya kajian yang
+ []
+
 File: image/gambar1.png Graphic file (type bmp)
 <image/gambar1.png>
 
-Overfull \hbox (5.19266pt too wide) in paragraph at lines 145--146
+Overfull \hbox (5.19266pt too wide) in paragraph at lines 238--239
 []\TU/TimesNewRoman(0)/m/n/12 Gambar yang didapat di suatu pustaka atau referen
 si sebaiknya digambar ulang,
  []
 
-[15] (./table/tabel1.tex) [16] [17]
-Overfull \hbox (13.9993pt too wide) in paragraph at lines 276--276
+[21] [22] (./table/tabel1.tex) [23] [24]
+Overfull \hbox (13.9993pt too wide) in paragraph at lines 369--369
 |[]\TU/TimesNewRoman(0)/b/n/12 Beberapa Contoh Penulisan Rumus atau Persamaan M
 atematika Meng-
  []
 
-[18] [19]
+[25]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 321.
+nput line 414.
  (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 )
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 330.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 423.
 
 
-LaTeX Warning: Citation 'BPBI' on page 20 undefined on input line 342.
+LaTeX Warning: Citation 'BPBI' on page 26 undefined on input line 435.
 
-
-Overfull \hbox (19.22398pt too wide) in paragraph at lines 347--353
+[26]
+Overfull \hbox (19.22398pt too wide) in paragraph at lines 440--446
  [][] 
  []
 
-[20] [21]) (./Bab III - Analisis-Masalah.tex [22]
+[27]) (./Bab III - Analisis-Masalah.tex [28]
 Bab III.
 
-LaTeX Warning: Citation 'laudon2020' on page 23 undefined on input line 10.
+LaTeX Warning: Citation 'laudon2020' on page 29 undefined on input line 10.
 
 
-LaTeX Warning: Citation '' on page 23 undefined on input line 10.
+LaTeX Warning: Citation '' on page 29 undefined on input line 10.
 
 
-LaTeX Warning: Citation 'pressman2019' on page 23 undefined on input line 10.
+LaTeX Warning: Citation 'pressman2019' on page 29 undefined on input line 10.
 
-[23
+[29
 
-]) (./Bab IV - Desain-Konsep-Solusi.tex [24] [25]
+]) (./Bab IV - Desain-Konsep-Solusi.tex [30] [31]
 Bab IV.
-) (./Bab V - Rencana-Selanjutnya.tex [26
+) (./Bab V - Rencana-Selanjutnya.tex [32
 
 ]
 Bab V.
-) [27
+) [33
 
 ]
 Overfull \hbox (64.1498pt too wide) in paragraph at lines 401--401
@@ -1258,10 +1275,10 @@ he International Conference on Machine Learning, \TU/TimesNewRoman(0)/m/n/12 12
 697–
  []
 
-[28
+[34
 
 
-] [29] (./ProposalTA.aux)
+] [35] (./ProposalTA.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -1271,7 +1288,7 @@ L3 programming layer <2024-01-22>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `ProposalTA.out' has not changed.
-(rerunfilecheck)             Checksum: 83E29B763AD13BFD36F4E7B7BF697424;10821.
+(rerunfilecheck)             Checksum: 33313CE66A8E7781B1B69EABAAADF4A1;13668.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                ProposalTA
@@ -1282,12 +1299,12 @@ Package logreq Info: Writing requests to 'ProposalTA.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 31396 strings out of 474878
- 618943 string characters out of 5762515
- 1962392 words of memory out of 5000000
- 53060 multiletter control sequences out of 15000+600000
+ 31405 strings out of 474878
+ 619048 string characters out of 5762515
+ 1963393 words of memory out of 5000000
+ 53069 multiletter control sequences out of 15000+600000
  563466 words of font info for 84 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  79i,14n,93p,1199b,6187s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on ProposalTA.xdv (37 pages, 576584 bytes).
+Output written on ProposalTA.xdv (43 pages, 750700 bytes).
