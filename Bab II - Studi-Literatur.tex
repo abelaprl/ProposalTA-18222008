@@ -2,6 +2,57 @@
 % BAB II STUDI LITERATUR
 % ==========================================
 \chapter{STUDI LITERATUR}
+
+Bab ini membahas konsep dan penelitian terdahulu yang menjadi landasan bagi analisis pengaruh \textit{user persona} terhadap perilaku \textit{large language model}. Pembahasan disusun secara bertahap, dimulai dari uraian mengenai model bahasa modern, mekanisme pemrosesan instruksi, konsep dasar persona, serta temuan empiris mengenai sensitivitas model terhadap identitas pengguna. Selain itu, bab ini meninjau isu bias dan metode evaluasi penalaran yang relevan bagi perancangan penelitian ini.
+
+% -------------------------------------------------------------
+\section{Large Language Model}
+
+Perkembangan \textit{large language model} (LLM) dalam beberapa tahun terakhir telah mengubah pendekatan sistem kecerdasan buatan dalam memahami dan menghasilkan bahasa alami. LLM modern tidak hanya berfungsi sebagai model prediksi teks, tetapi juga sebagai sistem yang mampu melakukan penalaran, mengikuti instruksi kompleks, dan menyesuaikan perilaku berdasarkan konteks sosial percakapan. Bagian ini menguraikan perkembangan LLM yang relevan untuk memahami bagaimana model memproses identitas pengguna, menafsirkan \textit{persona}, dan menunjukkan variasi perilaku pada tugas-tugas penalaran.
+
+\subsection{LLM sebagai \textit{Foundation Models}}
+
+LLM dikategorikan sebagai \textit{foundation models}, yaitu model dengan skala parameter sangat besar yang dilatih menggunakan data dalam jumlah masif dan kemudian dapat diadaptasi untuk berbagai aplikasi \parencite{bommasani2021opportunities}. Konsep \textit{foundation models} menekankan bahwa representasi bahasa yang dipelajari tidak spesifik pada satu tugas, tetapi bersifat generik dan berfungsi sebagai dasar bagi berbagai perilaku yang muncul setelah pelatihan.
+
+Karakteristik multi-fungsi ini membuat LLM mampu menggeneralisasi ke berbagai bentuk instruksi, gaya bahasa, serta skenario penggunaan. Namun, di balik fleksibilitas tersebut terdapat keterbatasan: model menjadi sensitif terhadap variasi kecil dalam konteks, termasuk informasi mengenai identitas pengguna. Kondisi ini menjadikan \textit{foundation models} bukan hanya sistem statistis, tetapi representasi kompleks yang dapat mengodekan aspek sosial linguistik.
+
+\subsection{Scaling Laws dan Fenomena Kemampuan Emergent}
+
+Peningkatan kapasitas model—baik dari sisi jumlah parameter, volume data, maupun durasi pelatihan—berkaitan dengan fenomena kemampuan emergent, yaitu kemampuan baru yang tidak muncul pada model berukuran kecil \parencite{bommasani2021opportunities}. Contohnya termasuk penyelesaian soal matematika multilangkah, pemahaman instruksi panjang, serta kemampuan dalam mengikuti gaya komunikasi pengguna.
+
+Fenomena kemampuan emergent ini relevan dengan penelitian mengenai \textit{persona} karena sensitivitas terhadap identitas pengguna tidak terlihat pada model kecil, tetapi mulai muncul pada model berukuran besar. Ketika kapasitas model meningkat, LLM mulai menunjukkan perilaku adaptif terhadap konteks sosial, termasuk gaya bahasa pengguna, latar belakang identitas, dan \textit{framing} percakapan. Hal ini membuka peluang sekaligus tantangan dalam memahami bagaimana \textit{persona} memengaruhi alur penalaran model.
+
+\subsection{\textit{Instruction Tuning} dan Perilaku Adaptif}
+
+Model bahasa modern memperoleh kemampuan mengikuti instruksi melalui proses \textit{instruction tuning}, yang terdiri dari pelatihan menggunakan pasangan instruksi–jawaban serta optimisasi berbasis umpan balik manusia (\textit{reinforcement learning from human feedback}). Proses ini bertujuan menghasilkan perilaku yang lebih aman, membantu pengguna, dan selaras dengan ekspektasi interaksi alami.
+
+Namun, proses tuning ini tidak dirancang untuk menghilangkan sensitivitas model terhadap identitas pengguna. Justru, penyesuaian yang dihasilkan membuat model semakin peka terhadap nuansa sosial dalam instruksi. Model dapat meniru gaya komunikasi pengguna, menyesuaikan tingkat kehati-hatian, atau mengubah bentuk penalaran berdasarkan sinyal kontekstual yang dihasilkan pengguna. Dalam konteks \textit{persona}, hal ini berarti bahwa model tidak sekadar menjawab perintah, tetapi juga beradaptasi terhadap profil pengguna yang tersurat maupun tersirat.
+
+\subsection{Sensitivitas Model terhadap Konteks Linguistik}
+
+Penelitian menunjukkan bahwa LLM sangat sensitif terhadap variasi kecil pada cara instruksi disampaikan. Zhou et al. \parencite{zhou2023largemodelsensitive} menunjukkan bahwa perbedaan kata, urutan kalimat, atau gaya penulisan dapat menghasilkan perubahan signifikan dalam prediksi model. Sensitivitas terhadap \textit{framing} ini menandakan bahwa model menggunakan seluruh konteks linguistik—bukan hanya isi instruksi semantik—untuk memutuskan bentuk respons.
+
+Sensitivitas terhadap konteks menjadi dasar penting dalam analisis \textit{persona}. Identitas pengguna, baik eksplisit maupun implisit, merupakan bagian dari konteks. Ketika \textit{persona} dimasukkan dalam prompt, model memproses identitas tersebut sebagai sinyal yang memengaruhi representasi internal. Hal ini menjelaskan mengapa \textit{persona} dapat memicu perubahan gaya bahasa, preferensi jawaban, hingga langkah penalaran pada tugas yang seharusnya netral.
+
+\subsection{Kemampuan Penalaran dan Keterbatasannya}
+
+Kemampuan penalaran merupakan salah satu aspek yang menonjol dalam perkembangan LLM. Model mampu menyelesaikan tugas matematis (seperti GSM8K), menjawab soal pengetahuan umum (MMLU), atau memberikan penilaian moral dan sosial. Namun, penalaran ini tidak selalu stabil. Turpin et al. \parencite{turpin2023language} menemukan bahwa \textit{chain-of-thought} yang dihasilkan model sering kali tidak konsisten dan sensitif terhadap variasi konteks, sehingga model dapat memberikan jawaban berbeda meskipun instruksi hampir sama.
+
+Ketidakstabilan ini relevan untuk penelitian mengenai \textit{persona}. Penalaran yang berubah akibat identitas pengguna dapat memperlihatkan bentuk \textit{reasoning bias} yang tidak tampak pada evaluasi biasa. Dengan demikian, \textit{persona} dapat berfungsi sebagai lensa untuk mengidentifikasi area di mana model tidak konsisten dalam memproses informasi.
+
+\subsection{LLM sebagai Sistem yang Memodelkan Interaksi Sosial}
+
+Seiring meningkatnya kapasitas, model bahasa kini tidak hanya memahami teks sebagai data linguistik, tetapi juga sebagai representasi interaksi manusia. Weidinger et al. \parencite{weidinger2021ethical} menunjukkan bahwa model besar mulai meniru pola sosial, norma, serta bias yang terkandung dalam data pelatihan. Model dapat menginferensi identitas sosial pengguna seperti usia, gaya komunikasi, atau latar belakang budaya melalui sinyal linguistik—bahkan ketika tidak dinyatakan secara eksplisit.
+
+Perkembangan ini memperlihatkan bahwa LLM tidak hanya merupakan sistem komputasi bahasa, tetapi juga sistem inferensi sosial. Kondisi ini memperkuat relevansi penelitian terhadap \textit{persona}, karena interaksi pengguna tidak lagi diproses sebagai teks murni, tetapi sebagai bagian dari struktur sosial percakapan yang dipelajari oleh model.
+
+\subsection{Kaitan Perkembangan LLM dengan Studi Persona}
+
+Pertumbuhan LLM dalam kapasitas, kemampuan adaptif, dan sensitivitas terhadap konteks linguistik menjadikan \textit{persona} sebagai faktor yang semakin penting untuk dipahami. Perubahan kecil dalam identitas pengguna—baik eksplisit maupun implisit—berpotensi memengaruhi keluaran model secara signifikan. Oleh karena itu, perkembangan LLM secara langsung membuka kebutuhan untuk mengevaluasi bagaimana \textit{persona} memengaruhi penalaran, kualitas respons, dan kecenderungan \textit{human bias} pada model.
+
+%
+
+
 \label{chap:studi-literatur}
 \section{Penulisan Gambar, Tabel, Rumus, dan Kode}
 \lipsum[1]

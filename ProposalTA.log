@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2025.11.12)  16 NOV 2025 15:08
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2025.11.12)  16 NOV 2025 16:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1188,66 +1188,86 @@ Bab I.
 [1
 
 
-] [2] [3] [4]) (./Bab II - Studi-Literatur.tex [5]
+] [2] [3] [4]) (./Bab II - Studi-Literatur.tex [5] [6]
 Bab II.
+[7
+
+] [8]
+Overfull \hbox (0.20924pt too wide) in paragraph at lines 47--48
+[]\TU/TimesNewRoman(0)/m/n/12 Perkembangan ini memperlihatkan bahwa LLM tidak h
+anya merupakan sistem kom-
+ []
+
+[9]
 File: image/gambar1.png Graphic file (type bmp)
 <image/gambar1.png>
-[6
-
-]
-Overfull \hbox (5.19266pt too wide) in paragraph at lines 30--31
+ [10]
+Overfull \hbox (5.19266pt too wide) in paragraph at lines 81--82
 []\TU/TimesNewRoman(0)/m/n/12 Gambar yang didapat di suatu pustaka atau referen
 si sebaiknya digambar ulang,
  []
 
-[7] (./table/tabel1.tex) [8] [9]
-Overfull \hbox (13.9993pt too wide) in paragraph at lines 161--161
+[11] (./table/tabel1.tex) [12] [13]
+Overfull \hbox (13.9993pt too wide) in paragraph at lines 212--212
 |[]\TU/TimesNewRoman(0)/b/n/12 Beberapa Contoh Penulisan Rumus atau Persamaan M
 atematika Meng-
  []
 
-[10]
+[14] [15]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 206.
+nput line 257.
  (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 )
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 215.
- [11]
-
-LaTeX Warning: Citation 'BPBI' on page 12 undefined on input line 227.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 266.
 
 
-Overfull \hbox (19.22398pt too wide) in paragraph at lines 232--238
+LaTeX Warning: Citation 'BPBI' on page 16 undefined on input line 278.
+
+
+Overfull \hbox (19.22398pt too wide) in paragraph at lines 283--289
  [][] 
  []
 
-[12]) (./Bab III - Analisis-Masalah.tex [13] [14]
+[16] [17]) (./Bab III - Analisis-Masalah.tex [18]
 Bab III.
 
-LaTeX Warning: Citation 'laudon2020' on page 15 undefined on input line 10.
+LaTeX Warning: Citation 'laudon2020' on page 19 undefined on input line 10.
 
 
-LaTeX Warning: Citation '' on page 15 undefined on input line 10.
+LaTeX Warning: Citation '' on page 19 undefined on input line 10.
 
 
-LaTeX Warning: Citation 'pressman2019' on page 15 undefined on input line 10.
+LaTeX Warning: Citation 'pressman2019' on page 19 undefined on input line 10.
 
-[15
+[19
 
-]) (./Bab IV - Desain-Konsep-Solusi.tex [16] [17]
+]) (./Bab IV - Desain-Konsep-Solusi.tex [20] [21]
 Bab IV.
-) (./Bab V - Rencana-Selanjutnya.tex [18
+) (./Bab V - Rencana-Selanjutnya.tex [22
 
 ]
 Bab V.
-) [19
+) [23
 
-] [20
+]
+Overfull \hbox (64.1498pt too wide) in paragraph at lines 401--401
+\TU/TimesNewRoman(0)/m/n/12 Unfaithful Explanations in Chain-of-Thought Reasoni
+ng”. \TU/TimesNewRoman(0)/m/it/12 arXiv preprint arXiv:2305.04388,
+ []
 
 
-] (./ProposalTA.aux)
+Overfull \hbox (14.36363pt too wide) in paragraph at lines 401--401
+\TU/TimesNewRoman(0)/m/n/12 Dalam \TU/TimesNewRoman(0)/m/it/12 Proceedings of t
+he International Conference on Machine Learning, \TU/TimesNewRoman(0)/m/n/12 12
+697–
+ []
+
+[24
+
+
+] [25] (./ProposalTA.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -1257,7 +1277,7 @@ L3 programming layer <2024-01-22>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `ProposalTA.out' has not changed.
-(rerunfilecheck)             Checksum: E83DC538F04A2B372E019F6878231817;7475.
+(rerunfilecheck)             Checksum: 5D94CA4006C7A5CF20CC6CC8D183119F;9620.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                ProposalTA
@@ -1268,12 +1288,12 @@ Package logreq Info: Writing requests to 'ProposalTA.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 31371 strings out of 474878
- 618069 string characters out of 5762515
- 1953542 words of memory out of 5000000
- 53035 multiletter control sequences out of 15000+600000
+ 31388 strings out of 474878
+ 618803 string characters out of 5762515
+ 1961181 words of memory out of 5000000
+ 53052 multiletter control sequences out of 15000+600000
  563466 words of font info for 84 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 79i,14n,93p,1199b,6219s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 79i,14n,93p,1199b,6187s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on ProposalTA.xdv (28 pages, 356736 bytes).
+Output written on ProposalTA.xdv (33 pages, 466612 bytes).

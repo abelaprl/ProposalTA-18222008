@@ -19,6 +19,51 @@
 
 \refsection{0}
   \datalist[entry]{cms/global//global/global}
+    \entry{bommasani2021opportunities}{article}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=3963a2fcc8de83e028bc855365b882d9}{%
+           family={Bommasani},
+           familyi={B\bibinitperiod},
+           given={Rishi},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b2756a270aa1e5d4a20fa3ed9b6e1f8c}{%
+           family={Hudson},
+           familyi={H\bibinitperiod},
+           given={Drew\bibnamedelima A.},
+           giveni={D\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=91a5d92d019d0302b9a66aa6ba4b1bc8}{%
+           family={Adeli},
+           familyi={A\bibinitperiod},
+           given={Ehsan},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{bac94d7b736df30c6b2c7b10af28f8a3}
+      \strng{fullhash}{bac94d7b736df30c6b2c7b10af28f8a3}
+      \strng{bibnamehash}{bac94d7b736df30c6b2c7b10af28f8a3}
+      \strng{authorbibnamehash}{bac94d7b736df30c6b2c7b10af28f8a3}
+      \strng{authornamehash}{bac94d7b736df30c6b2c7b10af28f8a3}
+      \strng{authorfullhash}{bac94d7b736df30c6b2c7b10af28f8a3}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{arXiv preprint arXiv:2108.07258}
+      \field{title}{On the Opportunities and Risks of Foundation Models}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2108.07258
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2108.07258
+      \endverb
+    \endentry
     \entry{gupta2024biasrunsdeep}{inproceedings}{}
       \name{author}{7}{}{%
         {{un=0,uniquepart=base,hash=362d644df9822cff6c079a862ffc0433}{%
@@ -77,8 +122,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Proceedings of the Twelfth International Conference on Learning Representations}
-      \field{note}{ICLR 2024}
-      \field{title}{Bias Runs Deep: Implicit Reasoning Biases in Persona-Assigned LLMs}
+      \field{title}{Bias Runs Deep: Implicit Reasoning Biases in Persona-Assigned Language Models}
       \field{year}{2024}
       \verb{urlraw}
       \verb https://openreview.net/forum?id=kGteeZ18Ir
@@ -88,58 +132,37 @@
       \endverb
     \endentry
     \entry{naous2025userlm}{article}{}
-      \name{author}{5}{}{%
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=bc688bd9fe1fc959a305bc7e023aa4c8}{%
            family={Naous},
            familyi={N\bibinitperiod},
            given={Tarek},
            giveni={T\bibinitperiod},
            givenun=0}}%
-        {{un=0,uniquepart=base,hash=7978960d5ceb9c56d2a47f5758f65eae}{%
-           family={Giorgi},
-           familyi={G\bibinitperiod},
-           given={John\bibnamedelima M.},
-           giveni={J\bibinitperiod\bibinitdelim M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=4ace90c265c6197d5004fc5e48b83196}{%
-           family={Saxon},
-           familyi={S\bibinitperiod},
-           given={Michael},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=7f6446b28102cd299044dff93bae3ae9}{%
-           family={Brooks},
-           familyi={B\bibinitperiod},
-           given={Ethan\bibnamedelima C.},
-           giveni={E\bibinitperiod\bibinitdelim C\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=21208f1a8ee0fba74718e422e7c72252}{%
-           family={Rajani},
+        {{un=0,uniquepart=base,hash=5f4e5510fd04af23b103f7b65591a6c1}{%
+           family={Roziere},
            familyi={R\bibinitperiod},
-           given={Nazneen},
-           giveni={N\bibinitperiod},
+           given={Baptiste},
+           giveni={B\bibinitperiod},
            givenun=0}}%
       }
-      \strng{namehash}{f2a4854c92ee6d740a728a697ac4ee86}
-      \strng{fullhash}{00358f5910fd93ccf787152b5baa2864}
-      \strng{bibnamehash}{00358f5910fd93ccf787152b5baa2864}
-      \strng{authorbibnamehash}{00358f5910fd93ccf787152b5baa2864}
-      \strng{authornamehash}{f2a4854c92ee6d740a728a697ac4ee86}
-      \strng{authorfullhash}{00358f5910fd93ccf787152b5baa2864}
+      \strng{namehash}{ad041da584edadf73e4ceb02de3f6e01}
+      \strng{fullhash}{ad041da584edadf73e4ceb02de3f6e01}
+      \strng{bibnamehash}{ad041da584edadf73e4ceb02de3f6e01}
+      \strng{authorbibnamehash}{ad041da584edadf73e4ceb02de3f6e01}
+      \strng{authornamehash}{ad041da584edadf73e4ceb02de3f6e01}
+      \strng{authorfullhash}{ad041da584edadf73e4ceb02de3f6e01}
       \field{sortinit}{N}
       \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{author}
-      \field{eprintclass}{cs.CL}
-      \field{eprinttype}{arXiv}
-      \field{note}{Under review}
+      \field{journaltitle}{arXiv preprint arXiv:2510.06552}
       \field{title}{Training and Evaluating User Language Models}
       \field{year}{2025}
-      \verb{eprint}
-      \verb 2510.06552
-      \endverb
       \verb{urlraw}
       \verb https://arxiv.org/abs/2510.06552
       \endverb
@@ -192,12 +215,6 @@
            giveni={Y\bibinithyphendelim N\bibinitperiod},
            givenun=0}}%
       }
-      \list{location}{1}{%
-        {Miami, Florida, USA}%
-      }
-      \list{publisher}{1}{%
-        {Association for Computational Linguistics}%
-      }
       \strng{namehash}{0d201940e8b71e947c4696435d80e14d}
       \strng{fullhash}{373aa94ea484fb1da50ed6538c153550}
       \strng{bibnamehash}{373aa94ea484fb1da50ed6538c153550}
@@ -216,10 +233,209 @@
       \field{pages}{16612\bibrangedash 16631}
       \range{pages}{20}
       \verb{urlraw}
-      \verb https://aclanthology.org/2024.findings-emnlp.969/
+      \verb https://aclanthology.org/2024.findings-emnlp.969
       \endverb
       \verb{url}
-      \verb https://aclanthology.org/2024.findings-emnlp.969/
+      \verb https://aclanthology.org/2024.findings-emnlp.969
+      \endverb
+    \endentry
+    \entry{turpin2023language}{article}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=86cb7cbe6c0aca637edc21154b7a8cf9}{%
+           family={Turpin},
+           familyi={T\bibinitperiod},
+           given={Miles},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{923f14cf87c45b41a9f6fe60631442c7}
+      \strng{fullhash}{923f14cf87c45b41a9f6fe60631442c7}
+      \strng{bibnamehash}{923f14cf87c45b41a9f6fe60631442c7}
+      \strng{authorbibnamehash}{923f14cf87c45b41a9f6fe60631442c7}
+      \strng{authornamehash}{923f14cf87c45b41a9f6fe60631442c7}
+      \strng{authorfullhash}{923f14cf87c45b41a9f6fe60631442c7}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{arXiv preprint arXiv:2305.04388}
+      \field{title}{Language Models Don't Always Say What They Think: Unfaithful Explanations in Chain-of-Thought Reasoning}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2305.04388
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2305.04388
+      \endverb
+    \endentry
+    \entry{weidinger2021ethical}{article}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{9}{}{%
+        {{un=0,uniquepart=base,hash=178273c49bf6c84d46103c82fae2026e}{%
+           family={Weidinger},
+           familyi={W\bibinitperiod},
+           given={Laura},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=18e07cb8f41cd05f5ff5e8dc3096568b}{%
+           family={Mellor},
+           familyi={M\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=92200068c9a2ebd86bde252a51594bde}{%
+           family={Rauh},
+           familyi={R\bibinitperiod},
+           given={Maribeth},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ad96fa83c6c91ec26860d0428055a341}{%
+           family={Griffin},
+           familyi={G\bibinitperiod},
+           given={Christopher},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3ad7c871a8b76a593a771adfdf0dbe40}{%
+           family={Gabriel},
+           familyi={G\bibinitperiod},
+           given={Iason},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2ddaa39a1fe4bc75993aba93ddcd89cf}{%
+           family={Uesato},
+           familyi={U\bibinitperiod},
+           given={Jonathan},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5680cca54b7652f373a8dfdad69192dd}{%
+           family={Huang},
+           familyi={H\bibinitperiod},
+           given={Po-Sen},
+           giveni={P\bibinithyphendelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b2c0ecfd19e0011e9880eeb66fd19cfe}{%
+           family={Kenton},
+           familyi={K\bibinitperiod},
+           given={Zachary},
+           giveni={Z\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7c16e8d36475e58d4f2d161e6ecb7704}{%
+           family={Brown},
+           familyi={B\bibinitperiod},
+           given={Tom\bibnamedelima B.},
+           giveni={T\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{060cf3138bac0eb6f0b615dde95936fc}
+      \strng{fullhash}{b967e049e70faef5bc40d26a99cd09db}
+      \strng{bibnamehash}{b967e049e70faef5bc40d26a99cd09db}
+      \strng{authorbibnamehash}{b967e049e70faef5bc40d26a99cd09db}
+      \strng{authornamehash}{060cf3138bac0eb6f0b615dde95936fc}
+      \strng{authorfullhash}{b967e049e70faef5bc40d26a99cd09db}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{arXiv preprint arXiv:2112.04359}
+      \field{title}{Ethical and Social Risks of Harm from Language Models}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2112.04359
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2112.04359
+      \endverb
+    \endentry
+    \entry{zhao2021calibrate}{inproceedings}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=78a7ab552c85ce1f26aff83be636a386}{%
+           family={Zhao},
+           familyi={Z\bibinitperiod},
+           given={Yanhao},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f7bf50210206dec5bb19e32a74e1a580}{%
+           family={Wallace},
+           familyi={W\bibinitperiod},
+           given={Eric},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1fdbe6573824ffd09db88df8bfcf769f}{%
+           family={Feng},
+           familyi={F\bibinitperiod},
+           given={Shi},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9e03a993926cad4dd9bd1244c29d9f9a}{%
+           family={Singh},
+           familyi={S\bibinitperiod},
+           given={Mohit},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6adacaf607ef85a7b55da44661636929}{%
+           family={Gardner},
+           familyi={G\bibinitperiod},
+           given={Matt},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{ee4d831a1df05098c1864d67ce7b94cc}
+      \strng{fullhash}{5c7579975a12655f4e21921bd80fc433}
+      \strng{bibnamehash}{5c7579975a12655f4e21921bd80fc433}
+      \strng{authorbibnamehash}{5c7579975a12655f4e21921bd80fc433}
+      \strng{authornamehash}{ee4d831a1df05098c1864d67ce7b94cc}
+      \strng{authorfullhash}{5c7579975a12655f4e21921bd80fc433}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the International Conference on Machine Learning}
+      \field{title}{Calibrate Before Use: Improving Few-Shot Performance of Language Models}
+      \field{year}{2021}
+      \true{nocite}
+      \field{pages}{12697\bibrangedash 12706}
+      \range{pages}{10}
+    \endentry
+    \entry{zhou2023largemodelsensitive}{article}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=11bfc9007d517af80792ba238fd850dd}{%
+           family={Zhou},
+           familyi={Z\bibinitperiod},
+           given={Luozhi},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{c6df6d992bfbfeb028632e7c64e9408e}
+      \strng{fullhash}{c6df6d992bfbfeb028632e7c64e9408e}
+      \strng{bibnamehash}{c6df6d992bfbfeb028632e7c64e9408e}
+      \strng{authorbibnamehash}{c6df6d992bfbfeb028632e7c64e9408e}
+      \strng{authornamehash}{c6df6d992bfbfeb028632e7c64e9408e}
+      \strng{authorfullhash}{c6df6d992bfbfeb028632e7c64e9408e}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{arXiv preprint arXiv:2310.05400}
+      \field{title}{Large Language Models Are Sensitive to Prompt Framing}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2310.05400
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2310.05400
       \endverb
     \endentry
   \enddatalist
