@@ -5,49 +5,44 @@
 \label{chap:pendahuluan}
 % --- Latar Belakang ---
 \section{Latar Belakang}
-Kemajuan signifikan dalam pengembangan \textit{large language model} telah menghasilkan peningkatan kemampuan dalam pemrosesan bahasa alami, pemahaman konteks, dan penalaran. Model seperti GPT, LLaMA, Mistral, dan Gemini digunakan secara luas dalam sistem dialog, agen percakapan, dan berbagai aplikasi yang bergantung pada interaksi bahasa. Meskipun performanya meningkat, sejumlah tantangan metodologis masih muncul, khususnya terkait sensitivitas model terhadap identitas pengguna atau konfigurasi \textit{persona} yang diberikan selama proses interaksi.
 
-Beberapa studi menunjukkan bahwa \textit{large language model} bersifat responsif terhadap \textit{persona}-yang-disematkan kepada model. Penelitian mengenai bias penalaran implisit menunjukkan bahwa penugasan \textit{persona} tertentu dapat mengubah hasil penalaran pada tugas yang tidak mengandung informasi sosial \parencite{gupta2024biasrunsdeep}. Studi lain mengkaji pengaruh \textit{persona} eksplisit dan \textit{persona} implisit terhadap gaya respons dan perilaku model dalam skenario percakapan \parencite{tseng2024twotales}. Selain itu, penelitian mengenai pemodelan pengguna menunjukkan bahwa variasi karakteristik pengguna dapat memengaruhi keluaran model dalam aspek penalaran, preferensi, dan stabilitas respons \parencite{naous2025userlm}. Temuan tersebut mengindikasikan bahwa \textit{large language model} tidak hanya memproses instruksi, tetapi juga bereaksi terhadap atribut identitas yang diberikan melalui \textit{persona}.
+Kemajuan dalam pengembangan \textit{large language model} telah menghasilkan peningkatan kemampuan dalam pemrosesan bahasa alami, pemahaman konteks, serta penalaran. Model seperti GPT, LLaMA, Mistral, dan Gemini digunakan secara luas dalam sistem dialog, agen percakapan, dan berbagai aplikasi berbasis teks. Walaupun demikian, kinerja model sering kali menunjukkan variasi yang bergantung pada identitas atau karakteristik pengguna yang tersirat dalam instruksi atau konteks percakapan.
 
-Walaupun demikian, penelitian yang ada masih memiliki batasan metodologis. Mayoritas studi mengevaluasi jumlah model yang terbatas, jumlah \textit{persona} yang sempit, atau rentang tugas yang tidak mencakup variasi penalaran yang relevan. Selain itu, belum tersedia kerangka evaluasi yang memungkinkan analisis sistematis terhadap pengaruh \textit{persona} pada banyak model dan banyak kategori tugas secara bersamaan. Kondisi ini menimbulkan kebutuhan untuk merancang pendekatan evaluasi yang komprehensif dan mampu menghasilkan pemahaman empiris yang lebih luas mengenai sensitivitas model terhadap \textit{persona}.
+Berbagai penelitian menunjukkan bahwa \textit{large language model} bersifat sensitif terhadap informasi identitas pengguna yang disisipkan dalam percakapan. Penelitian mengenai bias penalaran implisit menunjukkan bahwa perubahan kecil pada identitas pengguna dapat mengubah penalaran model pada tugas yang tidak memiliki dimensi sosial eksplisit \parencite{gupta2024biasrunsdeep}. Selain itu, studi mengenai identitas dan percakapan mengidentifikasi bahwa informasi identitas yang disampaikan melalui gaya, framing, atau konteks dapat memengaruhi gaya bahasa, tingkat kehati-hatian, atau preferensi jawaban \parencite{tseng2024twotales}. Penelitian mengenai pemodelan pengguna juga menunjukkan bahwa variasi atribut pengguna—seperti usia, latar belakang profesional, atau kelompok sosial—dapat memengaruhi keluaran model dalam aspek penalaran, stabilitas respons, dan kecenderungan bias \parencite{naous2025userlm}.
 
-Berdasarkan kebutuhan tersebut, penelitian ini disusun untuk menginvestigasi pengaruh \textit{persona} terhadap penalaran, kualitas keluaran, dan kecenderungan \textit{human bias} pada berbagai \textit{large language model} melalui pendekatan \textit{multi model} dan \textit{multi persona} yang terstruktur. Penelitian ini bertujuan untuk mengisi kesenjangan penelitian yang belum ditangani oleh studi sebelumnya dengan menetapkan kontribusi utama sebagai berikut:
+Berdasarkan literatur tersebut, semakin jelas bahwa \textit{large language model} tidak hanya memproses konten instruksi, tetapi juga bereaksi terhadap identitas pengguna yang diberikan secara eksplisit maupun yang tersirat dalam konteks. Dengan demikian, pengaruh \textit{user persona} menjadi aspek penting untuk dipelajari. Penelitian ini berfokus pada dua bentuk \textit{user persona}, yaitu \textit{user persona} eksplisit yang diberikan melalui deskripsi identitas yang jelas, serta \textit{user persona} implisit yang muncul melalui framing, gaya penulisan, atau narasi kontekstual tanpa instruksi langsung mengenai identitas pengguna.
 
-\begin{enumerate}
-    \item Mengevaluasi dampak \textit{persona} terhadap performa penalaran dan kualitas keluaran model pada beragam kategori tugas, termasuk penalaran numerik, penalaran logis, dan respons berbasis skenario sosial.
-    \item Menganalisis pola \textit{human bias} yang muncul akibat penugasan \textit{persona}, termasuk bias yang memengaruhi penalaran, gaya bahasa, dan struktur respons.
-    \item Membandingkan sensitivitas dan \textit{robustness} berbagai model terhadap variasi \textit{persona} untuk mengidentifikasi model yang menunjukkan konsistensi yang lebih tinggi dalam konteks penggunaan yang heterogen.
-\end{enumerate}
+Walaupun berbagai penelitian telah menunjukkan adanya sensitivitas model terhadap identitas pengguna, sebagian besar studi hanya mengevaluasi satu atau dua model, cakupan persona yang terbatas, atau rentang tugas penalaran yang sempit. Belum tersedia kerangka evaluasi yang memungkinkan analisis sistematis mengenai bagaimana \textit{user persona} memengaruhi penalaran, perilaku keluaran, dan \textit{human bias} pada berbagai model secara bersamaan. Kondisi tersebut menimbulkan kebutuhan untuk merancang pendekatan evaluasi yang lebih menyeluruh dan terstruktur.
 
+Penelitian ini disusun untuk mengevaluasi pengaruh \textit{user persona} eksplisit dan \textit{user persona} implisit terhadap penalaran, perilaku keluaran, dan kecenderungan \textit{human bias} pada berbagai \textit{large language model} melalui pendekatan \textit{multi model} dan \textit{multi persona}. Penelitian ini dimaksudkan untuk memberikan pemahaman empiris yang lebih komprehensif mengenai sensitivitas model terhadap identitas pengguna.
 
 
 % --- Rumusan Masalah ---
 \section{Rumusan Masalah}
 
-Rumusan masalah dalam penelitian ini disusun berdasarkan kebutuhan untuk memahami bagaimana \textit{large language model} bereaksi terhadap variasi \textit{persona} pada berbagai kategori tugas. Penelitian sebelumnya menunjukkan bahwa penugasan \textit{persona} dapat memengaruhi penalaran, bias implisit, kualitas keluaran, serta stabilitas respons model \parencite{gupta2024biasrunsdeep, tseng2024twotales, naous2025userlm}. Temuan tersebut mengindikasikan bahwa \textit{large language model} tidak hanya memproses instruksi secara literal, tetapi juga bereaksi terhadap atribut identitas yang disematkan melalui \textit{persona}.
+Rumusan masalah berikut disusun berdasarkan kebutuhan untuk memahami bagaimana \textit{user persona} memengaruhi perilaku dan penalaran model bahasa. Penelitian sebelumnya menunjukkan bahwa identitas pengguna, baik yang diberikan secara eksplisit maupun implisit, dapat memengaruhi penalaran, kualitas keluaran, dan kecenderungan bias model \parencite{gupta2024biasrunsdeep, tseng2024twotales, naous2025userlm}. Namun, cakupan penelitian terdahulu masih terbatas pada sedikit model, sedikit persona, dan variasi tugas yang sempit.
 
-Walaupun demikian, penelitian yang ada masih terbatas pada jumlah model yang sedikit, cakupan \textit{persona} yang sempit, dan jenis tugas yang tidak mencerminkan keragaman kebutuhan evaluasi penalaran. Selain itu, belum tersedia kerangka evaluasi yang mampu menganalisis pengaruh \textit{persona} pada banyak model dan banyak kategori tugas secara konsisten. Kekurangan tersebut menimbulkan kebutuhan untuk merancang pendekatan yang lebih sistematis dan terstruktur untuk mengevaluasi dampak \textit{persona}.
-
-Berdasarkan kebutuhan tersebut, rumusan masalah dalam penelitian ini adalah sebagai berikut.
+Berdasarkan kondisi tersebut, rumusan masalah penelitian ini adalah sebagai berikut.
 
 \begin{enumerate}
-    \item Bagaimana pengaruh variasi \textit{persona} terhadap performa penalaran pada berbagai tugas yang dievaluasi pada sejumlah \textit{large language model}.
-    \item Bagaimana variasi \textit{persona} memengaruhi kualitas keluaran model.
-    \item Bagaimana pola \textit{human bias} muncul dan berubah ketika model diberikan \textit{persona} tertentu.
-    \item Sejauh mana sensitivitas terhadap \textit{persona} berbeda pada berbagai \textit{large language model}, dan model mana yang menunjukkan tingkat \textit{robustness} yang lebih tinggi terhadap variasi tersebut.
+    \item Bagaimana pengaruh \textit{user persona} eksplisit dan \textit{user persona} implisit terhadap performa penalaran pada berbagai jenis tugas pada sejumlah \textit{large language model}.
+    \item Bagaimana kedua jenis \textit{user persona} tersebut memengaruhi perilaku keluaran model pada skenario interaksi yang berbeda.
+    \item Bagaimana pola \textit{human bias} muncul dan berubah sebagai akibat variasi \textit{user persona}.
+    \item Sejauh mana sensitivitas terhadap \textit{user persona} berbeda pada berbagai \textit{large language model}, serta model mana yang menunjukkan tingkat \textit{robustness} yang lebih tinggi terhadap variasi tersebut.
 \end{enumerate}
+
 
 
 % --- Tujuan ---
 \section{Tujuan Penelitian}
 
-Tujuan penelitian dirumuskan berdasarkan pokok persoalan yang telah dijelaskan pada rumusan masalah. Penelitian ini bertujuan untuk menghasilkan pemahaman yang lebih sistematis dan komprehensif mengenai sejauh mana \textit{persona} memengaruhi performa dan perilaku \textit{large language model} pada berbagai kategori tugas. Untuk mencapai tujuan tersebut, penelitian ini menetapkan beberapa sasaran utama sebagai berikut.
+Tujuan penelitian ditetapkan untuk menjawab permasalahan yang telah dirumuskan. Penelitian ini diarahkan untuk menghasilkan pemahaman yang lebih komprehensif mengenai pengaruh \textit{user persona} terhadap perilaku model bahasa dalam tugas penalaran dan skenario percakapan. Secara khusus, penelitian ini bertujuan untuk:
 
 \begin{enumerate}
-    \item Menghasilkan analisis empiris mengenai pengaruh \textit{persona} terhadap performa penalaran yang ditunjukkan oleh berbagai \textit{large language model} pada beragam jenis tugas.
-    \item Mengidentifikasi perubahan kualitas keluaran model yang muncul akibat penugasan \textit{persona} pada skenario interaksi yang berbeda.
-    \item Menganalisis pola \textit{human bias} yang diinduksi oleh \textit{persona} tertentu serta implikasinya terhadap konsistensi dan stabilitas respons model.
-    \item Menyusun perbandingan sensitivitas berbagai model terhadap variasi \textit{persona} guna menilai tingkat \textit{robustness} yang ditunjukkan oleh setiap model.
+    \item Menganalisis pengaruh \textit{user persona} eksplisit dan \textit{user persona} implisit terhadap performa penalaran pada sejumlah \textit{large language model}.
+    \item Mengidentifikasi perubahan perilaku keluaran model yang diinduksi oleh variasi \textit{user persona} pada berbagai konteks.
+    \item Menganalisis pola \textit{human bias} yang muncul akibat variasi \textit{user persona}.
+    \item Menyusun perbandingan sensitivitas dan \textit{robustness} berbagai model terhadap variasi \textit{user persona}.
     \item Mengembangkan rancangan \textit{evaluation pipeline} yang memungkinkan pelaksanaan eksperimen \textit{multi model} dan \textit{multi persona} secara terotomatisasi.
 \end{enumerate}
 
