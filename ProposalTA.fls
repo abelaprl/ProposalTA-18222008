@@ -206,3 +206,143 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/logreq/logreq.def
 INPUT /usr/share/texlive/texmf-dist/tex/latex/logreq/logreq.def
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/biblatex/blx-dm.def
+INPUT /usr/share/texlive/texmf-dist/tex/latex/biblatex/blx-dm.def
+INPUT /usr/share/texlive/texmf-dist/tex/latex/biblatex/blx-dm.def
+INPUT /usr/share/texlive/texmf-dist/tex/latex/biblatex/blx-unicode.def
+INPUT /usr/share/texlive/texmf-dist/tex/latex/biblatex/blx-unicode.def
+INPUT /usr/share/texlive/texmf-dist/tex/latex/biblatex/blx-unicode.def
+INPUT /usr/share/texlive/texmf-dist/tex/generic/unicode-data/UnicodeData.txt
+INPUT /usr/share/texlive/texmf-dist/tex/latex/biblatex/blx-compat.def
+INPUT /usr/share/texlive/texmf-dist/tex/latex/biblatex/blx-compat.def
+INPUT /usr/share/texlive/texmf-dist/tex/latex/biblatex/blx-compat.def
+INPUT /usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.def
+INPUT /usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.def
+INPUT /usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.def
+INPUT /usr/share/texlive/texmf-dist/tex/latex/biblatex-chicago/chicago-authordate.bbx
+INPUT /usr/share/texlive/texmf-dist/tex/latex/biblatex-chicago/chicago-authordate.bbx
+INPUT /usr/share/texlive/texmf-dist/tex/latex/biblatex-chicago/chicago-authordate.bbx
+INPUT /usr/share/texlive/texmf-dist/tex/latex/biblatex-chicago/chicago-authordate.cbx
+INPUT /usr/share/texlive/texmf-dist/tex/latex/biblatex-chicago/chicago-authordate.cbx
+INPUT /usr/share/texlive/texmf-dist/tex/latex/biblatex-chicago/chicago-authordate.cbx
+INPUT /usr/share/texlive/texmf-dist/tex/latex/biblatex-chicago/chicago-dates-common.cbx
+INPUT /usr/share/texlive/texmf-dist/tex/latex/biblatex-chicago/chicago-dates-common.cbx
+INPUT /usr/share/texlive/texmf-dist/tex/latex/biblatex-chicago/chicago-dates-common.cbx
+INPUT /usr/share/texlive/texmf-dist/tex/latex/biblatex/lbx/american.lbx
+INPUT /usr/share/texlive/texmf-dist/tex/latex/biblatex/lbx/american.lbx
+INPUT /usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.cfg
+INPUT /usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.cfg
+INPUT /usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.cfg
+INPUT /usr/share/texlive/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/biblatex/lbx/english.lbx
+INPUT /usr/share/texlive/texmf-dist/tex/latex/biblatex/lbx/english.lbx
+INPUT ./ProposalTA.aux
+INPUT ./ProposalTA.aux
+INPUT ProposalTA.aux
+INPUT /usr/share/texlive/texmf-dist/tex/generic/babel/locale/en/babel-english.tex
+INPUT /usr/share/texlive/texmf-dist/tex/generic/babel/locale/en/babel-english.tex
+INPUT /usr/share/texlive/texmf-dist/tex/generic/babel/locale/en/babel-english.tex
+INPUT /usr/share/texlive/texmf-dist/tex/generic/babel/locale/en/babel-en.ini
+OUTPUT ProposalTA.aux
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
+INPUT /usr/share/texlive/texmf-dist/tex/latex/caption/ltcaption.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/caption/ltcaption.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
+INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
+INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
+INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx
+INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx
+INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx
+INPUT ./ProposalTA.out
+INPUT ./ProposalTA.out
+INPUT ProposalTA.out
+INPUT ProposalTA.out
+INPUT ./ProposalTA.out
+INPUT ./ProposalTA.out
+OUTPUT ProposalTA.out
+INPUT /usr/share/texlive/texmf-dist/tex/latex/floatrow/fr-longtable.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/floatrow/fr-longtable.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/biblatex/lbx/english.lbx
+OUTPUT ProposalTA.bcf
+INPUT ProposalTA.bbl
+INPUT ./ProposalTA.bbl
+INPUT ./ProposalTA.bbl
+INPUT ./ProposalTA.bbl
+INPUT ProposalTA.bbl
+INPUT ./image/ganesha.jpg
+INPUT ./image/ganesha.jpg
+INPUT ./image/ganesha.jpg
+OUTPUT ProposalTA.xdv
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
+INPUT /usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+INPUT /usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+INPUT /usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
+INPUT /usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+INPUT /usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+INPUT /usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
+INPUT ./ProposalTA.toc
+INPUT ./ProposalTA.toc
+INPUT ProposalTA.toc
+OUTPUT ProposalTA.toc
+INPUT ./ProposalTA.lof
+INPUT ./ProposalTA.lof
+INPUT ProposalTA.lof
+OUTPUT ProposalTA.lof
+INPUT ./ProposalTA.lot
+INPUT ./ProposalTA.lot
+INPUT ProposalTA.lot
+OUTPUT ProposalTA.lot
+INPUT ./ProposalTA.lol
+INPUT ./ProposalTA.lol
+INPUT ProposalTA.lol
+OUTPUT ProposalTA.lol
+INPUT ./Bab I - Pendahuluan.tex
+INPUT ./Bab I - Pendahuluan.tex
+INPUT Bab I - Pendahuluan.tex
+INPUT ./Bab II - Studi-Literatur.tex
+INPUT ./Bab II - Studi-Literatur.tex
+INPUT Bab II - Studi-Literatur.tex
+INPUT ./image/gambar1.png
+INPUT ./image/gambar1.png
+INPUT ./image/gambar1.png
+INPUT table/tabel1.tex
+INPUT /usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
+INPUT ./Bab III - Analisis-Masalah.tex
+INPUT ./Bab III - Analisis-Masalah.tex
+INPUT Bab III - Analisis-Masalah.tex
+INPUT ./Bab IV - Desain-Konsep-Solusi.tex
+INPUT ./Bab IV - Desain-Konsep-Solusi.tex
+INPUT Bab IV - Desain-Konsep-Solusi.tex
+INPUT ./Bab V - Rencana-Selanjutnya.tex
+INPUT ./Bab V - Rencana-Selanjutnya.tex
+INPUT Bab V - Rencana-Selanjutnya.tex
+INPUT ProposalTA.aux
+INPUT ./ProposalTA.out
+INPUT ./ProposalTA.out
+INPUT ProposalTA.run.xml
+OUTPUT ProposalTA.run.xml
