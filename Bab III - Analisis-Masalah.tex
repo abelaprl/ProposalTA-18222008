@@ -7,8 +7,61 @@
 \chapter{ANALISIS MASALAH}
 \label{chap:analisis-masalah}
 \section{Analisis Kondisi Saat Ini}
-Menurut \textcite{laudon2020}, gambarkan terlebih dahulu model konseptual sistem yang ada saat ini. Model konseptual ini berisi berbagai komponen atau subsitem dan interaksi antarsubsistem tersebut. Setelah itu, berikan penjelasan tentang masalah yang ada pada sistem tersebut. Paragraf berikut berisi contoh penjabaran masalah sistem informasi fasilitas kesehatan untuk pasien \autocite{pressman2019}. 
+
+Perkembangan \textit{large language model} (LLM) dalam beberapa tahun terakhir mendorong pemanfaatan model bahasa dalam berbagai konteks, mulai dari penjawab pertanyaan, agen percakapan, hingga sistem pendukung pengambilan keputusan \parencite{bommasani2021opportunities}. Seiring dengan meluasnya penggunaan tersebut, muncul kebutuhan untuk memahami bagaimana model bereaksi terhadap variasi identitas dan karakteristik pengguna, bukan hanya terhadap instruksi tugas. Hal ini berkaitan dengan cara model memproses konteks interaksi yang memuat informasi tentang siapa yang berinteraksi dengan model, dalam kapasitas apa, dan dengan gaya komunikasi seperti apa.
+
+Penelitian mengenai persona pada LLM sejauh ini banyak berfokus pada pemberian identitas kepada model sebagai agen percakapan. Tseng et al.\ mengkaji berbagai pendekatan \textit{role-playing} dan \textit{personalization} yang umumnya memposisikan persona pada sisi model, misalnya melalui instruksi sistem yang mendeskripsikan karakter, gaya bicara, atau peran yang harus diambil oleh model \parencite{tseng2024twotales}. Pada pengaturan ini, model diminta untuk bertindak sebagai tenaga profesional, tokoh tertentu, atau asisten dengan gaya komunikasi spesifik, dan evaluasi dilakukan dengan melihat konsistensi gaya respons maupun kesesuaian perilaku dengan persona yang diberikan.
+
+Di luar \textit{role-playing} tersebut, sejumlah studi menunjukkan bahwa penyisipan persona eksplisit dapat memengaruhi penalaran model bahkan pada tugas yang dirancang sebagai soal penalaran abstrak dan tidak secara eksplisit memuat dimensi sosial. Gupta et al.\ menunjukkan bahwa identitas yang dilekatkan pada konteks dapat menggeser cara model melakukan penalaran dan memilih jawaban, termasuk pada soal yang dirancang untuk menguji penalaran formal \parencite{gupta2024biasrunsdeep}. Temuan ini mengindikasikan bahwa persona tidak hanya memengaruhi gaya bahasa, tetapi juga struktur langkah penalaran yang dihasilkan model.
+
+Pada saat yang sama, struktur penalaran LLM terbukti sensitif terhadap variasi kecil pada instruksi. Turpin et al.\ memperlihatkan bahwa perubahan ringan dalam formulasi \textit{prompt} dapat menghasilkan rantai penalaran yang berbeda meskipun pertanyaannya sama \parencite{turpin2023language}. Studi lain mengenai sensitivitas model terhadap framing dan gaya penulisan menunjukkan bahwa cara sebuah instruksi disusun dapat memengaruhi isi dan gaya jawaban \parencite{zhou2023largemodelsensitive}. Kondisi ini membuat analisis persona menjadi lebih kompleks, karena persona, framing, dan gaya bahasa sering kali hadir secara bersamaan di dalam konteks interaksi, sehingga sulit memisahkan pengaruh masing-masing faktor.
+
+Isu bias menambah lapisan kompleksitas dalam memahami perilaku model. Weidinger et al.\ menunjukkan bahwa LLM dapat mereproduksi dan memperkuat pola bias sosial yang tercermin dalam data pelatihan \parencite{weidinger2021ethical}. Ketika identitas sosial tertentu, misalnya terkait gender, profesi, atau latar budaya, dimasukkan ke dalam konteks, respons model berpotensi mencerminkan bias representasional maupun inferensial yang sudah tertanam di dalam parameter model. Dalam konteks persona, hal ini berarti bahwa perbedaan respons akibat variasi identitas pengguna tidak selalu mencerminkan perubahan kemampuan penalaran, tetapi juga dapat berkaitan dengan bias yang telah terinternalisasi.
+
+Sebagian besar studi persona yang ada menempatkan persona pada sisi model, bukan pada sisi pengguna. Instruksi yang mengubah peran model sebagai agen percakapan berbeda dengan skenario di mana konteks interaksi menyatakan bahwa pengguna memiliki identitas atau latar belakang tertentu. Riset mengenai pemodelan pengguna mulai berkembang, misalnya melalui pendekatan \textit{user language model} yang mempelajari distribusi bahasa berdasarkan karakteristik pengguna \parencite{naous2025userlm}, tetapi penelitian yang secara sistematis mengkaji dampak \textit{user persona} eksplisit maupun implisit terhadap penalaran dan kualitas jawaban pada berbagai tugas masih relatif terbatas.
+
+Dari sisi infrastruktur evaluasi, banyak studi sebelumnya masih mengandalkan eksekusi manual atau setengah otomatis ketika menjalankan eksperimen yang melibatkan variasi pengguna. Naous et al.\ menyoroti pentingnya pendekatan yang lebih terstruktur ketika mengevaluasi model dalam konteks variasi pengguna, termasuk pengelolaan konfigurasi, pencatatan hasil, serta konsistensi skenario pengujian \parencite{naous2025userlm}. Tanpa kerangka evaluasi yang terdokumentasi dengan jelas, eksperimen yang melibatkan banyak model, banyak persona, dan berbagai jenis tugas menjadi sulit direplikasi dan rawan ketidakkonsistenan.
+
+Berdasarkan kondisi tersebut, masalah-masalah utama yang mendasari perumusan penelitian ini dapat diringkas pada Tabel~\ref{tab:daftar-masalah-llm-persona}.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Daftar masalah penelitian terkait \textit{user persona} pada LLM}
+  \label{tab:daftar-masalah-llm-persona}
+  \begin{tabular}{p{1.5cm}p{5.5cm}p{7.0cm}}
+    \toprule
+    Kode & Uraian masalah & Dampak terhadap penelitian \\
+    \midrule
+    M-01 &
+    Persona pada LLM umumnya diterapkan pada sisi model, bukan pada sisi pengguna. &
+    Belum ada pemahaman yang sistematis mengenai bagaimana \textit{user persona} eksplisit maupun implisit memengaruhi penalaran dan kualitas jawaban pada berbagai tugas. \\[0.3cm]
+    
+    M-02 &
+    Efek persona sulit dipisahkan dari efek framing dan gaya penulisan \textit{prompt}. &
+    Perubahan performa atau pola penalaran dapat berasal dari variasi formulasi instruksi, bukan semata akibat perubahan \textit{user persona}, sehingga interpretasi hasil menjadi tidak pasti. \\[0.3cm]
+    
+    M-03 &
+    LLM membawa bias sosial yang terinternalisasi dari data pelatihan. &
+    Ketika identitas pengguna memuat atribut sosial tertentu, respons model berpotensi mencerminkan bias representasional maupun inferensial, sehingga perbedaan jawaban bisa berkaitan dengan bias yang sudah ada di model. \\[0.3cm]
+    
+    M-04 &
+    Cakupan model dan tugas pada studi terdahulu masih terbatas. &
+    Analisis sensitivitas terhadap persona sering kali hanya mencakup sedikit model atau jenis tugas, sehingga belum memberikan gambaran yang cukup luas mengenai variasi perilaku LLM di berbagai konteks. \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Masalah M-01 berkaitan dengan dominasi pendekatan yang menempatkan persona pada sisi model. Tseng et al.\ membahas bagaimana persona digunakan untuk mengubah peran dan gaya respons model melalui instruksi sistem atau deskripsi karakter \parencite{tseng2024twotales}. Pendekatan ini berbeda dengan skenario di mana identitas dan karakteristik pengguna dinyatakan secara eksplisit atau implisit pada konteks interaksi. Akibatnya, pengaruh \textit{user persona} terhadap penalaran dan kualitas jawaban belum banyak dikaji secara sistematis.
+
+Masalah M-02 muncul karena struktur penalaran LLM sangat sensitif terhadap variasi kecil dalam formulasi instruksi. Turpin et al.\ menunjukkan bahwa perubahan ringan pada susunan \textit{prompt} dapat menghasilkan rantai penalaran yang berbeda meskipun pertanyaannya sama \parencite{turpin2023language}. Zhou et al.\ juga menunjukkan bahwa framing dan gaya penulisan instruksi dapat memengaruhi isi dan gaya jawaban \parencite{zhou2023largemodelsensitive}. Dalam konteks ini, efek \textit{user persona} berpotensi tercampur dengan efek framing, sehingga diperlukan desain eksperimen yang mampu membedakan keduanya.
+
+Masalah M-03 berhubungan dengan bias sosial yang sudah tertanam di dalam model. Weidinger et al.\ menunjukkan bahwa LLM dapat mereproduksi dan memperkuat pola bias dari data pelatihan \parencite{weidinger2021ethical}. Ketika \textit{user persona} memuat atribut sosial seperti gender, profesi, atau latar budaya, respons model terhadap persona tersebut dapat dipengaruhi oleh bias yang telah ada sebelumnya. Hal ini menyulitkan interpretasi hasil, karena perbedaan jawaban bisa berasal dari kombinasi antara penyesuaian terhadap persona dan bias yang sudah terinternalisasi di dalam model.
+
+Masalah M-04 menyoroti keterbatasan cakupan model dan tugas pada studi-studi terdahulu. Banyak penelitian persona hanya menguji sedikit model atau fokus pada satu jenis tugas, sehingga belum memberikan gambaran yang cukup luas mengenai bagaimana variasi \textit{user persona} memengaruhi perilaku model pada spektrum tugas penalaran dan percakapan yang lebih beragam \parencite{gupta2024biasrunsdeep, tseng2024twotales}. Keterbatasan ini membuka peluang untuk merancang eksperimen yang melibatkan kombinasi multi model dan multi persona pada beberapa kategori tugas yang terpilih.
+
 \section{Analisis Kebutuhan}
+
+
 \lipsum[4]
 \subsection{Identifikasi Masalah Pengguna}
 \lipsum[5]

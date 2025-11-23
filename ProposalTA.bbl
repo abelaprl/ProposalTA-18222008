@@ -57,12 +57,258 @@
       \field{journaltitle}{arXiv preprint arXiv:2108.07258}
       \field{title}{On the Opportunities and Risks of Foundation Models}
       \field{year}{2021}
-      \true{nocite}
       \verb{urlraw}
       \verb https://arxiv.org/abs/2108.07258
       \endverb
       \verb{url}
       \verb https://arxiv.org/abs/2108.07258
+      \endverb
+    \endentry
+    \entry{cobbe2021gsm8k}{article}{}
+      \name{author}{12}{}{%
+        {{un=0,uniquepart=base,hash=c9355eeb51a7665fc3d58f45e210fbf6}{%
+           family={Cobbe},
+           familyi={C\bibinitperiod},
+           given={Karl},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=da0f106450b289c3010ca569b3de9949}{%
+           family={Kosaraju},
+           familyi={K\bibinitperiod},
+           given={Vineet},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=69471b8ab1a1d92877d0dfe5f57411e3}{%
+           family={Bavarian},
+           familyi={B\bibinitperiod},
+           given={Mohammad},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fb15a691583ec94aafe0be6e7da4878f}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Mark},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3dd736ee38ff1cbcc6f0d05487b9950b}{%
+           family={Jun},
+           familyi={J\bibinitperiod},
+           given={Heewoo},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f2bc899b1160163417da7bf510f15d33}{%
+           family={Kaiser},
+           familyi={K\bibinitperiod},
+           given={Lukasz},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=599240d5bfe42aeb65a0c26dae77cd31}{%
+           family={Plappert},
+           familyi={P\bibinitperiod},
+           given={Matthias},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=98cbd7022a1c31a6293aa1c8b62bdebf}{%
+           family={Tworek},
+           familyi={T\bibinitperiod},
+           given={Jerry},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9e4edc142b0564cbbb1cf93a401e4434}{%
+           family={Hilton},
+           familyi={H\bibinitperiod},
+           given={Jacob},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=13b885c1233d3f59261e0e53ec1aece0}{%
+           family={Nakano},
+           familyi={N\bibinitperiod},
+           given={Reiichiro},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=68a04c5006dbbf98f7719709540c6b56}{%
+           family={Hesse},
+           familyi={H\bibinitperiod},
+           given={Christopher},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3e09bd2a25d237ebdaed560a07c0451e}{%
+           family={Schulman},
+           familyi={S\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{45858a0ae98644e6c6bc549ac1a2cfa3}
+      \strng{fullhash}{2b1c5987decdf5a17625aab169f4133e}
+      \strng{bibnamehash}{3daa7f48fd086e402169a03fe3a98f08}
+      \strng{authorbibnamehash}{3daa7f48fd086e402169a03fe3a98f08}
+      \strng{authornamehash}{45858a0ae98644e6c6bc549ac1a2cfa3}
+      \strng{authorfullhash}{2b1c5987decdf5a17625aab169f4133e}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{arXiv preprint arXiv:2110.14168}
+      \field{title}{Training Verifiers to Solve Math Word Problems}
+      \field{year}{2021}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2110.14168
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2110.14168
+      \endverb
+    \endentry
+    \entry{mmluRedux2024dataset}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=4c8cb4b2d1704fdeeef5f2751396af8e}{%
+           family={{Edinburgh Dataset Analytics Working Group}},
+           familyi={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{4c8cb4b2d1704fdeeef5f2751396af8e}
+      \strng{fullhash}{4c8cb4b2d1704fdeeef5f2751396af8e}
+      \strng{bibnamehash}{4c8cb4b2d1704fdeeef5f2751396af8e}
+      \strng{authorbibnamehash}{4c8cb4b2d1704fdeeef5f2751396af8e}
+      \strng{authornamehash}{4c8cb4b2d1704fdeeef5f2751396af8e}
+      \strng{authorfullhash}{4c8cb4b2d1704fdeeef5f2751396af8e}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://huggingface.co/datasets/edinburgh-dawg/mmlu-redux-2.0}}
+      \field{note}{Subset MMLU yang dianotasi ulang secara manual untuk 57 subjek, 100 soal per subjek}
+      \field{title}{MMLU-Redux-2.0}
+      \field{year}{2024}
+      \true{nocite}
+    \endentry
+    \entry{gema2024arewedonewithmmlu}{article}{}
+      \name{author}{16}{}{%
+        {{un=0,uniquepart=base,hash=803a176789012d90ca1fc47c830658c6}{%
+           family={Gema},
+           familyi={G\bibinitperiod},
+           given={Aryo\bibnamedelima Pradipta},
+           giveni={A\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0fc6db35433db93c576abe5d1b900b27}{%
+           family={Leang},
+           familyi={L\bibinitperiod},
+           given={Joshua\bibnamedelimb Ong\bibnamedelima Jun},
+           giveni={J\bibinitperiod\bibinitdelim O\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fca4ebce61479a176f740ff671c84607}{%
+           family={Hong},
+           familyi={H\bibinitperiod},
+           given={Giwon},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=336fe0c980618d124e7fe22e0643a30c}{%
+           family={Devoto},
+           familyi={D\bibinitperiod},
+           given={Alessio},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=764de898f598f1f6026f02b6fb42f1de}{%
+           family={Mancino},
+           familyi={M\bibinitperiod},
+           given={Alberto\bibnamedelimb Carlo\bibnamedelima Maria},
+           giveni={A\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fab92377de997ef3de1fc25622b5f2f0}{%
+           family={Saxena},
+           familyi={S\bibinitperiod},
+           given={Rohit},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=74b462f1986d64aeabd7f6ba3432f9a6}{%
+           family={He},
+           familyi={H\bibinitperiod},
+           given={Xuanli},
+           giveni={X\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=26500c0e7c5f37a79d71416c4c641ba2}{%
+           family={Zhao},
+           familyi={Z\bibinitperiod},
+           given={Yu},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=272112bf0ec91d69160b4857a464c8f0}{%
+           family={Du},
+           familyi={D\bibinitperiod},
+           given={Xiaotang},
+           giveni={X\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=df8e957eb62b70d77f5ddb1e1cdb3678}{%
+           family={Madani},
+           familyi={M\bibinitperiod},
+           given={Mohammad\bibnamedelimb Reza\bibnamedelima Ghasemi},
+           giveni={M\bibinitperiod\bibinitdelim R\bibinitperiod\bibinitdelim G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=16dc9fa4b5cd09845b4ef3e2229be4f5}{%
+           family={Barale},
+           familyi={B\bibinitperiod},
+           given={Claire},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8da60e48fe8d1d61d6c572df8c4d3587}{%
+           family={McHardy},
+           familyi={M\bibinitperiod},
+           given={Robert},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c9258408733de8a545f7cf31d81c7f72}{%
+           family={Harris},
+           familyi={H\bibinitperiod},
+           given={Joshua},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=23a8ea9c6f25b1531cc38eb463c1d550}{%
+           family={Kaddour},
+           familyi={K\bibinitperiod},
+           given={Jean},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1c62903fdf5180219db944dbe542fdca}{%
+           family={Krieken},
+           familyi={K\bibinitperiod},
+           given={Emile},
+           giveni={E\bibinitperiod},
+           givenun=0,
+           prefix={van},
+           prefixi={v\bibinitperiod},
+           prefixun=0}}%
+        {{un=0,uniquepart=base,hash=e8d1908d388d36a47ec7f364ee6d8389}{%
+           family={Minervini},
+           familyi={M\bibinitperiod},
+           given={Pasquale},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{c96601b0b6d8e28d1b4c86fbc96b0d94}
+      \strng{fullhash}{7fd934614eac9dea72180fe116667abf}
+      \strng{bibnamehash}{db0830f27d04a36768ea06dba328b41f}
+      \strng{authorbibnamehash}{db0830f27d04a36768ea06dba328b41f}
+      \strng{authornamehash}{c96601b0b6d8e28d1b4c86fbc96b0d94}
+      \strng{authorfullhash}{7fd934614eac9dea72180fe116667abf}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{arXiv preprint arXiv:2406.04127}
+      \field{title}{Are We Done with MMLU?}
+      \field{year}{2024}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2406.04127
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2406.04127
       \endverb
     \endentry
     \entry{gupta2024biasrunsdeep}{inproceedings}{}
@@ -132,6 +378,74 @@
       \verb https://openreview.net/forum?id=kGteeZ18Ir
       \endverb
     \endentry
+    \entry{hendryckstest2021}{article}{}
+      \name{author}{7}{}{%
+        {{un=0,uniquepart=base,hash=86d0b4ecd6b6066d49e7aecde6e5e630}{%
+           family={Hendrycks},
+           familyi={H\bibinitperiod},
+           given={Dan},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=624605ebd8b6b403b251522e3d1029ff}{%
+           family={Burns},
+           familyi={B\bibinitperiod},
+           given={Collin},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=35f72302a7aebfd095414ce218b8fb5d}{%
+           family={Basart},
+           familyi={B\bibinitperiod},
+           given={Steven},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4817500e279ce97b8c8f18b92a2a6ead}{%
+           family={Zou},
+           familyi={Z\bibinitperiod},
+           given={Andy},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cf291551acefa6a31206eb6853b65648}{%
+           family={Mazeika},
+           familyi={M\bibinitperiod},
+           given={Mantas},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d458d5f9b64652055bd81d57e4777b22}{%
+           family={Song},
+           familyi={S\bibinitperiod},
+           given={Dawn},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fe7a7e80c1857d185d3ab01f15fe584d}{%
+           family={Steinhardt},
+           familyi={S\bibinitperiod},
+           given={Jacob},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{f461c117afa272374439d2db3ee67282}
+      \strng{fullhash}{37926f74925a7ec5129b3f44dd0fd2f0}
+      \strng{bibnamehash}{37926f74925a7ec5129b3f44dd0fd2f0}
+      \strng{authorbibnamehash}{37926f74925a7ec5129b3f44dd0fd2f0}
+      \strng{authornamehash}{f461c117afa272374439d2db3ee67282}
+      \strng{authorfullhash}{37926f74925a7ec5129b3f44dd0fd2f0}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{Proceedings of the International Conference on Learning Representations}
+      \field{title}{Measuring Massive Multitask Language Understanding}
+      \field{year}{2021}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2009.03300
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2009.03300
+      \endverb
+    \endentry
     \entry{naous2025userlm}{article}{}
       \true{moreauthor}
       \true{morelabelname}
@@ -169,6 +483,65 @@
       \endverb
       \verb{url}
       \verb https://arxiv.org/abs/2510.06552
+      \endverb
+    \endentry
+    \entry{sap2019socialiqa}{inproceedings}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=d08a8223cbc0816afc54dd2f7f7eb96c}{%
+           family={Sap},
+           familyi={S\bibinitperiod},
+           given={Maarten},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3f0a376d97ef675ff5fe7b71f3a702ab}{%
+           family={Rashkin},
+           familyi={R\bibinitperiod},
+           given={Hannah},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=82914d65d09628177a21f958a3e9f20d}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Derek},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=62c2d350eff3c9b76d6355eea3ea9788}{%
+           family={Bras},
+           familyi={B\bibinitperiod},
+           given={Ronan\bibnamedelima Le},
+           giveni={R\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=64d48b2f4b0370b6692c87cfc65f19b9}{%
+           family={Choi},
+           familyi={C\bibinitperiod},
+           given={Yejin},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Hong Kong, China}%
+      }
+      \strng{namehash}{ed709a4956cbacd4da95f21c47ad694f}
+      \strng{fullhash}{ecec96eeb966f1b34d868aa039b68817}
+      \strng{bibnamehash}{ecec96eeb966f1b34d868aa039b68817}
+      \strng{authorbibnamehash}{ecec96eeb966f1b34d868aa039b68817}
+      \strng{authornamehash}{ed709a4956cbacd4da95f21c47ad694f}
+      \strng{authorfullhash}{ecec96eeb966f1b34d868aa039b68817}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing}
+      \field{title}{SocialIQA: Commonsense Reasoning about Social Interactions}
+      \field{year}{2019}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/1904.09728
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/1904.09728
       \endverb
     \endentry
     \entry{tseng2024twotales}{inproceedings}{}
