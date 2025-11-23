@@ -58,17 +58,77 @@ Masalah M-02 muncul karena struktur penalaran LLM sangat sensitif terhadap varia
 Masalah M-03 berhubungan dengan bias sosial yang sudah tertanam di dalam model. Weidinger et al.\ menunjukkan bahwa LLM dapat mereproduksi dan memperkuat pola bias dari data pelatihan \parencite{weidinger2021ethical}. Ketika \textit{user persona} memuat atribut sosial seperti gender, profesi, atau latar budaya, respons model terhadap persona tersebut dapat dipengaruhi oleh bias yang telah ada sebelumnya. Hal ini menyulitkan interpretasi hasil, karena perbedaan jawaban bisa berasal dari kombinasi antara penyesuaian terhadap persona dan bias yang sudah terinternalisasi di dalam model.
 
 Masalah M-04 menyoroti keterbatasan cakupan model dan tugas pada studi-studi terdahulu. Banyak penelitian persona hanya menguji sedikit model atau fokus pada satu jenis tugas, sehingga belum memberikan gambaran yang cukup luas mengenai bagaimana variasi \textit{user persona} memengaruhi perilaku model pada spektrum tugas penalaran dan percakapan yang lebih beragam \parencite{gupta2024biasrunsdeep, tseng2024twotales}. Keterbatasan ini membuka peluang untuk merancang eksperimen yang melibatkan kombinasi multi model dan multi persona pada beberapa kategori tugas yang terpilih.
-
 \section{Analisis Kebutuhan}
 
+Bagian ini menjabarkan kebutuhan penelitian yang diturunkan dari masalah M-01 sampai M-04 pada analisis kondisi saat ini. Kebutuhan tersebut mencakup kebutuhan konseptual dan teknis yang harus dipenuhi agar eksperimen mengenai pengaruh \textit{user persona} eksplisit dan implisit terhadap penalaran, kualitas jawaban, dan kecenderungan \textit{human bias} pada beberapa \textit{large language model} dapat dilaksanakan secara terstruktur.
 
-\lipsum[4]
 \subsection{Identifikasi Masalah Pengguna}
-\lipsum[5]
+
+Dalam konteks tugas akhir ini, pengguna yang dimaksud adalah peneliti yang ingin mengevaluasi perilaku model bahasa di bawah variasi \textit{user persona}. Berdasarkan analisis pada Bagian Analisis Kondisi Saat Ini, beberapa permasalahan yang dihadapi pengguna dapat diidentifikasi sebagai berikut.
+
+\begin{enumerate}
+    \item Definisi dan pengorganisasian \textit{user persona} eksplisit dan \textit{user persona} implisit belum terdokumentasi secara terstruktur. Sebagian besar contoh yang tersedia berfokus pada persona di sisi model, sehingga perumusan persona di sisi pengguna harus disusun sendiri oleh peneliti.
+    \item Perbedaan keluaran model berpotensi dipengaruhi oleh variasi formulasi instruksi dan framing \textit{prompt}, sehingga tidak selalu jelas apakah perubahan respons model disebabkan oleh variasi \textit{user persona} atau oleh perubahan cara pertanyaan disampaikan.
+    \item Eksperimen yang melibatkan beberapa model dan beberapa jenis tugas menuntut adanya cara yang terkelola untuk menjalankan skenario yang sama dan mencatat hasilnya secara konsisten, agar dapat dilakukan analisis perbandingan yang sistematis.
+\end{enumerate}
+
+Permasalahan-permasalahan tersebut menjadi dasar penyusunan kebutuhan fungsional dan kebutuhan nonfungsional pada penelitian ini.
+
 \subsection{Kebutuhan Fungsional}
-\lipsum[6]
+
+Kebutuhan fungsional menggambarkan kemampuan utama yang harus didukung oleh rancangan eksperimen agar permasalahan pada subbagian sebelumnya dapat ditangani. Ringkasan kebutuhan fungsional ditunjukkan pada Tabel~\ref{tab:kebutuhan-fungsional-llm-persona}.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Kebutuhan fungsional penelitian}
+  \label{tab:kebutuhan-fungsional-llm-persona}
+  \begin{tabular}{p{1.5cm}p{8cm}p{3.5cm}}
+    \toprule
+    Kode & Uraian kebutuhan fungsional & Terkait masalah \\
+    \midrule
+    KF-01 &
+    Tersedia cara yang terstruktur untuk mendefinisikan \textit{user persona} eksplisit dan \textit{user persona} implisit dalam bentuk skenario teks, sehingga variasi persona dapat dirancang secara konsisten dan digunakan kembali. &
+    M-01 \\[0.2cm]
+    
+    KF-02 &
+    Tersedia mekanisme untuk menjalankan pertanyaan yang sama pada beberapa \textit{user persona} dan beberapa model bahasa, serta menyimpan keluaran model beserta informasi persona, model, dan jenis tugas yang digunakan. &
+    M-02, M-04 \\[0.2cm]
+    
+    KF-03 &
+    Tersedia format pencatatan hasil yang memungkinkan penilaian sederhana terhadap jawaban model, misalnya penandaan benar atau salah dan indikasi adanya \textit{human bias}, sehingga hasil dapat dianalisis secara sistematis. &
+    M-03, M-04 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+KF-01 berhubungan dengan kebutuhan untuk merepresentasikan persona secara eksplisit, sehingga skenario eksperimen dapat direplikasi. KF-02 menekankan pentingnya eksekusi skenario yang sama pada beberapa model dan persona dengan pencatatan hasil yang terstruktur. KF-03 memastikan bahwa keluaran model terdokumentasi dalam bentuk yang mendukung analisis kuantitatif maupun kualitatif tanpa menuntut skema penilaian yang terlalu kompleks.
+
 \subsection{Kebutuhan Nonfungsional}
-\lipsum[7]
+
+Kebutuhan nonfungsional berkaitan dengan kualitas pelaksanaan eksperimen, terutama dari sisi keterulangan, kesederhanaan implementasi, dan kemampuan pengembangan. Ringkasan kebutuhan nonfungsional ditunjukkan pada Tabel~\ref{tab:kebutuhan-nonfungsional-llm-persona}.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Kebutuhan nonfungsional penelitian}
+  \label{tab:kebutuhan-nonfungsional-llm-persona}
+  \begin{tabular}{p{1.5cm}p{3.5cm}p{8cm}}
+    \toprule
+    Kode & Jenis kebutuhan & Uraian kebutuhan \\
+    \midrule
+    KNF-01 &
+    Reproducibility &
+    Proses eksperimen dapat diulang melalui skrip atau konfigurasi yang terdokumentasi, sehingga skenario persona, model, dan tugas dapat dijalankan kembali dengan pengaturan yang sama. \\[0.2cm]
+    
+    KNF-02 &
+    Simplicity &
+    Implementasi eksperimen tetap sederhana dan dapat dijalankan dengan sumber daya komputasi yang wajar, misalnya melalui pemanggilan API tanpa memerlukan infrastruktur tambahan yang kompleks. \\[0.2cm]
+    
+    KNF-03 &
+    Extensibility &
+    Rancangan eksperimen memungkinkan penambahan model atau \textit{user persona} baru tanpa perubahan besar pada struktur keseluruhan, sehingga dapat menyesuaikan dengan ketersediaan model dan kebutuhan analisis lanjutan. \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
 \section{Analisis Pemilihan Solusi}
 \subsection{Alternatif Solusi}
