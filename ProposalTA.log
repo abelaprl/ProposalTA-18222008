@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2025.11.12)  23 NOV 2025 13:48
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2025.11.12)  23 NOV 2025 15:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1275,13 +1275,35 @@ Overfull \hbox (7.54721pt too wide) in paragraph at lines 114--131
  [][] 
  []
 
-) (./Bab IV - Desain-Konsep-Solusi.tex [34] [35]
+[34] [35]
+Underfull \hbox (badness 10000) in paragraph at lines 164--164
+[]\TU/TimesNewRoman(0)/m/n/12 Representasi \TU/TimesNewRoman(0)/m/it/12 user pe
+rsona
+ []
+
+
+Underfull \hbox (badness 8000) in paragraph at lines 169--169
+[]\TU/TimesNewRoman(0)/m/n/12 Konsistensi eksekusi lintas
+ []
+
+
+Underfull \hbox (badness 2189) in paragraph at lines 179--179
+[]\TU/TimesNewRoman(0)/m/n/12 Keterulangan (\TU/TimesNewRoman(0)/m/it/12 reprod
+ucibili-
+ []
+
+
+Overfull \hbox (47.99997pt too wide) in paragraph at lines 157--195
+ [][] 
+ []
+
+[36]) (./Bab IV - Desain-Konsep-Solusi.tex [37]
 Bab IV.
-) (./Bab V - Rencana-Selanjutnya.tex [36
+) (./Bab V - Rencana-Selanjutnya.tex [38
 
 ]
 Bab V.
-) [37
+) [39
 
 ]
 Overfull \hbox (1.0287pt too wide) in paragraph at lines 401--401
@@ -1289,7 +1311,7 @@ Overfull \hbox (1.0287pt too wide) in paragraph at lines 401--401
 dings of the International Conference on Learning Rep-
  []
 
-[38
+[40
 
 
 ]
@@ -1305,7 +1327,7 @@ he International Conference on Machine Learning, \TU/TimesNewRoman(0)/m/n/12 12
 697–
  []
 
-[39] (./ProposalTA.aux)
+[41] (./ProposalTA.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -1326,12 +1348,12 @@ Package logreq Info: Writing requests to 'ProposalTA.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 31452 strings out of 474878
- 620355 string characters out of 5762515
- 1963855 words of memory out of 5000000
- 53116 multiletter control sequences out of 15000+600000
+ 31453 strings out of 474878
+ 620386 string characters out of 5762515
+ 1963919 words of memory out of 5000000
+ 53117 multiletter control sequences out of 15000+600000
  563466 words of font info for 84 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  79i,14n,93p,1199b,6187s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on ProposalTA.xdv (47 pages, 868636 bytes).
+Output written on ProposalTA.xdv (49 pages, 911644 bytes).

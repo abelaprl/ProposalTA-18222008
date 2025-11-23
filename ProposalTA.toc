@@ -126,10 +126,10 @@
 \contentsline {subsection}{\numberline {III.2.2}Kebutuhan Fungsional}{33}{subsection.3.2.2}%
 \contentsline {subsection}{\numberline {III.2.3}Kebutuhan Nonfungsional}{34}{subsection.3.2.3}%
 \contentsline {section}{\numberline {III.3}Analisis Pemilihan Solusi}{34}{section.3.3}%
-\contentsline {subsection}{\numberline {III.3.1}Alternatif Solusi}{34}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {III.3.2}Analisis Penentuan Solusi}{35}{subsection.3.3.2}%
-\contentsline {chapter}{\numberline {IV}DESAIN KONSEP SOLUSI}{36}{chapter.4}%
-\contentsline {chapter}{\numberline {V}RENCANA SELANJUTNYA}{37}{chapter.5}%
+\contentsline {subsection}{\numberline {III.3.1}Alternatif Solusi}{35}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {III.3.2}Analisis Penentuan Solusi}{36}{subsection.3.3.2}%
+\contentsline {chapter}{\numberline {IV}DESAIN KONSEP SOLUSI}{38}{chapter.4}%
+\contentsline {chapter}{\numberline {V}RENCANA SELANJUTNYA}{39}{chapter.5}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 

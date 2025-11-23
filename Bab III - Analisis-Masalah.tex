@@ -131,7 +131,73 @@ Kebutuhan nonfungsional berkaitan dengan kualitas pelaksanaan eksperimen, teruta
 \end{table}
 
 \section{Analisis Pemilihan Solusi}
+
+Bagian ini membahas alternatif pendekatan yang dapat digunakan untuk melaksanakan eksperimen \textit{multi model} dan \textit{multi persona}, kemudian menjelaskan dasar pemilihan solusi yang digunakan dalam penelitian. Analisis dilakukan dengan mempertimbangkan kebutuhan struktur representasi \textit{user persona}, konsistensi eksekusi lintas model dan lintas tugas, kemudahan pencatatan hasil untuk analisis, serta tingkat kerumitan implementasi.
+
 \subsection{Alternatif Solusi}
-\lipsum[8]
+
+Berdasarkan kebutuhan yang telah dirumuskan pada analisis kebutuhan, beberapa alternatif solusi yang dapat diidentifikasi adalah sebagai berikut.
+
+\begin{enumerate}
+    \item Pendekatan evaluasi manual berbasis antarmuka percakapan. Pada alternatif ini, interaksi dengan \textit{large language model} dilakukan langsung melalui antarmuka percakapan yang disediakan oleh penyedia layanan. \textit{User persona} disisipkan ke dalam konteks, pertanyaan diajukan satu per satu, dan jawaban dicatat secara manual ke dalam dokumen atau lembar kerja. Setiap kombinasi model, persona, dan tugas dieksekusi secara terpisah. Pendekatan ini mudah dimulai karena tidak memerlukan pengembangan skrip, tetapi sangat bergantung pada prosedur manual dan kurang terstruktur ketika jumlah kombinasi skenario menjadi besar. Selain itu, reproduksi eksperimen menjadi bergantung pada kedisiplinan pencatatan dan rentan terhadap kesalahan manusia.
+    
+    \item Skrip eksperimen semi terotomatisasi berbasis konfigurasi. Pada alternatif ini, definisi \textit{user persona} eksplisit dan implisit, daftar model yang dievaluasi, serta kumpulan tugas dari \textit{benchmark} seperti GSM8K dan MMLU-redux disimpan dalam berkas konfigurasi yang terstruktur. Skrip eksperimen membaca konfigurasi tersebut, membentuk \textit{prompt} berdasarkan kombinasi model, persona, dan tugas, kemudian mengirim \textit{prompt} ke model melalui antarmuka pemrograman aplikasi. Keluaran model, beserta metadata seperti nama model, jenis persona, jenis tugas, dan identitas soal, disimpan dalam berkas JSON pada direktori log. Tahap berikutnya, skrip analisis mengolah berkas JSON menjadi berkas CSV yang lebih ringkas untuk perhitungan metrik dan analisis lanjutan. Pendekatan ini menuntut pengembangan skrip, tetapi memberikan struktur yang jelas dan memudahkan pelaksanaan eksperimen berskala besar.
+    
+    \item Kerangka evaluasi umum yang dapat digunakan kembali. Pada alternatif ini, dibangun sebuah kerangka evaluasi yang lebih umum, misalnya berupa pustaka atau layanan yang dirancang agar dapat digunakan kembali untuk berbagai studi terkait \textit{user persona} pada \textit{large language model}. Kerangka tersebut tidak hanya mencakup skrip eksekusi eksperimen berbasis konfigurasi, tetapi juga modul moduler untuk penjadwalan eksekusi, pengelolaan versi konfigurasi, penilaian otomatis, dan visualisasi hasil. Pendekatan ini berpotensi mendukung penggunaan jangka panjang dan kolaborasi yang lebih luas, namun memerlukan usaha perancangan dan implementasi yang lebih besar dibandingkan kebutuhan minimum untuk sebuah studi tugas akhir.
+\end{enumerate}
+
 \subsection{Analisis Penentuan Solusi}
-\lipsum[9]
+
+Penentuan solusi dilakukan dengan membandingkan ketiga alternatif berdasarkan beberapa kriteria utama, yaitu kemampuan merepresentasikan \textit{user persona} dan skenario eksperimen secara terstruktur dan dapat digunakan kembali, konsistensi eksekusi lintas model dan lintas tugas, dukungan pencatatan hasil dan metadata untuk analisis kuantitatif dan kualitatif, keterulangan (\textit{reproducibility}) proses eksperimen, serta tingkat kerumitan implementasi dan pemeliharaan. Ringkasan perbandingan alternatif ditunjukkan pada Tabel~\ref{tab:analisis-pemilihan-solusi}, dengan skala kualitatif rendah, sedang, dan tinggi.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Perbandingan alternatif solusi}
+  \label{tab:analisis-pemilihan-solusi}
+  \begin{tabular}{p{5cm}p{3cm}p{3cm}p{3cm}}
+    \toprule
+    Kriteria &
+    Evaluasi manual &
+    Skrip semi terotomatisasi &
+    Kerangka evaluasi umum \\
+    \midrule
+    Representasi \textit{user persona} dan skenario yang terstruktur &
+    Rendah &
+    Tinggi &
+    Tinggi \\[0.2cm]
+    
+    Konsistensi eksekusi lintas model dan tugas &
+    Rendah &
+    Tinggi &
+    Tinggi \\[0.2cm]
+    
+    Pencatatan hasil dan metadata untuk analisis &
+    Rendah &
+    Tinggi &
+    Tinggi \\[0.2cm]
+    
+    Keterulangan (\textit{reproducibility}) proses eksperimen &
+    Rendah &
+    Tinggi &
+    Tinggi \\[0.2cm]
+    
+    Kerumitan implementasi dan pemeliharaan &
+    Rendah &
+    Sedang &
+    Tinggi \\[0.2cm]
+    
+    Kemudahan penambahan model atau persona baru &
+    Rendah &
+    Tinggi &
+    Tinggi \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Pendekatan evaluasi manual relatif mudah digunakan pada tahap eksplorasi awal, tetapi tidak memadai untuk eksperimen \textit{multi model} dan \textit{multi persona} dengan jumlah kombinasi yang besar. Keterbatasan utama muncul pada konsistensi eksekusi, keterulangan eksperimen, serta pencatatan hasil yang sistematis.
+
+Pendekatan kerangka evaluasi umum memberikan dukungan yang kuat terhadap struktur dan keterulangan, namun menuntut upaya perancangan arsitektur dan pengembangan perangkat lunak yang cukup besar. Beban tersebut berpotensi mengalihkan fokus dari tujuan utama penelitian, yaitu analisis empiris pengaruh \textit{user persona} terhadap penalaran, kualitas jawaban, dan kecenderungan \textit{human bias}.
+
+Pendekatan skrip eksperimen semi terotomatisasi berbasis konfigurasi memberikan keseimbangan yang lebih sesuai. Representasi model, persona, dan tugas dapat diatur dalam direktori konfigurasi yang terpisah dari kode, sementara skrip eksekusi dan analisis ditempatkan dalam direktori tersendiri. Keluaran eksperimen disimpan sebagai berkas JSON pada direktori log dan diolah lebih lanjut menjadi berkas CSV pada direktori hasil. Struktur ini mendukung konsistensi eksekusi, keterulangan eksperimen, dan analisis terukur tanpa memerlukan pembangunan kerangka evaluasi yang terlalu umum.
+
+Berdasarkan pertimbangan tersebut, penelitian ini memilih pendekatan skrip eksperimen semi terotomatisasi berbasis konfigurasi sebagai solusi utama untuk melaksanakan eksperimen \textit{multi model} dan \textit{multi persona}.
