@@ -6,92 +6,170 @@
 \label{chap:desain-konsep-solusi}
 
 Bab ini memaparkan rancangan konsep solusi yang diusulkan untuk menjawab permasalahan yang telah dianalisis pada bab sebelumnya. Berdasarkan hasil analisis pemilihan solusi, pendekatan yang digunakan dalam penelitian ini adalah pengembangan sistem eksperimen terotomatisasi berbasis konfigurasi. Pembahasan dalam bab ini mencakup desain konseptual eksperimen, perancangan arsitektur perangkat lunak atau \textit{evaluation pipeline}, serta spesifikasi implementasi data dan struktur berkas. Desain ini disusun untuk memenuhi kebutuhan fungsional terkait strukturisasi \textit{user persona} dan konsistensi eksekusi lintas model.
+% ==========================================
+
 %====== BAB IV.1 ======
 \section{Desain Konseptual Eksperimen}
 \label{sec:desain-konseptual}
 
-Bagian ini menjelaskan desain konseptual eksperimen yang digunakan untuk menilai pengaruh variasi \textit{user persona} terhadap pola respons model. Perancangan ini berfokus pada pengendalian variabel masukan, keseragaman prosedur evaluasi, serta pencatatan telemetri yang lengkap agar eksperimen dapat dijalankan secara konsisten dan direplikasi oleh peneliti lain.
+Perancangan eksperimen dalam penelitian ini bertujuan membangun sebuah mekanisme evaluasi yang deterministik, terukur, dan dapat direplikasi untuk menganalisis pengaruh \textit{user persona} terhadap perilaku model bahasa. Bagian ini menjelaskan landasan metodologis, keterbatasan pendekatan konvensional, rancangan sistem terotomatisasi, serta integrasi persona, model, dan \textit{benchmark} yang membentuk struktur eksperimen secara menyeluruh. Dengan demikian, hubungan antara desain konseptual dan analisis yang dilakukan pada bab selanjutnya menjadi lebih eksplisit.
 
-Eksperimen dirancang untuk menjawab dua kebutuhan utama. Pertama, kebutuhan akan metodologi yang mampu mengisolasi pengaruh persona dari faktor lain seperti variasi redaksional instruksi atau inkonsistensi proses pengujian \parencite{gupta2024biasrunsdeep}. Kedua, kebutuhan akan sistem yang mampu mengeksekusi jumlah kombinasi model, persona, dan soal yang besar tanpa intervensi manual, seraya tetap menghasilkan artefak data yang terstruktur dengan baik dan kompatibel untuk analisis lanjutan \parencite{tseng2024twotales,naous2025userlm}.
+\subsection{Keterbatasan Model Operasional Konvensional}
 
-\subsection{Pendekatan Evaluasi Konvensional}
-\label{subsec:existing-approach}
+Evaluasi berbasis interaksi manual melalui antarmuka percakapan masih menjadi praktik umum dalam penelitian persona dan perilaku model bahasa. Dalam pendekatan ini, instruksi persona dituliskan secara langsung ke dalam \textit{prompt} oleh peneliti untuk setiap percobaan. Meskipun tampak sederhana, pendekatan tersebut memiliki dua permasalahan metodologis utama yang menurunkan validitas internal eksperimen.
 
-Pendekatan umum dalam evaluasi persona pada model percakapan dilakukan secara manual melalui antarmuka interaktif. Peneliti menyisipkan instruksi persona dalam bentuk narasi, mengajukan pertanyaan satu per satu, lalu menyalin jawaban model secara manual ke dalam lembar kerja. Walaupun sederhana, pendekatan tersebut memiliki beberapa kelemahan mendasar.
+Permasalahan pertama ialah instabilitas masukan. Model bahasa menunjukkan sensitivitas tinggi terhadap variasi sintaksis dan pola penulisan; perubahan kecil seperti tanda baca, diksi, atau struktur kalimat dapat menghasilkan rantai penalaran yang berbeda, sebagaimana ditunjukkan oleh Turpin dan rekan \parencite{turpin2023language}. Ketergantungan pada pengetikan manual menyebabkan variasi tidak terkontrol sulit dihindari, sehingga efek persona sulit dipisahkan dari artefak sintaks.
 
-Pertama, kontrol terhadap masukan tidak stabil. Model diketahui sangat sensitif terhadap variasi kecil pada formulasi instruksi seperti panjang kalimat, pilihan diksi, atau posisi frasa tertentu \parencite{zhou2023largemodelsensitive}. Dalam praktik manual, variasi semacam ini sulit dihindari sehingga hasil evaluasi berpotensi tercampur oleh artefak redaksional.
+Permasalahan kedua ialah rendahnya granularitas data. Respons model yang direkam secara manual umumnya hanya mencakup teks keluaran tanpa metadata komputasional seperti durasi eksekusi dan jumlah token. Padahal, informasi tersebut penting sebagai indikator beban kognitif model serta performa penalaran berorientasi pengguna \parencite{naous2025userlm}. Keterbatasan ini mengurangi ketelitian analisis dan menghambat kemampuan reproduksi penelitian.
 
-Kedua, keluaran yang direkam biasanya terbatas pada jawaban verbal tanpa menyertakan metadata teknis seperti jumlah token, latensi, atau parameter konfigurasi. Padahal, penelitian mutakhir menunjukkan bahwa telemetri tersebut penting untuk memahami hubungan antara proses penalaran, beban komputasi, dan stabilitas keluaran \parencite{turpin2023language,bommasani2021opportunities}.
+\begin{figure}[htbp]
+  \centering
+  % \includegraphics{<file-gambar-existing>} % opsional jika ada ilustrasi
+  \caption{Model konseptual sistem eksperimen konvensional}
+  \label{fig:model-before}
+\end{figure}
 
-Ketiga, pendekatan manual tidak cocok untuk skala eksperimen yang besar. Ketika rentang kombinasi mencakup banyak persona, model, dan dua \textit{benchmark}, proses pencatatan menjadi tidak efisien serta rentan kesalahan.
+\subsection{Sistem Eksperimen Terotomatisasi}
 
-\subsection{Model Sistem Terorkestrasi yang Diusulkan}
-\label{subsec:proposed-system}
+Untuk mengatasi keterbatasan tersebut, penelitian ini merancang sistem eksperimen terotomatisasi dengan tiga prinsip utama, yaitu determinisme masukan berbasis konfigurasi, telemetri komprehensif, dan skalabilitas eksekusi.
 
-Untuk mengatasi keterbatasan tersebut, penelitian ini mengusulkan sistem eksperimen terorkestrasi berbasis \textit{evaluation pipeline}. Seluruh artefak, mulai dari persona, soal, hingga konfigurasi model, didefinisikan sebagai data terstruktur. Proses pembentukan instruksi dilakukan secara otomatis berdasarkan templat yang sama sehingga masukan yang diterima model konsisten pada seluruh kombinasi eksperimen.
+Pertama, determinisme masukan dicapai dengan menyimpan seluruh persona sebagai objek data statis dalam berkas konfigurasi. Setiap \textit{prompt} dibangun melalui proses injeksi terprogram sehingga model menerima stimulus yang identik hingga tingkat karakter. Pendekatan ini menghilangkan variasi akibat pengetikan manual dan memastikan bahwa perubahan keluaran model hanya berasal dari perbedaan persona.
 
-Sistem terorkestrasi ini dibangun atas tiga prinsip metodologis:
+Kedua, telemetri komprehensif diterapkan dengan mencatat seluruh respons model dalam berkas terstruktur yang memuat teks jawaban, panjang keluaran, jejak penalaran, jumlah token, serta latensi inferensi. Dengan demikian, kinerja linguistik dan komputasional dapat dianalisis secara simultan.
 
-\begin{enumerate}
-    \item \textbf{Determinisme masukan}.  
-    Instruksi persona tidak disusun secara manual, tetapi dikonstruksi melalui templat tetap yang menggabungkan narasi persona dan stimulus pertanyaan. Dengan demikian, seluruh model menerima masukan yang identik pada tingkat karakter.
+Ketiga, sistem memungkinkan eksekusi paralel melalui pemrosesan asinkron untuk menangani banyak permintaan secara bersamaan. Pendekatan ini meningkatkan cakupan eksperimen tanpa mengurangi ketelitian metodologis.
 
-    \item \textbf{Pencatatan telemetri multi-dimensi}.  
-    Keluaran model disimpan dalam berkas log yang memuat respons akhir, latensi, jumlah token, dan metadata eksekusi lainnya. Untuk model yang menyediakan \textit{reasoning trace}, elemen tersebut dicatat secara terpisah.
+Model konseptual sistem eksperimen terotomatisasi yang diusulkan ditunjukkan pada Gambar~\ref{fig:model-after}. Dalam penomoran dokumen, ilustrasi ini direferensikan sebagai Gambar~IV.2 \textit{Model Konseptual Sistem Eksperimen Terotomatisasi}.
 
-    \item \textbf{Skalabilitas eksekusi}.  
-    Pipeline mendukung eksekusi paralel dengan pengelolaan batas layanan sehingga seluruh kombinasi model–persona–soal dapat diproses dalam satu sesi tanpa interaksi manual.
-\end{enumerate}
-
-Desain terorkestrasi ini memungkinkan penelitian berjalan secara sistematis dan menghasilkan data yang dapat diaudit. Selain itu, pendekatan ini selaras dengan rekomendasi metodologis untuk eksperimen berskala besar pada sistem dialog modern \parencite{tseng2024twotales,weidinger2021ethical}.
+\begin{figure}[htbp]
+  \centering
+  % \includegraphics{<file-gambar-proposed>} % opsional jika ada ilustrasi
+  \caption{Model konseptual sistem eksperimen terotomatisasi}
+  \label{fig:model-after}
+\end{figure}
 
 \subsection{Analisis Komparatif Metodologis}
-\label{subsec:method-comparison}
 
-Tabel~\ref{tab:komparasi-metodologis} membandingkan pendekatan konvensional dan pendekatan terorkestrasi berdasarkan lima dimensi metodologis: kendali masukan, granularitas data, format penyimpanan, keterulangan, dan skalabilitas. Tabel ini bertujuan memberikan gambaran komprehensif mengenai peningkatan kualitas evaluasi yang dicapai melalui sistem yang diusulkan.
+Transformasi dari model konseptual \textit{Existing} ke \textit{Proposed} bukan sekadar peningkatan efisiensi operasional, melainkan juga peningkatan validitas metodologis penelitian. Tabel~\ref{tab:komparasi-metodologis} menyajikan analisis komparatif mendalam mengenai implikasi ilmiah dari kedua pendekatan tersebut yang ditinjau dari dimensi pengendalian variabel, integritas data, dan reproduktibilitas.
+
+Melalui desain ini, penelitian memastikan bahwa setiap kesimpulan mengenai bias atau perubahan penalaran yang ditarik pada bab hasil nantinya didasarkan pada data yang berintegritas tinggi, lengkap, dan diperoleh melalui prosedur yang dapat dipertanggungjawabkan secara ilmiah.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Analisis komparatif validitas metodologis}
+  \label{tab:komparasi-metodologis}
+  \renewcommand{\arraystretch}{1.28}
+  \small
+  \begin{tabularx}{\textwidth}{
+    >{\raggedright\arraybackslash}p{3.5cm}
+    >{\raggedright\arraybackslash}X
+    >{\raggedright\arraybackslash}X
+  }
+    \toprule
+    \textbf{Dimensi Analisis} &
+    \textbf{Sistem Konvensional (\textit{Existing})} &
+    \textbf{Sistem Usulan (\textit{Proposed})} \\
+    \midrule
+
+    Pengendalian variabel &
+    Stokastik; rentan terhadap gangguan input manual yang dapat mendistorsi kausalitas efek persona akibat sensitivitas \textit{framing}. &
+    Deterministik; konfigurasi statis dan injeksi otomatis menjamin isolasi variabel independen yang presisi dan konsisten. \\
+
+    Granularitas data &
+    Dangkal (tekstual); hanya menangkap hasil akhir sehingga kehilangan nuansa proses internal model seperti latensi dan efisiensi token. &
+    Dalam (telemetri); menangkap metadata performa yang mengindikasikan beban kognitif dari adopsi persona secara granular. \\
+
+    Format penyimpanan &
+    Tidak terstruktur; teks mentah dalam lembar kerja yang sulit diproses ulang secara komputasi dan rentan kesalahan salin. &
+    Terstruktur (JSON/CSV); data siap olah yang mendukung analisis statistik otomatis dan deteksi pola bias yang sistematis. \\
+
+    Reproduktibilitas &
+    Rendah; parameter eksperimen sering kali tidak terdokumentasi dengan baik sehingga menyulitkan verifikasi pihak ketiga. &
+    Tinggi; seluruh kondisi eksperimen terenkapsulasi dalam kode sumber dan berkas konfigurasi yang dapat diaudit dan dijalankan ulang. \\
+
+    Cakupan eksperimen &
+    Terbatas; kendala waktu eksekusi linear membatasi jumlah kombinasi model dan persona yang dapat diuji secara layak. &
+    Masif; mendukung evaluasi skala besar untuk memetakan perilaku model pada spektrum persona yang luas. \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\subsection{Integrasi Persona, Model, dan Benchmark}
+
+Bagian ini menjelaskan struktur persona, himpunan model, serta dua \textit{benchmark} penalaran yang digunakan dalam penelitian. Ketiga komponen tersebut menjadi fondasi konfigurasi eksperimen sehingga pengaruh persona terhadap penalaran model dapat dipetakan secara sistematis.
+
+\subsubsection{Benchmark Penalaran}
+
+Penelitian ini menggunakan dua \textit{benchmark} utama sebagai dasar evaluasi penalaran, yaitu GSM8K dan MMLU-Redux. Keduanya dipilih karena bersifat netral terhadap identitas sosial serta menyediakan format jawaban yang terstandarisasi sehingga memungkinkan isolasi pengaruh persona pada tahap instruksi sistem.
+
+Benchmark pertama adalah GSM8K, yaitu korpus soal cerita matematika tingkat sekolah menengah yang dirancang untuk mengevaluasi penalaran numerik bertahap \parencite{cobbe2021gsm8k}. Penelitian ini menggunakan berkas \texttt{gsm8k\_train.json} dan \texttt{gsm8k\_test.json} sebagai sumber data utama, yang telah diunduh dan dinormalisasi sesuai kebutuhan sistem. Seluruh soal mempertahankan struktur berpasangan antara pertanyaan dan jawaban numerik sehingga proses ekstraksi jawaban akhir dapat dilakukan secara deterministik.
+
+Benchmark kedua adalah MMLU-Redux, yaitu korpus pilihan ganda lintas domain yang telah dikurasi ulang oleh Edinburgh Dataset Analytics Working Group \parencite{mmluRedux2024dataset}. Versi Redux digunakan karena memperbaiki ketidakstabilan yang hadir pada MMLU asli, seperti inkonsistensi format, ambiguitas pilihan jawaban, dan perbedaan kualitas antardomain \parencite{hendryckstest2021}. Penelitian ini menggunakan berkas \texttt{mmlu\_redux.json} sebagai sumber data utama, yang berisi representasi terstruktur untuk seluruh subjek yang diujikan.
+
+Penggunaan kedua \textit{benchmark} tersebut sekaligus memungkinkan evaluasi dua jenis penalaran berbeda, yaitu penalaran numerik berbasis langkah dan penalaran konseptual berbasis pilihan ganda. Hal ini memberikan gambaran yang lebih komprehensif mengenai variasi perilaku model di bawah pengaruh persona.
+
+\subsubsection{Himpunan Model}
+
+Penelitian ini menggunakan tiga belas model bahasa yang mewakili dua kategori besar, yaitu model komersial berkinerja tinggi dan model publik atau sumber terbuka. Daftar lengkap model adalah sebagai berikut:
+
+\begin{enumerate}
+    \item Model komersial:
+    GPT-4.1, GPT-4.1 Mini, Claude 3.7 Sonnet, Claude 3.7 Haiku, 
+    Gemini 2.0 Flash Thinking, Gemini 2.0 Pro Experimental;
+
+    \item Model publik via OpenRouter:
+    Grok 4.1 Fast, NVIDIA Nemotron-nano-12B-v2-VL, Bert Nebulon Alpha.
+\end{enumerate}
+
+Keragaman arsitektur ini memungkinkan analisis komparatif lintas paradigma representasi dan karakteristik inferensi, mulai dari model \textit{frontier} komersial hingga model publik yang dapat diakses secara lebih luas.
+
+\subsubsection{Struktur Persona}
+
+Struktur persona disusun berdasarkan enam dimensi demografis dan stilistik, yaitu gender, usia, agama, pekerjaan, kewarganegaraan, dan register bahasa. Kombinasi dimensi tersebut menghasilkan lima belas persona eksplisit dan implisit, ditambah satu kondisi pengguna netral. Dua persona dasar implisit dirancang untuk menguji sensitivitas gender melalui gaya linguistik maskulin dan feminin tanpa deklarasi identitas eksplisit.
+
+Seluruh persona yang digunakan disajikan pada Tabel~\ref{tab:user-persona}.
 
 \begin{table}[htbp]
 \centering
-\caption{Perbandingan Metodologis antara Pendekatan Konvensional dan Sistem Terorkestrasi}
-\label{tab:komparasi-metodologis}
-\renewcommand{\arraystretch}{1.28}
-\small
+\caption{Daftar \textit{user persona} untuk kondisi eksperimen}
+\label{tab:user-persona}
+\renewcommand{\arraystretch}{1.15}
 
-\begin{tabularx}{\textwidth}{
-  >{\raggedright\arraybackslash}p{3.3cm}
-  X
-  X
-}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{c l l l l l l l}
 \toprule
-\textbf{Dimensi Analisis} &
-\textbf{Pendekatan Konvensional} &
-\textbf{Pendekatan Terorkestrasi} \\
+\textbf{ID} &
+\textbf{Persona} &
+\textbf{Mode} &
+\textbf{Gender} &
+\textbf{Age Group} &
+\textbf{Religion} &
+\textbf{Occupation} &
+\textbf{Nationality / Register} \\
 \midrule
-
-\textit{Input Control} &
-Formulasi instruksi dilakukan secara manual sehingga rawan variasi redaksional dan sulit direplikasi. &
-Instruksi dibentuk secara programatis menggunakan templat tetap sehingga seluruh masukan konsisten. \\
-
-\textit{Data Granularity} &
-Rekaman data umumnya hanya mencakup jawaban akhir tanpa latensi, jumlah token, atau struktur internal proses. &
-Log mencatat respons, latensi, token, dan \textit{reasoning trace} (jika tersedia) secara eksplisit. \\
-
-\textit{Storage Format} &
-Penyimpanan berbasis catatan manual atau lembar kerja sehingga kurang sesuai untuk analisis berskala besar. &
-Seluruh artefak dicatat dalam format JSON dan CSV yang mudah diproses ulang. \\
-
-\textit{Reproducibility} &
-Tidak semua kondisi eksperimen terdokumentasi sehingga sulit dijalankan ulang oleh peneliti lain. &
-Seluruh konfigurasi, templat persona, dan data benchmark didefinisikan secara eksplisit sehingga dapat direplikasi. \\
-
-\textit{Scalability} &
-Eksekusi linear dan mengandalkan interaksi manusia sehingga tidak efisien untuk jumlah kombinasi yang besar. &
-Mendukung eksekusi paralel dan \textit{queueing} terkontrol untuk pengujian skala besar. \\
+P1  & Implicit male baseline              & Implicit & Male   & --          & --       & --                & Neutral \\
+P2  & Implicit female baseline            & Implicit & Female & --          & --       & --                & Neutral \\
+P3  & Neutral user                        & Neutral  & --     & --          & --       & --                & Neutral \\
+P4  & Indonesian Muslim young woman       & Explicit & Female & Young adult & Muslim   & Healthcare worker & Indonesian / Semi-formal \\
+P5  & Indonesian Muslim young man         & Implicit & Male   & Young adult & Muslim   & Healthcare worker & Indonesian / Semi-formal \\
+P6  & American middle-aged male           & Explicit & Male   & Middle-aged & Christian & Engineer          & American / Formal \\
+P7  & American middle-aged female         & Implicit & Female & Middle-aged & Christian & Engineer          & American / Formal \\
+P8  & Indonesian Gen-Z female, casual     & Explicit & Female & Gen-Z       & --       & Student           & Indonesian / Casual--slang \\
+P9  & Indonesian Gen-Z male, casual       & Implicit & Male   & Gen-Z       & --       & Student           & Indonesian / Casual--slang \\
+P10 & Middle Eastern young adult male     & Explicit & Male   & Young adult & Muslim   & Engineer          & Middle Eastern Arabic-speaking / Formal \\
+P11 & Middle Eastern young adult female   & Implicit & Female & Young adult & Muslim   & Student           & Middle Eastern Arabic-speaking / Formal \\
+P12 & American atheist young male         & Explicit & Male   & Young adult & Atheist  & Student           & American / Formal \\
+P13 & American atheist young female       & Implicit & Female & Young adult & Atheist  & Student           & American / Formal \\
+P14 & Indonesian female healthcare worker & Explicit & Female & Young adult & Muslim   & Healthcare worker & Indonesian / Semi-formal \\
+P15 & Indonesian male healthcare worker   & Implicit & Male   & Young adult & Muslim   & Healthcare worker & Indonesian / Semi-formal \\
 \bottomrule
-\end{tabularx}
+\end{tabular}
+}
 \end{table}
 
-Secara keseluruhan, pendekatan terorkestrasi memberikan peningkatan yang signifikan dalam hal validitas internal, konsistensi eksekusi, dan kelengkapan data yang dihasilkan. Desain konseptual ini menjadi fondasi bagi implementasi pipeline yang dijelaskan pada bagian selanjutnya.
+\subsubsection{Konfigurasi Eksekusi}
+
+Kombinasi seluruh persona dan ketiga belas model menghasilkan ratusan konfigurasi eksperimen dengan variasi konteks sosial dan karakteristik arsitektur yang beragam. Setiap konfigurasi dieksekusi melalui empat tahap tetap, yaitu pemanasan persona, penetapan konteks percakapan, eksekusi \textit{benchmark}, dan pencatatan telemetri. Tahapan ini memastikan bahwa perubahan respons model dapat ditelusuri secara langsung dari variabel persona dan bukan dari faktor lain di luar kendali eksperimen.
 
 %====== BAB IV.2 ======
 \section{Perancangan Arsitektur Perangkat Lunak (\textit{Evaluation Pipeline})}
@@ -125,11 +203,49 @@ Dengan pembagian tersebut, pipeline dapat beroperasi secara modular namun tetap 
 \subsection{Algoritma Orkestrasi dan Konkurensi}
 \label{subsec:algoritma-orkestrasi}
 
-Jumlah kombinasi persona, model, dan \textit{benchmark tasks} menghasilkan volume permintaan yang sangat besar. Oleh karena itu, pipeline menerapkan mekanisme eksekusi asinkron untuk meningkatkan efisiensi pemrosesan.
+Eksperimen dalam penelitian ini melibatkan ribuan kombinasi persona–model–pertanyaan yang menghasilkan volume permintaan API dalam jumlah besar. Eksekusi secara sekuensial tidak praktis karena setiap permintaan memiliki latensi yang bervariasi, sementara penyedia model menerapkan batas \textit{rate limit} yang ketat. Untuk mengatasi hal tersebut, pipeline menggunakan pendekatan eksekusi asinkron berbasis \textit{I/O concurrency}.
 
-Pipeline pertama-tama membangun sebuah \textit{task queue} yang berisi seluruh pasangan persona–soal. Selanjutnya, \textit{task queue} diproses dalam kelompok yang ukurannya ditentukan oleh kapasitas \textit{concurrency}. Ketika satu kelompok tugas sedang diproses, sistem dapat menyiapkan kelompok berikutnya. Dengan demikian, waktu pemrosesan total dapat ditekan mendekati $O(N/C)$, di mana $N$ adalah jumlah permintaan dan $C$ adalah kapasitas konkurensi.
+Pendekatan ini memungkinkan banyak permintaan dieksekusi secara paralel (hingga batas tertentu), sehingga waktu total dapat ditekan dari kompleksitas \(O(N)\) menjadi mendekati \(O(N/C)\), dengan \(C\) adalah kapasitas konkurensi maksimum. Pipeline membangun sebuah \textit{task queue} yang berisi seluruh pasangan persona–soal, kemudian memprosesnya dalam kelompok (\textit{batch}) sesuai kapasitas konkurensi. Ketika satu batch sedang diproses, sistem dapat menyiapkan batch berikutnya tanpa menunggu seluruh permintaan selesai.
 
-Apabila terjadi kegagalan seperti \textit{timeout}, \textit{connection reset}, atau batas \textit{rate limit}, pipeline tidak langsung menghentikan seluruh proses. Sebaliknya, tugas tersebut dicatat dan dieksekusi ulang dengan \textit{exponential backoff}. Pendekatan ini membuat pipeline tetap stabil meskipun dijalankan dalam waktu yang panjang.
+Selain meningkatkan efisiensi waktu, mekanisme ini juga menyediakan ketahanan terhadap kesalahan. Jika terjadi galat seperti \textit{timeout}, \textit{connection reset}, atau \texttt{429 Too Many Requests}, pipeline tidak menghentikan seluruh proses. Tugas yang gagal akan dicatat dan dijalankan ulang menggunakan strategi \textit{exponential backoff}, memastikan stabilitas eksekusi jangka panjang.
+
+Algoritma 4.1 berikut mendefinisikan prosedur eksekusi paralel secara formal.
+
+\begin{verbatim}
+Algoritma 4.1: Prosedur Eksekusi Eksperimen Paralel
+
+Input : Himpunan Persona P, Himpunan Tugas T, Batas Konkurensi C
+Output: Himpunan Log L
+
+Function RunExperiment(P, T):
+  1. Inisialisasi Antrean Tugas Q <- Kosong
+  2. Untuk setiap p dalam P lakukan:
+       Untuk setiap t dalam T lakukan:
+         Prompt <- ConstructPrompt(p.instruction, t.question)
+         Enqueue(Q, Prompt)
+
+  3. Inisialisasi Semaphore S dengan kapasitas C
+
+  4. While Q tidak kosong lakukan secara Asinkron:
+       Batch <- DequeueBatch(Q, C)
+       Untuk setiap item i dalam Batch lakukan secara Paralel:
+         Acquire(S)
+         Coba:
+           Respons <- AsyncCallAPI(i.prompt, i.config)
+           Metadata <- ExtractTelemetry(Respons)
+           SaveLog(Respons, Metadata)
+           Tambahkan ke L
+         Tangkap Galat:
+           LogGalat(i)
+           RetryWithBackoff(i)
+         Akhirnya:
+           Release(S)
+
+  5. Return L
+\end{verbatim}
+
+Melalui orkestrasi ini, pipeline mencapai dua tujuan: (1) efisiensi waktu eksekusi yang optimal berkat pemrosesan paralel, dan (2) ketahanan proses melalui penanganan galat adaptif. Dengan demikian, seluruh kombinasi persona–model–benchmark dapat dieksekusi secara konsisten, stabil, dan dapat direproduksi.
+
 
 \subsection{Mekanisme Injeksi Konteks Persona}
 \label{subsec:mekanisme-injeksi}

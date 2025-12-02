@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2025.11.12)  3 DEC 2025 04:34
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2025.11.12)  3 DEC 2025 05:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1521,18 +1521,12 @@ Overfull \hbox (64.45271pt too wide) in paragraph at lines 308--313
 \tf@toc=\write6
 \openout6 = `ProposalTA.toc'.
 
- [4] (./ProposalTA.lof)
+ [4] [5] (./ProposalTA.lof)
 \tf@lof=\write7
 \openout7 = `ProposalTA.lof'.
 
- [5] (./ProposalTA.lot
-Overfull \hbox (3.78922pt too wide) in paragraph at lines 94--94
- [][] [][][]\TU/TimesNewRoman(0)/m/n/12 Perbandingan Metodologis antara Pendeka
-tan Konvensional dan Sis- 
- []
-
-
-Overfull \hbox (0.91518pt too wide) in paragraph at lines 95--95
+ [6] (./ProposalTA.lot
+Overfull \hbox (0.91518pt too wide) in paragraph at lines 90--90
  [][] [][][]\TU/TimesNewRoman(0)/m/n/12 Ringkasan Hasil Eksperimen GSM8K untuk 
 Seluruh Model dan Per- 
  []
@@ -1541,7 +1535,7 @@ Seluruh Model dan Per-
 \tf@lot=\write8
 \openout8 = `ProposalTA.lot'.
 
- [6] (./ProposalTA.lol)
+ [7] (./ProposalTA.lol)
 \tf@lol=\write9
 \openout9 = `ProposalTA.lol'.
 
@@ -1598,7 +1592,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\z@skip' on input line 360.
 
-[7
+[8
 
 ] (./Bab I - Pendahuluan.tex
 Bab I.
@@ -1687,58 +1681,40 @@ Overfull \hbox (47.99997pt too wide) in paragraph at lines 157--195
 Bab IV.
 [31
 
-] [32]
-Underfull \hbox (badness 4242) in paragraph at lines 91--91
-\TU/TimesNewRoman(0)/m/n/10.95 gramatis menggunakan tem-
+]
+
+LaTeX Warning: Reference `fig:model-after' on page 32 undefined on input line 4
+2.
+
+[32] [33] [34] [35] [36]
+Overfull \hbox (28.19656pt too wide) in paragraph at lines 206--207
+\TU/TimesNewRoman(0)/m/n/12 Eksperimen dalam penelitian ini melibatkan ribuan k
+ombinasi persona–model–pertanyaan
  []
 
-
-Underfull \hbox (badness 2790) in paragraph at lines 91--91
-\TU/TimesNewRoman(0)/m/n/10.95 tanpa latensi, jumlah token,
+[37] [38]
+Overfull \hbox (14.73512pt too wide) in paragraph at lines 247--248
+\TU/TimesNewRoman(0)/m/n/12 nganan galat adaptif. Dengan demikian, seluruh komb
+inasi persona–model–benchmark
  []
 
-
-Underfull \hbox (badness 3482) in paragraph at lines 91--91
-[]|\TU/TimesNewRoman(0)/m/n/10.95 Penyimpanan berbasis catat-
- []
-
-
-Underfull \hbox (badness 2689) in paragraph at lines 91--91
-[]|\TU/TimesNewRoman(0)/m/n/10.95 Seluruh konfigurasi, templat
- []
-
-
-Underfull \hbox (badness 2245) in paragraph at lines 91--91
-\TU/TimesNewRoman(0)/m/n/10.95 didefinisikan secara eksplisit
- []
-
-
-Underfull \hbox (badness 1383) in paragraph at lines 91--91
-\TU/TimesNewRoman(0)/m/n/10.95 dalkan interaksi manusia se-
- []
-
-
-Underfull \hbox (badness 2809) in paragraph at lines 91--91
-[]|\TU/TimesNewRoman(0)/m/n/10.95 Mendukung eksekusi paralel
- []
-
-[33] [34] [35] [36] [37]
-Overfull \hbox (2.90816pt too wide) in paragraph at lines 193--195
+[39] [40]
+Overfull \hbox (2.90816pt too wide) in paragraph at lines 309--311
 []\TU/TimesNewRoman(0)/m/it/12 Analysis subsystem\TU/TimesNewRoman(0)/m/n/12 . 
 Mengolah log mentah menjadi tabel terstruktur dan meng-
  []
 
-[38]
-Overfull \hbox (15.32825pt too wide) in paragraph at lines 259--259
+[41]
+Overfull \hbox (15.32825pt too wide) in paragraph at lines 375--375
 [] \TU/lmtt/m/n/10 "run": {"model_id": "example-model-reason", "question_id": "
 gsm8k_00003"},[] 
  []
 
-) (./Bab V - Rencana-Selanjutnya.tex [39] [40]
+[42]) (./Bab V - Rencana-Selanjutnya.tex [43]
 Bab V.
-) [41
+) [44
 
-] [42
+] [45
 
 
 ]
@@ -1755,14 +1731,10 @@ he International Conference on Machine Learning, \TU/TimesNewRoman(0)/m/n/12 12
  []
 
 
-Package caption Warning: Unused \captionsetup[figure] on input line 382.
-See the caption package documentation for explanation.
-
-
 Package caption Warning: Unused \captionsetup[lstlisting] on input line 385.
 See the caption package documentation for explanation.
 
-[43] (./ProposalTA.aux)
+[46] (./ProposalTA.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -1772,7 +1744,7 @@ L3 programming layer <2024-01-22>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `ProposalTA.out' has not changed.
-(rerunfilecheck)             Checksum: FE6A117160018ADBBB62B8406D0B97D4;13951.
+(rerunfilecheck)             Checksum: DDCE56AAB2F2353CDBBD96FC92C2F3AB;14872.
 
 Package biblatex Warning: Please rerun LaTeX.
 
@@ -1781,12 +1753,12 @@ Package logreq Info: Writing requests to 'ProposalTA.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 46153 strings out of 474878
- 959233 string characters out of 5762515
- 2294108 words of memory out of 5000000
- 67541 multiletter control sequences out of 15000+600000
- 564862 words of font info for 91 fonts, out of 8000000 for 9000
+ 46159 strings out of 474878
+ 959402 string characters out of 5762515
+ 2297981 words of memory out of 5000000
+ 67544 multiletter control sequences out of 15000+600000
+ 564878 words of font info for 93 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 83i,10n,93p,1199b,6191s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 83i,10n,93p,1199b,6187s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on ProposalTA.xdv (51 pages, 993900 bytes).
+Output written on ProposalTA.xdv (55 pages, 1070072 bytes).
