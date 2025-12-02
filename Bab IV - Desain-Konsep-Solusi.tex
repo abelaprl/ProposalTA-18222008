@@ -1,9 +1,421 @@
 % ==========================================
 % BAB IV DESAIN KONSEP SOLUSI
 % ==========================================
+
 \chapter{DESAIN KONSEP SOLUSI}
 \label{chap:desain-konsep-solusi}
-Ilustrasikan desain konsep solusi dalam bentuk model konseptual dan penjelasan secara ringkas, 
-beserta perbedaannya dengan sistem saat ini. Ilustrasi harus dapat dibandingkan (\textit{before} and \textit{after}). 
-Karena masih berupa proposal, bab ini hanya berisi gambar desain konsep solusi tersebut dan 
-penjelasan perbandingannya dengan gambar sistem yang ada saat ini (yang tergambar di awal Bab \ref{chap:analisis-masalah}).
+
+Bab ini memaparkan rancangan konsep solusi yang diusulkan untuk menjawab permasalahan yang telah dianalisis pada bab sebelumnya. Berdasarkan hasil analisis pemilihan solusi, pendekatan yang digunakan dalam penelitian ini adalah pengembangan sistem eksperimen terotomatisasi berbasis konfigurasi. Pembahasan dalam bab ini mencakup desain konseptual eksperimen, perancangan arsitektur perangkat lunak atau \textit{evaluation pipeline}, serta spesifikasi implementasi data dan struktur berkas. Desain ini disusun untuk memenuhi kebutuhan fungsional terkait strukturisasi \textit{user persona} dan konsistensi eksekusi lintas model.
+
+\section{Desain Konseptual Eksperimen}
+\label{sec:desain-konseptual}
+
+Perancangan arsitektur eksperimen pada penelitian ini didasarkan pada urgensi untuk mentransformasi mekanisme evaluasi \textit{Large Language Model} (LLM) dari pendekatan eksploratif yang bersifat \textit{ad-hoc} menjadi suatu sistem orkestrasi yang deterministik dan terukur. Subbab ini menguraikan model konseptual dari sistem yang dirancang serta menyajikan analisis komparatif kritis terhadap validitas metodologis antara pendekatan konvensional dan pendekatan terotomatisasi yang diusulkan. Fokus analisis diletakkan pada aspek integritas pengendalian variabel input serta granularitas akuisisi data output.
+
+\subsection{Dekonstruksi Model Operasional Konvensional (\textit{Existing Model})}
+\label{subsec:existing-model}
+
+Berdasarkan analisis kondisi saat ini, lanskap evaluasi pengaruh atribut pengguna terhadap model bahasa masih didominasi oleh pendekatan operasional yang mengandalkan eksekusi manual atau semi-otomatis. Dalam model ini, interaksi dengan model dilakukan melalui antarmuka percakapan atau \textit{conversational interface} di mana \textit{persona} disisipkan sebagai bagian dari teks instruksi atau \textit{prompt} secara manual untuk setiap sesi pengujian.
+
+Dari perspektif riset yang ketat, model operasional ini mengandung dua cacat metodologis fundamental yang mengancam validitas internal eksperimen. Kelemahan pertama berkaitan dengan instabilitas variabel kontrol atau \textit{input noise}. Validitas eksperimen sangat bergantung pada kemampuan peneliti mengisolasi variabel independen, yaitu variasi \textit{user persona}. Namun, literatur menunjukkan bahwa LLM memiliki sensitivitas ekstrem terhadap variasi sintaksis. Turpin et al. \parencite{turpin2023language} membuktikan bahwa perubahan minor pada \textit{prompt framing} dapat memicu deviasi signifikan pada rantai penalaran model atau \textit{Chain-of-Thought}. Dalam metode manual, inkonsistensi pengetikan instruksi seperti perbedaan spasi, tanda baca, atau pemilihan diksi merupakan variabel pengganggu atau \textit{confounding variable} yang sulit dihindari. Kondisi ini berisiko menimbulkan bias eksperimental karena perubahan respons model tidak sepenuhnya disebabkan oleh karakteristik \textit{persona}, melainkan oleh artefak input yang tidak disengaja.
+
+Kelemahan kedua terletak pada defisit observabilitas atau \textit{data granularity}. Metode konvensional memiliki keterbatasan dalam merekam telemetri komputasi internal model karena umumnya hanya menangkap teks jawaban akhir atau \textit{completion text} yang disalin ke lembar kerja manual. Metadata krusial seperti latensi inferensi dan jumlah token sering kali luput dari pencatatan. Akibatnya, peneliti kehilangan visibilitas terhadap beban kognitif model, seperti apakah \textit{persona} tertentu menyebabkan model membutuhkan waktu komputasi lebih lama atau menghasilkan uraian yang lebih panjang. Padahal, metrik tersebut merupakan indikator penting dalam analisis bias dan evaluasi model pengguna sebagaimana disarankan oleh Naous et al. \parencite{naous2025userlm}.
+
+\begin{figure}[htbp]
+  \centering
+  % Placeholder untuk Gambar 4.1
+  % \includegraphics[width=0.8\textwidth]{figures/conceptual-before} 
+  \caption{Model Konseptual Sistem Eksperimen Konvensional}
+  \label{fig:model-before}
+\end{figure}
+
+\subsection{Konstruksi Model Sistem Terotomatisasi (\textit{Proposed Model})}
+\label{subsec:proposed-model}
+
+Guna memitigasi defisiensi metodologis tersebut, penelitian ini merekayasa model sistem eksperimen yang sepenuhnya terotomatisasi atau \textit{fully automated pipeline} dengan arsitektur berbasis data. Paradigma ini menggeser fokus penelitian dari sekadar interaksi percakapan menjadi orkestrasi data yang presisi. Desain konseptual sistem ini dibangun di atas tiga pilar utama yang menjamin rigoritas ilmiah.
+
+Pilar pertama adalah penerapan determinisme input berbasis konfigurasi. Sistem ini meniadakan variabilitas input manusia dengan memperlakukan \textit{persona} sebagai objek data statis yang didefinisikan dalam berkas konfigurasi berekstensi JSON. Sistem melakukan injeksi konteks secara terprogram atau \textit{programmatic injection} untuk memastikan bahwa setiap model menerima stimulus yang identik secara \textit{byte-level}. Pendekatan ini secara efektif mengeliminasi \textit{framing bias} yang tidak diinginkan, sehingga setiap variasi pada keluaran dapat diasosiasikan secara kausal dengan variabel \textit{persona} yang sedang diuji.
+
+Pilar kedua adalah akuisisi telemetri multi-dimensi. Berbeda dengan pencatatan manual yang hanya bersifat tekstual, sistem usulan dirancang untuk menangkap spektrum data yang lengkap. Respons model disimpan sebagai objek data terstruktur yang memuat dimensi linguistik berupa teks jawaban dan jejak penalaran atau \textit{reasoning trace} untuk keperluan analisis kualitatif. Selain itu, sistem menangkap dimensi komputasional berupa metadata penggunaan token dan durasi eksekusi. Data ini memungkinkan analisis korelasi antara \textit{persona} dengan efisiensi penalaran model. Sistem juga merekam dimensi konfigurasi berupa parameter model yang digunakan saat eksekusi guna menjamin aspek \textit{reproducibility}.
+
+Pilar ketiga adalah skalabilitas eksekusi paralel. Mengingat kebutuhan untuk mengevaluasi matriks kombinasi yang kompleks antara berbagai model, \textit{persona} baik eksplisit maupun implisit, dan tugas penalaran, sistem dirancang menggunakan arsitektur pemrosesan asinkron. Hal ini memungkinkan sistem mengirimkan permintaan ke berbagai API model secara serentak untuk mengatasi kendala waktu yang melekat pada metode serial konvensional.
+
+\begin{figure}[htbp]
+  \centering
+  % Placeholder untuk Gambar 4.2
+  % \includegraphics[width=0.9\textwidth]{figures/conceptual-after} 
+  \caption{Model Konseptual Sistem Eksperimen Terotomatisasi}
+  \label{fig:model-after}
+\end{figure}
+
+\subsection{Analisis Komparatif Metodologis}
+\label{subsec:komparasi-metodologis}
+
+Transformasi dari model konseptual \textit{Existing} ke \textit{Proposed} bukan sekadar peningkatan efisiensi operasional, melainkan peningkatan validitas penelitian. Tabel \ref{tab:komparasi-metodologis} menyajikan analisis komparatif mendalam mengenai implikasi ilmiah dari kedua pendekatan tersebut yang ditinjau dari dimensi pengendalian variabel, integritas data, dan reproduktibilitas.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Analisis Komparatif Validitas Metodologis}
+  \label{tab:komparasi-metodologis}
+  \renewcommand{\arraystretch}{1.3} 
+  \begin{tabular}{p{3.5cm}p{5.5cm}p{5.5cm}}
+    \toprule
+    \textbf{Dimensi Analisis} & \textbf{Sistem Konvensional (\textit{Existing})} & \textbf{Sistem Usulan (\textit{Proposed})} \\
+    \midrule
+    \textit{Pengendalian Variabel} & \textit{Stokastik.} Rentan terhadap gangguan input manual yang dapat mendistorsi kausalitas efek \textit{persona} akibat sensitivitas \textit{framing}. & \textit{Deterministik.} Konfigurasi statis dan injeksi otomatis menjamin isolasi variabel independen yang presisi dan konsisten. \\
+    \midrule
+    \textit{Granularitas Data} & \textit{Dangkal (Tekstual).} Hanya menangkap hasil akhir sehingga kehilangan nuansa proses internal model seperti latensi dan efisiensi token. & \textit{Dalam (Telemetri).} Menangkap metadata performa yang mengindikasikan beban kognitif dari adopsi \textit{persona} secara granular. \\
+    \midrule
+    \textit{Format Penyimpanan} & \textit{Tidak Terstruktur.} Teks mentah dalam lembar kerja yang sulit diproses ulang secara komputasi dan rentan kesalahan salin. & \textit{Terstruktur (JSON/CSV).} Data siap olah yang mendukung analisis statistik otomatis dan deteksi pola bias yang sistematis. \\
+    \midrule
+    \textit{Reproduktibilitas} & \textit{Rendah.} Parameter eksperimen sering kali tidak terdokumentasi dengan baik sehingga menyulitkan verifikasi pihak ketiga. & \textit{Tinggi.} Seluruh kondisi eksperimen terenkapsulasi dalam kode sumber dan berkas konfigurasi yang dapat diaudit dan dijalankan ulang. \\
+    \midrule
+    \textit{Cakupan Eksperimen} & \textit{Terbatas.} Kendala waktu eksekusi linear membatasi jumlah kombinasi model dan \textit{persona} yang dapat diuji secara layak. & \textit{Masif.} Mendukung evaluasi skala besar untuk memetakan perilaku model pada spektrum \textit{persona} yang luas. \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Melalui desain ini, penelitian memastikan bahwa setiap kesimpulan mengenai bias atau perubahan penalaran yang ditarik nantinya didasarkan pada data yang berintegritas tinggi, lengkap, dan diperoleh melalui prosedur yang dapat dipertanggungjawabkan secara ilmiah.
+
+\section{Perancangan Arsitektur Perangkat Lunak (\textit{Evaluation Pipeline})}
+\label{sec:perancangan-pipeline}
+
+Realisasi dari desain konseptual sistem eksperimen diwujudkan melalui pengembangan \textit{Evaluation Pipeline}, sebuah kerangka kerja perangkat lunak yang berfungsi sebagai orkestrator eksekusi pengujian. Subbab ini menjabarkan spesifikasi teknis dari alur kerja sistem, algoritma orkestrasi, mekanisme manipulasi data instruksi, serta strategi manajemen ketahanan sistem. Perancangan ini difokuskan untuk memenuhi kebutuhan fungsional terkait otomatisasi pengujian serta kebutuhan non-fungsional terkait efisiensi waktu, skalabilitas, dan integritas pencatatan data.
+
+\subsection{Arsitektur Alur Kerja Sistem}
+\label{subsec:arsitektur-alur-kerja}
+
+Secara fungsional, arsitektur perangkat lunak dirancang menggunakan pendekatan modular yang memisahkan logika pemrosesan data atau \textit{data processing} dari logika komunikasi jaringan atau \textit{network communication}. Alur kerja sistem dibagi menjadi empat komponen sekuensial yang saling berinteraksi untuk membentuk satu siklus eksperimen yang utuh.
+
+\begin{enumerate}
+    \item \textit{Inisialisasi dan validasi konfigurasi.} \\
+    Komponen ini bertindak sebagai gerbang awal yang bertanggung jawab memuat seluruh aset data statis ke dalam memori. Sistem membaca berkas definisi \textit{persona} dan \textit{dataset} tugas penalaran, kemudian melakukan validasi skema data secara ketat. Proses validasi tersebut memastikan bahwa setiap objek \textit{persona} memiliki atribut instruksi yang tidak kosong dan setiap butir soal memiliki struktur pertanyaan serta kunci jawaban yang valid. Mekanisme deteksi dini ini diterapkan guna mencegah kegagalan proses di tengah eksekusi yang berpotensi membuang sumber daya komputasi.
+
+    \item \textit{Mesin konstruksi instruksi atau prompt engine.} \\
+    Unit pemrosesan ini berfungsi mentransformasi data mentah menjadi objek pesan yang siap dikirimkan ke model. Penggabungan string dilakukan antara atribut \textit{persona} dan atribut pertanyaan berdasarkan templat pesan standar. Pada tahap ini, parameter operasional yang bersifat statis, seperti batas maksimum token keluaran, turut disematkan untuk menjamin bahwa kondisi eksperimen tetap terkendali dan konsisten di seluruh iterasi pengujian.
+
+    \item \textit{Pengelola eksekusi atau execution dispatcher.} \\
+    Tanggung jawab utama dari subsistem ini adalah mengelola komunikasi dengan antarmuka pemrograman aplikasi (API) dari berbagai penyedia model bahasa. Mengingat volume permintaan yang masif, manajemen antrean tugas diterapkan untuk mengatur distribusi muatan pesan ke jaringan secara efisien tanpa membebani \textit{bandwidth}.
+
+    \item \textit{Pencatat telemetri atau telemetry logger.} \\
+    Berbeda dengan metode pencatatan konvensional yang hanya menyimpan teks luaran, komponen pelaporan ini dirancang untuk menangkap aliran data respons secara utuh. Metadata teknis, meliputi durasi latensi eksekusi dan statistik penggunaan token, diekstrak dan disimpan ke dalam sistem berkas lokal secara \textit{real-time}. Pendekatan penulisan langsung ini diadopsi untuk memitigasi risiko kehilangan data apabila terjadi terminasi program secara tidak terduga.
+\end{enumerate}
+
+\subsection{Algoritma Orkestrasi dan Konkurensi}
+\label{subsec:algoritma-orkestrasi}
+
+Tantangan skalabilitas dalam eksperimen ini diatasi melalui implementasi algoritma eksekusi asinkron atau \textit{asynchronous execution}. Dalam paradigma pemrograman sekuensial tradisional, sistem harus menunggu satu permintaan selesai diproses sebelum mengirimkan permintaan berikutnya, yang mengakibatkan akumulasi waktu tunggu atau \textit{latency} yang besar. Sebagai solusi, pendekatan konkurensi I/O atau \textit{I/O Concurrency} diterapkan untuk mengoptimalkan penggunaan waktu.
+
+Untuk memperjelas logika orkestrasi tersebut, prosedur eksekusi eksperimen didefinisikan secara formal melalui Algoritma 4.1 berikut. Algoritma ini menjabarkan bagaimana penanganan konkurensi dilakukan untuk memproses himpunan \textit{persona} ($P$) dan himpunan tugas ($T$) secara efisien dengan batasan \textit{rate limit} ($C$).
+
+\begin{verbatim}
+Algoritma 4.1: Prosedur Eksekusi Eksperimen Paralel
+
+Input : Himpunan Persona P, Himpunan Tugas T, Batas Konkurensi C
+Output: Himpunan Log L
+
+Function RunExperiment(P, T):
+  1. Inisialisasi Antrean Tugas Q <- Kosong
+  2. Untuk setiap p dalam P lakukan:
+       Untuk setiap t dalam T lakukan:
+         Prompt <- ConstructPrompt(p.instruction, t.question)
+         Enqueue(Q, Prompt)
+
+  3. Inisialisasi Semaphore S dengan kapasitas C
+  4. While Q tidak kosong lakukan secara Asinkron:
+       Batch <- DequeueBatch(Q, C)
+       Untuk setiap item i dalam Batch lakukan secara Paralel:
+         Acquire(S)
+         Coba:
+           Respons <- AsyncCallAPI(i.prompt, i.config)
+           Metadata <- ExtractTelemetry(Respons)
+           SaveLog(Respons, Metadata)
+           Tambahkan ke L
+         Tangkap Galat:
+           LogGalat(i)
+           RetryWithBackoff(i)
+         Akhirnya:
+           Release(S)
+  5. Return L
+\end{verbatim}
+
+Algoritma di atas menunjukkan bahwa eksekusi sekuensial dengan kompleksitas waktu $O(N)$ telah digantikan dengan pemanfaatan \textit{semaphore} untuk mengelola konkurensi, sehingga kompleksitas waktu eksekusi dapat ditekan mendekati $O(N/C)$ di mana $C$ adalah kapasitas \textit{throughput} API.
+
+\subsection{Spesifikasi Mekanisme Injeksi Konteks}
+\label{subsec:mekanisme-injeksi}
+
+Integritas validitas internal eksperimen sangat bergantung pada kemampuan sistem dalam mengisolasi variabel independen, yaitu \textit{persona}, dari variabel tugas. Untuk mencapai isolasi ini, diterapkan spesifikasi injeksi konteks berbasis peran atau \textit{role-based injection} yang memanfaatkan struktur protokol pesan pada \textit{Large Language Model} modern.
+
+Definisi \textit{persona} dipetakan ke dalam segmen \textit{System Message}. Segmen ini berfungsi sebagai instruksi tingkat tinggi yang mendefinisikan identitas, nada bicara, dan batasan perilaku model. Dengan menempatkan \textit{persona} pada posisi ini, kondisi kognitif model secara efektif dikunci sebelum memproses informasi lainnya. Isi dari segmen tersebut bersifat statis untuk satu varian \textit{persona} tertentu, menjamin bahwa \textit{framing} identitas tidak berubah sepanjang sesi eksperimen.
+
+Sebaliknya, materi uji dari \textit{benchmark} seperti GSM8K atau MMLU ditempatkan pada segmen \textit{User Message}. Segmen ini diperlakukan sebagai stimulus eksternal yang harus direspons oleh model sesuai dengan identitas yang telah ditanamkan sebelumnya. Pemisahan semantik antara \textit{System} dan \textit{User} ini mencegah terjadinya kebocoran konteks atau \textit{context leakage} di mana instruksi tugas bercampur aduk dengan instruksi identitas, sehingga memungkinkan penarikan kesimpulan kausal yang lebih kuat mengenai pengaruh \textit{persona} terhadap performa penalaran.
+
+\subsection{Mekanisme Toleransi Kesalahan dan Persistensi Status}
+\label{subsec:toleransi-kesalahan}
+
+Mengingat durasi eksperimen yang panjang dan ketergantungan pada layanan jaringan eksternal, penerapan arsitektur tahan kegagalan atau \textit{fault-tolerant architecture} menjadi elemen krusial untuk menjamin keberhasilan pengumpulan data. Implementasi mekanisme ini didasarkan pada dua pilar utama, yaitu persistensi status atau \textit{state persistence} dan pemulihan otomatis atau \textit{automated recovery}.
+
+\begin{enumerate}
+    \item \textit{Mekanisme checkpointing.} \\
+    Sebuah subsistem pemantau atau \textit{checkpoint monitor} diimplementasikan untuk menyimpan status eksekusi ke dalam penyimpanan lokal secara periodik. Setiap kali sebuah tugas berhasil diselesaikan dan log-nya tersimpan, indeks penanda atau \textit{cursor} pada berkas pelacakan diperbarui. Hal ini menjamin sifat \textit{idempotency} pada sistem, di mana jika proses terhenti akibat kegagalan daya atau gangguan jaringan fatal, eksekusi ulang sistem tidak akan menduplikasi permintaan yang sudah berhasil, melainkan secara cerdas melanjutkan proses atau \textit{resume} dari indeks tugas terakhir yang belum selesai.
+
+    \item \textit{Strategi penanganan galat transien.} \\
+    Untuk menangani kegagalan jaringan yang bersifat sementara atau \textit{transient errors}, seperti \textit{timeout} atau kode status HTTP 429 yang menandakan \textit{Too Many Requests}, strategi \textit{Exponential Backoff} diterapkan. Ketika galat terdeteksi, proses tidak langsung dihentikan, melainkan dilakukan penundaan eksekusi dengan durasi yang meningkat secara eksponensial ($t = base \times 2^n$) sebelum mencoba mengirimkan ulang permintaan. Mekanisme ini mencegah pembebanan berlebih pada server API sekaligus meningkatkan probabilitas keberhasilan permintaan pada percobaan berikutnya.
+\end{enumerate}
+
+\section{Implementasi Data dan Struktur Berkas}
+\label{sec:implementasi-data}
+
+Bagian ini menguraikan realisasi fisik dari perancangan sistem yang mencakup spesifikasi struktur direktori proyek, implementasi modul perangkat lunak, serta skema data atau \textit{data schema} yang digunakan. Implementasi ini dirancang untuk menjamin integritas data eksperimen dan mendukung prinsip keterulangan riset atau \textit{reproducibility}, di mana seluruh artefak data diorganisasikan secara sistematis untuk memfasilitasi audit dan analisis lanjutan.
+
+\subsection{Organisasi Direktori Proyek}
+\label{subsec:organisasi-direktori}
+
+Implementasi sistem diorganisasikan dalam struktur direktori hierarkis yang memisahkan kode sumber, konfigurasi, data mentah, dan hasil keluaran guna menjaga modularitas sistem. Struktur direktori proyek didefinisikan sebagai berikut:
+
+\begin{enumerate}
+    \item \textit{Direktori akar.} \\
+    Memuat skrip orkestrator utama dan utilitas eksekusi lainnya yang menjadi titik masuk aplikasi. Direktori ini berfungsi sebagai lapisan kontrol tempat pengguna memulai jalannya eksperimen.
+
+    \item \textit{Direktori config.} \\
+    Direktori ini menyimpan seluruh konfigurasi teknis sistem, termasuk pengaturan kredensial API (\textit{Application Programming Interface}) untuk penyedia model seperti Moonshot AI atau OpenRouter. Pemisahan konfigurasi sensitif dari kode sumber utama dilakukan untuk menjaga keamanan dan memudahkan penyesuaian parameter lingkungan tanpa mengubah logika program.
+
+    \item \textit{Direktori inputs.} \\
+    Berfungsi sebagai penyimpanan sentral untuk seluruh aset data statis yang diperlukan sebelum eksperimen dijalankan. Di dalamnya terdapat sub-direktori atau berkas untuk definisi \textit{persona} serta \textit{dataset benchmark} standar seperti GSM8K dan MMLU-Redux yang telah divalidasi formatnya.
+
+    \item \textit{Direktori results.} \\
+    Direktori ini merupakan pusat penyimpanan seluruh artefak keluaran eksperimen. Di dalamnya terdapat sub-direktori \texttt{logs} yang menyimpan hasil eksekusi atau \textit{runtime logs} per sesi secara granular dalam format JSON. Selain itu, direktori ini juga menyimpan hasil analisis teragregasi dan laporan akhir dalam format tabel yang dihasilkan dari pemrosesan data log tersebut.
+
+    \item \textit{Direktori src.} \\
+    Memuat seluruh kode sumber perangkat lunak (\textit{source code}) yang ditulis dalam bahasa Python. Di dalamnya terdapat modul-modul fungsional seperti orkestrator eksekusi, klien API, pemantau status, dan mesin analisis data.
+\end{enumerate}
+
+\subsection{Implementasi Modul Perangkat Lunak}
+\label{subsec:implementasi-modul}
+
+Logika sistem diimplementasikan ke dalam serangkaian skrip yang diklasifikasikan menjadi empat subsistem fungsional utama untuk memisahkan tanggung jawab pemrosesan.
+
+\begin{enumerate}
+    \item \textit{Subsistem orkestrasi eksekusi.} \\
+    Subsistem ini berfungsi sebagai mesin utama yang menggerakkan alur eksperimen. Modul orkestrator bertugas memuat konfigurasi dari direktori \textit{config} dan data dari \textit{inputs}, membentuk antrean tugas, dan mendistribusikan beban kerja ke unit pemrosesan. Selain itu, terdapat modul eksekusi spesifik yang menangani inisialisasi parameter untuk penyedia model tertentu.
+
+    \item \textit{Subsistem komunikasi antarmuka.} \\
+    Interaksi dengan model bahasa ditangani oleh modul pembungkus klien atau \textit{client wrapper}. Modul ini mengenkapsulasi kompleksitas komunikasi jaringan, termasuk pembentukan pesan JSON, otentikasi menggunakan kunci dari direktori \textit{config}, dan penanganan respons. Sebelum eksperimen dimulai, modul validasi koneksi dijalankan untuk memverifikasi validitas kredensial dan aksesibilitas \textit{endpoint}.
+
+    \item \textit{Subsistem pemantauan dan utilitas.} \\
+    Subsistem ini menjamin stabilitas proses melalui mekanisme pemulihan bencana. Modul pemantau status atau \textit{checkpoint monitor} menyimpan kemajuan eksperimen secara berkala, memungkinkan pemulihan proses dari titik terakhir jika terjadi interupsi. Selain itu, modul pelaporan kemajuan menyediakan visibilitas terhadap status penyelesaian tugas asinkron.
+
+    \item \textit{Subsistem analisis data.} \\
+    Setelah data terkumpul di dalam direktori \textit{results/logs}, modul analisis melakukan evaluasi komprehensif terhadap log hasil eksperimen. Modul ini dilengkapi dengan logika \textit{parsing} jawaban kompleks untuk mengekstrak nilai numerik atau pilihan ganda dari respons model, serta melakukan agregasi metrik multidimensi. Hasil evaluasi kemudian ditransformasi oleh modul generator laporan menjadi format tabular standar di direktori \textit{results}.
+\end{enumerate}
+
+\subsection{Spesifikasi Artefak Data}
+\label{subsec:spesifikasi-artefak}
+
+Integritas eksperimen dijaga melalui standarisasi format data masukan dan keluaran. Spesifikasi data dibagi menjadi dua kategori entitas utama.
+
+Pertama, \textit{spesifikasi data masukan}. Sistem menerima definisi \textit{persona} dalam format JSON yang memuat atribut pengenal unik dan teks instruksi sistem. Data tugas penalaran juga distandarisasi dalam format JSON yang memuat pasangan atribut pertanyaan dan jawaban referensi. Modul pengunduh data secara otomatis menormalisasi format dataset asli dari sumber eksternal menjadi skema yang kompatibel dengan sistem ini.
+
+Kedua, \textit{spesifikasi data keluaran}. Setiap interaksi model direkam dalam berkas log JSON granular yang disimpan di sub-direktori \textit{results/logs}. Skema log ini dirancang untuk menangkap telemetri lengkap yang mencakup empat komponen informasi utama: metadata eksekusi yang berisi parameter model, audit input yang menyimpan salinan \textit{prompt} lengkap, respons model berupa teks jawaban mentah, dan statistik penggunaan yang merinci jumlah token dan latensi waktu. Ketersediaan data granular ini memungkinkan analisis mendalam mengenai dampak beban komputasi dari adopsi \textit{persona} secara presisi.
+
+\subsection{Ilustrasi Berkas Data Eksperimen}
+\label{subsec:ilustrasi-data}
+
+Untuk memberikan gambaran konkret mengenai implementasi data yang dibahas sebelumnya, berikut disajikan contoh nyata dari berkas masukan dan keluaran yang digunakan dalam sistem.
+
+\subsubsection{Contoh Konfigurasi Persona}
+Berkas \texttt{persona\_echo.json} pada Kode \ref{lst:persona-echo} merepresentasikan struktur definisi \textit{persona} implisit yang digunakan sebagai masukan. Data ini memuat atribut sumber asal, identitas numerik, dan teks narasi yang mengandung nuansa gaya bahasa pengguna. Sementara itu, Kode \ref{lst:persona-warmup} menunjukkan bagaimana definisi tersebut ditransformasi menjadi instruksi sistem (\textit{system prompt}) yang siap diinjeksikan ke model.
+
+\begin{figure}[htbp]
+\begin{verbatim}
+{
+  "implicit_persona": {
+    "source_file": "inputs/implicits_woman_promt.json",
+    "id": 1,
+    "text": "Lately I’ve been feeling a strange mix of emotional exhaustion...
+             I’ve been adjusting my skincare routine over and over...
+             It’s frustrating how something so small can affect my confidence..."
+  }
+}
+\end{verbatim}
+\caption{Definisi Persona Implisit pada \texttt{persona\_echo.json}}
+\label{lst:persona-echo}
+\end{figure}
+
+\begin{figure}[htbp]
+\begin{verbatim}
+{
+  "system_prompt": "The user implicitly expresses the following context and concerns: 
+                    Lately I’ve been feeling a strange mix of emotional exhaustion...
+                    [...konteks dilanjutkan...]
+                    Before I get back to dealing with it, could you help me...",
+  "user_prompt": "I appreciate you listening. Before we start, please acknowledge...",
+  "response": {
+    "choices": [
+      {
+        "message": {
+          "role": "assistant",
+          "content": "I hear you clearly. Dealing with persistent skin issues..."
+        }
+      }
+    ]
+  }
+}
+\end{verbatim}
+\caption{Struktur Injeksi Konteks pada \texttt{persona\_warmup.json}}
+\label{lst:persona-warmup}
+\end{figure}
+
+\subsubsection{Contoh Log Keluaran GSM8K}
+Berkas \texttt{gsm8k\_00001.json} (Kode \ref{lst:gsm8k-01}) dan \texttt{gsm8k\_00003.json} (Kode \ref{lst:gsm8k-03}) menunjukkan hasil eksekusi tugas penalaran matematika. Log ini merekam metadata model (\texttt{model\_id}), latensi (\texttt{latency\_sec}), serta jejak penalaran (\textit{reasoning trace}) yang dihasilkan oleh model.
+
+\begin{figure}[htbp]
+\begin{verbatim}
+{
+  "run": {
+    "model_id": "openrouter/bert-nebulon-alpha",
+    "question_id": "gsm8k_00001",
+    "latency_sec": 5.935
+  },
+  "input": {
+    "question": "Janet’s ducks lay 16 eggs per day... How much...",
+    "gold_answer": "Janet sells 16 - 3 - 4 = 9... #### 18"
+  },
+  "response": {
+    "choices": [
+      {
+        "message": {
+          "content": "Let's break down the problem step by step...
+                      1. Total eggs laid per day: 16...
+                      Final answer: 18"
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 211,
+      "completion_tokens": 197
+    }
+  }
+}
+\end{verbatim}
+\caption{Contoh Log Eksekusi \texttt{gsm8k\_00001.json}}
+\label{lst:gsm8k-01}
+\end{figure}
+
+\begin{figure}[htbp]
+\begin{verbatim}
+{
+  "run": {
+    "model_id": "nvidia/nemotron-nano-12b-v2-vl:free",
+    "question_id": "gsm8k_00003",
+    "latency_sec": 15.833
+  },
+  "response": {
+    "choices": [
+      {
+        "message": {
+          "content": "Josh's total cost is $80,000 + $50,000 = $130,000...
+                       70000",
+          "reasoning": "Okay, let's see. Josh bought a house for $80,000..."
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 202,
+      "completion_tokens": 867
+    }
+  }
+}
+\end{verbatim}
+\caption{Contoh Log Eksekusi \texttt{gsm8k\_00003.json} dengan \textit{Reasoning Trace}}
+\label{lst:gsm8k-03}
+\end{figure}
+
+Perbedaan struktur log pada Kode \ref{lst:gsm8k-03} menunjukkan kemampuan sistem untuk menangkap atribut tambahan seperti \texttt{reasoning} (teks pemikiran internal) yang tersedia pada model-model tertentu seperti Nvidia Nemotron, yang krusial untuk analisis transparansi penalaran.\section{Rancangan Evaluasi dan Metrik}
+\label{sec:rancangan-evaluasi}
+
+Tahap akhir dari desain solusi adalah penetapan mekanisme evaluasi untuk mengukur dampak variasi \textit{user persona} terhadap perilaku model. Rancangan ini mendefinisikan metrik kuantitatif yang digunakan untuk menilai performansi penalaran dan efisiensi komputasi, serta spesifikasi format data analisis yang dihasilkan untuk keperluan uji statistik.
+
+\subsection{Metrik Performansi Penalaran}
+\label{subsec:metrik-performansi}
+
+Evaluasi kualitas jawaban model didasarkan pada ketepatan hasil akhir atau \textit{accuracy} terhadap kunci jawaban yang tersedia dalam \textit{dataset}. Mengingat format keluaran model bahasa yang bersifat generatif dan tidak terstruktur, mekanisme evaluasi menerapkan logika pencocokan pola atau \textit{pattern matching} yang ketat.
+
+\begin{enumerate}
+    \item \textit{Akurasi jawaban numerik.} \\
+    Untuk tugas penalaran matematika seperti pada \textit{dataset} GSM8K, metrik utama yang digunakan adalah \textit{Exact Match} pada nilai numerik akhir. Sistem analisis mengekstrak angka terakhir yang dihasilkan model setelah penanda khusus, kemudian membandingkannya dengan nilai kunci jawaban. Jika nilai tersebut identik secara matematis, maka respons dianggap benar (bernilai 1), sebaliknya dianggap salah (bernilai 0).
+
+    \item \textit{Akurasi jawaban pilihan ganda.} \\
+    Untuk tugas pengetahuan umum seperti pada MMLU-Redux, evaluasi dilakukan dengan mendeteksi pemilihan opsi jawaban (A, B, C, atau D). Sistem memvalidasi apakah model secara eksplisit memilih opsi yang sesuai dengan kebenaran dasar atau \textit{ground truth}. Akurasi dihitung sebagai persentase jawaban benar dari total pertanyaan yang diajukan untuk setiap kombinasi model dan \textit{persona}.
+\end{enumerate}
+
+\subsection{Metrik Efisiensi Komputasi}
+\label{subsec:metrik-efisiensi}
+
+Selain akurasi, penelitian ini juga mengevaluasi dampak \textit{persona} terhadap beban komputasi model. Indikator efisiensi diukur melalui dua parameter telemetri utama yang direkam selama eksperimen berlangsung.
+
+\begin{enumerate}
+    \item \textit{Verbositas dan penggunaan token ternormalisasi.} \\
+    Metrik ini mengukur jumlah token yang dihasilkan model dalam menjawab sebuah pertanyaan tugas atau \textit{completion tokens}. Untuk menjamin validitas perbandingan antar-\textit{persona}, dilakukan mekanisme normalisasi dalam perhitungan token. Token yang dialokasikan untuk fase inisialisasi atau \textit{warm-up} serta token \textit{echo} dieksklusi secara total. Pengukuran hanya difokuskan pada token yang dibangkitkan untuk menjawab soal \textit{benchmark}. Pendekatan ini memastikan bahwa metrik efisiensi secara murni merefleksikan biaya kognitif model dalam menyelesaikan masalah.
+
+    \item \textit{Latensi inferensi tugas.} \\
+    Waktu yang dibutuhkan model untuk menghasilkan respons penuh diukur dalam satuan detik. Serupa dengan perhitungan token, latensi yang diukur adalah durasi waktu eksekusi spesifik untuk menjawab pertanyaan \textit{benchmark}. Peningkatan latensi pada \textit{persona} tertentu dapat mengindikasikan bahwa model memerlukan upaya komputasi yang lebih tinggi untuk menyelaraskan respons dengan batasan peran yang diberikan.
+\end{enumerate}
+
+\subsection{Format Data Analisis}
+\label{subsec:format-analisis}
+
+Untuk memfasilitasi analisis komparatif yang komprehensif, data log mentah ditransformasi menjadi format tabular terstruktur. Berdasarkan implementasi sistem, struktur data hasil dibagi menjadi dua tingkat granularitas.
+
+\begin{enumerate}
+    \item \textit{Data hasil granular.} \\
+    Berkas ini menyimpan rekam jejak setiap butir soal secara mendetail sebagaimana terlihat pada berkas \textit{grok\_4\_1\_results.csv}. Atribut kolom mencakup identitas pertanyaan (\textit{Question ID}), \textit{persona} yang digunakan, status kebenaran jawaban (\textit{Correct}), serta telemetri per pertanyaan yang meliputi latensi (\textit{Latency}) dan jumlah token jawaban (\textit{Completion Tokens}).
+
+    \item \textit{Data hasil teragregasi.} \\
+    Berkas ringkasan seperti \textit{summary\_all\_models.csv} digunakan untuk perbandingan tingkat tinggi. Atribut kolom mencakup dimensi eksperimen yaitu nama model dan tipe \textit{persona} (eksplisit/implisit), serta metrik rata-rata yang terdiri dari \textit{Accuracy}, \textit{Average Latency}, dan \textit{Average Token Usage}.
+\end{enumerate}
+
+\subsection{Ilustrasi Data Hasil Eksperimen}
+\label{subsec:ilustrasi-hasil}
+
+Untuk memberikan gambaran konkret mengenai bentuk data yang dihasilkan oleh sistem evaluasi, Tabel \ref{tab:contoh-hasil-granular} menyajikan sampel data hasil granular yang diekstraksi dari hasil pengujian model Grok 4.1 pada tugas GSM8K. Tabel ini memperlihatkan bagaimana variasi \textit{persona} memengaruhi latensi dan penggunaan token pada soal yang berbeda.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Sampel Data Hasil Granular (Grok 4.1)}
+  \label{tab:contoh-hasil-granular}
+  \renewcommand{\arraystretch}{1.2}
+  \small
+  \begin{tabular}{l l c c c}
+    \toprule
+    \textit{Question ID} & \textit{Persona} & \textit{Correct} & \textit{Latency (s)} & \textit{C. Tokens} \\
+    \midrule
+    gsm8k\_00001 & Neutral & TRUE & 4.21 & 180 \\
+    gsm8k\_00001 & Explicit Man & TRUE & 4.50 & 195 \\
+    gsm8k\_00002 & Neutral & FALSE & 3.80 & 140 \\
+    gsm8k\_00002 & Explicit Man & TRUE & 5.10 & 210 \\
+    \bottomrule
+  \end{tabular}
+  \vspace{0.2cm}
+  \\ \footnotesize{\textit{Keterangan: C. Tokens merujuk pada Completion Tokens.}}
+\end{table}
+
+Sementara itu, Tabel \ref{tab:contoh-hasil-agregasi} menampilkan format data teragregasi yang digunakan untuk analisis komparatif antar-model sebagaimana terdapat pada berkas \textit{summary\_all\_models.csv}.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Sampel Data Hasil Teragregasi (Ringkasan)}
+  \label{tab:contoh-hasil-agregasi}
+  \renewcommand{\arraystretch}{1.2}
+  \small
+  \begin{tabular}{l l c c c}
+    \toprule
+    \textit{Model} & \textit{Persona} & \textit{Accuracy} & \textit{Avg Latency} & \textit{Avg Tokens} \\
+    \midrule
+    Grok 4.1 & Neutral & 0.88 & 4.5s & 180 \\
+    Grok 4.1 & Explicit Man & 0.89 & 4.6s & 175 \\
+    Bert Nebulon & Neutral & 0.72 & 3.2s & 140 \\
+    Bert Nebulon & Explicit Man & 0.70 & 3.5s & 155 \\
+    \bottomrule
+  \end{tabular}
+\end{table}

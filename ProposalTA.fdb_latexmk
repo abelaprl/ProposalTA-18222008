@@ -1,17 +1,17 @@
 # Fdb version 4
-["biber ProposalTA"] 1763878985.54375 "ProposalTA.bcf" "ProposalTA.bbl" "ProposalTA" 1763885073.03951 0
-  "ProposalTA.bcf" 1763885071.45793 205995 cfd1355071bc546c7f09f0c4b85c487c "xelatex"
+["biber ProposalTA"] 1764644552.44949 "ProposalTA.bcf" "ProposalTA.bbl" "ProposalTA" 1764661300.41545 0
+  "ProposalTA.bcf" 1764661299.19168 206080 235315070ecc981a079c8de09d3c5c63 "xelatex"
   "daftar-pustaka.bib" 1763874566.9474 5419 2622b8e0132a1faf1d6426364be8bb66 ""
   (generated)
   "ProposalTA.bbl"
   "ProposalTA.blg"
   (rewritten before read)
-["xdvipdfmx"] 1763885071.84558 "ProposalTA.xdv" "ProposalTA.pdf" "ProposalTA" 1763885073.07168 0
-  "ProposalTA.xdv" 1763885071.48559 911644 3ec4067f3abfbdb808cfa4c6057bffbd "xelatex"
+["xdvipdfmx"] 1764661299.83892 "ProposalTA.xdv" "ProposalTA.pdf" "ProposalTA" 1764661300.43538 0
+  "ProposalTA.xdv" 1764661299.21966 1102828 461936695df8e6ca777879c66c14f2c6 "xelatex"
   (generated)
   "ProposalTA.pdf"
   (rewritten before read)
-["xelatex"] 1763885064.25322 "ProposalTA.tex" "ProposalTA.xdv" "ProposalTA" 1763885073.04571 0
+["xelatex"] 1764661293.68781 "ProposalTA.tex" "ProposalTA.xdv" "ProposalTA" 1764661300.41887 0
   "/etc/texmf/web2c/texmf.cnf" 1762933463.62717 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
@@ -22,16 +22,17 @@
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm" 1246382020 908 2921f8a10601f252058503cc6570e581 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm" 1246382020 940 228d6584342e91276bf566bcf9716b83 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmex10.tfm" 1136768653 992 662f679a0b3d2d53c1b94050fdaa3f50 ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm" 1136768653 1528 abec98dbc43e172678c11b3b9031252a ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm" 1136768653 1524 4414a8315f39513458b80dfc63bff03a ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm" 1136768653 1512 f21f83efb36853c0b70002322c1ab3ad ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm" 1136768653 1520 eccf95517727cb11801f4f1aee3a21b4 ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr10.tfm" 1136768653 1296 45809c5a464d5f32c8f98ba97c1bb47f ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr12.tfm" 1136768653 1288 655e228510b4c2a1abe905c368440826 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr6.tfm" 1136768653 1300 b62933e007d01cfd073f79b963c01526 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr8.tfm" 1136768653 1292 21c1c5bfeaebccffdb478fd231a0997d ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm" 1136768653 1124 6c73e740cf17375f03eec0ee63599741 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1136768653 1116 933a60c408fc0a863a92debe84b2d294 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1136768653 1120 8b7d695260f3cff42e636090a8002094 ""
-  "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm" 1136768653 768 1321e9409b4137d6fb428ac9dc956269 ""
   "/usr/share/texlive/texmf-dist/tex/generic/atbegshi/atbegshi.sty" 1575674566 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
   "/usr/share/texlive/texmf-dist/tex/generic/babel-indonesian/indonesian.ldf" 1487196713 4814 bc90f6c96cffebc2efe652744059e6e7 ""
   "/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty" 1704662920 150008 7a05b0fdc0167c04e192003e780ab195 ""
@@ -135,7 +136,6 @@
   "/usr/share/texlive/texmf-dist/tex/latex/lipsum/lipsum.sty" 1632168149 14690 c2c754218a7108db7823a4839c1bc3cd ""
   "/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg" 1677530001 1829 d8258b7d94f5f955e70c623e525f9f45 ""
   "/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty" 1677530001 80947 75a96bb4c9f40ae31d54a01d924df2ff ""
-  "/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty" 1677530001 205154 31132370016e8c97e49bc3862419679b ""
   "/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty" 1677530001 77021 d05e9115c67855816136d82929db8892 ""
   "/usr/share/texlive/texmf-dist/tex/latex/logreq/logreq.def" 1284153563 1620 fb1c32b818f2058eca187e5c41dfae77 ""
   "/usr/share/texlive/texmf-dist/tex/latex/logreq/logreq.sty" 1284153563 6187 b27afc771af565d3a9ff1ca7d16d0d46 ""
@@ -153,22 +153,20 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/web2c/xetex/xelatex.fmt" 1762933535 10846519 6b1bfb4c12635fdd3916d5ea0669f58c ""
   "Bab I - Pendahuluan.tex" 1763282427.88228 12153 471db6688db39e13e7fdc31a954a9202 ""
-  "Bab II - Studi-Literatur.tex" 1763293550.99282 46877 f5faa788b97a0093fac6f9ee99e5552d ""
+  "Bab II - Studi-Literatur.tex" 1764414920.19946 33861 329b6ea63a27fd92b2325b799ae56883 ""
   "Bab III - Analisis-Masalah.tex" 1763885054.35261 20723 855052bc3659c072bb53104d04f13020 ""
-  "Bab IV - Desain-Konsep-Solusi.tex" 1762746839.24734 624 c65591445ca2ba2483afff6f3e703f89 ""
+  "Bab IV - Desain-Konsep-Solusi.tex" 1764661284.16748 35146 370ba7939ac3c19b38094dafb9c8e50b ""
   "Bab V - Rencana-Selanjutnya.tex" 1762746839.24734 678 eec1b664bdd37dff5b15ad7d7307f337 ""
-  "ProposalTA.aux" 1763885071.19607 21026 7c732e31e35ed2df2f341ac3ec1dc14f "xelatex"
-  "ProposalTA.bbl" 1763878986.80856 32295 d1a3f1e40255dda15b55e500c42857bc "biber ProposalTA"
-  "ProposalTA.lof" 1763885071.47966 3198 025514e43e310e0e922d7205d4ed07d0 "xelatex"
-  "ProposalTA.lol" 1763885071.48293 210 9bd60a5c3c1a23ccbf2679ab99544b50 "xelatex"
-  "ProposalTA.lot" 1763885071.48127 4363 5a0247408237a3470f763b2c0b1a861f "xelatex"
-  "ProposalTA.out" 1763885071.43932 13668 33313ce66a8e7781b1b69eabaaadf4a1 "xelatex"
-  "ProposalTA.run.xml" 1763885071.47451 2420 9a5185985474368acd6b7888e88dbccf "xelatex"
+  "ProposalTA.aux" 1764661299.00466 23276 b0428c70f5d19d9cacc4043303aa3668 "xelatex"
+  "ProposalTA.bbl" 1764644554.31105 32295 d1a3f1e40255dda15b55e500c42857bc "biber ProposalTA"
+  "ProposalTA.lof" 1764661299.21418 3798 f51ee702f81946d723dba00334b80810 "xelatex"
+  "ProposalTA.lol" 1764661297.85568 0 d41d8cd98f00b204e9800998ecf8427e "xelatex"
+  "ProposalTA.lot" 1764661299.21618 4065 195832ded59bcd527f1f2f606d2229af "xelatex"
+  "ProposalTA.out" 1764661299.17536 15045 6806bd96d7a85c21fdbac9dae0b01591 "xelatex"
+  "ProposalTA.run.xml" 1764661299.20771 2420 213a90b5970b004a123579c946b55427 "xelatex"
   "ProposalTA.tex" 1763276969.53024 12749 9e62b9d8c8147f6a269bb1a3de6f9949 ""
-  "ProposalTA.toc" 1763885071.47748 9167 2149d07d856497a62a40d3c5e860f79f "xelatex"
-  "image/gambar1.png" 1762746839.26207 307807 00ac1a189b214fb803a9c675fe502af8 ""
+  "ProposalTA.toc" 1764661299.21121 9908 757e6c6399cc862ce2433419dcbb55f4 "xelatex"
   "image/ganesha.jpg" 1762746839.26207 204312 0727b11a021a00ed8072dfbbb26b807b ""
-  "table/tabel1.tex" 1762746839.26207 425 a9ef616ea781b22049ec2a8262475eac ""
   (generated)
   "ProposalTA.aux"
   "ProposalTA.bcf"

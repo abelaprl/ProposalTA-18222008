@@ -324,20 +324,18 @@ INPUT Bab I - Pendahuluan.tex
 INPUT ./Bab II - Studi-Literatur.tex
 INPUT ./Bab II - Studi-Literatur.tex
 INPUT Bab II - Studi-Literatur.tex
-INPUT ./image/gambar1.png
-INPUT ./image/gambar1.png
-INPUT ./image/gambar1.png
-INPUT table/tabel1.tex
-INPUT /usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
-INPUT /usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
-INPUT /usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
 INPUT ./Bab III - Analisis-Masalah.tex
 INPUT ./Bab III - Analisis-Masalah.tex
 INPUT Bab III - Analisis-Masalah.tex
 INPUT ./Bab IV - Desain-Konsep-Solusi.tex
 INPUT ./Bab IV - Desain-Konsep-Solusi.tex
 INPUT Bab IV - Desain-Konsep-Solusi.tex
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT ./Bab V - Rencana-Selanjutnya.tex
 INPUT ./Bab V - Rencana-Selanjutnya.tex
 INPUT Bab V - Rencana-Selanjutnya.tex
