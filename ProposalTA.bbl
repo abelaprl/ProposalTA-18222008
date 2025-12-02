@@ -154,7 +154,6 @@
       \field{journaltitle}{arXiv preprint arXiv:2110.14168}
       \field{title}{Training Verifiers to Solve Math Word Problems}
       \field{year}{2021}
-      \true{nocite}
       \verb{urlraw}
       \verb https://arxiv.org/abs/2110.14168
       \endverb
@@ -181,13 +180,14 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://huggingface.co/datasets/edinburgh-dawg/mmlu-redux-2.0}}
-      \field{note}{Subset MMLU yang dianotasi ulang secara manual untuk 57 subjek, 100 soal per subjek}
-      \field{title}{MMLU-Redux-2.0}
+      \field{note}{Versi kurasi ulang MMLU dengan 57 subjek dan 100 butir soal per subjek}
+      \field{title}{MMLU-Redux 2.0 Dataset}
       \field{year}{2024}
-      \true{nocite}
     \endentry
     \entry{gema2024arewedonewithmmlu}{article}{}
-      \name{author}{16}{}{%
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{4}{}{%
         {{un=0,uniquepart=base,hash=803a176789012d90ca1fc47c830658c6}{%
            family={Gema},
            familyi={G\bibinitperiod},
@@ -212,88 +212,13 @@
            given={Alessio},
            giveni={A\bibinitperiod},
            givenun=0}}%
-        {{un=0,uniquepart=base,hash=764de898f598f1f6026f02b6fb42f1de}{%
-           family={Mancino},
-           familyi={M\bibinitperiod},
-           given={Alberto\bibnamedelimb Carlo\bibnamedelima Maria},
-           giveni={A\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=fab92377de997ef3de1fc25622b5f2f0}{%
-           family={Saxena},
-           familyi={S\bibinitperiod},
-           given={Rohit},
-           giveni={R\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=74b462f1986d64aeabd7f6ba3432f9a6}{%
-           family={He},
-           familyi={H\bibinitperiod},
-           given={Xuanli},
-           giveni={X\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=26500c0e7c5f37a79d71416c4c641ba2}{%
-           family={Zhao},
-           familyi={Z\bibinitperiod},
-           given={Yu},
-           giveni={Y\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=272112bf0ec91d69160b4857a464c8f0}{%
-           family={Du},
-           familyi={D\bibinitperiod},
-           given={Xiaotang},
-           giveni={X\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=df8e957eb62b70d77f5ddb1e1cdb3678}{%
-           family={Madani},
-           familyi={M\bibinitperiod},
-           given={Mohammad\bibnamedelimb Reza\bibnamedelima Ghasemi},
-           giveni={M\bibinitperiod\bibinitdelim R\bibinitperiod\bibinitdelim G\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=16dc9fa4b5cd09845b4ef3e2229be4f5}{%
-           family={Barale},
-           familyi={B\bibinitperiod},
-           given={Claire},
-           giveni={C\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=8da60e48fe8d1d61d6c572df8c4d3587}{%
-           family={McHardy},
-           familyi={M\bibinitperiod},
-           given={Robert},
-           giveni={R\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=c9258408733de8a545f7cf31d81c7f72}{%
-           family={Harris},
-           familyi={H\bibinitperiod},
-           given={Joshua},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=23a8ea9c6f25b1531cc38eb463c1d550}{%
-           family={Kaddour},
-           familyi={K\bibinitperiod},
-           given={Jean},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=1c62903fdf5180219db944dbe542fdca}{%
-           family={Krieken},
-           familyi={K\bibinitperiod},
-           given={Emile},
-           giveni={E\bibinitperiod},
-           givenun=0,
-           prefix={van},
-           prefixi={v\bibinitperiod},
-           prefixun=0}}%
-        {{un=0,uniquepart=base,hash=e8d1908d388d36a47ec7f364ee6d8389}{%
-           family={Minervini},
-           familyi={M\bibinitperiod},
-           given={Pasquale},
-           giveni={P\bibinitperiod},
-           givenun=0}}%
       }
       \strng{namehash}{c96601b0b6d8e28d1b4c86fbc96b0d94}
-      \strng{fullhash}{7fd934614eac9dea72180fe116667abf}
-      \strng{bibnamehash}{db0830f27d04a36768ea06dba328b41f}
-      \strng{authorbibnamehash}{db0830f27d04a36768ea06dba328b41f}
+      \strng{fullhash}{61000b55739e7e7e26d576de2e3a1422}
+      \strng{bibnamehash}{61000b55739e7e7e26d576de2e3a1422}
+      \strng{authorbibnamehash}{61000b55739e7e7e26d576de2e3a1422}
       \strng{authornamehash}{c96601b0b6d8e28d1b4c86fbc96b0d94}
-      \strng{authorfullhash}{7fd934614eac9dea72180fe116667abf}
+      \strng{authorfullhash}{61000b55739e7e7e26d576de2e3a1422}
       \field{sortinit}{G}
       \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
       \field{extradatescope}{labelyear}
@@ -435,10 +360,9 @@
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{author}
-      \field{journaltitle}{Proceedings of the International Conference on Learning Representations}
+      \field{journaltitle}{International Conference on Learning Representations}
       \field{title}{Measuring Massive Multitask Language Understanding}
       \field{year}{2021}
-      \true{nocite}
       \verb{urlraw}
       \verb https://arxiv.org/abs/2009.03300
       \endverb
