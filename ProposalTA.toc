@@ -1,7 +1,7 @@
 \babel@toc {indonesian}{}\relax 
-\contentsline {chapter}{DAFTAR GAMBAR}{vi}{figure.caption.1}%
-\contentsline {chapter}{DAFTAR TABEL}{vii}{figure.caption.1}%
-\contentsline {chapter}{\centering \normalsize DAFTAR KODE}{viii}{chapter*.2}%
+\contentsline {chapter}{DAFTAR GAMBAR}{v}{figure.caption.1}%
+\contentsline {chapter}{DAFTAR TABEL}{vi}{figure.caption.1}%
+\contentsline {chapter}{\centering \normalsize DAFTAR KODE}{vii}{chapter*.2}%
 \contentsline {chapter}{\numberline {I}PENDAHULUAN}{1}{chapter.1}%
 \contentsline {section}{\numberline {I.1}Latar Belakang}{1}{section.1.1}%
 \babel@toc {english}{}\relax 
@@ -115,42 +115,28 @@
 \contentsline {subsection}{\numberline {III.3.2}Analisis Penentuan Solusi}{29}{subsection.3.3.2}%
 \contentsline {chapter}{\numberline {IV}DESAIN KONSEP SOLUSI}{31}{chapter.4}%
 \contentsline {section}{\numberline {IV.1}Desain Konseptual Eksperimen}{31}{section.4.1}%
-\contentsline {subsection}{\numberline {IV.1.1}Keterbatasan Model Operasional Konvensional}{31}{subsection.4.1.1}%
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\contentsline {subsection}{\numberline {IV.1.2}Sistem Eksperimen Terotomatisasi}{32}{subsection.4.1.2}%
-\contentsline {subsection}{\numberline {IV.1.3}Analisis Komparatif Validitas Metodologis}{33}{subsection.4.1.3}%
-\contentsline {subsection}{\numberline {IV.1.4}Integrasi Persona, Model, dan Benchmark}{33}{subsection.4.1.4}%
-\contentsline {subsubsection}{\numberline {IV.1.4.1}Benchmark Penalaran}{33}{subsubsection.4.1.4.1}%
+\contentsline {subsection}{\numberline {IV.1.1}Dekonstruksi Model Operasional Konvensional}{31}{subsection.4.1.1}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\contentsline {subsubsection}{\numberline {IV.1.4.2}Himpunan Model}{34}{subsubsection.4.1.4.2}%
-\contentsline {subsubsection}{\numberline {IV.1.4.3}Struktur Persona}{34}{subsubsection.4.1.4.3}%
-\contentsline {subsubsection}{\numberline {IV.1.4.4}Konfigurasi Eksekusi}{35}{subsubsection.4.1.4.4}%
-\contentsline {section}{\numberline {IV.2}Perancangan Arsitektur Perangkat Lunak (\textit {Evaluation Pipeline})}{35}{section.4.2}%
-\contentsline {subsection}{\numberline {IV.2.1}Arsitektur Alur Kerja Sistem}{35}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {IV.2.2}Algoritma Orkestrasi dan Konkurensi}{36}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {IV.2.3}Spesifikasi Mekanisme Injeksi Konteks}{38}{subsection.4.2.3}%
-\contentsline {subsection}{\numberline {IV.2.4}Mekanisme Toleransi Kesalahan dan Persistensi Status}{38}{subsection.4.2.4}%
-\contentsline {section}{\numberline {IV.3}Implementasi Data dan Struktur Berkas}{39}{section.4.3}%
-\contentsline {subsection}{\numberline {IV.3.1}Organisasi Direktori Proyek}{39}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {IV.3.2}Implementasi Modul Perangkat Lunak}{40}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {IV.3.3}Spesifikasi Artefak Data}{41}{subsection.4.3.3}%
-\contentsline {subsection}{\numberline {IV.3.4}Ilustrasi Berkas Data Eksperimen}{41}{subsection.4.3.4}%
-\contentsline {subsubsection}{\numberline {IV.3.4.1}Contoh Konfigurasi Persona}{41}{subsubsection.4.3.4.1}%
-\contentsline {subsubsection}{\numberline {IV.3.4.2}Contoh Log Keluaran GSM8K}{42}{subsubsection.4.3.4.2}%
-\contentsline {section}{\numberline {IV.4}Rancangan Evaluasi dan Metrik}{45}{section.4.4}%
-\contentsline {subsection}{\numberline {IV.4.1}Metrik Performansi Penalaran}{45}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {IV.4.2}Metrik Efisiensi Komputasi}{45}{subsection.4.4.2}%
-\contentsline {subsection}{\numberline {IV.4.3}Format Data Analisis}{46}{subsection.4.4.3}%
-\contentsline {subsection}{\numberline {IV.4.4}Ilustrasi Data Hasil Eksperimen}{46}{subsection.4.4.4}%
-\contentsline {chapter}{\numberline {V}RENCANA SELANJUTNYA}{48}{chapter.5}%
+\contentsline {subsection}{\numberline {IV.1.2}Konstruksi Model Sistem Terotomatisasi}{32}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {IV.1.3}Analisis Komparatif Metodologis}{33}{subsection.4.1.3}%
+\contentsline {section}{\numberline {IV.2}Perancangan Arsitektur Perangkat Lunak (\textit {Evaluation Pipeline})}{33}{section.4.2}%
+\contentsline {subsection}{\numberline {IV.2.1}Arsitektur Alur Kerja Sistem}{34}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {IV.2.2}Algoritma Orkestrasi dan Konkurensi}{35}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {IV.2.3}Mekanisme Injeksi Konteks Persona}{35}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {IV.2.4}Mekanisme Toleransi Kesalahan dan Persistensi Status}{36}{subsection.4.2.4}%
+\contentsline {section}{\numberline {IV.3}Implementasi Data, Struktur Berkas, dan Keluaran Pipeline}{36}{section.4.3}%
+\contentsline {subsection}{\numberline {IV.3.1}Organisasi Direktori dan Artefak Data}{36}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {IV.3.2}Subsistem Perangkat Lunak dan Alur Transformasi Data}{37}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {IV.3.3}Representasi Persona dan Injeksi Konteks}{37}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {IV.3.4}Contoh Log Inferensi}{38}{subsection.4.3.4}%
+\contentsline {subsection}{\numberline {IV.3.5}Ringkasan Hasil Eksperimen (Full Table)}{38}{subsection.4.3.5}%
+\contentsline {subsection}{\numberline {IV.3.6}Contoh Ringkasan Satu Model}{40}{subsection.4.3.6}%
+\contentsline {chapter}{\numberline {V}RENCANA SELANJUTNYA}{41}{chapter.5}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 

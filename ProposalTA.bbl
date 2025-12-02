@@ -154,6 +154,7 @@
       \field{journaltitle}{arXiv preprint arXiv:2110.14168}
       \field{title}{Training Verifiers to Solve Math Word Problems}
       \field{year}{2021}
+      \true{nocite}
       \verb{urlraw}
       \verb https://arxiv.org/abs/2110.14168
       \endverb
@@ -183,6 +184,7 @@
       \field{note}{Versi kurasi ulang MMLU dengan 57 subjek dan 100 butir soal per subjek}
       \field{title}{MMLU-Redux 2.0 Dataset}
       \field{year}{2024}
+      \true{nocite}
     \endentry
     \entry{gema2024arewedonewithmmlu}{article}{}
       \true{moreauthor}
@@ -363,6 +365,7 @@
       \field{journaltitle}{International Conference on Learning Representations}
       \field{title}{Measuring Massive Multitask Language Understanding}
       \field{year}{2021}
+      \true{nocite}
       \verb{urlraw}
       \verb https://arxiv.org/abs/2009.03300
       \endverb
