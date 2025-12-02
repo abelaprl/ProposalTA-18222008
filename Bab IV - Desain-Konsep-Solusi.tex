@@ -132,213 +132,160 @@ Pertama, sistem menerapkan \textit{state persistence}. Setelah setiap tugas berh
 
 Kedua, gangguan sementara ditangani dengan \textit{error handling} berbasis penjadwalan ulang adaptif. Tugas yang gagal tidak langsung dihentikan, tetapi dijalankan kembali setelah jeda waktu tertentu. Dengan kombinasi kedua strategi ini, pipeline dapat menyelesaikan seluruh rangkaian evaluasi meskipun terjadi kendala jaringan atau batasan layanan eksternal.
 
-%====== BAB IV.3 ======
+%====== BAB IV.3 ======%====== BAB IV.3 (Final Version) ======
 \section{Implementasi Data, Struktur Berkas, dan Keluaran Pipeline}
 \label{sec:implementasi-data}
 
-Subbab ini menjelaskan bagaimana pipeline yang telah dirancang pada bagian sebelumnya terealisasi dalam bentuk struktur data, organisasi direktori, serta keluaran eksperimen yang dihasilkan. Implementasi ini berperan penting dalam memastikan bahwa seluruh proses pemuatan data, injeksi konteks, inferensi, pencatatan log, dan agregasi hasil berlangsung secara terstruktur, dapat ditelusuri, serta mendukung keterulangan eksperimen.
+Subbab ini menjelaskan bagaimana rancangan pipeline yang telah disusun pada bagian sebelumnya direalisasikan dalam bentuk organisasi data, struktur direktori, serta format keluaran yang dihasilkan selama proses eksperimen. Implementasi ini dirancang untuk memastikan bahwa seluruh tahapan pemuatan aset, injeksi konteks persona, pelaksanaan inferensi, dan perekaman hasil berlangsung secara konsisten, terdokumentasi dengan baik, serta mendukung keterulangan eksperimen secara penuh.
 
 \subsection{Organisasi Direktori dan Artefak Data}
 
-Struktur direktori disusun secara hierarkis untuk memisahkan fungsi-fungsi inti dalam pipeline. Empat komponen utama yang digunakan adalah sebagai berikut.
+Pipeline dijalankan di atas struktur direktori yang dirancang secara modular untuk memisahkan fungsi pemrosesan dan memudahkan proses audit ilmiah. Empat kelompok artefak utama disusun secara hierarkis sebagai berikut.
 
 \begin{enumerate}
     \item \textit{Root directory}.  
-    Berisi skrip pemanggil pipeline serta utilitas eksekusi.
+    Berfungsi sebagai titik masuk eksekusi sistem dan memuat skrip penggerak pipeline beserta utilitas operasional.
 
     \item \textit{Configuration directory}.  
-    Menyimpan konfigurasi model, kredensial layanan, dan parameter eksekusi.
+    Menyimpan konfigurasi teknis yang digunakan pipeline, termasuk daftar model, kredensial layanan API, dan parameter eksekusi. Pemisahan direktori ini mendukung aspek keamanan dan memudahkan penggantian parameter tanpa memodifikasi kode utama.
 
     \item \textit{Input assets directory}.  
-    Berisi definisi persona dan \textit{benchmark datasets} yang telah dinormalisasi.
+    Memuat definisi persona serta himpunan benchmark yang telah dinormalisasi. Persona direpresentasikan dalam format terstruktur yang memuat identitas, atribut demografis, dan karakteristik gaya bahasa. Sementara itu, dataset GSM8K dan MMLU-Redux telah dikonversi ke format konsisten untuk memastikan kompatibilitas dengan pipeline.
 
     \item \textit{Results directory}.  
-    Memuat log inferensi per butir soal dan tabel agregasi hasil dalam format terstruktur.
+    Menyimpan keseluruhan keluaran eksperimen yang mencakup log granular pada tingkat per butir soal, tabel hasil, serta agregasi lintas persona dan lintas model. Struktur ini memudahkan proses penelusuran kembali bagi keperluan analisis.
 \end{enumerate}
 
-Struktur ini memudahkan proses audit dan memastikan seluruh artefak eksperimen terdokumentasi dengan baik.
+Pemilahan direktori ini memastikan bahwa seluruh artefak eksperimen terdokumentasi secara terstruktur dan mudah direplikasi.
 
 \subsection{Subsistem Perangkat Lunak dan Alur Transformasi Data}
 
-Pipeline diimplementasikan melalui empat subsistem perangkat lunak yang berinteraksi secara berurutan:
+Pipeline terdiri atas empat subsistem utama yang bekerja secara berurutan dalam mengelola eksekusi eksperimen:
 
 \begin{enumerate}
     \item \textit{Execution orchestration subsystem}.  
-    Bertugas membentuk \textit{task queue} yang memuat seluruh kombinasi model, persona, dan pertanyaan.
+    Subsistem ini membentuk \textit{task queue} yang memuat seluruh kombinasi model, persona, dan pertanyaan. Orkestrasi ini memastikan determinisme dan menghindari variasi eksekusi akibat intervensi manual.
 
     \item \textit{Model communication subsystem}.  
-    Mengelola pembentukan pesan, pengiriman \textit{prompt}, penanganan respons, serta batas layanan.
+    Bertugas melakukan konstruksi instruksi, mengirimkan permintaan ke layanan model, menangani kode galat, serta menegakkan batas layanan seperti \textit{rate limit}. Seluruh komunikasi dilakukan menggunakan protokol API yang distandardisasi.
 
     \item \textit{Monitoring subsystem}.  
-    Menyediakan mekanisme \textit{checkpointing} sehingga eksekusi dapat dilanjutkan setelah gangguan.
+    Menyediakan mekanisme \textit{checkpointing} sehingga eksekusi dapat dilanjutkan tanpa kehilangan progres apabila terjadi gangguan jaringan atau penghentian proses secara tidak terduga. Hal ini memastikan konsistensi eksekusi dan mengurangi risiko duplikasi.
 
     \item \textit{Analysis subsystem}.  
-    Mengolah log granular menjadi tabel hasil, termasuk perhitungan akurasi, penggunaan token, \textit{latency}, dan agregasi antar-persona.
+    Mengolah log mentah menjadi tabel terstruktur dan menghitung metrik utama seperti akurasi, penggunaan token, dan latensi. Modul ini menghasilkan keluaran agregasi yang digunakan dalam tahap analisis pada Bab~V.
 \end{enumerate}
 
-Transformasi data berlangsung dari log mentah → granular CSV → agregasi CSV → tabel ringkasan.
+Alur transformasi data berlangsung dari log granular → tabel pemetaan → agregasi lintas-model, memungkinkan analisis kuantitatif yang komprehensif.
 
-\subsection{Representasi Persona dan Injeksi Konteks}
+\subsection{Representasi Persona dan Mekanisme Injeksi Konteks}
 
-Persona direpresentasikan dalam format terstruktur yang berisi identitas dan narasi. Representasi tersebut dikonversi menjadi \textit{system instruction} yang digunakan pada tahap injeksi konteks.
+Persona direpresentasikan dalam format terstruktur yang memuat identitas demografis, atribut gaya bahasa, serta narasi yang relevan. Representasi tersebut kemudian dikonversi menjadi \textit{system instruction} yang ditempatkan pada segmen instruksi sistem saat permintaan dikirimkan ke model.
 
-Injeksi konteks terdiri atas dua tahap tetap yang dilakukan satu kali untuk setiap persona:
+Injeksi konteks persona dilakukan satu kali melalui dua tahap:
 
 \begin{enumerate}
-    \item \textit{Persona grounding}, yaitu pengenalan identitas dan gaya naratif ke dalam konteks model.
-    \item \textit{Warm-up interaction}, yaitu satu interaksi pemanasan untuk memastikan model merespons sesuai karakter persona.
+    \item \textit{Persona grounding}.  
+    Tahap ini menanamkan identitas dan karakteristik gaya bahasa persona secara eksplisit atau implisit pada konteks model.
+
+    \item \textit{Warm-up interaction}.  
+    Dilakukan satu interaksi pemanasan untuk menstabilkan perilaku model sehingga respons pada tahap berikutnya mengikuti karakter persona secara konsisten.
 \end{enumerate}
 
-Setelah kedua tahap ini, pipeline mengirim seluruh pertanyaan GSM8K dan MMLU-Redux tanpa mengulang injeksi persona. Pendekatan ini memastikan bahwa pengaruh persona tetap konsisten sepanjang keseluruhan sesi.
+Setelah kedua tahap tersebut selesai, pipeline mengirim seluruh pertanyaan GSM8K dan MMLU-Redux tanpa mengulang injeksi persona. Dengan demikian, kondisi kognitif model dijaga agar tetap setara di seluruh siklus inferensi.
 
 \subsection{Contoh Log Inferensi}
 
-Pipeline mencatat hasil inferensi dalam format terstruktur yang berisi metadata eksekusi, jawaban akhir, serta \textit{telemetry} penggunaan token dan latensi. Dua contoh berikut menunjukkan keluaran model tanpa \textit{reasoning trace} dan dengan \textit{reasoning trace}.
+Untuk memastikan transparansi proses evaluasi, pipeline mencatat setiap interaksi dengan model dalam bentuk log terstruktur. Log ini memuat informasi mengenai konfigurasi eksekusi, isi jawaban model, serta telemetri penggunaan token. Cuplikan berikut menunjukkan contoh keluaran untuk model yang tidak menyediakan \textit{reasoning trace}.
 
-\subsubsection*{Log tanpa \textit{reasoning trace}}
-\begin{figure}[htbp]
+\begin{tcolorbox}[
+    colback=gray!5,
+    colframe=gray!50,
+    title={Contoh log inferensi tanpa reasoning trace},
+    fonttitle=\bfseries,
+    arc=2mm,
+    left=2mm,
+    right=2mm
+]
+\footnotesize
 \begin{verbatim}
 {
-  "run": {"model_id": "example-model", "question_id": "gsm8k_00001"},
-  "response": {
-    "choices": [{"message": {"content": "Let's break down the problem..."}}],
-    "usage": {"prompt_tokens": 211, "completion_tokens": 197}
-  }
+ "run": {"model_id": "example-model", "question_id": "gsm8k_00001"},
+ "response": {
+   "choices": [{
+     "message": {"content": "Let's break down the problem..."}
+   }],
+   "usage": {"prompt_tokens": 211, "completion_tokens": 197}
+ }
 }
 \end{verbatim}
-\caption{Contoh log inferensi tanpa \textit{reasoning trace}}
-\end{figure}
+\end{tcolorbox}
 
-\subsubsection*{Log dengan \textit{reasoning trace}}
-\begin{figure}[htbp]
+Cuplikan berikut menunjukkan keluaran log untuk model yang menyediakan \textit{reasoning trace}. Pada model tertentu seperti Nvidia Nemotron, informasi mengenai proses penalaran internal juga tersedia dan direkam secara terpisah. Informasi ini memungkinkan analisis lebih mendalam terhadap struktur penalaran model.
+
+\begin{tcolorbox}[
+    colback=gray!5,
+    colframe=gray!50,
+    title={Contoh log inferensi dengan reasoning trace},
+    fonttitle=\bfseries,
+    arc=2mm,
+    left=2mm,
+    right=2mm
+]
+\footnotesize
 \begin{verbatim}
 {
-  "run": {"model_id": "example-model-reasoning", "question_id": "gsm8k_00003"},
-  "response": {
-    "choices": [{
-       "message": {
-         "content": "Final answer: 70000",
-         "reasoning": "First compute the purchase cost..."
-       }}],
-    "usage": {"completion_tokens": 867, "reasoning_tokens": 485}
-  }
+ "run": {"model_id": "example-model-reason", "question_id": "gsm8k_00003"},
+ "response": {
+   "choices": [{
+     "message": {
+       "content": "Final answer: 70000",
+       "reasoning": "First compute the purchase cost..."
+     }
+   }],
+   "usage": {"completion_tokens": 867, "reasoning_tokens": 485}
+ }
 }
 \end{verbatim}
-\caption{Contoh log inferensi dengan \textit{reasoning trace}}
-\end{figure}
+\end{tcolorbox}
 
-\subsection{Ringkasan Hasil Eksperimen (Full Table)}
+\subsection{Ringkasan Hasil Eksperimen}
 
-Ringkasan hasil eksperimen GSM8K untuk keseluruhan model dan persona ditampilkan pada Tabel~\ref{tab:full-gsm8k-progress}.  
-Tabel ini menunjukkan perbandingan performa lintas model pada metrik akurasi, penggunaan token, dan \textit{latency}.
+Ringkasan performa lintas model dan persona ditampilkan pada Tabel~\ref{tab:gsm8k-summary-compact}.  
+Tabel ini memberikan gambaran umum mengenai tingkat akurasi dan beban komputasi pada masing-masing konfigurasi dan digunakan sebagai dasar analisis pada Bab~V.
 
-\begin{landscape}
 \begin{table}[htbp]
 \centering
 \caption{Ringkasan Hasil Eksperimen GSM8K untuk Seluruh Model dan Persona}
-\label{tab:full-gsm8k-progress}
-\renewcommand{\arraystretch}{1.22}
+\label{tab:gsm8k-summary-compact}
+\renewcommand{\arraystretch}{1.18}
 \small
 
-\begin{tabular}{l l 
-                c c c 
-                c c c
-                c c c 
-                c c c}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{l l c c c c}
 \toprule
-\textbf{Model} & 
+\textbf{Model} &
 \textbf{Persona} &
 \textbf{Total Q} &
 \textbf{Correct} &
 \textbf{Accuracy (\%)} &
-\textbf{Total Prompt T.} &
-\textbf{Total Compl. T.} &
-\textbf{Total Tokens} &
-\textbf{Total Reas. T.} &
-\textbf{Avg Prompt T.} &
-\textbf{Avg Compl. T.} &
-\textbf{Avg Total T.} &
-\textbf{Avg Reas. T.} &
-\textbf{Avg Latency (s)} \\
+\textbf{Total Tokens} \\
 \midrule
 
-Bert Nebulon Alpha & man\_implicits &
-610 & 593 & 97.21 &
-125551 & 159699 & 285250 &
-0 &
-20582/610 & 2618/610 & 46762/610 &
-0 &
-10.481 \\
-    
-Bert Nebulon Alpha & woman\_implicits &
-641 & 627 & 97.26 &
-17138 & 163670 & 335208 &
-0 &
-26922/641 & 2552/641 & 52986/641 &
-0 &
-8.309 \\
+Bert Nebulon Alpha & man\_implicits   & 610  & 593  & 97.21 & 285250 \\
+Bert Nebulon Alpha & woman\_implicits & 641  & 627  & 97.26 & 335208 \\
 \midrule
 
-Grok 4.1 Fast & man\_implicits &
-1315 & 1242 & 94.45 &
-461404 & 863825 & 1325229 &
-634958 &
-49378/1315 & 65725/1315 & 100755/1315 &
-634958/1315 &
-9.591 \\
-
-Grok 4.1 Fast & woman\_implicits &
-1316 & 1254 & 95.36 &
-538871 & 844065 & 1422736 &
-671910 &
-50827/1316 & 64100/1316 & 108132/1316 &
-671910/1316 &
-9.487 \\
+Grok 4.1 Fast & man\_implicits   & 1315 & 1242 & 94.45 & 1325229 \\
+Grok 4.1 Fast & woman\_implicits & 1316 & 1254 & 95.36 & 1422736 \\
 \midrule
 
-Nvidia Nemotron-nano-12B-v2-VL & man\_implicits &
-1305 & 1224 & 93.79 &
-268984 & 887065 & 1156049 &
-0 &
-20692/1305 & 67755/1305 & 133374/1305 &
-0 &
-24.432 \\
-
-Nvidia Nemotron-nano-12B-v2-VL & woman\_implicits &
-1315 & 1248 & 94.98 &
-356096 & 1634188 & 1986284 &
-0 &
-26327/1315 & 124271/1315 & 151199/1315 &
-0 &
-29.149 \\
+Nvidia Nemotron-12B v2 VL & man\_implicits   & 1305 & 1224 & 93.79 & 1156049 \\
+Nvidia Nemotron-12B v2 VL & woman\_implicits & 1315 & 1248 & 94.98 & 1986284 \\
 \bottomrule
 \end{tabular}
-\end{table}
-\end{landscape}
+\end{adjustbox}
 
-\subsection{Contoh Ringkasan Satu Model}
-
-Untuk mempermudah interpretasi, Tabel berikut menampilkan contoh ringkasan singkat untuk satu model, yaitu Grok~4.1 Fast.
-
-\begin{table}[htbp]
-\centering
-\caption{Contoh Ringkasan Hasil untuk Model Grok 4.1 Fast}
-\label{tab:grok41-example}
-\renewcommand{\arraystretch}{1.25}
-\small
-\begin{tabular}{l c c c c c}
-\toprule
-\textbf{Persona} & 
-\textbf{Total Q} &
-\textbf{Correct} &
-\textbf{Accuracy (\%)} &
-\textbf{Avg Tokens} &
-\textbf{Avg Latency (s)} \\
-\midrule
-man\_implicits   & 1315 & 1242 & 94.45 & 100755/1315 & 9.591 \\
-woman\_implicits & 1316 & 1254 & 95.36 & 108132/1316 & 9.487 \\
-\bottomrule
-\end{tabular}
 \end{table}
 
-Kedua tabel ini menjadi dasar untuk analisis performa dan karakteristik respons model yang dibahas lebih lanjut pada Bab~V.
+Tabel tersebut menjadi dasar perbandingan antar-model pada bab evaluasi, termasuk pengaruh persona terhadap akurasi dan kompleksitas respons.

@@ -132,11 +132,10 @@
 \contentsline {section}{\numberline {IV.3}Implementasi Data, Struktur Berkas, dan Keluaran Pipeline}{36}{section.4.3}%
 \contentsline {subsection}{\numberline {IV.3.1}Organisasi Direktori dan Artefak Data}{36}{subsection.4.3.1}%
 \contentsline {subsection}{\numberline {IV.3.2}Subsistem Perangkat Lunak dan Alur Transformasi Data}{37}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {IV.3.3}Representasi Persona dan Injeksi Konteks}{37}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {IV.3.3}Representasi Persona dan Mekanisme Injeksi Konteks}{38}{subsection.4.3.3}%
 \contentsline {subsection}{\numberline {IV.3.4}Contoh Log Inferensi}{38}{subsection.4.3.4}%
-\contentsline {subsection}{\numberline {IV.3.5}Ringkasan Hasil Eksperimen (Full Table)}{38}{subsection.4.3.5}%
-\contentsline {subsection}{\numberline {IV.3.6}Contoh Ringkasan Satu Model}{40}{subsection.4.3.6}%
-\contentsline {chapter}{\numberline {V}RENCANA SELANJUTNYA}{41}{chapter.5}%
+\contentsline {subsection}{\numberline {IV.3.5}Ringkasan Hasil Eksperimen}{39}{subsection.4.3.5}%
+\contentsline {chapter}{\numberline {V}RENCANA SELANJUTNYA}{40}{chapter.5}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
