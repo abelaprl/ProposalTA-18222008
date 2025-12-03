@@ -407,42 +407,6 @@
       \verb https://arxiv.org/abs/2009.03300
       \endverb
     \endentry
-    \entry{jurafsky2023slp3}{book}{}
-      \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=bd33d7a70284b5ead9c7985cb5c9929c}{%
-           family={Jurafsky},
-           familyi={J\bibinitperiod},
-           given={Daniel},
-           giveni={D\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=9ed8bee488b2703da341cded66bf83cb}{%
-           family={Martin},
-           familyi={M\bibinitperiod},
-           given={James\bibnamedelima H.},
-           giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{b5e6a2accdc2023c51f42c6ec010d19b}
-      \strng{fullhash}{b5e6a2accdc2023c51f42c6ec010d19b}
-      \strng{bibnamehash}{b5e6a2accdc2023c51f42c6ec010d19b}
-      \strng{authorbibnamehash}{b5e6a2accdc2023c51f42c6ec010d19b}
-      \strng{authornamehash}{b5e6a2accdc2023c51f42c6ec010d19b}
-      \strng{authorfullhash}{b5e6a2accdc2023c51f42c6ec010d19b}
-      \field{sortinit}{J}
-      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Speech and Language Processing (3rd Edition Draft)}
-      \field{year}{2023}
-      \verb{urlraw}
-      \verb https://web.stanford.edu/~jurafsky/slp3/
-      \endverb
-      \verb{url}
-      \verb https://web.stanford.edu/~jurafsky/slp3/
-      \endverb
-    \endentry
     \entry{liang2023helm}{article}{}
       \true{moreauthor}
       \true{morelabelname}

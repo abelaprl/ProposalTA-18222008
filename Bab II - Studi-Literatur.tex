@@ -3,208 +3,135 @@
 % ==========================================
 \chapter{STUDI LITERATUR}
 
-Bab ini membahas konsep dan penelitian terdahulu yang menjadi landasan bagi analisis pengaruh \textit{user persona} terhadap perilaku \textit{large language model}. Pembahasan disusun secara bertahap, dimulai dari uraian mengenai model bahasa modern, mekanisme pemrosesan instruksi, konsep dasar persona, serta temuan empiris mengenai sensitivitas model terhadap identitas pengguna. Selain itu, bab ini meninjau isu bias dan metode evaluasi penalaran yang relevan bagi perancangan penelitian ini.
-
 % -------------------------------------------------------------
 \section{Large Language Model}
 
-%-- 2.1 Large Language Model --
-\subsection{Konsep dan Karakteristik Dasar}
+Large language model (LLM) adalah model berbasis arsitektur transformator yang dilatih menggunakan korpus teks dalam jumlah sangat besar. Melalui proses pelatihan ini, model mempelajari hubungan antar-token, pola semantik, serta variasi penggunaan bahasa yang umum ditemukan pada teks manusia \parencite{bommasani2021opportunities}. Dengan kemampuan tersebut, LLM dapat menghasilkan jawaban yang relevan meskipun hanya diberikan instruksi berbasis teks.
 
-\textit{Large language model} (LLM) merupakan model generatif berbasis arsitektur transformator yang dilatih menggunakan data dalam skala sangat besar. Model ini mempelajari pola bahasa melalui hubungan antartoken, sehingga mampu membangun representasi yang mencakup makna, hubungan semantik, serta isyarat pragmatik yang muncul dalam teks. Dengan skala pelatihan yang luas, LLM dapat digunakan pada berbagai tugas tanpa memerlukan penyesuaian khusus untuk setiap tugas.
+Salah satu ciri penting LLM adalah sensitivitasnya terhadap konteks. Model tidak hanya melihat makna literal suatu kata, tetapi juga memperhatikan gaya penulisan, struktur kalimat, dan isyarat pragmatik yang terdapat pada instruksi. Penelitian menunjukkan bahwa perubahan kecil dalam cara instruksi ditulis—misalnya perbedaan nada atau tingkat formalitas—dapat menghasilkan jawaban yang berbeda meskipun maksud pengguna tetap sama \parencite{zhou2023largemodelsensitive}.
 
-Secara konseptual, LLM bekerja dengan memprediksi token berikutnya berdasarkan konteks sebelumnya. Namun, proses prediksi ini tidak sekadar berbasis frekuensi kata, melainkan menggunakan representasi kontekstual yang memungkinkan model memahami instruksi, gaya penulisan, maupun kecenderungan komunikasi. Model seperti GPT, LLaMA, Mistral, dan Gemini mengadopsi pendekatan ini dan menunjukkan kemampuan generalisasi yang kuat terhadap tugas bahasa yang kompleks.
+Sifat ini juga berpengaruh pada bentuk penalaran yang dihasilkan. Turpin \parencite{turpin2023language} menemukan bahwa langkah penalaran LLM dapat berubah hanya karena variasi kecil dalam formulasi instruksi. Temuan ini menunjukkan bahwa LLM tidak selalu mengikuti jalur penalaran yang konsisten, tetapi menyesuaikannya dengan konteks linguistik yang diterima saat inferensi dilakukan.
 
-Karakteristik utama LLM antara lain fleksibilitas dalam mengikuti instruksi, kemampuan menyusun penalaran, serta penyesuaian terhadap pola komunikasi pengguna. Kemampuan ini muncul dari kombinasi arsitektur dasar transformator, skala parameter yang besar, dan keragaman data pelatihan. Karena model tidak dibuat untuk satu domain tertentu, tetapi dilatih pada data lintas konteks, gaya, dan situasi, LLM dapat mengadaptasi perilaku komunikasinya berdasarkan variasi kecil dalam instruksi.
+Selain peka terhadap bahasa, LLM juga mempelajari pola sosial dari data pelatihan. Weidinger \parencite{weidinger2021ethical} menunjukkan bahwa model dapat menyerap preferensi sosial atau bias yang muncul dalam korpus pelatihan. Dalam praktiknya, gaya penulisan pengguna dapat ditafsirkan sebagai sinyal identitas tertentu. Studi mengenai \textit{role-playing} juga menunjukkan bahwa isyarat persona dapat memengaruhi gaya penjelasan, tingkat kehati-hatian, dan pola penalaran yang dihasilkan model \parencite{tseng2024twotales}.
 
-\subsection{Representasi Bahasa dan Pemahaman Instruksi}
+Karena persona merupakan variasi konteks linguistik yang dapat mengubah cara model menafsirkan instruksi, pemahaman mengenai sensitivitas ini menjadi dasar penting bagi penelitian. Pengaruh persona terhadap penalaran model perlu dianalisis secara sistematis pada berbagai LLM dengan ukuran dan karakteristik yang berbeda.
 
-LLM memproses teks melalui beberapa tahapan representasi internal. Teks diuraikan menjadi token, kemudian dipetakan ke dalam ruang representasi berdimensi tinggi melalui \textit{embedding}. Representasi awal ini kemudian diperkaya melalui lapisan-lapisan transformator yang memanfaatkan mekanisme perhatian untuk menentukan hubungan antar token dalam konteks yang lebih luas. Hasilnya adalah representasi kontekstual yang mencerminkan interpretasi model terhadap instruksi atau percakapan.
-
-Representasi ini tidak bersifat statis. Makna sebuah token dapat berubah bergantung pada cara pengguna menyampaikan instruksi. Perbedaan gaya penulisan, urutan informasi, atau tingkat formalitas dapat menghasilkan representasi internal yang berbeda, sehingga memunculkan respons yang berbeda pula. Penelitian Zhou et al. \parencite{zhou2023largemodelsensitive} menunjukkan bahwa perubahan kecil dalam framing, seperti perbedaan nada atau cara bertanya, dapat menggeser perhatian model dan mengubah struktur jawaban yang dihasilkan.
-
-Sebagai ilustrasi, perbedaan instruksi berikut sering kali menghasilkan respons yang berbeda meskipun inti pertanyaannya sama:
-\begin{itemize}
-    \item “Jelaskan secara singkat apa itu regularisasi.”
-    \item “Saya sedang menulis laporan akademik. Bisakah Anda menjelaskan secara formal apa yang dimaksud dengan regularisasi?”
-\end{itemize}
-Instruksi kedua biasanya memicu model untuk memberikan penjelasan yang lebih panjang, lebih berhati-hati, dan lebih formal. Perbedaan ini mencerminkan bagaimana representasi instruksi terbentuk berdasarkan konteks linguistik dan pragmatik.
-
-\subsection{Penalaran dan Dinamika Perilaku Model}
-
-Selain pemahaman instruksi, LLM juga menunjukkan kemampuan melakukan penalaran. Model dapat menyelesaikan soal penalaran numerik sederhana, menjawab pertanyaan berbasis pengetahuan umum, hingga memberikan penilaian terhadap skenario sosial atau moral. Namun, kemampuan ini tidak sepenuhnya stabil. Turpin et al. \parencite{turpin2023language} menemukan bahwa penalaran yang dihasilkan model dapat berubah hanya karena variasi kecil pada bentuk instruksi, walaupun substansi tugas tetap sama.
-
-Hal ini terjadi karena model tidak melakukan penalaran melalui prosedur logis eksplisit, tetapi melalui dinamika representasi internal yang sensitif terhadap konteks. Sebuah instruksi yang lebih panjang atau lebih formal dapat memicu struktur penalaran yang lebih sistematis, sementara instruksi yang lebih langsung dapat menghasilkan jawaban tanpa uraian langkah-langkah penalaran yang jelas. Perubahan ini memperlihatkan bahwa struktur penalaran yang muncul merupakan fungsi dari konteks interaksi, bukan semata-mata fungsi dari logika masalah yang diberikan.
-
-Ketidakstabilan ini penting untuk dipahami karena berhubungan langsung dengan penelitian mengenai \textit{user persona}. Jika perubahan kecil pada instruksi dapat mengubah penalaran, maka variasi identitas pengguna yang tersirat dalam tulisan juga berpotensi memicu perubahan serupa.
-
-\subsection{Dimensi Sosial dalam Pemrosesan Bahasa}
-
-Model bahasa modern tidak hanya mempelajari struktur dan makna bahasa, tetapi juga pola interaksi sosial yang tercermin dalam data pelatihan. Weidinger et al. \parencite{weidinger2021ethical} menunjukkan bahwa LLM dapat menginternalisasi norma sosial, stereotip, serta pola komunikasi yang umum digunakan manusia. Dalam banyak kasus, gaya bahasa tertentu diinterpretasikan sebagai sinyal sosial mengenai siapa pengguna tersebut, misalnya usia, latar profesional, atau tingkat pendidikan.
-
-Ketika instruksi ditulis dengan gaya santai, model sering kali memberikan respons yang lebih ringkas atau lebih langsung. Sebaliknya, ketika instruksi ditulis dengan gaya formal, respons yang dihasilkan cenderung lebih berhati-hati dan mengikuti struktur penjelasan akademis. Perbedaan respons ini bukan sekadar akibat gaya penulisan, tetapi akibat inferensi sosial yang dilakukan model berdasarkan pola komunikasi dalam data pelatihan.
-
-Fenomena ini menunjukkan bahwa pemrosesan bahasa oleh LLM memiliki dimensi sosial yang signifikan. Instruksi diperlakukan bukan hanya sebagai teks, tetapi sebagai bentuk interaksi manusia yang membawa sinyal identitas. Sensitivitas terhadap sinyal ini merupakan salah satu alasan mengapa \textit{user persona} dapat memengaruhi penalaran, struktur respons, maupun kecenderungan bias dalam keluaran model.
 
 % --2.2 Persona dalam Interaksi Model Bahasa --
 \section{Persona dalam Interaksi Model Bahasa}
 
-\subsection{Definisi dan Ruang Lingkup Persona}
+Persona dalam konteks LLM merujuk pada karakteristik identitas yang tercermin melalui cara seseorang menulis atau berkomunikasi. Ciri ini dapat berupa pilihan kosakata, tingkat formalitas, struktur kalimat, atau pola penyampaian informasi. Dalam komunikasi manusia, perbedaan persona membantu lawan bicara menafsirkan maksud dan menyesuaikan respons. Hal serupa juga terjadi pada LLM karena model belajar dari data yang memuat berbagai gaya komunikasi \parencite{tseng2024twotales}.
 
-Dalam kajian sistem bahasa alami, \textit{persona} merujuk pada serangkaian atribut yang digunakan untuk menggambarkan identitas atau karakteristik pengguna. Atribut tersebut dapat berupa informasi sosial, demografis, profesional, atau gaya komunikasi yang merepresentasikan cara seseorang berinteraksi dalam percakapan. Persona berfungsi sebagai konteks tambahan yang dapat memengaruhi bagaimana sebuah sistem dialog memahami maksud pengguna dan membentuk respons.
+Dalam interaksi dengan LLM, persona dapat muncul dalam dua bentuk, yaitu eksplisit dan implisit. Persona eksplisit muncul ketika identitas disebutkan secara langsung, seperti “Sebagai mahasiswa teknik informatika…”. Informasi seperti ini memberikan sinyal identitas yang jelas sehingga model dapat menyesuaikan gaya atau struktur jawaban. Gupta \parencite{gupta2024biasrunsdeep} menunjukkan bahwa penugasan persona eksplisit dapat menghasilkan bentuk penalaran yang berbeda meskipun tugas yang diberikan sama.
 
-Dalam konteks \textit{large language model}, persona tidak hanya dipandang sebagai label identitas, tetapi juga sebagai bagian dari sinyal yang terkandung dalam bahasa. Karena model belajar dari data pelatihan yang mencerminkan cara manusia berkomunikasi, model juga mempelajari keterkaitan antara gaya bahasa dan identitas sosial. Dengan demikian, persona tidak hanya bekerja sebagai informasi eksplisit, tetapi dapat tersirat melalui variasi linguistik seperti pilihan kata, nada, struktur kalimat, atau keformalan tulisan.
+Persona implisit muncul ketika model menyimpulkan identitas pengguna dari gaya penulisan tanpa adanya pernyataan langsung. Misalnya, gaya formal sering diasosiasikan dengan konteks akademis, sedangkan gaya santai lebih banyak ditemukan pada percakapan sehari-hari. Ketika pola tertentu muncul dalam instruksi, model dapat menafsirkannya sebagai identitas tertentu dan menyesuaikan jawabannya. Tseng \parencite{tseng2024twotales} menunjukkan bahwa inferensi identitas seperti ini dapat terjadi hanya dari perbedaan pola bahasa.
 
-Ruang lingkup persona dalam sistem bahasa mencakup berbagai kategori identitas, seperti gender, usia, minat, latar profesional, afiliasi budaya, ataupun preferensi komunikasi. Representasi persona tersebut tidak selalu hadir dalam bentuk pernyataan langsung, tetapi sering kali dinyatakan melalui konteks linguistik yang halus tanpa deklarasi eksplisit mengenai siapa pengguna tersebut.
+Persona dapat memengaruhi dua aspek utama dalam respons model. Pertama, bentuk jawaban. Variasi persona dapat mengubah panjang penjelasan, pilihan kosakata, atau tingkat formalitas. Model cenderung menyesuaikan gaya jawaban agar sesuai dengan persona yang muncul pada instruksi.
 
-\subsection{Persona Eksplisit dan Persona Implisit}
+Kedua, penalaran. Karena LLM peka terhadap formulasi instruksi \parencite{zhou2023largemodelsensitive} dan dapat menghasilkan langkah penalaran yang berbeda meskipun tugasnya sama \parencite{turpin2023language}, perubahan persona dapat memicu variasi dalam cara model mencapai kesimpulan. Persona tertentu dapat membuat model menyusun penalaran yang lebih panjang atau lebih berhati-hati, sedangkan persona lain dapat menghasilkan penalaran yang lebih ringkas.
 
-Fenomena persona dalam interaksi dengan model bahasa dapat dibagi menjadi dua bentuk utama, yaitu persona eksplisit dan persona implisit. Keduanya memberikan sinyal identitas, tetapi melalui mekanisme dan intensitas yang berbeda.
+Penelitian mengenai bias juga menunjukkan bahwa persona dapat berinteraksi dengan pola sosial yang dipelajari model. Weidinger \parencite{weidinger2021ethical} menunjukkan bahwa model dapat memperlakukan persona tertentu secara berbeda jika pola tersebut sering muncul dalam data pelatihan. Dalam beberapa situasi, persona dapat menggeser preferensi model dalam memilih sudut pandang atau jenis penjelasan yang diberikan \parencite{gupta2024biasrunsdeep}.
 
-Persona eksplisit muncul ketika identitas pengguna dinyatakan secara langsung dalam instruksi atau konteks percakapan. Contohnya adalah ketika pengguna menuliskan “Saya adalah mahasiswa teknik informatika” atau “Sebagai seorang dokter, saya ingin memahami...”. Ungkapan seperti ini memberikan sinyal yang jelas kepada model mengenai latar pengguna, sehingga model dapat menyesuaikan struktur respons agar lebih sesuai dengan karakteristik tersebut. Gupta et al. \parencite{gupta2024biasrunsdeep} menunjukkan bahwa penugasan persona eksplisit semacam ini dapat mengubah hasil penalaran model, meskipun tugas yang diberikan tidak berkaitan dengan identitas sosial pengguna. Perubahan respons tidak hanya menyangkut gaya bahasa, tetapi juga dapat memengaruhi kesimpulan logis yang diberikan model.
+Persona bukan sekadar tambahan informasi dalam instruksi, tetapi merupakan bagian dari konteks yang dipertimbangkan model ketika membentuk jawaban. Karena persona dapat mengubah gaya maupun penalaran model, analisis pengaruh persona menjadi penting untuk memahami konsistensi respons LLM pada kondisi identitas pengguna yang berbeda.
 
-Sebaliknya, persona implisit muncul ketika identitas pengguna tidak dinyatakan secara langsung, tetapi disimpulkan oleh model berdasarkan isyarat linguistik. Penelitian Tseng et al. \parencite{tseng2024twotales} menunjukkan bahwa model memiliki kecenderungan melakukan inferensi identitas pengguna dari gaya penulisan, struktur kalimat, pilihan kata, atau tingkat formalitas. Fenomena ini dapat terjadi meskipun pengguna tidak bermaksud menyampaikan identitas tertentu. Sebagai contoh, gaya penulisan formal dengan istilah akademis sering diasosiasikan dengan latar pendidikan tertentu, sedangkan gaya penulisan santai dapat diasosiasikan dengan kategori usia atau tingkat kedekatan sosial.
-
-Inferensi identitas tersebut bukan hasil dari aturan yang ditetapkan secara eksplisit dalam model, tetapi merupakan konsekuensi dari pola komunikasi manusia yang terserap selama proses pelatihan. Model mempelajari bahwa gaya bahasa tertentu sering muncul bersama atribut sosial tertentu, sehingga ketika gaya tersebut muncul dalam instruksi, model cenderung mengaktifkan pola respons yang sesuai dengan kategori identitas yang diasosiasikan. Fenomena ini menjadi dasar penting bagi studi mengenai pengaruh persona implisit terhadap perilaku dan penalaran model.
-
-\subsection{Peran Persona dalam Interaksi dengan LLM}
-
-Persona, baik eksplisit maupun implisit, berperan sebagai sinyal kontekstual yang memengaruhi interpretasi dan respons model bahasa. Ketika identitas pengguna muncul dalam bentuk atribut sosial atau gaya komunikasi tertentu, model akan memperlakukannya sebagai bagian dari konteks yang relevan. Konteks ini kemudian membentuk representasi internal yang memengaruhi bagaimana model memahami pertanyaan, menafsirkan maksud, dan menyusun jawaban.
-
-Peran persona dalam interaksi ini dapat dilihat dari dua dimensi utama. Pertama, persona dapat memengaruhi aspek linguistik respons, seperti pilihan kata, tingkat formalitas, pola argumentasi, atau struktur penjelasan. Model cenderung menyesuaikan respons agar selaras dengan gaya komunikasi yang diasosiasikan dengan persona tertentu. Kedua, persona dapat memengaruhi penalaran model melalui apa yang disebut sebagai \textit{reasoning shift}, yaitu perubahan struktur penalaran yang terjadi akibat variasi identitas pengguna meskipun subtansi tugas tetap sama.
-
-Sebagai ilustrasi, suatu pertanyaan logika sederhana yang diajukan oleh pengguna dengan persona profesional tertentu dapat memicu model untuk memberikan respons yang lebih sistematis atau lebih berhati-hati. Sebaliknya, pertanyaan yang diajukan dengan gaya informal dapat menghasilkan respons yang lebih ringkas dengan struktur penalaran minimal. Perubahan ini menunjukkan bahwa persona berfungsi sebagai variabel kondisi yang membentuk dinamika interaksi antara pengguna dan model.
-
-
-%-- 2.3 Pengaruh Persona terhadap Perilaku LLM--
+% -- 2.3 Pengaruh Persona terhadap Perilaku LLM --
 \section{Pengaruh Persona terhadap Perilaku LLM}
 
-Pembahasan mengenai persona tidak berhenti pada bagaimana identitas pengguna direpresentasikan dalam instruksi, tetapi juga mencakup bagaimana identitas tersebut memengaruhi perilaku model bahasa ketika menghasilkan respons. Berbagai penelitian menunjukkan bahwa persona berperan sebagai konteks tambahan yang secara halus membentuk cara model memahami pertanyaan, menimbang informasi, dan menyusun jawaban. Dengan demikian, persona tidak sekadar menjadi atribut linguistik, tetapi menjadi bagian dari dinamika interaksi yang memengaruhi proses penalaran dan karakter keluaran model.
+Persona dapat memengaruhi cara LLM memahami instruksi dan menghasilkan jawaban. Efek ini muncul karena model belajar dari data pelatihan yang berisi berbagai gaya bahasa dan situasi komunikasi. Ketika instruksi ditulis dengan gaya tertentu, model dapat menafsirkannya sebagai sinyal identitas dan menyesuaikan cara menjawab.
 
-\subsection{Pengaruh Persona terhadap Penalaran Model}
+\subsection{Pengaruh Persona terhadap Penalaran}
 
-Penalaran merupakan salah satu kemampuan utama yang ditonjolkan oleh model bahasa modern. Namun, sejumlah studi menemukan bahwa penalaran tersebut tidak selalu stabil dan dapat berubah bergantung pada konteks identitas pengguna. Gupta et al. \parencite{gupta2024biasrunsdeep} menunjukkan bahwa ketika sebuah persona eksplisit disisipkan ke dalam instruksi, model dapat menghasilkan struktur penalaran yang berbeda meskipun tugas yang diberikan tetap sama. Perubahan tersebut terlihat pada pemilihan langkah-langkah argumentatif, urutan penjelasan, atau tingkat kehati-hatian dalam menarik kesimpulan.
+Penelitian menunjukkan bahwa langkah penalaran LLM tidak selalu konsisten. Gupta \parencite{gupta2024biasrunsdeep} menemukan bahwa menambahkan persona eksplisit ke dalam instruksi dapat membuat model menghasilkan penalaran yang berbeda meskipun tugasnya sama. Perbedaan ini dapat terlihat pada urutan penjelasan, tingkat kehati-hatian, atau cara model menyusun argumen.
 
-Dalam konteks persona implisit, perubahan penalaran muncul melalui mekanisme yang lebih halus. Gaya penulisan pengguna, seperti tingkat formalitas, panjang kalimat, atau pilihan kosakata, dapat diinterpretasikan sebagai sinyal identitas yang memengaruhi cara model membangun penalaran. Misalnya, instruksi yang disampaikan dengan gaya akademis sering kali mendorong model untuk memberikan penjelasan yang lebih sistematis dan rinci. Sebaliknya, instruksi yang ditulis dengan gaya santai dapat menghasilkan penalaran yang lebih ringkas atau langsung.
+Pada persona implisit, perubahan penalaran muncul dari hal-hal yang lebih halus, seperti pilihan kata atau tingkat formalitas. Instruksi dengan gaya formal sering membuat model memberikan penjelasan yang lebih terstruktur. Sebaliknya, gaya penulisan yang santai dapat memicu jawaban yang lebih ringkas. Temuan Turpin \parencite{turpin2023language} menunjukkan bahwa perubahan kecil pada formulasi instruksi dapat mengubah langkah penalaran yang dihasilkan model. Kondisi ini membuat persona menjadi salah satu faktor yang dapat memicu perbedaan tersebut.
 
-Temuan-temuan ini sejalan dengan penelitian mengenai ketidakstabilan penalaran yang dilakukan oleh Turpin et al. \parencite{turpin2023language}. Dalam studi tersebut, perubahan kecil pada struktur instruksi terbukti memengaruhi urutan \textit{chain-of-thought} yang dihasilkan model. Karena persona bekerja sebagai bagian dari konteks instruksi, variasi identitas pengguna berpotensi menimbulkan pergeseran pola berpikir yang muncul dalam respons model.
+\subsection{Pengaruh Persona terhadap Gaya Respons}
 
-Pengaruh persona terhadap penalaran tampak pada berbagai kategori tugas, mulai dari penalaran numerik hingga pertimbangan moral. Pada tugas numerik, persona tertentu dapat mendorong model untuk memberikan uraian langkah yang lebih panjang atau lebih hati-hati. Pada tugas logika, persona dapat memengaruhi cara model menyusun argumen. Sementara itu, pada tugas sosial atau moral, persona dapat mengarahkan model untuk menekankan nilai-nilai tertentu atau memilih perspektif yang lebih dekat dengan identitas pengguna yang diasumsikan.
+Selain penalaran, persona juga memengaruhi cara model menyampaikan jawaban. Tseng \parencite{tseng2024twotales} menunjukkan bahwa model dapat menyesuaikan gaya bahasa meskipun identitas pengguna tidak disebutkan secara langsung. Efek ini dapat terlihat dari panjang kalimat, tingkat formalitas, atau nada penjelasan.
 
-\subsection{Pengaruh Persona terhadap Gaya dan Struktur Respons}
+Jika model mengaitkan persona tertentu dengan konteks profesional, respons yang diberikan cenderung lebih sistematis dan terstruktur. Sebaliknya, pada persona yang diasosiasikan dengan percakapan santai, jawaban yang muncul biasanya lebih singkat dan langsung.
 
-Selain penalaran, persona juga memengaruhi aspek gaya dan struktur respons. Model bahasa modern tidak hanya menghasilkan jawaban berdasarkan isi pertanyaan, tetapi juga menyesuaikan cara penyampaiannya agar selaras dengan identitas pengguna yang terdeteksi. Temuan Tseng et al. \parencite{tseng2024twotales} menunjukkan bahwa model dapat meniru gaya bahasa yang diasosiasikan dengan persona tertentu, bahkan ketika identitas tersebut tidak dinyatakan secara eksplisit.
+\subsection{Faktor yang Memengaruhi Efek Persona}
 
-Perubahan yang muncul dapat berupa pemilihan kosakata, panjang penjelasan, tingkat formalitas, atau nada yang digunakan dalam respons. Apabila model mengaitkan pengguna dengan latar profesional tertentu, respons yang dihasilkan sering kali lebih teknis atau lebih terstruktur. Sebaliknya, apabila gaya penulisan pengguna menunjukkan kedekatan sosial atau informalitas, respons yang muncul cenderung lebih ringkas atau lebih langsung.
-
-Dalam beberapa kasus, persona tertentu juga dapat memicu model untuk bersikap lebih berhati-hati, terutama pada topik-topik yang sensitif secara sosial. Fenomena ini muncul karena model mempelajari pola komunikasi manusia dalam data pelatihan dan mengaitkan gaya bahasa dengan norma sosial yang berlaku pada kelompok tertentu. Dengan demikian, perbedaan gaya respons bukan sekadar variasi permukaan, tetapi merupakan hasil dari proses interpretasi sosial yang dilakukan model.
-
-\subsection{Faktor yang Memperkuat Efek Persona}
-
-Variasi respons akibat persona diperkuat oleh sejumlah faktor yang berkaitan dengan konteks interaksi. Salah satu faktor tersebut adalah framing instruksi. Ketika persona disampaikan secara konsisten, baik melalui deskripsi eksplisit maupun gaya penulisan yang stabil, representasi identitas pengguna menjadi lebih kuat dalam interpretasi model. Hal ini membuat model lebih cenderung mempertahankan pola respons tertentu sepanjang percakapan.
-
-Selain itu, jenis tugas yang diberikan turut memengaruhi seberapa besar dampak persona terhadap respons model. Tugas yang bersifat terbuka, seperti pertanyaan moral atau skenario sosial, memberikan ruang interpretasi yang lebih luas sehingga sinyal identitas lebih mudah memengaruhi pola jawaban. Sebaliknya, tugas-tugas yang memiliki jawaban pasti atau struktur penyelesaian yang ketat cenderung menunjukkan pengaruh persona yang lebih kecil.
-
-Skala model dan metode penyelarasan instruksi juga memainkan peran penting. Model yang dilatih dengan data percakapan dalam jumlah besar cenderung lebih sensitif terhadap variasi gaya linguistik. Sementara itu, model dengan kapasitas lebih kecil dapat menunjukkan respons yang kurang konsisten karena representasi sosial yang terbatas.
-
-Secara keseluruhan, efek persona merupakan hasil interaksi antara konteks linguistik, representasi sosial, dan mekanisme penyelarasan model. Faktor-faktor ini bekerja bersamaan dan membentuk variasi respons yang menggambarkan bagaimana model bahasa menafsirkan identitas pengguna dalam proses menghasilkan jawaban.
+Pengaruh persona dapat menjadi lebih kuat ketika framing instruksi konsisten. Selain itu, jenis tugas juga berperan. Pada tugas yang lebih terbuka, seperti skenario sosial, efek persona cenderung lebih terlihat dibandingkan pada tugas yang memiliki jawaban pasti. Ukuran dan kapasitas model juga memengaruhi sejauh mana persona berdampak terhadap respons. Model yang lebih besar umumnya lebih sensitif terhadap variasi gaya bahasa.
 
 % -- 2.4 Bias dalam Respons LLM --
 \section{Bias dalam Respons LLM}
 
-Pembahasan mengenai bias dalam \textit{large language model} berangkat dari kenyataan bahwa model bahasa belajar dari pola-pola yang muncul dalam data pelatihan. Data tersebut bukan hanya berisi informasi faktual, tetapi juga memuat kecenderungan sosial yang terbentuk secara historis. Ketika model mempelajari pola bahasa dari data tersebut, model tidak hanya menyerap struktur linguistik, tetapi juga asumsi-asumsi sosial yang secara tidak sengaja dapat tercermin dalam respons yang dihasilkan. Dalam konteks penelitian ini, bias menjadi penting karena persona—baik eksplisit maupun implisit—dapat memperkuat atau menggeser pola bias yang dimiliki model.
+Bias pada LLM muncul karena model belajar dari data yang mengandung kecenderungan tertentu. Selain informasi faktual, data pelatihan juga memuat pola sosial, stereotip, atau kebiasaan bahasa yang umum digunakan. Pola tersebut dapat terbawa ke dalam jawaban model.
 
-\subsection{Bentuk-bentuk Bias pada Model Bahasa}
+\subsection{Bentuk-bentuk Bias}
 
-Bias dalam model bahasa dapat muncul dalam beragam bentuk. Salah satu bentuk yang sering menjadi perhatian adalah bias representasional, yaitu kecenderungan model menggambarkan suatu kelompok sosial secara tidak seimbang. Weidinger et al. \parencite{weidinger2021ethical} menunjukkan bahwa stereotip yang sering muncul dalam teks internet dapat terinternalisasi dalam model. Misalnya, model dapat mengaitkan profesi tertentu dengan gender tertentu atau menempatkan kelompok sosial tertentu dalam peran tertentu, meskipun konteks yang diberikan sebenarnya netral.
+Weidinger \parencite{weidinger2021ethical} menunjukkan bahwa model dapat meniru stereotip yang ada pada data pelatihan. Bias seperti ini disebut bias representasional, misalnya ketika model menggambarkan suatu profesi atau kelompok sosial dengan cara yang tidak seimbang.
 
-Selain bias representasional, terdapat bias inferensial, yaitu kecenderungan model mengambil kesimpulan berdasarkan isyarat yang tidak relevan. Bentuk bias ini biasanya muncul ketika model meniru pola asosiasi dari data tanpa memahami konteks sebenarnya. Sebagai contoh, ketika diminta mendeskripsikan seseorang dalam skenario imajinatif, model dapat mengisi detail yang tidak disebutkan hanya karena mengikuti pola umum yang sering ditemui dalam data pelatihan.
+Selain itu, terdapat bias inferensial, yaitu ketika model menarik kesimpulan berdasarkan asosiasi yang tidak relevan. Model dapat menambahkan detail yang tidak disebutkan pengguna hanya karena pola tersebut sering muncul dalam data pelatihan.
 
-Bias tersebut tidak hanya muncul pada isi jawaban, tetapi juga dalam cara model menyusun uraian penjelasan. Pada topik-topik moral atau sosial, bias dapat terlihat dari pilihan nilai atau asumsi yang digunakan dalam penalaran. Hal ini memperlihatkan bahwa bias dalam model bahasa bersifat berlapis: ia dapat memengaruhi kosakata, struktur kalimat, hingga cara model melakukan evaluasi terhadap suatu situasi.
+Bias penalaran juga dapat muncul. Gupta \parencite{gupta2024biasrunsdeep} menemukan bahwa persona tertentu dapat mendorong model menggunakan pola penjelasan tertentu yang tidak selalu muncul pada instruksi netral.
 
-\subsection{Konsekuensi Bias terhadap Keluaran Model}
+\subsection{Dampak Bias terhadap Keluaran}
 
-Bias yang muncul dalam model bahasa membawa sejumlah konsekuensi terhadap keluaran yang diberikan kepada pengguna. Salah satu konsekuensi yang paling sering dibahas adalah risiko misinformasi. Ketika model memberikan jawaban yang terdengar meyakinkan tetapi sebenarnya bias atau tidak akurat, pengguna yang tidak memiliki pengetahuan memadai dapat menerima informasi tersebut sebagai kebenaran.
+Bias dapat memengaruhi ketepatan jawaban. Model dapat memberikan respons yang terdengar meyakinkan tetapi tidak sesuai dengan konteks yang diminta. Bias juga dapat memengaruhi panjang atau gaya penjelasan. Dalam beberapa kasus, model memberikan penjelasan lebih rinci kepada persona tertentu dan lebih singkat kepada persona lainnya.
 
-Konsekuensi lainnya berkaitan dengan ketidakmerataan kualitas respons. Jika model menyesuaikan gaya penjelasan berdasarkan persona tertentu, kelompok pengguna yang berbeda dapat menerima penjelasan dengan tingkat kedalaman atau kehati-hatian yang tidak sama. Walaupun model tidak memiliki niat atau tujuan tertentu, perbedaan kualitas informasi ini dapat mempengaruhi proses pemahaman pengguna terhadap suatu topik.
+Bias juga dapat memperkuat pola sosial tertentu secara tidak langsung. Misalnya, pemilihan kata atau nada penjelasan dapat mencerminkan kecenderungan tertentu tanpa disadari.
 
-Di sisi lain, bias juga dapat memperkuat stereotip sosial. Ketika model berulang kali memberikan deskripsi atau penilaian yang sejalan dengan stereotip tertentu, model secara tidak langsung ikut berpartisipasi dalam memperkuat persepsi sosial yang tidak akurat. Penguatan stereotip ini dapat terjadi secara halus, misalnya melalui pilihan kosakata yang cenderung bernuansa tertentu atau struktur argumen yang mengarah pada penilaian yang bias.
+\subsection{Kaitannya dengan Persona}
 
-\subsection{Kaitannya dengan Variasi Persona}
+Persona dapat memperkuat atau mengubah bias tersebut. Pada persona eksplisit, penyebutan identitas dapat memicu asosiasi tertentu yang pernah muncul dalam data pelatihan. Pada persona implisit, perubahan gaya bahasa dapat membuat model menafsirkan identitas tertentu meskipun tidak disebutkan secara langsung \parencite{tseng2024twotales}.
 
-Persona, sebagai sinyal identitas pengguna, dapat memperkuat atau menggeser munculnya bias dalam respons model. Pada persona eksplisit, bias dapat timbul ketika model mengaitkan identitas pengguna dengan pola stereotip dalam data pelatihan. Misalnya, pernyataan seperti “Saya seorang guru” atau “Saya berasal dari profesi X” dapat memicu model memberikan respons yang mengikuti pola tertentu yang sering dikaitkan dengan profesi tersebut.
+Penelitian Zhou \parencite{zhou2023largemodelsensitive} dan Turpin \parencite{turpin2023language} menunjukkan bahwa LLM sangat sensitif terhadap perubahan formulasi instruksi. Karena persona merupakan bagian dari formulasi tersebut, variasi persona dapat menyebabkan perubahan dalam penjelasan atau penalaran yang dihasilkan model.
 
-Pada persona implisit, bias muncul dengan cara yang lebih halus. Karena model sangat peka terhadap gaya penulisan, pilihan kata atau tingkat formalitas dapat dianggap sebagai indikator identitas sosial pengguna. Jika model mengaitkan gaya komunikasi tertentu dengan kelompok sosial tertentu, respons yang dihasilkan dapat mencerminkan bias yang dimiliki model terhadap kelompok tersebut.
-
-Fenomena ini menjadi lebih terlihat pada tugas-tugas yang bersifat terbuka, seperti pertanyaan moral, skenario etika, atau pertimbangan sosial. Pada jenis tugas tersebut, respons model sangat dipengaruhi oleh konteks dan cara model melakukan inferensi sosial. Ketika persona menjadi bagian dari konteks, respons yang dihasilkan dapat menunjukkan pergeseran nilai, perhatian, atau prioritas tertentu. Kondisi inilah yang membuat analisis persona dalam penelitian ini menjadi penting: persona tidak hanya memengaruhi gaya bahasa atau cara penalaran, tetapi juga membuka ruang bagi bias untuk muncul atau berubah.
+Pengaruh ini lebih terlihat pada tugas yang bersifat terbuka, seperti skenario sosial. Pada konteks seperti ini, ruang interpretasi yang lebih luas membuat bias dan persona lebih mudah memengaruhi hasil akhir.
 
 %-- 2.5 Evaluasi Penalaran dan Brenchmark --
-
 \section{Evaluasi Penalaran dan Benchmark}
 
-Evaluasi terhadap \textit{large language model} tidak hanya dilakukan dengan melihat kemampuan model menghasilkan teks, tetapi juga melalui serangkaian tugas terstruktur yang dirancang untuk mengukur kemampuan penalaran, pemahaman konteks, serta kemampuan model menyelesaikan masalah secara konsisten. Benchmark menjadi alat penting dalam penelitian karena memberikan gambaran yang lebih objektif mengenai bagaimana model berperilaku di berbagai situasi dan tingkat kesulitan. Dalam konteks penelitian ini, benchmark yang digunakan tidak hanya berfungsi untuk menilai performa penalaran, tetapi juga untuk melihat bagaimana persona dapat memengaruhi keluaran model pada berbagai jenis tugas.
+Evaluasi terhadap LLM umumnya dilakukan menggunakan benchmark yang dirancang untuk mengukur kemampuan penalaran dan pemahaman model secara lebih terstruktur. Benchmark membantu memberikan gambaran mengenai performa model pada tugas yang bersifat konsisten dan terukur. Dalam penelitian ini, dua benchmark digunakan untuk menilai bagaimana persona dapat memengaruhi cara model menjawab, yaitu GSM8K dan MMLU-Redux.
 
-\subsection{Benchmark Penalaran dan Pengetahuan}
+\subsection{GSM8K}
 
-Sejumlah benchmark telah dikembangkan untuk mengukur kemampuan penalaran model bahasa. Salah satu yang paling dikenal adalah GSM8K, sebuah kumpulan soal matematika tingkat sekolah dasar yang dirancang untuk menguji penalaran numerik dan kemampuan model menyusun langkah-langkah penyelesaian secara terstruktur. Meskipun soalnya sederhana bagi manusia, benchmark ini cukup menantang bagi model bahasa karena mengharuskan model memahami konteks, menerapkan logika dasar, dan menjaga konsistensi antara uraian langkah dan jawaban akhir.
+GSM8K adalah kumpulan soal matematika tingkat sekolah dasar yang dirancang untuk menguji kemampuan penalaran numerik \parencite{cobbe2021gsm8k}. Setiap soal biasanya membutuhkan beberapa langkah pemikiran sederhana, seperti memahami konteks, melakukan perhitungan dasar, dan menarik kesimpulan. Bagi manusia, soal-soal ini relatif mudah, tetapi bagi LLM, benchmark ini menantang karena model harus menyusun langkah penyelesaian yang runtut.
 
-Selain GSM8K, benchmark lain seperti MMLU digunakan untuk menguji kemampuan model pada pertanyaan lintas domain, mulai dari sains hingga ilmu sosial. MMLU menekankan kapasitas model dalam memahami pengetahuan faktual dan menerapkannya dalam konteks yang tepat. Benchmark ini memberikan gambaran mengenai seberapa baik model dapat menjawab pertanyaan yang membutuhkan pemahaman konsep dan penalaran tingkat menengah.
+Benchmark ini digunakan dalam penelitian untuk melihat apakah variasi persona dapat memengaruhi cara model membentuk langkah penalaran tersebut. Misalnya, persona tertentu dapat membuat model memberikan penjelasan lebih panjang, sementara persona lain mendorong model untuk menjawab lebih singkat. Dengan demikian, GSM8K memberikan konteks yang jelas untuk mengamati perubahan pada pola penalaran model.
 
-Benchmark semacam ini penting karena menampilkan kemampuan dasar model tanpa dipengaruhi oleh gaya interaksi yang terlalu terbuka. Dengan kata lain, benchmark berbasis pengetahuan atau logika dasar memberikan titik awal yang netral sebelum mempertimbangkan bagaimana persona dapat menggeser atau memengaruhi jawaban model.
+\subsection{MMLU-Redux}
 
-\subsection{Benchmark Sosial dan Moral}
+MMLU-Redux merupakan versi kurasi ulang dari benchmark MMLU yang berisi pertanyaan dari berbagai bidang pengetahuan \parencite{mmluRedux2024dataset}. Tidak seperti GSM8K yang terfokus pada matematika dasar, MMLU-Redux mencakup berbagai kategori seperti sains, humaniora, dan ilmu sosial. Soal-soal dalam benchmark ini menguji kemampuan model dalam memahami konsep dan memilih jawaban yang paling tepat berdasarkan pengetahuan umum.
 
-Di samping penalaran numerik dan faktual, kemampuan model untuk memahami situasi sosial dan moral juga menjadi perhatian dalam penelitian. Benchmark seperti SocialIQA digunakan untuk mengukur kemampuan model memahami skenario sosial sederhana, misalnya bagaimana seseorang mungkin merespons suatu tindakan atau apa motivasi yang mungkin dimiliki dalam konteks tertentu. Benchmark ini menekankan bagaimana model menginternalisasi pola interaksi antarindividu berdasarkan data pelatihan.
-
-Selain SocialIQA, terdapat pula tugas-tugas moral yang dirancang untuk melihat bagaimana model memberikan penilaian terhadap situasi etis. Tugas semacam ini tidak memiliki jawaban pasti, sehingga respons model sangat dipengaruhi oleh nilai, norma, atau pola argumentasi yang diserap selama pelatihan. Dalam konteks penelitian persona, tugas moral menjadi menarik karena persona dapat menggeser sudut pandang moral yang diambil model, misalnya apakah model menjadi lebih berhati-hati, lebih permissive, atau lebih normatif.
-
-Benchmark sosial dan moral ini penting untuk menganalisis bagaimana persona bekerja pada situasi yang tidak memiliki jawaban tunggal dan mengharuskan model melakukan interpretasi berdasarkan konteks sosial.
+Benchmark ini digunakan dalam penelitian untuk melihat bagaimana persona dapat memengaruhi pilihan jawaban model, terutama pada pertanyaan yang memerlukan pemahaman konsep dan penalaran tingkat menengah. Karena format soal bersifat pilihan ganda, MMLU-Redux memberikan lingkungan evaluasi yang lebih terkontrol, sehingga perbedaan respons yang muncul lebih mudah diamati dari sisi persona.
 
 \subsection{Tantangan Evaluasi Berbasis Persona}
 
-Meskipun benchmark merupakan alat penting dalam evaluasi model, penggunaan benchmark dalam penelitian persona memiliki tantangan tersendiri. Salah satu tantangan utama adalah konsistensi. Karena persona dapat memengaruhi gaya penalaran dan respons model, evaluasi harus dilakukan dengan cara yang memastikan bahwa perubahan yang muncul benar-benar disebabkan oleh persona, bukan oleh variasi lain dalam instruksi atau struktur prompt.
+Penggunaan benchmark dalam penelitian persona memiliki beberapa tantangan. Tantangan pertama adalah memastikan bahwa perubahan jawaban benar-benar disebabkan oleh persona, bukan oleh perbedaan formulasi instruksi. Karena LLM peka terhadap gaya penulisan \parencite{zhou2023largemodelsensitive}, evaluasi perlu dilakukan dengan struktur prompt yang konsisten.
 
-Tantangan berikutnya adalah sensitivitas model terhadap framing. Perubahan kecil pada instruksi, bahkan ketika persona tidak berubah, dapat menghasilkan respons yang berbeda. Hal ini membuat evaluasi berbasis persona memerlukan desain eksperimen yang hati-hati agar pengaruh persona dapat dipisahkan dari pengaruh variasi linguistik.
+Tantangan berikutnya adalah variasi hasil yang terjadi antarpemanggilan model. LLM dapat menghasilkan jawaban berbeda meskipun instruksi yang diberikan sama \parencite{turpin2023language}. Oleh karena itu, proses evaluasi dilakukan secara terotomatisasi dan terstandarisasi agar hasil yang diperoleh lebih dapat dibandingkan.
 
-Selain itu, model bahasa cenderung mengalami \textit{drift} atau perubahan perilaku kecil antarevaluasi, terutama jika evaluasi tidak terotomatisasi dengan baik. Hal ini dapat memengaruhi replikasi hasil dan interpretasi terhadap pengaruh persona. Penggunaan \textit{pipeline} evaluasi yang terstandardisasi dapat membantu mengurangi variasi ini dengan memastikan bahwa setiap model menerima struktur instruksi yang konsisten.
-
-Secara keseluruhan, benchmark memberikan fondasi penting untuk memahami perilaku model dalam berbagai skenario. Namun, dalam konteks penelitian persona, benchmark tidak hanya berfungsi sebagai alat ukur kemampuan, tetapi juga sebagai sarana untuk melihat bagaimana identitas pengguna dapat menggeser proses penalaran, struktur respons, dan kualitas informasi yang diberikan model.
+Harapannya, benchmark GSM8K dan MMLU-Redux memberikan dasar yang jelas untuk melihat bagaimana persona dapat memengaruhi penalaran dan pilihan jawaban model dalam dua konteks yang berbeda, yaitu penalaran numerik dan pengetahuan umum.
 
 %-- 2.6 Relevansi --
+
 \section{Penelitian Terdahulu dan Kesenjangan Penelitian}
 
-Pembahasan mengenai persona dan perilaku model bahasa telah menjadi bagian dari diskusi yang semakin luas dalam penelitian model berbasis transformator. Sejumlah studi sebelumnya memberikan gambaran mengenai bagaimana identitas pengguna, baik yang dinyatakan secara eksplisit maupun tersirat melalui gaya penulisan, dapat memengaruhi respons model. Meskipun demikian, penelitian-penelitian tersebut umumnya memiliki cakupan yang terbatas pada satu jenis persona, satu kategori tugas, atau satu model tertentu. Bagian ini merangkum temuan utama dari penelitian terdahulu serta mengidentifikasi sejumlah kesenjangan yang melatarbelakangi penyusunan penelitian ini.
+Pembahasan mengenai persona dan perilaku LLM telah dibahas dalam beberapa penelitian sebelumnya. Secara umum, penelitian-penelitian tersebut menunjukkan bahwa identitas pengguna—baik yang dinyatakan secara langsung maupun tersirat melalui gaya penulisan—dapat memengaruhi cara model menghasilkan jawaban. Namun, sebagian besar studi masih terbatas pada jenis model atau bentuk persona tertentu sehingga gambaran mengenai pengaruh persona secara lebih luas belum banyak diuraikan.
 
 \subsection{Ringkasan Literatur Terkait}
 
-Gupta et al. \parencite{gupta2024biasrunsdeep} menunjukkan bahwa persona eksplisit yang diberikan dalam instruksi dapat mengubah struktur penalaran model, bahkan ketika tugas yang diberikan tidak berkaitan dengan identitas sosial tersebut. Temuan ini membuka diskusi bahwa model tidak hanya memproses isi instruksi, tetapi juga memaknai identitas sebagai konteks tambahan yang membentuk langkah-langkah penalaran.
+Gupta \parencite{gupta2024biasrunsdeep} menunjukkan bahwa pemberian persona eksplisit dapat mengubah langkah penalaran model pada tugas yang sama. Temuan ini memperlihatkan bahwa model tidak hanya memproses isi instruksi, tetapi juga memperhatikan informasi identitas yang disisipkan ke dalam prompt.
 
-Di sisi lain, Tseng et al. \parencite{tseng2024twotales} menyoroti fenomena persona implisit yang muncul dari gaya penulisan pengguna. Model dapat menafsirkan pilihan kata, tingkat formalitas, atau cara menyampaikan pertanyaan sebagai sinyal identitas, sehingga menghasilkan respons yang selaras dengan kategori sosial yang diasosiasikan dengan isyarat tersebut. Studi ini menunjukkan bahwa persona tidak harus dinyatakan secara eksplisit untuk memengaruhi respons model.
+Tseng \parencite{tseng2024twotales} menyoroti persona implisit yang muncul dari pilihan kata dan gaya penulisan. Dalam banyak kasus, model menafsirkan pola bahasa tersebut sebagai sinyal identitas tertentu dan menyesuaikan struktur responsnya. Studi ini memperlihatkan bahwa persona dapat terbentuk bahkan tanpa penyebutan identitas secara langsung.
 
-Penelitian lain menyoroti aspek ketidakstabilan penalaran model. Turpin et al. \parencite{turpin2023language} menunjukkan bahwa perubahan kecil pada struktur instruksi dapat mengubah langkah \textit{chain-of-thought} yang dihasilkan model. Hal ini menunjukkan bahwa proses penalaran model sangat bergantung pada konteks linguistik, termasuk gaya atau nada instruksi yang pada akhirnya berhubungan erat dengan persona.
+Turpin \parencite{turpin2023language} menemukan bahwa LLM dapat menghasilkan urutan penalaran yang berbeda hanya karena perubahan kecil dalam formulasi instruksi. Temuan ini menunjukkan bahwa penalaran model sangat dipengaruhi oleh konteks linguistik yang diterima saat inferensi.
 
-Dalam konteks bias, Weidinger et al. \parencite{weidinger2021ethical} menunjukkan bahwa model bahasa dapat memperkuat atau meniru pola stereotip yang ada dalam data pelatihan. Temuan ini relevan ketika dikaitkan dengan persona karena identitas pengguna dapat memperkuat pola bias tertentu, terutama pada tugas sosial dan moral yang melibatkan interpretasi nilai atau pengambilan posisi tertentu.
-
-Penelitian mengenai personalisasi model, seperti yang dibahas dalam Naous et al. \parencite{naous2025userlm}, lebih menekankan bagaimana variasi preferensi pengguna dapat memengaruhi gaya atau struktur jawaban. Meskipun fokusnya berbeda, studi ini memberikan gambaran bahwa model bahasa memberikan respons yang bervariasi bergantung pada konteks identitas atau preferensi pengguna.
+Dalam konteks bias, Weidinger \parencite{weidinger2021ethical} menunjukkan bahwa model dapat meniru pola sosial atau stereotip yang ada dalam data pelatihan. Kondisi ini relevan ketika menilai pengaruh persona karena identitas tertentu dapat memperkuat pola bias yang sudah ada.
 
 \subsection{Keterbatasan Penelitian Sebelumnya}
 
-Meskipun penelitian-penelitian tersebut memberikan kontribusi penting dalam memahami hubungan antara persona dan perilaku model bahasa, sebagian besar studi masih memiliki sejumlah keterbatasan. Pertama, banyak penelitian hanya menggunakan satu model sehingga temuan yang diperoleh belum menggambarkan variasi perilaku antarmodel. Padahal, model yang berbeda dapat menunjukkan tingkat sensitivitas yang berbeda terhadap persona.
-
-Kedua, cakupan persona yang diteliti cenderung terbatas, sering kali hanya mencakup beberapa persona eksplisit atau sejumlah contoh persona implisit yang relatif kecil. Kondisi ini membuat temuan penelitian sebelumnya belum cukup untuk menggambarkan bagaimana variasi persona yang lebih luas memengaruhi perilaku model.
-
-Ketiga, sebagian besar penelitian hanya menguji satu atau dua jenis tugas. Padahal, persona dapat memengaruhi model secara berbeda pada penalaran numerik, penalaran logis, skenario sosial, maupun pertanyaan moral. Keterbatasan cakupan tugas ini membuat analisis sebelumnya belum mencerminkan penuh kompleksitas pengaruh persona.
-
-Keempat, sebagian penelitian belum menyediakan kerangka evaluasi yang terotomatisasi dan konsisten. Tanpa mekanisme evaluasi yang terstruktur, sulit untuk memastikan bahwa perubahan respons benar-benar disebabkan oleh persona dan bukan oleh variasi lain seperti perbedaan prompt atau kejadian \textit{drift} antarpernyataan.
+Meskipun penelitian sebelumnya memberikan kontribusi penting, sebagian besar studi masih memiliki beberapa keterbatasan. Pertama, banyak penelitian hanya menguji sedikit model sehingga belum memberikan gambaran mengenai bagaimana pengaruh persona dapat berbeda antar-LLM. Kedua, jumlah persona yang digunakan umumnya terbatas sehingga variasi efek persona belum terobservasi secara lebih luas. Ketiga, sebagian penelitian hanya menguji sedikit jenis tugas, padahal persona dapat memengaruhi model secara berbeda pada tugas numerik, pengetahuan umum, atau skenario sosial. Selain itu, tidak semua penelitian menggunakan kerangka evaluasi yang terstandarisasi sehingga sulit memastikan bahwa perubahan jawaban benar-benar disebabkan oleh persona.
 
 \subsection{Posisi dan Kontribusi Penelitian Ini}
 
-Penelitian ini disusun dengan mempertimbangkan keterbatasan-keterbatasan tersebut. Berbeda dengan penelitian sebelumnya, penelitian ini menggunakan pendekatan \textit{multi model} dan \textit{multi persona} untuk melihat bagaimana variasi identitas pengguna memengaruhi penalaran, gaya respons, dan kecenderungan bias. Dengan mengombinasikan beberapa kategori tugas—mulai dari penalaran numerik hingga skenario moral—penelitian ini bertujuan memberikan gambaran yang lebih utuh mengenai perilaku model bahasa ketika berinteraksi dengan berbagai persona pengguna.
+Penelitian ini disusun untuk mengatasi keterbatasan tersebut. Berbeda dari sebagian studi sebelumnya, penelitian ini menggunakan beberapa model dan beberapa persona untuk melihat bagaimana keduanya memengaruhi penalaran dan respons model. Penelitian ini juga menggunakan dua benchmark yang berbeda—GSM8K dan MMLU-Redux—agar pengaruh persona dapat diamati pada tugas numerik dan pengetahuan umum.
 
-Penelitian ini juga memanfaatkan \textit{evaluation pipeline} yang terotomatisasi untuk memastikan konsistensi struktur instruksi dan mengurangi pengaruh variasi yang tidak diinginkan. Pendekatan ini diharapkan dapat memberikan hasil yang lebih stabil dan dapat direplikasi, sehingga memperkuat kontribusi penelitian dalam memahami sensitivitas model bahasa terhadap persona.
+Selain itu, penelitian ini menggunakan \textit{pipeline} evaluasi yang terotomatisasi sehingga setiap model menerima instruksi yang konsisten. Pendekatan ini membantu memastikan bahwa perbedaan yang muncul benar-benar berasal dari persona dan bukan dari variasi struktur prompt.
 
-Secara keseluruhan, penelitian-penelitian tersebut menunjukkan perlunya kajian yang lebih luas dan terstruktur mengenai bagaimana persona memengaruhi perilaku model bahasa, terutama ketika melibatkan lebih dari satu model dan lebih dari satu kategori tugas.
-
-
-
+Dengan demikian, penelitian ini diharapkan dapat memberikan gambaran yang lebih menyeluruh mengenai bagaimana persona memengaruhi perilaku model bahasa, terutama ketika melibatkan beberapa model dan kategori tugas yang berbeda.
 
