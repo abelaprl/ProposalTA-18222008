@@ -230,10 +230,122 @@ dan \textit{retry}, sehingga realisasi biaya dapat lebih rendah apabila
 konsumsi token aktual per soal ternyata lebih kecil dari asumsi yang
 digunakan dalam perhitungan ini.
 
+\section{Desain Pengujian dan Evaluasi}
+\label{sec:desain-pengujian-evaluasi}
 
-Jelaskan secara detail langkah-langkah rencana selanjutnya, hal-hal yang diperlukan atau akan disiapkan, dan risiko dan mitigasinya, yang meliputi:
+Desain pengujian pada tahap berikut disusun untuk memastikan bahwa seluruh
+hasil eksperimen dapat diverifikasi, divalidasi, dan direplikasi. Struktur
+pengujian memanfaatkan artefak log granular, telemetry penggunaan token,
+serta pemeriksaan konsistensi yang telah ditanamkan dalam pipeline pada Bab~IV.
+
 \begin{enumerate}
-\item	Rencana implementasi, termasuk alat dan bahan yang diperlukan, lingkungan, konfigurasi, biaya, dan sebagainya.
-\item	Desain pengujian dan evaluasi, misalnya metode verifikasi dan validasi.
-\item	Analisis risiko dan mitigasi, misalnya tindakan selanjutnya jika ada yang tidak berjalan sesuai rencana.
+
+  \item Verifikasi konsistensi eksekusi.
+
+  Verifikasi dilakukan untuk memastikan bahwa setiap model menerima stimulus
+  yang identik pada setiap soal dan persona, sehingga variasi respons dapat
+  dikaitkan langsung dengan perbedaan persona atau arsitektur model.
+
+  (i) Konsistensi konstruksi prompt.
+
+  Pemeriksaan dilakukan untuk memastikan bahwa struktur persona pada
+  \textit{system message} dan isi soal pada \textit{user message} identik pada
+  seluruh eksekusi. Setiap variasi kecil seperti pergeseran tanda baca atau
+  perubahan format dapat mengubah jalur penalaran model, sehingga pemeriksaan
+  dilakukan secara programatik pada log JSON.
+
+  (ii) Kesesuaian urutan eksekusi.
+
+  Pemeriksaan dilakukan dengan mencocokkan indeks interaksi, nomor soal,
+  dan urutan persona pada seluruh berkas log untuk memastikan bahwa sistem
+  menjalankan eksperimen sesuai konfigurasi yang direncanakan.
+
+  (iii) Keberhasilan tahap warm-up.
+
+  Tahap warm-up diverifikasi dengan menilai apakah respons awal model
+  mengikuti identitas dan gaya bahasa persona. Kegagalan tahap ini dicatat
+  sebagai anomali dan disertai eksekusi ulang sebelum proses utama dimulai.
+
+  \item Validasi keluaran model.
+
+  Validasi keluaran bertujuan memastikan bahwa jawaban model berada dalam
+  format yang sesuai untuk dievaluasi. Pendekatan validasi dibedakan untuk
+  GSM8K dan MMLU-Redux.
+
+  (i) Validasi GSM8K.
+
+  Model harus memberikan jawaban numerik akhir yang dapat diekstraksi secara
+  deterministik. Selain itu, respons harus mencakup penalaran langkah demi
+  langkah sebelum menyatakan jawaban akhir.
+
+  (ii) Validasi MMLU-Redux.
+
+  Model harus memberikan pilihan jawaban dalam format A, B, C, atau D. Meskipun
+  merupakan soal pilihan ganda, model tetap diminta menjelaskan penalaran
+  sebelum memilih opsi, sehingga respons memiliki struktur yang konsisten.
+
+  (iii) Pemeriksaan konsistensi format respons.
+
+  Pemeriksaan mencakup panjang respons, struktur teks, keberadaan penalaran,
+  serta keterbacaan sehingga setiap respons dapat diproses ulang tanpa kesalahan
+  parsing.
+
+  \item Evaluasi kuantitatif.
+
+  Evaluasi kuantitatif dilakukan untuk mengukur dampak persona terhadap performa
+  model pada dua benchmark.
+
+  (i) Akurasi jawaban.
+
+  Akurasi dihitung dengan membandingkan jawaban akhir yang diekstraksi terhadap
+  ground truth. Penghitungan dilakukan pada tabel agregasi hasil.
+
+  (ii) Konsumsi token.
+
+  Evaluasi melibatkan token input, token output, dan token penalaran sebagai
+  indikator beban komputasi dan kecenderungan verbosity model di bawah persona
+  tertentu.
+
+  (iii) Latensi eksekusi.
+
+  Latensi diambil dari metadata waktu pada log JSON untuk menilai stabilitas
+  waktu respons model ketika menangani beban besar dan variasi persona.
+
+\end{enumerate}
+
+%========= V.3 Analisis Risiko dan Mitigasi ==========
+
+\section{Analisis Risiko dan Mitigasi}
+Pelaksanaan eksperimen pada lingkungan multi-model dan multi-persona menimbulkan sejumlah risiko metodologis dan operasional yang perlu dikelola secara sistematis agar integritas penelitian tetap terjaga. Risiko-risiko tersebut mencakup aspek reliabilitas penggunaan API, kestabilan keluaran model, konsistensi proses penalaran, menjaga ketepatan pesan sepanjang percakapan, serta akurasi proses agregasi data. Selain itu, penelitian sebelumnya menunjukkan bahwa konsistensi LLM dapat menurun pada evaluasi berskala besar dan bahwa penalaran model dapat terpengaruh oleh faktor-faktor non-linguistik yang tidak terkontrol. Berdasarkan temuan tersebut, bagian ini menguraikan tiga kategori risiko utama serta strategi mitigasinya.
+
+\begin{enumerate}
+  \item Risiko kegagalan pemanggilan API.
+  
+  Risiko ini mencakup galat seperti \textit{timeout}, gangguan koneksi, dan pembatasan layanan (rate limit). Kegagalan ini berpotensi menyebabkan hilangnya sebagian data atau ketidaksinkronan indeks percobaan.
+
+  (i) Mitigasi dilakukan melalui mekanisme \textit{retry} adaptif berbasis \textit{exponential backoff}, sesuai praktik standar pada sistem terdistribusi.
+
+  (ii) Seluruh kegagalan direkam dalam log terpisah untuk memastikan keterlacakan sehingga perbaikan atau pengulangan dapat dilakukan secara selektif.
+
+  (iii) Tingkat konkurensi dijalankan secara otomatis ketika sistem mendeteksi peningkatan laju galat, guna menjaga stabilitas kapasitas layanan.
+
+  \item Risiko lonjakan konsumsi token.
+  
+  LLM sering menghasilkan keluaran yang lebih panjang daripada yang diinstruksikan, terutama ketika diminta memberikan penalaran langkah demi langkah. Fenomena ini berdampak langsung pada biaya dan durasi eksperimen.
+
+  (i) Sistem membatasi panjang keluaran dengan parameter \textit{maximum completion length} untuk mencegah respons berlebihan.
+
+  (ii) Validasi awal dijalankan secara berkala untuk memantau rata-rata konsumsi token per soal.
+
+  (iii) Persona yang terbukti memicu keluaran terlalu panjang dilakukan penyesuaian instruksi secara minimal untuk mengendalikan panjang teks tanpa mengubah maksud identitas sosial.
+
+  \item Risiko penyimpanan dan konsistensi log.
+  
+  Volume log yang besar berpotensi menimbulkan risiko korupsi berkas dan ketidakcocokan antara indeks model, persona, dan soal.
+
+  (i) Setiap respons disimpan dalam format terstruktur (JSON) dengan skema tetap.
+
+  (ii) Proses agregasi mengadopsi pemeriksaan konsistensi silang antara jumlah entri dan indeks soal.
+
+  (iii) Mekanisme \textit{checkpointing} diterapkan untuk menghindari kehilangan data apabila eksekusi terhenti di tengah proses.
 \end{enumerate}

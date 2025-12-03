@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2025.11.12)  3 DEC 2025 15:20
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2025.11.12)  3 DEC 2025 18:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1736,7 +1736,13 @@ Overfull \hbox (63.20306pt too wide) in paragraph at lines 188--217
  [][] 
  []
 
-) [47] [48
+[47]
+Overfull \hbox (1.35867pt too wide) in paragraph at lines 265--268
+[]\TU/TimesNewRoman(0)/m/n/12 Tahap warm-up diverifikasi dengan menilai apakah 
+respons awal model meng-
+ []
+
+[48] [49]) [50] [51
 
 
 ]
@@ -1752,12 +1758,12 @@ he International Conference on Machine Learning, \TU/TimesNewRoman(0)/m/n/12 12
 697–
  []
 
-[49]
+[52]
 
 Package caption Warning: Unused \captionsetup[lstlisting] on input line 385.
 See the caption package documentation for explanation.
 
-[50] (./ProposalTA.aux)
+[53] (./ProposalTA.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -1767,21 +1773,23 @@ L3 programming layer <2024-01-22>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `ProposalTA.out' has not changed.
-(rerunfilecheck)             Checksum: 154986708FEB887E5A24210950EEADC8;16310.
+(rerunfilecheck)             Checksum: 3EB035EAE311A8019FBAAAC2AD1D6E90;16723.
 
-Package biblatex Warning: Please rerun LaTeX.
+Package biblatex Warning: Please (re)run Biber on the file:
+(biblatex)                ProposalTA
+(biblatex)                and rerun LaTeX afterwards.
 
 Package logreq Info: Writing requests to 'ProposalTA.run.xml'.
 \openout1 = `ProposalTA.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 46203 strings out of 474878
- 960774 string characters out of 5762515
- 2301115 words of memory out of 5000000
- 67588 multiletter control sequences out of 15000+600000
+ 46204 strings out of 474878
+ 960805 string characters out of 5762515
+ 2302607 words of memory out of 5000000
+ 67589 multiletter control sequences out of 15000+600000
  564878 words of font info for 93 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  83i,13n,93p,1199b,6187s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on ProposalTA.xdv (59 pages, 1141752 bytes).
+Output written on ProposalTA.xdv (62 pages, 1196640 bytes).

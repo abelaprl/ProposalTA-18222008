@@ -173,6 +173,8 @@
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
+\contentsline {section}{\numberline {V.2}Desain Pengujian dan Evaluasi}{47}{section.5.2}%
+\contentsline {section}{\numberline {V.3}Analisis Risiko dan Mitigasi}{49}{section.5.3}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
