@@ -24,73 +24,75 @@ Berangkat dari kebutuhan tersebut, penelitian ini disusun untuk mengevaluasi pen
 % --- Rumusan Masalah ---
 \section{Rumusan Masalah}
 
-Rumusan masalah berikut disusun berdasarkan kebutuhan untuk memahami bagaimana \textit{user persona} memengaruhi perilaku dan penalaran model bahasa. Penelitian sebelumnya menunjukkan bahwa identitas pengguna, baik yang diberikan secara eksplisit maupun implisit, dapat memengaruhi penalaran, kualitas keluaran, dan kecenderungan bias model \parencite{gupta2024biasrunsdeep, tseng2024twotales, naous2025userlm}. Namun, cakupan penelitian terdahulu masih terbatas pada sedikit model, sedikit persona, dan variasi tugas yang sempit.
+Penelitian sebelumnya menunjukkan bahwa persona, baik yang diberikan secara eksplisit maupun yang tersirat dari gaya bahasa, dapat memengaruhi cara model menyusun penalaran dan menghasilkan jawaban \parencite{gupta2024biasrunsdeep, tseng2024twotales, naous2025userlm}. Namun, kajian yang ada masih terbatas pada jumlah model yang sedikit, ragam persona yang sempit, serta jenis tugas yang belum cukup mencerminkan variasi penalaran yang lebih luas. Kondisi ini menunjukkan perlunya evaluasi yang lebih menyeluruh untuk memahami bagaimana persona memengaruhi perilaku model dalam konteks multi-tugas dan multi-model.
 
-Berdasarkan kondisi tersebut, rumusan masalah penelitian ini adalah sebagai berikut.
-
+Berdasarkan uraian pada bagian sebelumnya, penelitian ini merumuskan beberapa pertanyaan utama sebagai berikut.
 \begin{enumerate}
-    \item Bagaimana pengaruh \textit{user persona} eksplisit dan \textit{user persona} implisit terhadap performa penalaran pada berbagai jenis tugas pada sejumlah \textit{large language model}.
-    \item Bagaimana kedua jenis \textit{user persona} tersebut memengaruhi perilaku keluaran model pada skenario interaksi yang berbeda.
-    \item Bagaimana pola \textit{human bias} muncul dan berubah sebagai akibat variasi \textit{user persona}.
-    \item Sejauh mana sensitivitas terhadap \textit{user persona} berbeda pada berbagai \textit{large language model}, serta model mana yang menunjukkan tingkat \textit{robustness} yang lebih tinggi terhadap variasi tersebut.
+    \item Sejauh mana persona yang diberikan secara eksplisit maupun yang muncul secara implisit memengaruhi proses penalaran model pada berbagai jenis tugas, khususnya penalaran numerik dan tugas multi-topik?
+    \item Bagaimana variasi persona tersebut membentuk karakter keluaran model dan memunculkan pola bias tertentu, termasuk bias sosial maupun preferensi jawaban?
+    \item Bagaimana perbedaan respons antar model dapat menggambarkan tingkat sensitivitas dan ketahanan masing-masing model terhadap variasi persona dalam suatu kerangka evaluasi yang disusun secara terstruktur?
 \end{enumerate}
-
-
 
 % --- Tujuan ---
 \section{Tujuan Penelitian}
 
-Tujuan penelitian ditetapkan untuk menjawab permasalahan yang telah dirumuskan. Penelitian ini diarahkan untuk menghasilkan pemahaman yang lebih komprehensif mengenai pengaruh \textit{user persona} terhadap perilaku model bahasa dalam tugas penalaran dan skenario percakapan. Secara khusus, penelitian ini bertujuan untuk:
+Tujuan penelitian ini disusun sebagai tindak lanjut dari rumusan masalah yang telah dijelaskan sebelumnya. Secara umum, penelitian ini bertujuan untuk memperoleh pemahaman yang lebih jelas mengenai pengaruh persona terhadap perilaku dan penalaran \textit{large language model}. Secara khusus, penelitian ini bertujuan untuk:
 
 \begin{enumerate}
-    \item Menganalisis pengaruh \textit{user persona} eksplisit dan \textit{user persona} implisit terhadap performa penalaran pada sejumlah \textit{large language model}.
-    \item Mengidentifikasi perubahan perilaku keluaran model yang diinduksi oleh variasi \textit{user persona} pada berbagai konteks.
-    \item Menganalisis pola \textit{human bias} yang muncul akibat variasi \textit{user persona}.
-    \item Menyusun perbandingan sensitivitas dan \textit{robustness} berbagai model terhadap variasi \textit{user persona}.
-    \item Mengembangkan rancangan \textit{evaluation pipeline} yang memungkinkan pelaksanaan eksperimen \textit{multi model} dan \textit{multi persona} secara terotomatisasi.
+    \item Menganalisis sejauh mana persona yang diberikan secara eksplisit maupun yang muncul secara implisit memengaruhi proses \textit{reasoning} model pada berbagai jenis tugas.
+    \item Mengidentifikasi perubahan karakter keluaran dan pola \textit{bias} yang muncul pada model sebagai akibat dari variasi persona.
+    \item Mengevaluasi perbedaan respons antar model untuk menilai tingkat \textit{sensitivity} dan \textit{robustness} masing-masing model terhadap variasi persona dalam pengaturan eksperimen yang disusun secara terstruktur.
 \end{enumerate}
+
 
 % --- Batasan Masalah ---
 \section{Batasan Masalah}
 
-Batasan masalah ditetapkan agar ruang lingkup penelitian terkelola dan selaras dengan tujuan penelitian. Penelitian ini tidak bertujuan mengevaluasi seluruh aspek perilaku model bahasa, tetapi fokus pada pengaruh \textit{user persona}. Batasan penelitian ini adalah sebagai berikut.
+Batasan masalah diperlukan agar ruang lingkup penelitian tetap jelas dan terarah. Penelitian ini tidak mencakup seluruh aspek perilaku \textit{large language model}, tetapi memfokuskan kajian pada bagaimana variasi persona memengaruhi respons model pada sejumlah tugas penalaran. Adapun batasan penelitian ini adalah sebagai berikut.
 
 \begin{enumerate}
-    \item Penelitian hanya menganalisis dua jenis \textit{user persona}, yaitu \textit{user persona} eksplisit dan \textit{user persona} implisit. Penelitian tidak mencakup \textit{role-playing persona} yang memberikan identitas kepada model maupun mekanisme \textit{personalization} berbasis histori pengguna.
-    \item Pengujian terbatas pada model bahasa berbasis teks yang dapat diakses melalui API. Model multimodal, model yang memerlukan \textit{fine-tuning}, atau model yang memerlukan pelatihan ulang tidak termasuk dalam cakupan penelitian.
-    \item Evaluasi dibatasi pada tugas berbasis teks, termasuk penalaran numerik, penalaran logis, pertanyaan pengetahuan umum, skenario sosial, dan skenario moral. Tugas vision-language atau \textit{speech} tidak dibahas.
-    \item Penilaian kualitas keluaran dilakukan melalui evaluasi terotomatisasi dan analisis komparatif. Penilaian berbasis partisipan manusia tidak dilakukan.
-    \item Penelitian menggunakan \textit{evaluation pipeline} berbasis eksekusi prompt tanpa melakukan modifikasi pada parameter internal model.
-    \item Analisis bias terbatas pada \textit{human bias} yang muncul sebagai akibat variasi \textit{user persona}, dan tidak mencakup bias makro yang bersumber dari data pelatihan model.
+    \item Penelitian hanya mempertimbangkan dua bentuk persona yang berorientasi pada pengguna, yaitu persona eksplisit yang dinyatakan secara langsung di dalam prompt, serta persona implisit yang muncul dari variasi gaya bahasa dan cara pengguna menyampaikan pertanyaan. Kajian ini tidak mencakup \textit{role-playing persona} yang menetapkan identitas tertentu pada model, maupun pendekatan \textit{personalization} yang bergantung pada riwayat atau profil pengguna.
+    
+    \item Model yang ditelaah terbatas pada model bahasa berbasis teks yang tersedia melalui antarmuka API. Model multimodal serta model yang memerlukan proses \textit{fine-tuning} atau pelatihan ulang tidak menjadi bagian dari penelitian ini.
+    
+    \item Evaluasi dilakukan pada tugas-tugas berbasis teks, meliputi penalaran numerik, penalaran logis, pertanyaan pengetahuan umum, serta skenario sosial dan moral. Penelitian ini tidak membahas tugas multimodal maupun tugas berbasis \textit{speech}.
+    
+    \item Penilaian terhadap respons model dilakukan melalui evaluasi otomatis dan analisis komparatif. Penelitian tidak melibatkan penilaian dengan partisipan manusia.
+    
+    \item Seluruh eksperimen dijalankan melalui pendekatan \textit{prompt-based evaluation} tanpa melakukan perubahan terhadap parameter internal model.
+    
+    \item Analisis bias dibatasi pada \textit{human bias} yang timbul sebagai konsekuensi variasi persona. Penelitian tidak mengevaluasi bias yang berasal dari data pelatihan model atau faktor struktur model lainnya.
 \end{enumerate}
 
 % --- Metodologi Pengerjaan TA ---
-\section{Metodologi}
+\section{Metodologi Penelitian}
 
-Metodologi pada tahap penyusunan proposal ini disusun untuk memastikan bahwa proses perumusan masalah, penentuan ruang lingkup penelitian, dan penyusunan kerangka teoretis dilakukan secara sistematis. Metodologi ini tidak mencakup tahapan implementasi eksperimen, yang akan dijabarkan pada Bab III, melainkan berfokus pada kegiatan awal yang diperlukan untuk menghasilkan proposal penelitian yang terarah dan berbasis kajian ilmiah.
+Penelitian ini menggunakan pendekatan eksperimental berbasis pemanggilan model melalui prompt untuk melihat bagaimana persona memengaruhi respons sejumlah \textit{large language model}. Metodologi dirancang agar alur evaluasi jelas dan dapat dijalankan kembali apabila diperlukan. Tahapan penelitian disajikan sebagai berikut.
 
-\subsection{Tahap 1: Investigasi Awal dan Pengumpulan Fakta}
-
-Tahap awal dilakukan untuk memahami konteks permasalahan dan mengidentifikasi isu ilmiah yang relevan dengan topik penelitian. Langkah yang dilakukan meliputi:
 \begin{enumerate}
-    \item Mengidentifikasi fenomena sensitivitas \textit{large language model} terhadap identitas pengguna berdasarkan contoh kasus, laporan empiris, dan temuan penelitian sebelumnya.
-    \item Meninjau keluaran awal beberapa model bahasa melalui eksplorasi terbatas untuk mengamati indikasi pengaruh \textit{user persona} eksplisit dan \textit{user persona} implisit terhadap penalaran dan gaya respons.
-    \item Menyimpulkan pola permasalahan yang muncul untuk kemudian dirumuskan sebagai pokok masalah penelitian.
+    \item Perumusan spesifikasi eksperimen.
+    
+    Tahap ini diawali dengan menyusun dokumen spesifikasi yang memetakan kombinasi persona, model, bentuk interaksi, dan jenis tugas yang akan diuji. Spesifikasi tersebut dipakai sebagai acuan sehingga pelaksanaan eksperimen berjalan dengan alur yang tetap.
+
+    \item Penyusunan persona eksplisit dan implisit.
+    
+    Persona eksplisit dituliskan secara langsung di dalam prompt, sedangkan persona implisit dibangun melalui variasi gaya bahasa pengguna tanpa menyebutkan identitas secara eksplisit. Kedua bentuk persona digunakan untuk melihat bagaimana model memahami karakter pengguna dari konteks yang berbeda.
+
+    \item Pemilihan model dan ruang evaluasi.
+    
+    Penelitian menggunakan beberapa model bahasa berbasis teks yang tersedia melalui API tanpa proses \textit{fine-tuning}. Tugas yang digunakan mencakup penalaran numerik, penalaran logis, pertanyaan pengetahuan umum, serta skenario sosial dan moral.
+
+    \item Pelaksanaan eksperimen terotomatisasi.
+    
+    Setiap kombinasi persona, model, dan tugas dieksekusi menggunakan pendekatan \textit{prompt-based evaluation}. Seluruh proses dijalankan secara otomatis untuk mengurangi variasi yang tidak diperlukan dan menjaga alur pengujian tetap seragam.
+
+    \item Pengolahan respons dan analisis perbandingan.
+    
+    Respons model dicatat dan dianalisis berdasarkan ketepatan jawaban serta pola perubahan respons yang muncul akibat perbedaan persona. Perbandingan antar model dilakukan untuk melihat sejauh mana masing-masing model peka terhadap perubahan persona.
+
+    \item Analisis bias.
+    
+    Analisis difokuskan pada \textit{human bias} yang muncul selama proses tanya jawab akibat variasi persona. Penelitian ini tidak meninjau bias yang berasal dari data pelatihan atau arsitektur model.
 \end{enumerate}
 
-\subsection{Tahap 2: Pencarian, Pengelompokan, dan Penapisan Literatur}
-
-Tahap ini dilakukan untuk memperoleh landasan ilmiah yang kuat dalam menyusun kerangka teoretis dan menentukan arah penelitian. Kegiatan yang dilakukan mencakup:
-\begin{enumerate}
-    \item Melakukan pencarian literatur menggunakan mesin pencarian akademik seperti Google Scholar, Semantic Scholar, arXiv, dan ACL Anthology dengan kata kunci antara lain \textit{user persona}, \textit{implicit persona}, \textit{identity-conditioned prompting}, \textit{LLM sensitivity}, \textit{reasoning evaluation}, dan \textit{bias in LLM}.
-    \item Menyeleksi publikasi yang relevan, termasuk penelitian mengenai pengaruh identitas pengguna terhadap keluaran model bahasa, teori penalaran pada model bahasa, evaluasi berbasis prompt, dan bias implisit.
-    \item Mengelompokkan literatur ke dalam kategori konseptual, yaitu:  
-    (a) konsep dasar \textit{large language model},  
-    (b) teori dan klasifikasi \textit{persona} eksplisit dan implisit,  
-    (c) penelitian terdahulu mengenai identitas pengguna dan pengaruhnya terhadap keluaran model,  
-    (d) metode evaluasi penalaran dan analisis bias.
-    \item Menganalisis dan merangkum kontribusi, metodologi, serta keterbatasan setiap publikasi yang terpilih untuk memastikan bahwa kerangka teoretis proposal didasarkan pada referensi yang valid dan mutakhir.
-    \item Mendokumentasikan seluruh proses penelusuran literatur, termasuk daftar kata kunci, sumber pencarian, dan kriteria penapisan yang digunakan. Dokumentasi tambahan, seperti rekaman proses eksplorasi awal atau catatan observasi, akan dicantumkan pada bagian lampiran.
-\end{enumerate}
-
-Tahap-tahap tersebut menghasilkan landasan konseptual dan rumusan permasalahan yang digunakan dalam penyusunan proposal tugas akhir. Hasil kajian literatur secara rinci akan disajikan pada Bab II Studi Literatur.
+Metodologi ini menjadi dasar untuk pelaksanaan eksperimen dan pembahasan pada bab selanjutnya.
