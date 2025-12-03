@@ -128,11 +128,10 @@
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\contentsline {subsubsection}{\numberline {IV.1.4.2}Himpunan Model}{35}{subsubsection.4.1.4.2}%
-\contentsline {subsubsection}{\numberline {IV.1.4.3}Struktur Persona}{35}{subsubsection.4.1.4.3}%
+\contentsline {subsubsection}{\numberline {IV.1.4.2}Himpunan Model}{34}{subsubsection.4.1.4.2}%
+\contentsline {subsubsection}{\numberline {IV.1.4.3}Struktur Persona}{34}{subsubsection.4.1.4.3}%
 \contentsline {subsubsection}{\numberline {IV.1.4.4}Konfigurasi Eksekusi}{35}{subsubsection.4.1.4.4}%
+\contentsline {subsubsection}{\numberline {IV.1.4.5}Contoh Mekanisme Injeksi Persona}{35}{subsubsection.4.1.4.5}%
 \contentsline {section}{\numberline {IV.2}Perancangan Arsitektur Perangkat Lunak (\textit {Evaluation Pipeline})}{36}{section.4.2}%
 \contentsline {subsection}{\numberline {IV.2.1}Arsitektur Alur Kerja Sistem}{36}{subsection.4.2.1}%
 \contentsline {subsection}{\numberline {IV.2.2}Algoritma Orkestrasi dan Konkurensi}{37}{subsection.4.2.2}%
@@ -140,11 +139,16 @@
 \contentsline {subsection}{\numberline {IV.2.4}Mekanisme Toleransi Kesalahan dan Persistensi Status}{39}{subsection.4.2.4}%
 \contentsline {section}{\numberline {IV.3}Implementasi Data, Struktur Berkas, dan Keluaran Pipeline}{40}{section.4.3}%
 \contentsline {subsection}{\numberline {IV.3.1}Organisasi Direktori dan Artefak Data}{40}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {IV.3.2}Subsistem Perangkat Lunak dan Alur Transformasi Data}{41}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {IV.3.2}Subsistem Perangkat Lunak dan Alur Transformasi Data}{40}{subsection.4.3.2}%
 \contentsline {subsection}{\numberline {IV.3.3}Representasi Persona dan Mekanisme Injeksi Konteks}{41}{subsection.4.3.3}%
-\contentsline {subsection}{\numberline {IV.3.4}Contoh Struktur Log Inferensi}{42}{subsection.4.3.4}%
+\contentsline {subsection}{\numberline {IV.3.4}Contoh Struktur Log Inferensi}{41}{subsection.4.3.4}%
 \contentsline {subsection}{\numberline {IV.3.5}Ringkasan Hasil Eksperimen}{43}{subsection.4.3.5}%
 \contentsline {chapter}{\numberline {V}RENCANA SELANJUTNYA}{44}{chapter.5}%
+\contentsline {section}{\numberline {V.1}Rencana Implementasi}{44}{section.5.1}%
+\contentsline {subsection}{\numberline {V.1.1}Persiapan Lingkungan dan Alat}{44}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {V.1.2}Integrasi dan Sinkronisasi Modul Pipeline}{45}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {V.1.3}Konfigurasi Eksperimen}{45}{subsection.5.1.3}%
+\contentsline {subsection}{\numberline {V.1.4}Estimasi Sumber Daya dan Biaya}{46}{subsection.5.1.4}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 

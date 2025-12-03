@@ -3,6 +3,96 @@
 % ==========================================
 \chapter{RENCANA SELANJUTNYA}
 \label{chap:rencana-selanjutnya}
+
+
+% ==========================================
+% V.1 RENCANA IMPLEMENTASI
+% ==========================================
+
+\section{Rencana Implementasi}
+\label{sec:rencana-implementasi}
+
+Subbab ini menjelaskan rencana implementasi sistem sebelum pelaksanaan eksperimen penuh. Tujuan utamanya adalah menyiapkan lingkungan komputasi, memastikan seluruh modul dalam \textit{evaluation pipeline} berfungsi secara konsisten, serta menyediakan konfigurasi yang stabil agar ribuan permintaan model dapat diproses tanpa gangguan. Rencana implementasi dibagi menjadi empat komponen utama, yaitu persiapan lingkungan, integrasi modul, konfigurasi eksperimen, dan estimasi sumber daya.
+
+\subsection{Persiapan Lingkungan dan Alat}
+
+Tahap pertama adalah memastikan bahwa seluruh perangkat lunak dan fasilitas komputasi siap digunakan. Persiapan ini mencakup:
+
+\begin{enumerate}
+    \item \textit{Lingkungan eksekusi}.  
+    Sistem dijalankan menggunakan Python 3.10 atau lebih tinggi dengan dukungan pustaka pengolahan data dan eksekusi asinkron, termasuk \textit{aiohttp}, \textit{asyncio}, \textit{pydantic}, \textit{pandas}, dan \textit{numpy}. Penyimpanan lokal minimal dua puluh gigabita diperlukan untuk menampung berkas log dan tabel agregasi.
+
+    \item \textit{Integrasi API model}.  
+    Sistem memerlukan dua penyedia model: penyedia komersial (OpenAI, Anthropic, Google DeepMind) dan penyedia publik melalui OpenRouter. Seluruh kredensial disimpan pada berkas konfigurasi terenkripsi dalam direktori \texttt{config}. Validasi konektivitas dilakukan untuk memeriksa keabsahan kunci, ketersediaan layanan, dan format respons awal dari setiap model.
+
+    \item \textit{Pengujian konektivitas awal}.  
+    Sebelum eksperimen penuh dijalankan, sistem melakukan uji permintaan tunggal pada setiap model untuk memastikan bahwa skema respons, batas layanan, dan struktur metadata sesuai dengan asumsi pipeline.
+\end{enumerate}
+
+\subsection{Integrasi dan Sinkronisasi Modul Pipeline}
+
+Pipeline terdiri atas beberapa komponen yang harus berfungsi secara terpadu untuk menghasilkan data eksperimen yang lengkap dan konsisten.
+
+\begin{enumerate}
+    \item \textit{Orchestrator utama}.  
+    Modul ini mengendalikan keseluruhan alur, mulai dari pemuatan aset data, pembentukan instruksi, pemanggilan model, hingga penyimpanan log.
+
+    \item \textit{Mesin pembentuk instruksi}.  
+    Modul ini menggabungkan definisi persona sebagai \textit{System Message} dan soal benchmark sebagai \textit{User Message} berdasarkan templat tetap. Pendekatan ini memastikan determinisme instruksi di seluruh kombinasi model dan persona.
+
+    \item \textit{Pengelola eksekusi asinkron}.  
+    Komponen ini menerapkan mekanisme \textit{I/O concurrency} dengan pengaturan kapasitas \textit{semaphore} untuk mencegah pelanggaran batas layanan. Strategi ini memungkinkan banyak permintaan diproses secara paralel.
+
+    \item \textit{Pelacak status}.  
+    Mekanisme \textit{checkpointing} mencatat progres eksekusi sehingga proses dapat dilanjutkan jika terjadi gangguan. Hal ini mengurangi risiko kehilangan data pada eksperimen yang berlangsung dalam waktu lama.
+
+    \item \textit{Pencatat telemetri}.  
+    Modul ini menyimpan respons model dalam format JSON yang memuat teks keluaran, jumlah token, latensi eksekusi, dan, apabila tersedia, elemen penalaran internal. Seluruh data disimpan secara langsung ke direktori \texttt{results/logs}.
+
+    \item \textit{Modul agregasi}.  
+    Setelah seluruh log terkumpul, modul ini membentuk dua keluaran terstruktur: data granular untuk setiap butir soal dan tabel ringkasan untuk analisis lintas model dan persona.
+\end{enumerate}
+
+Setelah integrasi selesai, dilakukan pengujian integrasi berskala kecil menggunakan sebagian soal GSM8K untuk memastikan seluruh modul bekerja sesuai desain.
+
+\subsection{Konfigurasi Eksperimen}
+
+Eksperimen utama melibatkan sembilan model, lima belas persona, dan dua \textit{benchmark}. Persiapan konfigurasi dilakukan dengan menetapkan parameter eksekusi sebagai berikut:
+
+\begin{enumerate}
+    \item \textit{Himpunan model}.  
+    Model yang digunakan terdiri atas GPT 4.1 dan GPT 4.1 Mini; Claude 3.7 Sonnet dan Claude 3.7 Haiku; Gemini 2.0 Flash Thinking dan Gemini 2.0 Pro Experimental; serta tiga model publik melalui OpenRouter yaitu Grok 4.1 Fast, Nemotron-nano-12B-v2-VL, dan Bert Nebulon Alpha.
+
+    \item \textit{Himpunan persona}.  
+    Lima belas persona digunakan untuk mengevaluasi sensitivitas model terhadap variasi identitas dan gaya komunikasi. Persona diterapkan satu kali melalui tahapan \textit{persona grounding} dan \textit{warm-up} sebelum eksekusi benchmark.
+
+    \item \textit{Pengaturan teknis}.  
+    Parameter teknis mencakup batas token keluaran, kapasitas konkurensi, batas percobaan ulang, dan struktur direktori keluaran. Berkas keluaran disimpan dalam jalur terstruktur menurut model dan persona untuk mempermudah audit.
+
+    \item \textit{Alur eksekusi}.  
+    Setiap kombinasi model dan persona menjalankan seluruh soal GSM8K dan MMLU-Redux setelah tahap injeksi persona. Injeksi tidak diulang untuk setiap soal, sehingga kondisi persona tetap konsisten sepanjang satu sesi eksekusi.
+\end{enumerate}
+
+Konfigurasi ini menghasilkan seratus tiga puluh lima alur eksperimen, dengan masing-masing alur menjalankan ribuan permintaan model.
+
+\subsection{Estimasi Sumber Daya dan Biaya}
+
+Estimasi sumber daya komputasi diperlukan untuk memastikan kelayakan eksperimen dan mengendalikan biaya.
+
+\begin{enumerate}
+    \item \textit{Estimasi penggunaan token}.  
+    Rata-rata satu soal GSM8K menghasilkan antara seratus lima puluh hingga lima ratus \textit{completion tokens}, dan beberapa model publik menghasilkan penalaran panjang yang dapat mencapai dua ribu token. Untuk satu model, jumlah permintaan mencapai sekitar sembilan belas ribu, sehingga estimasi penggunaan token per model berada pada skala puluhan juta.
+
+    \item \textit{Estimasi biaya API}.  
+    Berdasarkan tarif umum, biaya model komersial berkisar antara dua hingga lima belas dolar Amerika Serikat per satuan juta token, sedangkan model publik melalui OpenRouter jauh lebih murah. Estimasi biaya keseluruhan eksperimen berada pada rentang seratus dua puluh hingga dua ratus lima puluh dolar Amerika Serikat apabila batas token diterapkan secara konservatif, dan dapat meningkat apabila penalaran panjang tidak dibatasi.
+
+    \item \textit{Strategi mitigasi}.  
+    Untuk menekan biaya, beberapa langkah diterapkan: menjalankan uji awal pada model publik, menetapkan batas token keluaran pada model komersial, dan menonaktifkan penalaran panjang apabila tidak diperlukan dalam analisis.
+\end{enumerate}
+
+Rencana implementasi ini memastikan bahwa seluruh komponen sistem siap sebelum eksperimen utama dijalankan, serta meminimalkan risiko gangguan teknis dan pemborosan sumber daya.
+
+
 Jelaskan secara detail langkah-langkah rencana selanjutnya, hal-hal yang diperlukan atau akan disiapkan, dan risiko dan mitigasinya, yang meliputi:
 \begin{enumerate}
 \item	Rencana implementasi, termasuk alat dan bahan yang diperlukan, lingkungan, konfigurasi, biaya, dan sebagainya.

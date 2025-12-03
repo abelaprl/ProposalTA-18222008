@@ -7,131 +7,126 @@
 
 Bab ini memaparkan rancangan konsep solusi yang diusulkan untuk menjawab permasalahan yang telah dianalisis pada bab sebelumnya. Berdasarkan hasil analisis pemilihan solusi, pendekatan yang digunakan dalam penelitian ini adalah pengembangan sistem eksperimen terotomatisasi berbasis konfigurasi. Pembahasan dalam bab ini mencakup desain konseptual eksperimen, perancangan arsitektur perangkat lunak atau \textit{evaluation pipeline}, serta spesifikasi implementasi data dan struktur berkas. Desain ini disusun untuk memenuhi kebutuhan fungsional terkait strukturisasi \textit{user persona} dan konsistensi eksekusi lintas model.
 % ==========================================
-
 %====== BAB IV.1 ======
 \section{Desain Konseptual Eksperimen}
 \label{sec:desain-konseptual}
 
-Perancangan eksperimen dalam penelitian ini bertujuan membangun sebuah mekanisme evaluasi yang deterministik, terukur, dan dapat direplikasi untuk menganalisis pengaruh \textit{user persona} terhadap perilaku model bahasa. Bagian ini menjelaskan landasan metodologis, keterbatasan pendekatan konvensional, rancangan sistem terotomatisasi, serta integrasi persona, model, dan \textit{benchmark} yang membentuk struktur eksperimen secara menyeluruh. Dengan demikian, hubungan antara desain konseptual dan analisis yang dilakukan pada bab selanjutnya menjadi lebih eksplisit.
+Bagian ini memaparkan dasar konseptual dari eksperimen yang dikembangkan untuk mengukur pengaruh \textit{user persona} terhadap perilaku model bahasa. Perancangan ini mencakup evaluasi terhadap keterbatasan pendekatan konvensional, prinsip desain sistem terotomatisasi yang diusulkan, serta integrasi persona, model, dan \textit{benchmark} penalaran yang digunakan. Dengan adanya desain konseptual ini, alur eksperimen yang dibahas pada subbab berikutnya menjadi lebih terarah, terukur, dan dapat direplikasi.
 
 \subsection{Keterbatasan Model Operasional Konvensional}
 
-Evaluasi berbasis interaksi manual melalui antarmuka percakapan masih menjadi praktik umum dalam penelitian persona dan perilaku model bahasa. Dalam pendekatan ini, instruksi persona dituliskan secara langsung ke dalam \textit{prompt} oleh peneliti untuk setiap percobaan. Meskipun tampak sederhana, pendekatan tersebut memiliki dua permasalahan metodologis utama yang menurunkan validitas internal eksperimen.
+Pendekatan manual yang lazim digunakan dalam penelitian persona umumnya bergantung pada penulisan instruksi langsung melalui antarmuka percakapan. Meskipun sederhana, pendekatan ini memiliki dua kelemahan metodologis utama yang mengurangi validitas internal penelitian.
 
-Permasalahan pertama ialah instabilitas masukan. Model bahasa menunjukkan sensitivitas tinggi terhadap variasi sintaksis dan pola penulisan; perubahan kecil seperti tanda baca, diksi, atau struktur kalimat dapat menghasilkan rantai penalaran yang berbeda, sebagaimana ditunjukkan oleh Turpin dan rekan \parencite{turpin2023language}. Ketergantungan pada pengetikan manual menyebabkan variasi tidak terkontrol sulit dihindari, sehingga efek persona sulit dipisahkan dari artefak sintaks.
+Pertama, terjadi instabilitas masukan. Model bahasa sangat sensitif terhadap perubahan kecil pada struktur \textit{prompt}—seperti variasi tanda baca atau perubahan gaya kalimat—yang dapat menyebabkan keluaran berbeda secara signifikan. Turpin et al.\ menunjukkan bahwa variasi kecil dalam \textit{framing} dapat menghasilkan rantai penalaran yang tidak konsisten \parencite{turpin2023language}. Ketergantungan pada input manual membuat variasi ini tidak dapat dikendalikan.
 
-Permasalahan kedua ialah rendahnya granularitas data. Respons model yang direkam secara manual umumnya hanya mencakup teks keluaran tanpa metadata komputasional seperti durasi eksekusi dan jumlah token. Padahal, informasi tersebut penting sebagai indikator beban kognitif model serta performa penalaran berorientasi pengguna \parencite{naous2025userlm}. Keterbatasan ini mengurangi ketelitian analisis dan menghambat kemampuan reproduksi penelitian.
+Kedua, pendekatan manual tidak menyediakan granularitas data yang memadai. Respons model biasanya hanya dicatat dalam bentuk teks akhir tanpa metadata komputasional seperti latensi atau jumlah token. Padahal, indikator tersebut penting untuk memahami beban kognitif model serta pola penalaran yang muncul pada kondisi persona tertentu \parencite{naous2025userlm}.
 
 \begin{figure}[htbp]
   \centering
-  % \includegraphics{<file-gambar-existing>} % opsional jika ada ilustrasi
   \caption{Model konseptual sistem eksperimen konvensional}
   \label{fig:model-before}
 \end{figure}
 
 \subsection{Sistem Eksperimen Terotomatisasi}
 
-Untuk mengatasi keterbatasan tersebut, penelitian ini merancang sistem eksperimen terotomatisasi dengan tiga prinsip utama, yaitu determinisme masukan berbasis konfigurasi, telemetri komprehensif, dan skalabilitas eksekusi.
+Untuk mengatasi keterbatasan tersebut, penelitian ini mengusulkan sistem eksperimen terotomatisasi dengan tiga prinsip desain inti: determinisme masukan, telemetri komprehensif, dan skalabilitas eksekusi.
 
-Pertama, determinisme masukan dicapai dengan menyimpan seluruh persona sebagai objek data statis dalam berkas konfigurasi. Setiap \textit{prompt} dibangun melalui proses injeksi terprogram sehingga model menerima stimulus yang identik hingga tingkat karakter. Pendekatan ini menghilangkan variasi akibat pengetikan manual dan memastikan bahwa perubahan keluaran model hanya berasal dari perbedaan persona.
+Pertama, determinisme masukan dicapai dengan menyimpan seluruh persona dalam berkas konfigurasi statis. Setiap \textit{prompt} dibentuk melalui mekanisme injeksi otomatis sehingga stimulus yang diterima model identik hingga tingkat karakter.
 
-Kedua, telemetri komprehensif diterapkan dengan mencatat seluruh respons model dalam berkas terstruktur yang memuat teks jawaban, panjang keluaran, jejak penalaran, jumlah token, serta latensi inferensi. Dengan demikian, kinerja linguistik dan komputasional dapat dianalisis secara simultan.
+Kedua, sistem mencatat keluaran model secara lengkap dalam format terstruktur (JSON dan CSV). Telemetri yang direkam mencakup teks jawaban, \textit{reasoning trace} (bila tersedia), jumlah token, dan latensi inferensi. Dengan demikian, analisis dapat menilai tidak hanya kebenaran jawaban, tetapi juga pola beban komputasi yang terkait dengan masing-masing persona.
 
-Ketiga, sistem memungkinkan eksekusi paralel melalui pemrosesan asinkron untuk menangani banyak permintaan secara bersamaan. Pendekatan ini meningkatkan cakupan eksperimen tanpa mengurangi ketelitian metodologis.
+Ketiga, sistem mendukung eksekusi \textit{asynchronous} sehingga ribuan permintaan dapat diproses secara paralel tanpa melampaui batas layanan. Pendekatan ini meningkatkan cakupan eksperimen sekaligus mengurangi waktu eksekusi total.
 
-Model konseptual sistem eksperimen terotomatisasi yang diusulkan ditunjukkan pada Gambar~\ref{fig:model-after}. Dalam penomoran dokumen, ilustrasi ini direferensikan sebagai Gambar~IV.2 \textit{Model Konseptual Sistem Eksperimen Terotomatisasi}.
+Model konseptual dari sistem usulan ditampilkan pada Gambar~\ref{fig:model-after}, yang dalam penomoran dokumen dicantumkan sebagai \textbf{Gambar IV.2 Model Konseptual Sistem Eksperimen Terotomatisasi}.
 
 \begin{figure}[htbp]
   \centering
-  % \includegraphics{<file-gambar-proposed>} % opsional jika ada ilustrasi
   \caption{Model konseptual sistem eksperimen terotomatisasi}
   \label{fig:model-after}
 \end{figure}
 
 \subsection{Analisis Komparatif Metodologis}
 
-Transformasi dari model konseptual \textit{Existing} ke \textit{Proposed} bukan sekadar peningkatan efisiensi operasional, melainkan juga peningkatan validitas metodologis penelitian. Tabel~\ref{tab:komparasi-metodologis} menyajikan analisis komparatif mendalam mengenai implikasi ilmiah dari kedua pendekatan tersebut yang ditinjau dari dimensi pengendalian variabel, integritas data, dan reproduktibilitas.
+Peralihan dari pendekatan \textit{Existing} ke \textit{Proposed} bukan sekadar peningkatan efisiensi, melainkan juga penguatan validitas ilmiah. Tabel~\ref{tab:komparasi-metodologis} merangkum perbedaan metodologis utama antara kedua pendekatan tersebut.
 
-Melalui desain ini, penelitian memastikan bahwa setiap kesimpulan mengenai bias atau perubahan penalaran yang ditarik pada bab hasil nantinya didasarkan pada data yang berintegritas tinggi, lengkap, dan diperoleh melalui prosedur yang dapat dipertanggungjawabkan secara ilmiah.
+Dengan struktur yang deterministik, terdokumentasi, dan terotomatisasi, setiap kesimpulan terkait pengaruh persona terhadap penalaran model dapat ditarik secara lebih dapat dipercaya dan dapat dipertanggungjawabkan secara ilmiah.
 
 \begin{table}[htbp]
   \centering
   \caption{Analisis komparatif validitas metodologis}
   \label{tab:komparasi-metodologis}
-  \renewcommand{\arraystretch}{1.28}
+  \renewcommand{\arraystretch}{1.25}
   \small
   \begin{tabularx}{\textwidth}{
-    >{\raggedright\arraybackslash}p{3.5cm}
+    >{\raggedright\arraybackslash}p{3.6cm}
     >{\raggedright\arraybackslash}X
-    >{\raggedright\arraybackslash}X
-  }
+    >{\raggedright\arraybackslash}X}
     \toprule
     \textbf{Dimensi Analisis} &
-    \textbf{Sistem Konvensional (\textit{Existing})} &
-    \textbf{Sistem Usulan (\textit{Proposed})} \\
+    \textbf{Sistem Konvensional (Existing)} &
+    \textbf{Sistem Usulan (Proposed)} \\
     \midrule
 
     Pengendalian variabel &
-    Stokastik; rentan terhadap gangguan input manual yang dapat mendistorsi kausalitas efek persona akibat sensitivitas \textit{framing}. &
-    Deterministik; konfigurasi statis dan injeksi otomatis menjamin isolasi variabel independen yang presisi dan konsisten. \\
+    Rentan terhadap gangguan input manual; sensitivitas \textit{framing} sulit dikendalikan. &
+    Deterministik; konfigurasi statis dan injeksi otomatis menjamin isolasi variabel independen. \\
 
     Granularitas data &
-    Dangkal (tekstual); hanya menangkap hasil akhir sehingga kehilangan nuansa proses internal model seperti latensi dan efisiensi token. &
-    Dalam (telemetri); menangkap metadata performa yang mengindikasikan beban kognitif dari adopsi persona secara granular. \\
+    Hanya menangkap jawaban akhir tanpa metadata. &
+    Telemetri lengkap; menangkap latensi, token, dan jejak penalaran. \\
 
     Format penyimpanan &
-    Tidak terstruktur; teks mentah dalam lembar kerja yang sulit diproses ulang secara komputasi dan rentan kesalahan salin. &
-    Terstruktur (JSON/CSV); data siap olah yang mendukung analisis statistik otomatis dan deteksi pola bias yang sistematis. \\
+    Tidak terstruktur; raw text sulit diproses ulang. &
+    Terstruktur (JSON/CSV) dan cocok untuk analisis lanjutan. \\
 
     Reproduktibilitas &
-    Rendah; parameter eksperimen sering kali tidak terdokumentasi dengan baik sehingga menyulitkan verifikasi pihak ketiga. &
-    Tinggi; seluruh kondisi eksperimen terenkapsulasi dalam kode sumber dan berkas konfigurasi yang dapat diaudit dan dijalankan ulang. \\
+    Rendah; parameter eksperimen tidak lengkap terdokumentasi. &
+    Tinggi; seluruh konfigurasi dan kode dapat diaudit dan dijalankan ulang. \\
 
     Cakupan eksperimen &
-    Terbatas; kendala waktu eksekusi linear membatasi jumlah kombinasi model dan persona yang dapat diuji secara layak. &
-    Masif; mendukung evaluasi skala besar untuk memetakan perilaku model pada spektrum persona yang luas. \\
+    Terbatas; eksekusi linear menghambat skala eksperimen. &
+    Masif; mendukung ribuan kombinasi melalui \textit{asynchronous execution}. \\
     \bottomrule
   \end{tabularx}
 \end{table}
 
 \subsection{Integrasi Persona, Model, dan Benchmark}
 
-Bagian ini menjelaskan struktur persona, himpunan model, serta dua \textit{benchmark} penalaran yang digunakan dalam penelitian. Ketiga komponen tersebut menjadi fondasi konfigurasi eksperimen sehingga pengaruh persona terhadap penalaran model dapat dipetakan secara sistematis.
+Bagian ini memaparkan komponen yang membentuk konfigurasi eksperimen, yaitu himpunan persona, himpunan model, dan \textit{benchmark} penalaran yang digunakan.
 
 \subsubsection{Benchmark Penalaran}
 
-Penelitian ini menggunakan dua \textit{benchmark} utama sebagai dasar evaluasi penalaran, yaitu GSM8K dan MMLU-Redux. Keduanya dipilih karena bersifat netral terhadap identitas sosial serta menyediakan format jawaban yang terstandarisasi sehingga memungkinkan isolasi pengaruh persona pada tahap instruksi sistem.
+Dua \textit{benchmark} digunakan untuk mengevaluasi dua bentuk penalaran yang berbeda.
 
-Benchmark pertama adalah GSM8K, yaitu korpus soal cerita matematika tingkat sekolah menengah yang dirancang untuk mengevaluasi penalaran numerik bertahap \parencite{cobbe2021gsm8k}. Penelitian ini menggunakan berkas \texttt{gsm8k\_train.json} dan \texttt{gsm8k\_test.json} sebagai sumber data utama, yang telah diunduh dan dinormalisasi sesuai kebutuhan sistem. Seluruh soal mempertahankan struktur berpasangan antara pertanyaan dan jawaban numerik sehingga proses ekstraksi jawaban akhir dapat dilakukan secara deterministik.
+\textit{GSM8K} merupakan kumpulan soal cerita matematika tingkat sekolah menengah yang menguji penalaran numerik bertahap \parencite{cobbe2021gsm8k}. Soal-soal GSM8K memiliki struktur jawaban numerik yang jelas sehingga proses evaluasi dapat dilakukan secara deterministik.
 
-Benchmark kedua adalah MMLU-Redux, yaitu korpus pilihan ganda lintas domain yang telah dikurasi ulang oleh Edinburgh Dataset Analytics Working Group \parencite{mmluRedux2024dataset}. Versi Redux digunakan karena memperbaiki ketidakstabilan yang hadir pada MMLU asli, seperti inkonsistensi format, ambiguitas pilihan jawaban, dan perbedaan kualitas antardomain \parencite{hendryckstest2021}. Penelitian ini menggunakan berkas \texttt{mmlu\_redux.json} sebagai sumber data utama, yang berisi representasi terstruktur untuk seluruh subjek yang diujikan.
+\textit{MMLU-Redux} merupakan versi terkurasi dari MMLU yang memperbaiki ambiguitas format, ketidakkonsistenan pilihan jawaban, dan ketidakseimbangan kualitas antar-subjek \parencite{mmluRedux2024dataset}. Benchmark ini digunakan untuk menguji penalaran konseptual lintas domain dengan format pilihan ganda.
 
-Penggunaan kedua \textit{benchmark} tersebut sekaligus memungkinkan evaluasi dua jenis penalaran berbeda, yaitu penalaran numerik berbasis langkah dan penalaran konseptual berbasis pilihan ganda. Hal ini memberikan gambaran yang lebih komprehensif mengenai variasi perilaku model di bawah pengaruh persona.
+Kombinasi GSM8K dan MMLU-Redux memberikan cakupan dua jenis penalaran yang komplementer: numerik prosedural dan konseptual deklaratif.
 
 \subsubsection{Himpunan Model}
 
-Penelitian ini menggunakan tiga belas model bahasa yang mewakili dua kategori besar, yaitu model komersial berkinerja tinggi dan model publik atau sumber terbuka. Daftar lengkap model adalah sebagai berikut:
+Penelitian ini menggunakan sembilan model bahasa, yang dikelompokkan ke dalam dua kategori berikut:
 
 \begin{enumerate}
-    \item Model komersial:
-    GPT-4.1, GPT-4.1 Mini, Claude 3.7 Sonnet, Claude 3.7 Haiku, 
-    Gemini 2.0 Flash Thinking, Gemini 2.0 Pro Experimental;
+    \item Model komersial:  
+    GPT-5, GPT-5 Mini, Claude 4.5 Sonnet, Claude 4.5 Haiku, Gemini 2.5 Flash, Gemini 2.5 Pro;
 
-    \item Model publik via OpenRouter:
+    \item Model publik via OpenRouter:  
     Grok 4.1 Fast, NVIDIA Nemotron-nano-12B-v2-VL, Bert Nebulon Alpha.
 \end{enumerate}
 
-Keragaman arsitektur ini memungkinkan analisis komparatif lintas paradigma representasi dan karakteristik inferensi, mulai dari model \textit{frontier} komersial hingga model publik yang dapat diakses secara lebih luas.
+Keragaman arsitektur ini memungkinkan analisis komparatif lintas paradigma, mulai dari \textit{frontier models} hingga model publik yang tersedia secara bebas.
 
 \subsubsection{Struktur Persona}
 
-Struktur persona disusun berdasarkan enam dimensi demografis dan stilistik, yaitu gender, usia, agama, pekerjaan, kewarganegaraan, dan register bahasa. Kombinasi dimensi tersebut menghasilkan lima belas persona eksplisit dan implisit, ditambah satu kondisi pengguna netral. Dua persona dasar implisit dirancang untuk menguji sensitivitas gender melalui gaya linguistik maskulin dan feminin tanpa deklarasi identitas eksplisit.
+Persona disusun berdasarkan enam dimensi utama: gender, usia, agama, pekerjaan, kewarganegaraan, dan register bahasa. Kombinasi dimensi tersebut menghasilkan lima belas persona—baik eksplisit maupun implisit—ditambah satu kondisi pengguna netral.
 
-Seluruh persona yang digunakan disajikan pada Tabel~\ref{tab:user-persona}.
+Tabel~\ref{tab:user-persona} menampilkan daftar lengkap persona yang digunakan.
 
 \begin{table}[htbp]
 \centering
-\caption{Daftar \textit{user persona} untuk kondisi eksperimen}
+\caption{Daftar user persona untuk kondisi eksperimen}
 \label{tab:user-persona}
 \renewcommand{\arraystretch}{1.15}
 
@@ -147,29 +142,87 @@ Seluruh persona yang digunakan disajikan pada Tabel~\ref{tab:user-persona}.
 \textbf{Occupation} &
 \textbf{Nationality / Register} \\
 \midrule
-P1  & Implicit male baseline              & Implicit & Male   & --          & --       & --                & Neutral \\
-P2  & Implicit female baseline            & Implicit & Female & --          & --       & --                & Neutral \\
-P3  & Neutral user                        & Neutral  & --     & --          & --       & --                & Neutral \\
+P1  & Implicit male baseline              & Implicit & Male   & --          & --       & --               & Neutral \\
+P2  & Implicit female baseline            & Implicit & Female & --          & --       & --               & Neutral \\
+P3  & Neutral user                        & Neutral  & --     & --          & --       & --               & Neutral \\
 P4  & Indonesian Muslim young woman       & Explicit & Female & Young adult & Muslim   & Healthcare worker & Indonesian / Semi-formal \\
 P5  & Indonesian Muslim young man         & Implicit & Male   & Young adult & Muslim   & Healthcare worker & Indonesian / Semi-formal \\
-P6  & American middle-aged male           & Explicit & Male   & Middle-aged & Christian & Engineer          & American / Formal \\
-P7  & American middle-aged female         & Implicit & Female & Middle-aged & Christian & Engineer          & American / Formal \\
-P8  & Indonesian Gen-Z female, casual     & Explicit & Female & Gen-Z       & --       & Student           & Indonesian / Casual--slang \\
-P9  & Indonesian Gen-Z male, casual       & Implicit & Male   & Gen-Z       & --       & Student           & Indonesian / Casual--slang \\
-P10 & Middle Eastern young adult male     & Explicit & Male   & Young adult & Muslim   & Engineer          & Middle Eastern Arabic-speaking / Formal \\
-P11 & Middle Eastern young adult female   & Implicit & Female & Young adult & Muslim   & Student           & Middle Eastern Arabic-speaking / Formal \\
-P12 & American atheist young male         & Explicit & Male   & Young adult & Atheist  & Student           & American / Formal \\
-P13 & American atheist young female       & Implicit & Female & Young adult & Atheist  & Student           & American / Formal \\
+P6  & American middle-aged male           & Explicit & Male   & Middle-aged & Christian & Engineer         & American / Formal \\
+P7  & American middle-aged female         & Implicit & Female & Middle-aged & Christian & Engineer         & American / Formal \\
+P8  & Indonesian Gen-Z female             & Explicit & Female & Gen-Z       & --       & Student          & Indonesian / Casual-slang \\
+P9  & Indonesian Gen-Z male               & Implicit & Male   & Gen-Z       & --       & Student          & Indonesian / Casual-slang \\
+P10 & Middle Eastern young adult male     & Explicit & Male   & Young adult & Muslim   & Engineer         & Middle Eastern Arabic / Formal \\
+P11 & Middle Eastern young adult female   & Implicit & Female & Young adult & Muslim   & Student          & Middle Eastern Arabic / Formal \\
+P12 & American atheist young male         & Explicit & Male   & Young adult & Atheist  & Student          & American / Formal \\
+P13 & American atheist young female       & Implicit & Female & Young adult & Atheist  & Student          & American / Formal \\
 P14 & Indonesian female healthcare worker & Explicit & Female & Young adult & Muslim   & Healthcare worker & Indonesian / Semi-formal \\
 P15 & Indonesian male healthcare worker   & Implicit & Male   & Young adult & Muslim   & Healthcare worker & Indonesian / Semi-formal \\
 \bottomrule
 \end{tabular}
 }
 \end{table}
-
 \subsubsection{Konfigurasi Eksekusi}
 
-Kombinasi seluruh persona dan ketiga belas model menghasilkan ratusan konfigurasi eksperimen dengan variasi konteks sosial dan karakteristik arsitektur yang beragam. Setiap konfigurasi dieksekusi melalui empat tahap tetap, yaitu pemanasan persona, penetapan konteks percakapan, eksekusi \textit{benchmark}, dan pencatatan telemetri. Tahapan ini memastikan bahwa perubahan respons model dapat ditelusuri secara langsung dari variabel persona dan bukan dari faktor lain di luar kendali eksperimen.
+Kombinasi lima belas persona dan sembilan model menghasilkan seratus tiga puluh lima
+konfigurasi eksperimen. Setiap konfigurasi melalui empat tahap eksekusi tetap:
+pemanasan persona, penetapan konteks percakapan, eksekusi \textit{benchmark}, dan
+pencatatan telemetri. Dengan demikian, setiap variasi keluaran dapat ditelusuri ulang
+secara langsung kepada kondisi persona yang diberikan.
+\subsubsection{Contoh Mekanisme Injeksi Persona}
+
+Proses injeksi persona dilakukan dengan menyusun \textit{system message} 
+yang mendefinisikan identitas dan karakter pengguna sebelum model menerima 
+stimulus pertanyaan. Dua kategori persona yang digunakan dalam penelitian ini 
+adalah persona eksplisit dan persona implisit.
+
+\begin{enumerate}
+    \item Persona eksplisit.
+\end{enumerate}
+
+Pada persona eksplisit, identitas pengguna dirumuskan secara langsung melalui 
+pola deklaratif seperti “your user is ...”. Instruksi ini menyebutkan atribut 
+sosial secara jelas—misalnya gender, usia, pekerjaan, atau preferensi gaya 
+bahasa. Contoh injeksi persona eksplisit yang digunakan dalam eksperimen adalah:
+
+\begin{quote}
+\textit{
+“Your user is an Indonesian Gen-Z male who works as a junior engineer.  
+He is analytical, prefers concise explanations, and communicates in a casual 
+but respectful tone. Adjust your reasoning structure and tone accordingly 
+when responding.”
+}
+\end{quote}
+
+Formulasi seperti ini memberikan konteks identitas yang eksplisit sehingga 
+efek persona dapat ditelusuri dengan jelas melalui perubahan pada struktur 
+penalaran dan gaya jawabannya.
+
+\begin{enumerate}
+    \setcounter{enumi}{1}
+    \item Persona implisit.
+\end{enumerate}
+
+Persona implisit tidak menyatakan identitas sosial secara langsung, tetapi 
+dibangun melalui narasi pengalaman pribadi, emosi, atau gaya tutur tertentu.  
+Model tidak diberi kategori demografis eksplisit; konteks diberikan secara halus, 
+sehingga model perlu menginterpretasikan karakter pengguna melalui sinyal 
+linguistik yang tersirat.
+
+Contoh injeksi persona implisit yang digunakan dalam penelitian ini adalah:
+
+\begin{quote}
+\textit{
+“Lately I have been feeling a strange mix of emotional exhaustion and pressure 
+to appear composed, especially when my skin starts acting up unexpectedly.  
+I keep adjusting small routines—like my skincare products—hoping something will 
+finally work. Before I deal with it again, could you help me break down this 
+next question step-by-step?”
+}
+\end{quote}
+
+Instruksi seperti ini menghasilkan kerangka persona yang lebih halus dan 
+mendukung analisis terhadap sensitivitas model terhadap gaya bahasa serta 
+cues emosional yang tidak dinyatakan secara eksplisit.
 
 %====== BAB IV.2 ======
 \section{Perancangan Arsitektur Perangkat Lunak (\textit{Evaluation Pipeline})}
