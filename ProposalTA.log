@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2025.11.12)  3 DEC 2025 10:11
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2025.11.12)  3 DEC 2025 15:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1712,15 +1712,31 @@ gsm8k_00003"},[]
 
 [42]) (./Bab V - Rencana-Selanjutnya.tex [43]
 Bab V.
-[44
 
-] [45]
-Overfull \hbox (8.76181pt too wide) in paragraph at lines 76--77
-[]\TU/TimesNewRoman(0)/m/n/12 Konfigurasi ini menghasilkan seratus tiga puluh l
-ima alur eksperimen, dengan masing-
+LaTeX Warning: Reference `subsec:organisasi-direktori' on page 44 undefined on 
+input line 36.
+
+
+Overfull \hbox (6.26552pt too wide) in paragraph at lines 33--37
+[]\TU/TimesNewRoman(0)/m/n/12 Sistem memuat berkas definisi 15 persona, korpus 
+GSM8K (split \TU/TimesNewRoman(0)/m/it/12 test\TU/TimesNewRoman(0)/m/n/12 ), MM
+LU-
  []
 
-[46]) [47] [48
+
+Overfull \hbox (16.26198pt too wide) in paragraph at lines 47--51
+[]\TU/TimesNewRoman(0)/m/n/12 Setiap kombinasi model–persona menjalankan seluru
+h soal GSM8K dan MMLU-
+ []
+
+[44
+
+] [45] [46]
+Overfull \hbox (63.20306pt too wide) in paragraph at lines 188--217
+ [][] 
+ []
+
+) [47] [48
 
 
 ]
@@ -1736,11 +1752,12 @@ he International Conference on Machine Learning, \TU/TimesNewRoman(0)/m/n/12 12
 697–
  []
 
+[49]
 
 Package caption Warning: Unused \captionsetup[lstlisting] on input line 385.
 See the caption package documentation for explanation.
 
-[49] (./ProposalTA.aux)
+[50] (./ProposalTA.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -1750,7 +1767,7 @@ L3 programming layer <2024-01-22>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `ProposalTA.out' has not changed.
-(rerunfilecheck)             Checksum: 07BE2BB6F09825890F8A12DBB046E5A7;16165.
+(rerunfilecheck)             Checksum: 154986708FEB887E5A24210950EEADC8;16310.
 
 Package biblatex Warning: Please rerun LaTeX.
 
@@ -1759,12 +1776,12 @@ Package logreq Info: Writing requests to 'ProposalTA.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 46161 strings out of 474878
- 959403 string characters out of 5762515
- 2298337 words of memory out of 5000000
- 67547 multiletter control sequences out of 15000+600000
- 564870 words of font info for 92 fonts, out of 8000000 for 9000
+ 46203 strings out of 474878
+ 960774 string characters out of 5762515
+ 2301115 words of memory out of 5000000
+ 67588 multiletter control sequences out of 15000+600000
+ 564878 words of font info for 93 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 83i,10n,93p,1199b,6187s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 83i,13n,93p,1199b,6187s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on ProposalTA.xdv (58 pages, 1134592 bytes).
+Output written on ProposalTA.xdv (59 pages, 1141752 bytes).

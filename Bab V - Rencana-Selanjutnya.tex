@@ -5,92 +5,230 @@
 \label{chap:rencana-selanjutnya}
 
 
-% ==========================================
-% V.1 RENCANA IMPLEMENTASI
-% ==========================================
 
-\section{Rencana Implementasi}
-\label{sec:rencana-implementasi}
+\section{Rencana Implementasi dan Estimasi Biaya}
+\label{sec:rencana-implementasi-biaya}
 
-Subbab ini menjelaskan rencana implementasi sistem sebelum pelaksanaan eksperimen penuh. Tujuan utamanya adalah menyiapkan lingkungan komputasi, memastikan seluruh modul dalam \textit{evaluation pipeline} berfungsi secara konsisten, serta menyediakan konfigurasi yang stabil agar ribuan permintaan model dapat diproses tanpa gangguan. Rencana implementasi dibagi menjadi empat komponen utama, yaitu persiapan lingkungan, integrasi modul, konfigurasi eksperimen, dan estimasi sumber daya.
+Rencana implementasi pada tahap berikutnya adalah menjalankan kembali
+\textit{evaluation pipeline} yang telah dijelaskan pada Bab~IV dengan cakupan
+penuh, mencakup sembilan model bahasa, dua \textit{benchmark} penalaran
+(GSM8K dan MMLU-Redux), serta lima belas \textit{user persona} (implisit,
+eksplisit, dan netral). Bagian ini merumuskan langkah implementasi teknis,
+asumsi kebutuhan token, serta estimasi biaya penggunaan API berdasarkan harga
+resmi masing-masing model pada platform OpenRouter%
+\footcite{openrouter_gpt5mini,openrouter_claudehaiku45,openrouter_gemini25flash,openrouter_deepseek32,openrouter_llama33,openrouter_gemma3n}
 
-\subsection{Persiapan Lingkungan dan Alat}
+Estimasi dilakukan menggunakan kurs konstan 1 USD = Rp16.000.
 
-Tahap pertama adalah memastikan bahwa seluruh perangkat lunak dan fasilitas komputasi siap digunakan. Persiapan ini mencakup:
+% -------------------------------------------------------------
+% 5.1.1 Rencana Implementasi Eksperimen
+% -------------------------------------------------------------
+\subsection{Rencana Implementasi Eksperimen}
 
-\begin{enumerate}
-    \item \textit{Lingkungan eksekusi}.  
-    Sistem dijalankan menggunakan Python 3.10 atau lebih tinggi dengan dukungan pustaka pengolahan data dan eksekusi asinkron, termasuk \textit{aiohttp}, \textit{asyncio}, \textit{pydantic}, \textit{pandas}, dan \textit{numpy}. Penyimpanan lokal minimal dua puluh gigabita diperlukan untuk menampung berkas log dan tabel agregasi.
-
-    \item \textit{Integrasi API model}.  
-    Sistem memerlukan dua penyedia model: penyedia komersial (OpenAI, Anthropic, Google DeepMind) dan penyedia publik melalui OpenRouter. Seluruh kredensial disimpan pada berkas konfigurasi terenkripsi dalam direktori \texttt{config}. Validasi konektivitas dilakukan untuk memeriksa keabsahan kunci, ketersediaan layanan, dan format respons awal dari setiap model.
-
-    \item \textit{Pengujian konektivitas awal}.  
-    Sebelum eksperimen penuh dijalankan, sistem melakukan uji permintaan tunggal pada setiap model untuk memastikan bahwa skema respons, batas layanan, dan struktur metadata sesuai dengan asumsi pipeline.
-\end{enumerate}
-
-\subsection{Integrasi dan Sinkronisasi Modul Pipeline}
-
-Pipeline terdiri atas beberapa komponen yang harus berfungsi secara terpadu untuk menghasilkan data eksperimen yang lengkap dan konsisten.
+Implementasi eksperimen direncanakan mengikuti enam langkah utama berikut.
 
 \begin{enumerate}
-    \item \textit{Orchestrator utama}.  
-    Modul ini mengendalikan keseluruhan alur, mulai dari pemuatan aset data, pembentukan instruksi, pemanggilan model, hingga penyimpanan log.
+  \item Persiapan aset data.
 
-    \item \textit{Mesin pembentuk instruksi}.  
-    Modul ini menggabungkan definisi persona sebagai \textit{System Message} dan soal benchmark sebagai \textit{User Message} berdasarkan templat tetap. Pendekatan ini memastikan determinisme instruksi di seluruh kombinasi model dan persona.
+  Sistem memuat berkas definisi 15 persona, korpus GSM8K (split
+  \textit{test}), MMLU-Redux (20 subjek), kredensial API, dan konfigurasi
+  model. Struktur direktori dan modul pemrosesan mengikuti rancangan pada
+  Subbab~\ref{subsec:organisasi-direktori}.
 
-    \item \textit{Pengelola eksekusi asinkron}.  
-    Komponen ini menerapkan mekanisme \textit{I/O concurrency} dengan pengaturan kapasitas \textit{semaphore} untuk mencegah pelanggaran batas layanan. Strategi ini memungkinkan banyak permintaan diproses secara paralel.
+  \item Inisialisasi dan \textit{warm-up} persona.
 
-    \item \textit{Pelacak status}.  
-    Mekanisme \textit{checkpointing} mencatat progres eksekusi sehingga proses dapat dilanjutkan jika terjadi gangguan. Hal ini mengurangi risiko kehilangan data pada eksperimen yang berlangsung dalam waktu lama.
+  Setiap model menerima satu pesan awal untuk menanamkan konteks persona
+  sebelum mengerjakan soal pertama. Tahap ini juga berfungsi sebagai
+  \textit{sanity check} bahwa model mengikuti identitas dan gaya bahasa
+  persona.
 
-    \item \textit{Pencatat telemetri}.  
-    Modul ini menyimpan respons model dalam format JSON yang memuat teks keluaran, jumlah token, latensi eksekusi, dan, apabila tersedia, elemen penalaran internal. Seluruh data disimpan secara langsung ke direktori \texttt{results/logs}.
+  \item Eksekusi eksperimen utama.
 
-    \item \textit{Modul agregasi}.  
-    Setelah seluruh log terkumpul, modul ini membentuk dua keluaran terstruktur: data granular untuk setiap butir soal dan tabel ringkasan untuk analisis lintas model dan persona.
+  Setiap kombinasi model--persona menjalankan seluruh soal GSM8K dan
+  MMLU-Redux menggunakan mekanisme injeksi pesan berbasis peran:
+  persona pada \textit{system message} dan soal pada \textit{user message}.
+  Setiap respons diharuskan mencakup penalaran langkah demi langkah.
+
+  \item Pencatatan log granular.
+
+  Setiap respons disimpan sebagai log JSON yang memuat isi \textit{prompt},
+  jawaban mentah, \textit{token usage}, dan \textit{latency}.
+
+  \item Agregasi dan validasi hasil.
+
+  Data log diubah menjadi CSV agregat yang berisi akurasi, rata-rata
+  latensi, dan konsumsi token. Validasi tambahan mencakup pemeriksaan pola
+  jawaban dan konsistensi jumlah entri.
+
+  \item Penanganan kegagalan.
+
+  Kegagalan akibat \textit{timeout} atau batas \textit{rate limit} ditangani
+  menggunakan \textit{retry} dengan \textit{exponential backoff}, sesuai
+  mekanisme pada Bab~IV. Dengan demikian, kegagalan sebagian tidak
+  mengganggu keseluruhan eksperimen.
 \end{enumerate}
 
-Setelah integrasi selesai, dilakukan pengujian integrasi berskala kecil menggunakan sebagian soal GSM8K untuk memastikan seluruh modul bekerja sesuai desain.
+% -------------------------------------------------------------
+% 5.1.2 Himpunan Model dan Skenario Eksekusi
+% -------------------------------------------------------------
+\subsection{Himpunan Model dan Skenario Eksekusi}
 
-\subsection{Konfigurasi Eksperimen}
-
-Eksperimen utama melibatkan sembilan model, lima belas persona, dan dua \textit{benchmark}. Persiapan konfigurasi dilakukan dengan menetapkan parameter eksekusi sebagai berikut:
+Eksperimen ini menggunakan sembilan model dengan rincian sebagai berikut.
 
 \begin{enumerate}
-    \item \textit{Himpunan model}.  
-    Model yang digunakan terdiri atas GPT 4.1 dan GPT 4.1 Mini; Claude 3.7 Sonnet dan Claude 3.7 Haiku; Gemini 2.0 Flash Thinking dan Gemini 2.0 Pro Experimental; serta tiga model publik melalui OpenRouter yaitu Grok 4.1 Fast, Nemotron-nano-12B-v2-VL, dan Bert Nebulon Alpha.
+  \item Enam model berbayar (via OpenRouter):
+  \begin{enumerate}
+    \item openai/gpt-5-mini
+    \item anthropic/claude-haiku-4.5
+    \item google/gemini-2.5-flash
+    \item deepseek/deepseek-v3.2
+    \item nvidia/llama-3.3-nemotron-super-49b-v1.5
+    \item google/gemma-3n-e4b-it
+  \end{enumerate}
 
-    \item \textit{Himpunan persona}.  
-    Lima belas persona digunakan untuk mengevaluasi sensitivitas model terhadap variasi identitas dan gaya komunikasi. Persona diterapkan satu kali melalui tahapan \textit{persona grounding} dan \textit{warm-up} sebelum eksekusi benchmark.
-
-    \item \textit{Pengaturan teknis}.  
-    Parameter teknis mencakup batas token keluaran, kapasitas konkurensi, batas percobaan ulang, dan struktur direktori keluaran. Berkas keluaran disimpan dalam jalur terstruktur menurut model dan persona untuk mempermudah audit.
-
-    \item \textit{Alur eksekusi}.  
-    Setiap kombinasi model dan persona menjalankan seluruh soal GSM8K dan MMLU-Redux setelah tahap injeksi persona. Injeksi tidak diulang untuk setiap soal, sehingga kondisi persona tetap konsisten sepanjang satu sesi eksekusi.
+  \item Tiga model yang pada saat perancangan tersedia sebagai \textit{free-tier}:
+  \begin{enumerate}
+    \item xai/grok-4.1-fast
+    \item nvidia/nemotron-nano-12b-v2-vl
+    \item openrouter/bert-nebulon-alpha
+  \end{enumerate}
 \end{enumerate}
 
-Konfigurasi ini menghasilkan seratus tiga puluh lima alur eksperimen, dengan masing-masing alur menjalankan ribuan permintaan model.
+Seluruh sembilan model dijalankan pada konfigurasi penuh: dua
+\textit{benchmark} dan lima belas persona. Namun, estimasi biaya hanya
+dihitung untuk enam model berbayar.
 
-\subsection{Estimasi Sumber Daya dan Biaya}
+% -------------------------------------------------------------
+% 5.1.3 Asumsi Jumlah Soal dan Kebutuhan Token
+% -------------------------------------------------------------
+\subsection{Asumsi Jumlah Soal dan Kebutuhan Token}
 
-Estimasi sumber daya komputasi diperlukan untuk memastikan kelayakan eksperimen dan mengendalikan biaya.
+Kebutuhan token dihitung berdasarkan dua sumber utama:
+GSM8K (1319 soal) dan MMLU-Redux (2000 soal).
+Pada kedua \textit{benchmark}, model diarahkan untuk memberikan
+penalaran lengkap sebelum jawaban akhir, sehingga konsumsi token per soal
+diharapkan berada pada kisaran yang relatif tinggi.
 
 \begin{enumerate}
-    \item \textit{Estimasi penggunaan token}.  
-    Rata-rata satu soal GSM8K menghasilkan antara seratus lima puluh hingga lima ratus \textit{completion tokens}, dan beberapa model publik menghasilkan penalaran panjang yang dapat mencapai dua ribu token. Untuk satu model, jumlah permintaan mencapai sekitar sembilan belas ribu, sehingga estimasi penggunaan token per model berada pada skala puluhan juta.
+  \item GSM8K.
 
-    \item \textit{Estimasi biaya API}.  
-    Berdasarkan tarif umum, biaya model komersial berkisar antara dua hingga lima belas dolar Amerika Serikat per satuan juta token, sedangkan model publik melalui OpenRouter jauh lebih murah. Estimasi biaya keseluruhan eksperimen berada pada rentang seratus dua puluh hingga dua ratus lima puluh dolar Amerika Serikat apabila batas token diterapkan secara konservatif, dan dapat meningkat apabila penalaran panjang tidak dibatasi.
+  Total token per persona per model diestimasikan sebagai:
+  \[
+    T_{\text{GSM8K}} \approx
+    1319 \times 1200
+    = 1{,}582{,}800 \text{ token}.
+  \]
 
-    \item \textit{Strategi mitigasi}.  
-    Untuk menekan biaya, beberapa langkah diterapkan: menjalankan uji awal pada model publik, menetapkan batas token keluaran pada model komersial, dan menonaktifkan penalaran panjang apabila tidak diperlukan dalam analisis.
+  \item MMLU-Redux.
+
+  Total token per persona per model diestimasikan sebagai:
+  \[
+    T_{\text{MMLU}} \approx
+    2000 \times 1200
+    = 2{,}400{,}000 \text{ token}.
+  \]
 \end{enumerate}
 
-Rencana implementasi ini memastikan bahwa seluruh komponen sistem siap sebelum eksperimen utama dijalankan, serta meminimalkan risiko gangguan teknis dan pemborosan sumber daya.
+Total token inti per persona diperoleh dari penjumlahan keduanya:
+\[
+  T_{\text{base, persona}} =
+  1{,}582{,}800 + 2{,}400{,}000
+  = 3{,}982{,}800.
+\]
+
+Untuk mengakomodasi \textit{warm-up} dan \textit{retry}, digunakan faktor
+overhead 20\%:
+\[
+  T_{\text{persona}} \approx
+  1.2 \times 3{,}982{,}800
+  = 4{,}779{,}360.
+\]
+
+Sehingga total token per model untuk 15 persona adalah:
+\[
+  T_{\text{model}}
+  \approx 15 \times 4{,}779{,}360
+  = 71{,}690{,}400
+  \approx 71{,}7 \times 10^6.
+\]
+
+Komposisi token diasumsikan:
+\[
+  T_{\text{in}} = 0.4T_{\text{model}},\qquad
+  T_{\text{out}} = 0.6T_{\text{model}}.
+\]
+
+% -------------------------------------------------------------
+% 5.1.4 Estimasi Biaya per Model
+% -------------------------------------------------------------
+\subsection{Estimasi Biaya per Model}
+
+Harga token per model mengacu pada dokumentasi OpenRouter%
+\parencite{openrouter_gpt5mini,openrouter_claudehaiku45,openrouter_gemini25flash,
+openrouter_deepseek32,openrouter_llama33,openrouter_gemma3n}.  
+Biaya untuk model ke-$m$ dihitung dengan rumus:
+\[
+  \text{cost}_m =
+  p_{\text{in},m} \times \frac{T_{\text{in}}}{10^6}
+  +
+  p_{\text{out},m} \times \frac{T_{\text{out}}}{10^6},
+\]
+dengan $p_{\text{in},m}$ dan $p_{\text{out},m}$ adalah harga per satu juta
+token untuk \textit{input} dan \textit{output}.
+
+Estimasi berikut menggunakan kurs Rp\,16.000 per USD dan total token
+$T_{\text{model}} \approx 71{,}7 \times 10^6$.
+
+\begin{table}[htbp]
+\centering
+\caption{Estimasi biaya enam model berbayar untuk konfigurasi penuh 15 persona}
+\label{tab:estimasi_biaya_model}
+
+\renewcommand{\arraystretch}{1.22}
+\begin{tabular}{lccc}
+\toprule
+Model &
+Total token $T_{\text{model}}$ &
+Biaya (USD) &
+Biaya (Rp) \\
+\midrule
+openai/gpt-5-mini              
+& $\approx 71{,}7 \times 10^6$ & 93.20  & $\approx 1{,}491{,}000$ \\
+
+anthropic/claude-haiku-4.5     
+& $\approx 71{,}7 \times 10^6$ & 243.75 & $\approx 3{,}900{,}000$ \\
+
+google/gemini-2.5-flash        
+& $\approx 71{,}7 \times 10^6$ & 116.14 & $\approx 1{,}858{,}000$ \\
+
+deepseek/deepseek-v3.2         
+& $\approx 71{,}7 \times 10^6$ & 24.95  & $\approx   399{,}000$ \\
+
+nvidia/llama-3.3-nemotron-super-49b-v1.5 
+& $\approx 71{,}7 \times 10^6$ & 20.07  & $\approx   321{,}000$ \\
+
+google/gemma-3n-e4b-it         
+& $\approx 71{,}7 \times 10^6$ & 2.29   & $\approx    37{,}000$ \\
+\midrule
+Total enam model berbayar 
+& -- & 500.40 & $\approx 8{,}006{,}000$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Tiga model lain yang tersedia sebagai \textit{free-tier}
+(grok-4.1-fast, nemotron-nano-12b-v2-vl, dan bert-nebulon-alpha)
+diperkirakan mengonsumsi token serupa tetapi tidak menimbulkan biaya
+finansial langsung. Status \textit{free-tier} tersebut tetap harus
+diverifikasi kembali sebelum eksperimen akhir dijalankan.
+
+Dengan demikian, estimasi total biaya finansial untuk menjalankan seluruh
+eksperimen multi-model, multi-persona, dan dua \textit{benchmark} penalaran
+adalah sekitar 500,40 USD atau kurang lebih 8 juta rupiah. Angka ini
+bersifat konservatif karena telah memasukkan biaya \textit{warm-up}
+dan \textit{retry}, sehingga realisasi biaya dapat lebih rendah apabila
+konsumsi token aktual per soal ternyata lebih kecil dari asumsi yang
+digunakan dalam perhitungan ini.
 
 
 Jelaskan secara detail langkah-langkah rencana selanjutnya, hal-hal yang diperlukan atau akan disiapkan, dan risiko dan mitigasinya, yang meliputi:

@@ -19,6 +19,15 @@
 
 \refsection{0}
   \datalist[entry]{cms/global//global/global}
+    \entry{openrouter_claudehaiku45}{misc}{}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labeldatesource}{nodate}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://openrouter.ai/anthropic/claude-haiku-4.5}}
+      \field{note}{Diakses 2025}
+      \field{title}{Anthropic Claude Haiku 4.5 Pricing}
+    \endentry
     \entry{bommasani2021opportunities}{article}{}
       \true{moreauthor}
       \true{morelabelname}
@@ -161,6 +170,15 @@
       \verb https://arxiv.org/abs/2110.14168
       \endverb
     \endentry
+    \entry{openrouter_deepseek32}{misc}{}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labeldatesource}{nodate}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://openrouter.ai/deepseek/deepseek-v3.2}}
+      \field{note}{Diakses 2025}
+      \field{title}{DeepSeek V3.2 Pricing}
+    \endentry
     \entry{mmluRedux2024dataset}{misc}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=4c8cb4b2d1704fdeeef5f2751396af8e}{%
@@ -235,6 +253,24 @@
       \verb{url}
       \verb https://arxiv.org/abs/2406.04127
       \endverb
+    \endentry
+    \entry{openrouter_gemini25flash}{misc}{}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labeldatesource}{nodate}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://openrouter.ai/google/gemini-2.5-flash}}
+      \field{note}{Diakses 2025}
+      \field{title}{Google Gemini 2.5 Flash Pricing}
+    \endentry
+    \entry{openrouter_gemma3n}{misc}{}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labeldatesource}{nodate}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://openrouter.ai/google/gemma-3n-e4b-it}}
+      \field{note}{Diakses 2025}
+      \field{title}{Google Gemma 3n 4B Pricing}
     \endentry
     \entry{gupta2024biasrunsdeep}{inproceedings}{}
       \name{author}{7}{}{%
@@ -409,6 +445,24 @@
       \verb{url}
       \verb https://arxiv.org/abs/2510.06552
       \endverb
+    \endentry
+    \entry{openrouter_llama33}{misc}{}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{labeldatesource}{nodate}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://openrouter.ai/nvidia/llama-3.3-nemotron-super-49b-v1.5}}
+      \field{note}{Diakses 2025}
+      \field{title}{NVIDIA Llama 3.3 Nemotron Super 49B V1.5 Pricing}
+    \endentry
+    \entry{openrouter_gpt5mini}{misc}{}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{labeldatesource}{nodate}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://openrouter.ai/openai/gpt-5-mini}}
+      \field{note}{Diakses 2025}
+      \field{title}{OpenAI GPT-5 Mini Pricing}
     \endentry
     \entry{sap2019socialiqa}{inproceedings}{}
       \name{author}{5}{}{%
