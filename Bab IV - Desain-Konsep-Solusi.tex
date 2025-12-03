@@ -21,12 +21,6 @@ Pertama, terjadi instabilitas masukan. Model bahasa sangat sensitif terhadap per
 
 Kedua, pendekatan manual tidak menyediakan granularitas data yang memadai. Respons model biasanya hanya dicatat dalam bentuk teks akhir tanpa metadata komputasional seperti latensi atau jumlah token. Padahal, indikator tersebut penting untuk memahami beban kognitif model serta pola penalaran yang muncul pada kondisi persona tertentu \parencite{naous2025userlm}.
 
-\begin{figure}[htbp]
-  \centering
-  \caption{Model konseptual sistem eksperimen konvensional}
-  \label{fig:model-before}
-\end{figure}
-
 \subsection{Sistem Eksperimen Terotomatisasi}
 
 Untuk mengatasi keterbatasan tersebut, penelitian ini mengusulkan sistem eksperimen terotomatisasi dengan tiga prinsip desain inti: determinisme masukan, telemetri komprehensif, dan skalabilitas eksekusi.
@@ -41,6 +35,7 @@ Model konseptual dari sistem usulan ditampilkan pada Gambar~\ref{fig:model-after
 
 \begin{figure}[htbp]
   \centering
+  \includegraphics[width=0.9\textwidth,height=0.7\textheight,keepaspectratio]{image/proposed_solution.png}
   \caption{Model konseptual sistem eksperimen terotomatisasi}
   \label{fig:model-after}
 \end{figure}

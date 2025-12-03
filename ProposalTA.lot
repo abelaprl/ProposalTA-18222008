@@ -12,25 +12,6 @@
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\addvspace {10\p@ }
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
@@ -58,7 +39,6 @@
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\contentsline {table}{\numberline {III.1}{\ignorespaces Daftar masalah penelitian terkait \textit {user persona} pada LLM}}{24}{table.caption.3}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
@@ -71,21 +51,6 @@
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\contentsline {table}{\numberline {III.2}{\ignorespaces Kebutuhan fungsional penelitian}}{26}{table.caption.4}%
-\contentsline {table}{\numberline {III.3}{\ignorespaces Kebutuhan nonfungsional penelitian}}{27}{table.caption.5}%
-\contentsline {table}{\numberline {III.4}{\ignorespaces Perbandingan alternatif solusi}}{29}{table.caption.6}%
-\addvspace {10\p@ }
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\contentsline {table}{\numberline {IV.1}{\ignorespaces Analisis komparatif validitas metodologis}}{33}{table.caption.9}%
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\contentsline {table}{\numberline {IV.2}{\ignorespaces Daftar user persona untuk kondisi eksperimen}}{34}{table.caption.10}%
-\contentsline {table}{\numberline {IV.3}{\ignorespaces Ringkasan Hasil Eksperimen GSM8K untuk Seluruh Model dan Persona}}{43}{table.caption.11}%
 \addvspace {10\p@ }
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
@@ -103,6 +68,7 @@
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
+\contentsline {table}{\numberline {III.1}{\ignorespaces Daftar masalah penelitian terkait \textit {user persona} pada LLM}}{23}{table.caption.3}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
@@ -111,7 +77,55 @@
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\contentsline {table}{\numberline {V.1}{\ignorespaces Estimasi biaya enam model berbayar untuk konfigurasi penuh 15 persona}}{47}{table.caption.12}%
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\contentsline {table}{\numberline {III.2}{\ignorespaces Kebutuhan fungsional penelitian}}{25}{table.caption.4}%
+\contentsline {table}{\numberline {III.3}{\ignorespaces Kebutuhan nonfungsional penelitian}}{26}{table.caption.5}%
+\contentsline {table}{\numberline {III.4}{\ignorespaces Perbandingan alternatif solusi}}{28}{table.caption.6}%
+\addvspace {10\p@ }
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\contentsline {table}{\numberline {IV.1}{\ignorespaces Analisis komparatif validitas metodologis}}{33}{table.caption.8}%
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\contentsline {table}{\numberline {IV.2}{\ignorespaces Daftar user persona untuk kondisi eksperimen}}{34}{table.caption.9}%
+\contentsline {table}{\numberline {IV.3}{\ignorespaces Ringkasan Hasil Eksperimen GSM8K untuk Seluruh Model dan Persona}}{43}{table.caption.10}%
+\addvspace {10\p@ }
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\contentsline {table}{\numberline {V.1}{\ignorespaces Estimasi biaya enam model berbayar untuk konfigurasi penuh 15 persona}}{47}{table.caption.11}%
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 

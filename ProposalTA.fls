@@ -474,6 +474,9 @@ INPUT Bab III - Analisis-Masalah.tex
 INPUT ./Bab IV - Desain-Konsep-Solusi.tex
 INPUT ./Bab IV - Desain-Konsep-Solusi.tex
 INPUT Bab IV - Desain-Konsep-Solusi.tex
+INPUT ./image/proposed_solution.png
+INPUT ./image/proposed_solution.png
+INPUT ./image/proposed_solution.png
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmex10.tfm

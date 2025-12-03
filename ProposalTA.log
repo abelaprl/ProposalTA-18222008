@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2025.11.12)  3 DEC 2025 18:21
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2025.11.12)  4 DEC 2025 00:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1526,7 +1526,7 @@ Overfull \hbox (64.45271pt too wide) in paragraph at lines 308--313
 \openout7 = `ProposalTA.lof'.
 
  [6] (./ProposalTA.lot
-Overfull \hbox (0.91518pt too wide) in paragraph at lines 88--88
+Overfull \hbox (0.91518pt too wide) in paragraph at lines 98--98
  [][] [][][]\TU/TimesNewRoman(0)/m/n/12 Ringkasan Hasil Eksperimen GSM8K untuk 
 Seluruh Model dan Per- 
  []
@@ -1596,14 +1596,32 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 ] (./Bab I - Pendahuluan.tex
 Bab I.
+
+Overfull \hbox (10.8782pt too wide) in paragraph at lines 15--16
+[]\TU/TimesNewRoman(0)/m/n/12 Penelitian dalam pemodelan pengguna juga menunjuk
+kan bahwa identitas pengguna—
+ []
+
+
+Overfull \hbox (1.2587pt too wide) in paragraph at lines 15--16
+\TU/TimesNewRoman(0)/m/n/12 meliputi usia, latar belakang profesional, maupun p
+engalaman tertentu—dapat mem-
+ []
+
 [1
 
 
-] [2] [3] [4]) (./Bab II - Studi-Literatur.tex [5] [6]
-Bab II.
-[7
+]
+Overfull \hbox (13.77664pt too wide) in paragraph at lines 21--22
+\TU/TimesNewRoman(0)/m/it/12 driven experiment orchestration \TU/TimesNewRoman(
+0)/m/n/12 yang memungkinkan pelaksanaan kombinasi persona–
+ []
 
-] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18]
+[2] [3] [4]) (./Bab II - Studi-Literatur.tex [5]
+Bab II.
+[6
+
+] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17]
 Overfull \hbox (8.69006pt too wide) in paragraph at lines 184--185
 []\TU/TimesNewRoman(0)/m/n/12 Penelitian lain menyoroti aspek ketidakstabilan p
 enalaran model. Turpin et al. ([][][]Turpin
@@ -1615,26 +1633,26 @@ Overfull \hbox (0.22066pt too wide) in paragraph at lines 184--185
 kecil pada struktur instruksi dapat meng-
  []
 
-[19] [20]
+[18] [19]
 Overfull \hbox (5.37509pt too wide) in paragraph at lines 206--207
 []\TU/TimesNewRoman(0)/m/n/12 Secara keseluruhan, penelitian-penelitian tersebu
 t menunjukkan perlunya kajian yang
  []
 
-) (./Bab III - Analisis-Masalah.tex [21]
+) (./Bab III - Analisis-Masalah.tex [20]
 Bab III.
-[22
+[21
 
 ]
 
 Package biblatex-chicago Warning: Empty Ibidem citation on input line 23.
 
-[23]
+[22]
 Overfull \hbox (35.99995pt too wide) in paragraph at lines 31--52
  [][] 
  []
 
-[24] [25]
+[23] [24]
 Overfull \hbox (7.54721pt too wide) in paragraph at lines 85--102
  [][] 
  []
@@ -1645,7 +1663,7 @@ Overfull \hbox (0.1907pt too wide) in paragraph at lines 104--105
 entasikan persona secara eks-
  []
 
-[26]
+[25]
 Underfull \hbox (badness 1132) in paragraph at lines 128--129
 \TU/TimesNewRoman(0)/m/n/12 ubahan besar pada struktur keseluruhan, se-
  []
@@ -1655,7 +1673,7 @@ Overfull \hbox (7.54721pt too wide) in paragraph at lines 114--131
  [][] 
  []
 
-[27] [28]
+[26] [27]
 Underfull \hbox (badness 10000) in paragraph at lines 164--164
 []|\TU/TimesNewRoman(0)/m/n/12 Representasi \TU/TimesNewRoman(0)/m/it/12 user p
 ersona
@@ -1677,40 +1695,38 @@ Overfull \hbox (47.99997pt too wide) in paragraph at lines 157--195
  [][] 
  []
 
-[29]) (./Bab IV - Desain-Konsep-Solusi.tex [30]
+[28]) (./Bab IV - Desain-Konsep-Solusi.tex [29]
 Bab IV.
-[31
+[30
 
 ]
-
-LaTeX Warning: Reference `fig:model-after' on page 32 undefined on input line 4
-0.
-
-[32] [33] [34] [35] [36]
-Overfull \hbox (28.19656pt too wide) in paragraph at lines 259--260
+File: image/proposed_solution.png Graphic file (type bmp)
+<image/proposed_solution.png>
+ [31] [32] [33] [34] [35] [36]
+Overfull \hbox (28.19656pt too wide) in paragraph at lines 254--255
 \TU/TimesNewRoman(0)/m/n/12 Eksperimen dalam penelitian ini melibatkan ribuan k
 ombinasi persona–model–pertanyaan
  []
 
 [37]
-Overfull \hbox (14.73512pt too wide) in paragraph at lines 300--301
+Overfull \hbox (14.73512pt too wide) in paragraph at lines 295--296
 \TU/TimesNewRoman(0)/m/n/12 nganan galat adaptif. Dengan demikian, seluruh komb
 inasi persona–model–benchmark
  []
 
 [38] [39] [40]
-Overfull \hbox (2.90816pt too wide) in paragraph at lines 362--364
+Overfull \hbox (2.90816pt too wide) in paragraph at lines 357--359
 []\TU/TimesNewRoman(0)/m/it/12 Analysis subsystem\TU/TimesNewRoman(0)/m/n/12 . 
 Mengolah log mentah menjadi tabel terstruktur dan meng-
  []
 
 [41]
-Overfull \hbox (15.32825pt too wide) in paragraph at lines 428--428
+Overfull \hbox (15.32825pt too wide) in paragraph at lines 423--423
 [] \TU/lmtt/m/n/10 "run": {"model_id": "example-model-reason", "question_id": "
 gsm8k_00003"},[] 
  []
 
-[42]) (./Bab V - Rencana-Selanjutnya.tex [43]
+) (./Bab V - Rencana-Selanjutnya.tex [42] [43]
 Bab V.
 
 LaTeX Warning: Reference `subsec:organisasi-direktori' on page 44 undefined on 
@@ -1751,14 +1767,13 @@ Overfull \hbox (64.1498pt too wide) in paragraph at lines 406--406
 ng”. \TU/TimesNewRoman(0)/m/it/12 arXiv preprint arXiv:2305.04388,
  []
 
-
+[52]
 Overfull \hbox (14.36363pt too wide) in paragraph at lines 406--406
 \TU/TimesNewRoman(0)/m/n/12 Dalam \TU/TimesNewRoman(0)/m/it/12 Proceedings of t
 he International Conference on Machine Learning, \TU/TimesNewRoman(0)/m/n/12 12
 697–
  []
 
-[52]
 
 Package caption Warning: Unused \captionsetup[lstlisting] on input line 385.
 See the caption package documentation for explanation.
@@ -1775,21 +1790,19 @@ LaTeX Warning: There were undefined references.
 Package rerunfilecheck Info: File `ProposalTA.out' has not changed.
 (rerunfilecheck)             Checksum: 3EB035EAE311A8019FBAAAC2AD1D6E90;16723.
 
-Package biblatex Warning: Please (re)run Biber on the file:
-(biblatex)                ProposalTA
-(biblatex)                and rerun LaTeX afterwards.
+Package biblatex Warning: Please rerun LaTeX.
 
 Package logreq Info: Writing requests to 'ProposalTA.run.xml'.
 \openout1 = `ProposalTA.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 46204 strings out of 474878
- 960805 string characters out of 5762515
- 2302607 words of memory out of 5000000
- 67589 multiletter control sequences out of 15000+600000
+ 46228 strings out of 474878
+ 961467 string characters out of 5762515
+ 2304831 words of memory out of 5000000
+ 67611 multiletter control sequences out of 15000+600000
  564878 words of font info for 93 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  83i,13n,93p,1199b,6187s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on ProposalTA.xdv (62 pages, 1196640 bytes).
+Output written on ProposalTA.xdv (62 pages, 1201244 bytes).
