@@ -5,68 +5,67 @@
 \label{chap:rencana-selanjutnya}
 
 
-
-\section{Rencana Implementasi dan Estimasi Biaya}
+\section{Rencana Implementasi dan Estimasi Biaya} 
 \label{sec:rencana-implementasi-biaya}
 
 Rencana implementasi pada tahap berikutnya adalah menjalankan kembali
 \textit{evaluation pipeline} yang telah dijelaskan pada Bab~IV dengan cakupan
-penuh, mencakup sembilan model bahasa, dua \textit{benchmark} penalaran
+penuh, yang meliputi sembilan model bahasa, dua \textit{benchmark} penalaran
 (GSM8K dan MMLU-Redux), serta lima belas \textit{user persona} (implisit,
 eksplisit, dan netral). Bagian ini merumuskan langkah implementasi teknis,
 asumsi kebutuhan token, serta estimasi biaya penggunaan API berdasarkan harga
 resmi masing-masing model pada platform OpenRouter%
-\footcite{openrouter_gpt5mini,openrouter_claudehaiku45,openrouter_gemini25flash,openrouter_deepseek32,openrouter_llama33,openrouter_gemma3n}
 
 Estimasi dilakukan menggunakan kurs konstan 1 USD = Rp16.000.
 
 % -------------------------------------------------------------
 % 5.1.1 Rencana Implementasi Eksperimen
 % -------------------------------------------------------------
+% -------------------------------------------------------------
+% 5.1.1 Rencana Implementasi Eksperimen
+% -------------------------------------------------------------
 \subsection{Rencana Implementasi Eksperimen}
 
-Implementasi eksperimen direncanakan mengikuti enam langkah utama berikut.
+Pelaksanaan eksperimen direncanakan mengikuti enam langkah utama berikut.
 
 \begin{enumerate}
-  \item Persiapan aset data.
-
-  Sistem memuat berkas definisi 15 persona, korpus GSM8K (split
-  \textit{test}), MMLU-Redux (20 subjek), kredensial API, dan konfigurasi
+  \item Persiapan aset data.\\
+  Sistem memuat berkas definisi lima belas persona, korpus GSM8K (split
+  \textit{test}), MMLU-Redux (20 subjek), kredensial API, serta konfigurasi
   model. Struktur direktori dan modul pemrosesan mengikuti rancangan pada
-  Subbab~\ref{subsec:organisasi-direktori}.
+  Subbab~\ref{sec:perancangan-data-struktur}.
 
-  \item Inisialisasi dan \textit{warm-up} persona.
-
+  \item Inisialisasi dan \textit{warm-up} persona.\\
   Setiap model menerima satu pesan awal untuk menanamkan konteks persona
   sebelum mengerjakan soal pertama. Tahap ini juga berfungsi sebagai
-  \textit{sanity check} bahwa model mengikuti identitas dan gaya bahasa
-  persona.
+  \textit{sanity check} untuk memastikan bahwa model mengikuti identitas dan
+  gaya bahasa persona secara konsisten.
 
-  \item Eksekusi eksperimen utama.
-
+  \item Eksekusi eksperimen utama.\\
   Setiap kombinasi model--persona menjalankan seluruh soal GSM8K dan
   MMLU-Redux menggunakan mekanisme injeksi pesan berbasis peran:
   persona pada \textit{system message} dan soal pada \textit{user message}.
-  Setiap respons diharuskan mencakup penalaran langkah demi langkah.
+  Setiap respons diharuskan menyertakan penalaran langkah demi langkah.
 
-  \item Pencatatan log granular.
+  \item Pencatatan log granular.\\
+  Seluruh respons disimpan sebagai berkas JSON yang memuat isi \textit{prompt},
+  jawaban mentah, \textit{token usage}, serta \textit{latency}. Format ini
+  memastikan bahwa setiap respons dapat ditelusuri kembali ke konfigurasi yang
+  digunakan.
 
-  Setiap respons disimpan sebagai log JSON yang memuat isi \textit{prompt},
-  jawaban mentah, \textit{token usage}, dan \textit{latency}.
+  \item Agregasi dan validasi hasil.\\
+  Log yang terkumpul diubah menjadi berkas CSV agregat yang berisi akurasi,
+  rata-rata latensi, serta total konsumsi token. Validasi tambahan dilakukan
+  melalui pemeriksaan pola jawaban dan konsistensi jumlah entri.
 
-  \item Agregasi dan validasi hasil.
-
-  Data log diubah menjadi CSV agregat yang berisi akurasi, rata-rata
-  latensi, dan konsumsi token. Validasi tambahan mencakup pemeriksaan pola
-  jawaban dan konsistensi jumlah entri.
-
-  \item Penanganan kegagalan.
-
+  \item Penanganan kegagalan.\\
   Kegagalan akibat \textit{timeout} atau batas \textit{rate limit} ditangani
-  menggunakan \textit{retry} dengan \textit{exponential backoff}, sesuai
-  mekanisme pada Bab~IV. Dengan demikian, kegagalan sebagian tidak
-  mengganggu keseluruhan eksperimen.
+  menggunakan mekanisme \textit{retry} dengan \textit{exponential backoff},
+  sebagaimana dijelaskan pada Bab~IV. Dengan demikian, kegagalan sebagian
+  tidak menghentikan keseluruhan eksperimen.
 \end{enumerate}
+
+
 
 % -------------------------------------------------------------
 % 5.1.2 Himpunan Model dan Skenario Eksekusi
@@ -185,35 +184,26 @@ $T_{\text{model}} \approx 71{,}7 \times 10^6$.
 \label{tab:estimasi_biaya_model}
 
 \renewcommand{\arraystretch}{1.22}
-\begin{tabular}{lccc}
+\footnotesize
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{l c c c}
 \toprule
-Model &
-Total token $T_{\text{model}}$ &
-Biaya (USD) &
-Biaya (Rp) \\
+\textbf{Model} &
+\textbf{Total Token} $T_{\text{model}}$ &
+\textbf{Biaya (USD)} &
+\textbf{Biaya (Rp)} \\
 \midrule
-openai/gpt-5-mini              
-& $\approx 71{,}7 \times 10^6$ & 93.20  & $\approx 1{,}491{,}000$ \\
-
-anthropic/claude-haiku-4.5     
-& $\approx 71{,}7 \times 10^6$ & 243.75 & $\approx 3{,}900{,}000$ \\
-
-google/gemini-2.5-flash        
-& $\approx 71{,}7 \times 10^6$ & 116.14 & $\approx 1{,}858{,}000$ \\
-
-deepseek/deepseek-v3.2         
-& $\approx 71{,}7 \times 10^6$ & 24.95  & $\approx   399{,}000$ \\
-
-nvidia/llama-3.3-nemotron-super-49b-v1.5 
-& $\approx 71{,}7 \times 10^6$ & 20.07  & $\approx   321{,}000$ \\
-
-google/gemma-3n-e4b-it         
-& $\approx 71{,}7 \times 10^6$ & 2.29   & $\approx    37{,}000$ \\
+openai/gpt-5-mini & $\approx 71{,}7 \times 10^6$ & 93.20  & $\approx 1{,}491{,}000$ \\
+anthropic/claude-haiku-4.5 & $\approx 71{,}7 \times 10^6$ & 243.75 & $\approx 3{,}900{,}000$ \\
+google/gemini-2.5-flash & $\approx 71{,}7 \times 10^6$ & 116.14 & $\approx 1{,}858{,}000$ \\
+deepseek/deepseek-v3.2 & $\approx 71{,}7 \times 10^6$ & 24.95  & $\approx 399{,}000$ \\
+nvidia/llama-3.3-nemotron-super-49b-v1.5 & $\approx 71{,}7 \times 10^6$ & 20.07  & $\approx 321{,}000$ \\
+google/gemma-3n-e4b-it & $\approx 71{,}7 \times 10^6$ & 2.29   & $\approx 37{,}000$ \\
 \midrule
-Total enam model berbayar 
-& -- & 500.40 & $\approx 8{,}006{,}000$ \\
+\textbf{Total enam model berbayar} & -- & \textbf{500.40} & $\approx \textbf{8{,}006{,}000}$ \\
 \bottomrule
 \end{tabular}
+\end{adjustbox}
 \end{table}
 
 Tiga model lain yang tersedia sebagai \textit{free-tier}

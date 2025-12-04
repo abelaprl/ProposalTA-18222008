@@ -5028,13 +5028,7 @@
     <bcf:citekey order="52" intorder="4">openrouter_deepseek32</bcf:citekey>
     <bcf:citekey order="52" intorder="5">openrouter_llama33</bcf:citekey>
     <bcf:citekey order="52" intorder="6">openrouter_gemma3n</bcf:citekey>
-    <bcf:citekey order="53" intorder="1">openrouter_gpt5mini</bcf:citekey>
-    <bcf:citekey order="53" intorder="2">openrouter_claudehaiku45</bcf:citekey>
-    <bcf:citekey order="53" intorder="3">openrouter_gemini25flash</bcf:citekey>
-    <bcf:citekey order="53" intorder="4">openrouter_deepseek32</bcf:citekey>
-    <bcf:citekey order="53" intorder="5">openrouter_llama33</bcf:citekey>
-    <bcf:citekey order="53" intorder="6">openrouter_gemma3n</bcf:citekey>
-    <bcf:citekey order="54" intorder="1" nocite="1">*</bcf:citekey>
+    <bcf:citekey order="53" intorder="1" nocite="1">*</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="cms">

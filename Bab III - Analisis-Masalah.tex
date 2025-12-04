@@ -30,27 +30,30 @@ Berdasarkan kondisi tersebut, masalah-masalah utama yang melatarbelakangi peneli
   \centering
   \caption{Daftar masalah penelitian terkait \textit{user persona} pada LLM}
   \label{tab:daftar-masalah-llm-persona}
-  \begin{tabular}{p{1.5cm}p{5.5cm}p{7.0cm}}
+  \footnotesize
+  \begin{adjustbox}{max width=\textwidth}
+  \begin{tabular}{c p{4.5cm} p{6.5cm}}
     \toprule
-    Kode & Uraian masalah & Dampak terhadap penelitian \\
+    \textbf{Kode} & \textbf{Uraian Masalah} & \textbf{Dampak terhadap Penelitian} \\
     \midrule
     M-01 &
     Persona pada LLM umumnya diterapkan pada sisi model, bukan pada sisi pengguna. &
-    Belum ada pemahaman sistematis mengenai bagaimana \textit{user persona} eksplisit maupun implisit memengaruhi penalaran dan kualitas jawaban pada berbagai tugas. \\[0.3cm]
+    Belum ada pemahaman sistematis mengenai bagaimana \textit{user persona} eksplisit maupun implisit memengaruhi penalaran dan kualitas jawaban pada berbagai tugas. \\[0.2cm]
     
     M-02 &
     Efek persona sulit dipisahkan dari efek framing dan gaya penulisan \textit{prompt}. &
-    Perubahan performa atau pola penalaran dapat berasal dari variasi formulasi instruksi, bukan semata akibat perubahan \textit{user persona}, sehingga interpretasi hasil menjadi tidak pasti. \\[0.3cm]
+    Perubahan performa atau pola penalaran dapat berasal dari variasi formulasi instruksi, bukan semata akibat perubahan \textit{user persona}, sehingga interpretasi hasil menjadi tidak pasti. \\[0.2cm]
     
     M-03 &
     LLM membawa bias sosial yang terinternalisasi dari data pelatihan. &
-    Ketika identitas pengguna memuat atribut sosial tertentu, respons model berpotensi mencerminkan bias representasional maupun inferensial, sehingga perbedaan jawaban bisa terkait dengan bias yang sudah ada pada model. \\[0.3cm]
+    Ketika identitas pengguna memuat atribut sosial tertentu, respons model berpotensi mencerminkan bias representasional maupun inferensial, sehingga perbedaan jawaban bisa terkait dengan bias yang sudah ada pada model. \\[0.2cm]
     
     M-04 &
     Cakupan model dan tugas pada studi terdahulu masih terbatas. &
     Analisis sensitivitas terhadap persona sering kali hanya mencakup sedikit model atau jenis tugas, sehingga belum memberikan gambaran yang cukup luas mengenai variasi perilaku LLM di berbagai konteks. \\
     \bottomrule
   \end{tabular}
+  \end{adjustbox}
 \end{table}
 
 Masalah M-01 berkaitan dengan kecenderungan penelitian sebelumnya yang lebih banyak menempatkan persona pada sisi model. Tseng et al.\ membahas bagaimana persona digunakan untuk mengubah gaya dan peran model melalui instruksi sistem \parencite{tseng2024twotales}. Pendekatan ini berbeda dengan skenario ketika identitas pengguna—baik eksplisit maupun implisit—menjadi bagian dari konteks interaksi. Akibatnya, pengaruh \textit{user persona} terhadap penalaran dan kualitas jawaban belum banyak dikaji secara sistematis.
@@ -169,44 +172,35 @@ Ketiga alternatif dibandingkan berdasarkan beberapa kriteria, yaitu kemampuan me
   \centering
   \caption{Perbandingan alternatif solusi}
   \label{tab:analisis-pemilihan-solusi}
-  \begin{tabular}{p{5cm}p{3cm}p{3cm}p{3cm}}
+  \footnotesize
+  \begin{adjustbox}{max width=\textwidth}
+  \begin{tabular}{p{4.5cm}ccc}
     \toprule
-    Kriteria &
-    Evaluasi manual &
-    Skrip semi terotomatisasi &
-    Kerangka evaluasi umum \\
+    \textbf{Kriteria} &
+    \textbf{Evaluasi Manual} &
+    \textbf{Skrip Semi-Otomatis} &
+    \textbf{Kerangka Evaluasi Umum} \\
     \midrule
     Representasi \textit{user persona} dan skenario terstruktur &
-    Rendah &
-    Tinggi &
-    Tinggi \\[0.2cm]
+    Rendah & Tinggi & Tinggi \\[0.15cm]
     
     Konsistensi eksekusi lintas model dan tugas &
-    Rendah &
-    Tinggi &
-    Tinggi \\[0.2cm]
+    Rendah & Tinggi & Tinggi \\[0.15cm]
     
     Pencatatan hasil dan metadata &
-    Rendah &
-    Tinggi &
-    Tinggi \\[0.2cm]
+    Rendah & Tinggi & Tinggi \\[0.15cm]
     
     Keterulangan eksperimen &
-    Rendah &
-    Tinggi &
-    Tinggi \\[0.2cm]
+    Rendah & Tinggi & Tinggi \\[0.15cm]
     
     Kerumitan implementasi dan pemeliharaan &
-    Rendah &
-    Sedang &
-    Tinggi \\[0.2cm]
+    Rendah & Sedang & Tinggi \\[0.15cm]
     
     Kemudahan penambahan model atau persona baru &
-    Rendah &
-    Tinggi &
-    Tinggi \\
+    Rendah & Tinggi & Tinggi \\
     \bottomrule
   \end{tabular}
+  \end{adjustbox}
 \end{table}
 
 Pendekatan evaluasi manual mudah digunakan, tetapi tidak memenuhi kebutuhan eksperimen dengan banyak kombinasi model dan persona. Keterbatasan terutama terlihat pada konsistensi eksekusi, dokumentasi hasil, serta kesulitan mengulang percobaan dengan kondisi identik.

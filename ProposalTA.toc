@@ -79,14 +79,14 @@
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\contentsline {section}{\numberline {II.5}Evaluasi Penalaran dan Benchmark}{11}{section.2.5}%
+\contentsline {section}{\numberline {II.5}Evaluasi Penalaran dan Benchmark}{10}{section.2.5}%
 \contentsline {subsection}{\numberline {II.5.1}GSM8K}{11}{subsection.2.5.1}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \contentsline {subsection}{\numberline {II.5.2}MMLU-Redux}{11}{subsection.2.5.2}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\contentsline {subsection}{\numberline {II.5.3}Tantangan Evaluasi Berbasis Persona}{12}{subsection.2.5.3}%
+\contentsline {subsection}{\numberline {II.5.3}Tantangan Evaluasi Berbasis Persona}{11}{subsection.2.5.3}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
@@ -135,8 +135,8 @@
 \babel@toc {indonesian}{}\relax 
 \contentsline {section}{\numberline {III.2}Analisis Kebutuhan}{17}{section.3.2}%
 \contentsline {subsection}{\numberline {III.2.1}Identifikasi Masalah Pengguna}{17}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {III.2.2}Kebutuhan Fungsional}{18}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {III.2.3}Kebutuhan Nonfungsional}{19}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {III.2.2}Kebutuhan Fungsional}{17}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {III.2.3}Kebutuhan Nonfungsional}{18}{subsection.3.2.3}%
 \contentsline {section}{\numberline {III.3}Analisis Pemilihan Solusi}{19}{section.3.3}%
 \contentsline {subsection}{\numberline {III.3.1}Alternatif Solusi}{19}{subsection.3.3.1}%
 \contentsline {subsection}{\numberline {III.3.2}Analisis Penentuan Solusi}{20}{subsection.3.3.2}%
@@ -171,18 +171,6 @@
 \contentsline {chapter}{\numberline {V}RENCANA SELANJUTNYA}{37}{chapter.5}%
 \contentsline {section}{\numberline {V.1}Rencana Implementasi dan Estimasi Biaya}{37}{section.5.1}%
 \contentsline {subsection}{\numberline {V.1.1}Rencana Implementasi Eksperimen}{37}{subsection.5.1.1}%
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
 \contentsline {subsection}{\numberline {V.1.2}Himpunan Model dan Skenario Eksekusi}{38}{subsection.5.1.2}%
 \contentsline {subsection}{\numberline {V.1.3}Asumsi Jumlah Soal dan Kebutuhan Token}{38}{subsection.5.1.3}%
 \contentsline {subsection}{\numberline {V.1.4}Estimasi Biaya per Model}{39}{subsection.5.1.4}%
