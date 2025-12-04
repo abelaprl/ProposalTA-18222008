@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2025.11.12)  4 DEC 2025 06:48
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2025.11.12)  4 DEC 2025 14:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1305,10 +1305,19 @@ Package csquotes Warning: No style for language 'indonesian'.
 
 Package csquotes Info: Redefining alias 'default' -> 'fallback'.
 (./ProposalTA.aux
-(/usr/share/texlive/texmf-dist/tex/generic/babel/locale/en/babel-english.tex
-Package babel Info: Importing basic data for english
-(babel)             from babel-en.ini. Reported on input line 11.
-))
+
+LaTeX Warning: Label `subsec:arsitektur-alur-kerja' multiply defined.
+
+
+LaTeX Warning: Label `subsec:algoritma-orkestrasi' multiply defined.
+
+
+LaTeX Warning: Label `subsec:mekanisme-injeksi' multiply defined.
+
+
+LaTeX Warning: Label `tab:gsm8k-summary-compact' multiply defined.
+
+)
 \openout1 = `ProposalTA.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 205.
@@ -1322,8 +1331,7 @@ LaTeX Font Info:    ... okay on input line 205.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 205.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 2
 05.
-
-(/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 205.
@@ -1470,11 +1478,6 @@ Package biblatex Info: ... file 'indonesian.lbx' not found.
 Package biblatex Warning: Language 'indonesian' not supported.
 (biblatex)                Using dummy definitions on input line 205.
 
-Package biblatex Info: Trying to load language 'english'...
-Package biblatex Info: ... file 'english.lbx' found.
-(/usr/share/texlive/texmf-dist/tex/latex/biblatex/lbx/english.lbx
-File: english.lbx 2023/03/05 v3.19 biblatex localization (PK/MW)
-)
 Package biblatex Info: XeTeX detected.
 (biblatex)             Assuming input encoding 'utf8'.
 Package biblatex Info: Automatic encoding selection.
@@ -1483,7 +1486,6 @@ Package biblatex Info: Automatic encoding selection.
 
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'ProposalTA.bbl' found.
-
 (./ProposalTA.bbl)
 Package biblatex Info: Reference section=0 on input line 205.
 Package biblatex Info: Reference segment=0 on input line 205.
@@ -1517,16 +1519,22 @@ Overfull \hbox (64.45271pt too wide) in paragraph at lines 308--313
 
 [1] [2] (./ProposalTA.toc [3
 
-])
+] [4])
 \tf@toc=\write6
 \openout6 = `ProposalTA.toc'.
 
- [4] (./ProposalTA.lof)
+ [5] (./ProposalTA.lof)
 \tf@lof=\write7
 \openout7 = `ProposalTA.lof'.
 
- [5] (./ProposalTA.lot
-Overfull \hbox (0.91518pt too wide) in paragraph at lines 124--124
+ [6] (./ProposalTA.lot
+Overfull \hbox (0.91518pt too wide) in paragraph at lines 11--11
+ [][] [][][]\TU/TimesNewRoman(0)/m/n/12 Ringkasan Hasil Eksperimen GSM8K untuk 
+Seluruh Model dan Per- 
+ []
+
+
+Overfull \hbox (0.91518pt too wide) in paragraph at lines 12--12
  [][] [][][]\TU/TimesNewRoman(0)/m/n/12 Ringkasan Hasil Eksperimen GSM8K untuk 
 Seluruh Model dan Per- 
  []
@@ -1535,7 +1543,7 @@ Seluruh Model dan Per-
 \tf@lot=\write8
 \openout8 = `ProposalTA.lot'.
 
- [6] (./ProposalTA.lol)
+ [7] (./ProposalTA.lol)
 \tf@lol=\write9
 \openout9 = `ProposalTA.lol'.
 
@@ -1592,13 +1600,67 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\z@skip' on input line 360.
 
-[7
+[8
 
 ] (./Bab I - Pendahuluan.tex
 Bab I.
 
 LaTeX Warning: Citation 'jurafsky2023slp3' on page 1 undefined on input line 9.
 
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel/locale/en/babel-english.tex
+Package babel Info: Importing basic data for english
+(babel)             from babel-en.ini. Reported on input line 11.
+)
+
+Package biblatex Warning: No localisation for language 'english' loaded.
+(biblatex)                Please rerun LaTeX to ensure languages can
+(biblatex)                be requested properly.
+
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'zhou2023largemodelsensitive' on input line 
+9.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'gupta2024biasrunsdeep' on input line 11.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'tseng2024twotales' on input line 13.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'naous2025userlm' on input line 15.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
 
 
 Overfull \hbox (10.8782pt too wide) in paragraph at lines 15--16
@@ -1616,10 +1678,77 @@ engalaman tertentu—dapat mem-
 
 
 ]
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'liang2023helm' on input line 17.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'turpin2023language' on input line 19.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'cobbe2021gsm8k' on input line 19.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
 Overfull \hbox (13.77664pt too wide) in paragraph at lines 21--22
 \TU/TimesNewRoman(0)/m/it/12 driven experiment orchestration \TU/TimesNewRoman(
 0)/m/n/12 yang memungkinkan pelaksanaan kombinasi persona–
  []
+
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'gupta2024biasrunsdeep' on input line 27.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'tseng2024twotales' on input line 27.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'naous2025userlm' on input line 27.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
 
 [2]
 Overfull \hbox (0.85281pt too wide) in paragraph at lines 33--34
@@ -1629,11 +1758,90 @@ ggambarkan tingkat sen-
 
 [3] [4]) (./Bab II - Studi-Literatur.tex [5]
 Bab II.
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'bommasani2021opportunities' on input line 9
+.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'zhou2023largemodelsensitive' on input line 
+11.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'turpin2023language' on input line 13.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'weidinger2021ethical' on input line 15.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'tseng2024twotales' on input line 15.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
 [6
 
 ]
 
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'tseng2024twotales' on input line 23.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
 Package biblatex-chicago Warning: Empty Ibidem citation on input line 23.
+
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'gupta2024biasrunsdeep' on input line 25.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
 
 
 Overfull \hbox (0.74684pt too wide) in paragraph at lines 25--26
@@ -1641,7 +1849,74 @@ Overfull \hbox (0.74684pt too wide) in paragraph at lines 25--26
 …”. Informasi seperti ini mem-
  []
 
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'tseng2024twotales' on input line 27.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'zhou2023largemodelsensitive' on input line 
+31.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'turpin2023language' on input line 31.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
 [7]
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'weidinger2021ethical' on input line 33.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'gupta2024biasrunsdeep' on input line 33.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'gupta2024biasrunsdeep' on input line 44.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
 
 Package biblatex-chicago Warning: Empty Ibidem citation on input line 44.
 
@@ -1651,100 +1926,441 @@ Overfull \hbox (0.88568pt too wide) in paragraph at lines 44--45
 tidak selalu konsisten. Gup-
  []
 
-[8] [9] [10]
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'turpin2023language' on input line 46.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+[8]
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'tseng2024twotales' on input line 50.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'weidinger2021ethical' on input line 65.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+[9]
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'gupta2024biasrunsdeep' on input line 69.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'tseng2024twotales' on input line 79.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'zhou2023largemodelsensitive' on input line 
+81.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'turpin2023language' on input line 81.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+[10]
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'cobbe2021gsm8k' on input line 92.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'zhou2023largemodelsensitive' on input line 
+104.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
 Overfull \hbox (3.33394pt too wide) in paragraph at lines 104--105
 \TU/TimesNewRoman(0)/m/n/12 Penggunaan benchmark dalam penelitian persona memil
 iki beberapa tantangan. Tan-
  []
 
-[11] [12]) (./Bab III - Analisis-Masalah.tex [13]
+[11]
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'turpin2023language' on input line 106.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'gupta2024biasrunsdeep' on input line 118.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'tseng2024twotales' on input line 120.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'turpin2023language' on input line 122.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+[12]
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'weidinger2021ethical' on input line 124.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+) (./Bab III - Analisis-Masalah.tex [13]
 Bab III.
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'bommasani2021opportunities' on input line 1
+3.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'tseng2024twotales' on input line 15.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'gupta2024biasrunsdeep' on input line 17.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
 [14
 
 ]
 
-Package biblatex-chicago Warning: Empty Ibidem citation on input line 23.
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'turpin2023language' on input line 19.
 
-[15]
-Overfull \hbox (35.99995pt too wide) in paragraph at lines 31--52
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'zhou2023largemodelsensitive' on input line 
+19.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'weidinger2021ethical' on input line 21.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'naous2025userlm' on input line 23.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'naous2025userlm' on input line 25.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex-chicago Warning: Empty Ibidem citation on input line 25.
+
+
+Overfull \hbox (35.99995pt too wide) in paragraph at lines 33--54
  [][] 
  []
 
-[16] [17]
-Overfull \hbox (7.54721pt too wide) in paragraph at lines 85--102
- [][] 
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'tseng2024twotales' on input line 56.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+[15] [16]
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'turpin2023language' on input line 58.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'zhou2023largemodelsensitive' on input line 
+58.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'weidinger2021ethical' on input line 60.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'gupta2024biasrunsdeep' on input line 62.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'tseng2024twotales' on input line 62.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+[17]
+Underfull \hbox (badness 10000) in paragraph at lines 97--97
+[]|\TU/TimesNewRoman(0)/m/n/12 Mekanisme untuk menjalankan pertanyaan
  []
 
 
-Overfull \hbox (0.1907pt too wide) in paragraph at lines 104--105
-[]\TU/TimesNewRoman(0)/m/n/12 KF-01 berhubungan dengan kebutuhan untuk merepres
-entasikan persona secara eks-
+Overfull \hbox (7.54721pt too wide) in paragraph at lines 88--105
+ [][] 
  []
 
 [18]
-Underfull \hbox (badness 1132) in paragraph at lines 128--129
-\TU/TimesNewRoman(0)/m/n/12 ubahan besar pada struktur keseluruhan, se-
+Underfull \hbox (badness 2600) in paragraph at lines 133--134
+[]|\TU/TimesNewRoman(0)/m/n/12 Struktur eksperimen memungkinkan penam-
  []
 
 
-Overfull \hbox (7.54721pt too wide) in paragraph at lines 114--131
+Overfull \hbox (7.54721pt too wide) in paragraph at lines 119--136
  [][] 
  []
 
-[19] [20]
-Underfull \hbox (badness 10000) in paragraph at lines 164--164
+[19]
+Overfull \hbox (14.49973pt too wide) in paragraph at lines 157--158
+[]\TU/TimesNewRoman(0)/m/n/12 Pada alternatif ini, daftar persona, model, dan k
+umpulan tugas (misalnya GSM8K
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 179--179
 []|\TU/TimesNewRoman(0)/m/n/12 Representasi \TU/TimesNewRoman(0)/m/it/12 user p
 ersona
  []
 
 
-Underfull \hbox (badness 8000) in paragraph at lines 169--169
+Underfull \hbox (badness 8000) in paragraph at lines 184--184
 []|\TU/TimesNewRoman(0)/m/n/12 Konsistensi eksekusi lintas
  []
 
 
-Underfull \hbox (badness 2189) in paragraph at lines 179--179
-[]|\TU/TimesNewRoman(0)/m/n/12 Keterulangan (\TU/TimesNewRoman(0)/m/it/12 repro
-ducibili-
- []
-
-
-Overfull \hbox (47.99997pt too wide) in paragraph at lines 157--195
+Overfull \hbox (47.99997pt too wide) in paragraph at lines 172--210
  [][] 
  []
 
-[21]) (./Bab IV - Desain-Konsep-Solusi.tex [22]
+[20]) (./Bab IV - Desain-Konsep-Solusi.tex [21]
 Bab IV.
-[23
+[22
 
-]
-File: image/proposed_solution.png Graphic file (type bmp)
-<image/proposed_solution.png>
- [24] [25] [26] [27] [28] [29]
-Overfull \hbox (28.19656pt too wide) in paragraph at lines 254--255
+] [23]
+Overfull \hbox (28.19656pt too wide) in paragraph at lines 68--69
 \TU/TimesNewRoman(0)/m/n/12 Eksperimen dalam penelitian ini melibatkan ribuan k
 ombinasi persona–model–pertanyaan
  []
 
-[30]
-Overfull \hbox (14.73512pt too wide) in paragraph at lines 295--296
-\TU/TimesNewRoman(0)/m/n/12 nganan galat adaptif. Dengan demikian, seluruh komb
-inasi persona–model–benchmark
+[24] [25] [26]
+File: image/alur-eksperimen.png Graphic file (type bmp)
+<image/alur-eksperimen.png>
+
+
+LaTeX Warning: Float too large for page by 8.69908pt on input line 132.
+
+[27] [28]
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'cobbe2021gsm8k' on input line 179.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+[29]
+Overfull \hbox (0.38016pt too wide) in paragraph at lines 201--202
+\TU/TimesNewRoman(0)/m/n/12 Persona yang digunakan dalam eksperimen disusun ber
+dasarkan enam dimensi: gen-
  []
 
-[31] [32] [33]
-Overfull \hbox (2.90816pt too wide) in paragraph at lines 357--359
-[]\TU/TimesNewRoman(0)/m/it/12 Analysis subsystem\TU/TimesNewRoman(0)/m/n/12 . 
-Mengolah log mentah menjadi tabel terstruktur dan meng-
+[30] [31] [32] [33] [34] [35]
+Overfull \hbox (70.96785pt too wide) in paragraph at lines 408--427
+ [][] 
  []
 
-[34]
-Overfull \hbox (15.32825pt too wide) in paragraph at lines 423--423
-[] \TU/lmtt/m/n/10 "run": {"model_id": "example-model-reason", "question_id": "
-gsm8k_00003"},[] 
- []
-
-) (./Bab V - Rencana-Selanjutnya.tex [35] [36]
+) (./Bab V - Rencana-Selanjutnya.tex [36]
 Bab V.
 
 LaTeX Warning: Reference `subsec:organisasi-direktori' on page 37 undefined on 
@@ -1776,21 +2392,204 @@ Overfull \hbox (1.35867pt too wide) in paragraph at lines 265--268
 respons awal model meng-
  []
 
-[41] [42]) [43] [44
+[41] [42]) [43]
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'bommasani2021opportunities' on input line 4
+06.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'cobbe2021gsm8k' on input line 406.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'gema2024arewedonewithmmlu' on input line 40
+6.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Overfull \hbox (13.96054pt too wide) in paragraph at lines 406--406
+[][]\TU/TimesNewRoman(0)/m/n/12 Gema, Aryo Pradipta, Joshua Ong Jun Leang, Giwo
+n Hong, Alessio Devoto [].
+ []
+
+
+Package biblatex Warning: Bibliography string 'and' untranslated
+(biblatex)                at entry 'gupta2024biasrunsdeep' on input line 406.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Bibliography string 'in' untranslated
+(biblatex)                at entry 'gupta2024biasrunsdeep' on input line 406.
+
+[44
 
 
 ]
-Overfull \hbox (64.1498pt too wide) in paragraph at lines 406--406
-\TU/TimesNewRoman(0)/m/n/12 Unfaithful Explanations in Chain-of-Thought Reasoni
-ng”. \TU/TimesNewRoman(0)/m/it/12 arXiv preprint arXiv:2305.04388,
+
+Package biblatex Warning: Bibliography string 'and' untranslated
+(biblatex)                at entry 'hendryckstest2021' on input line 406.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'liang2023helm' on input line 406.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'naous2025userlm' on input line 406.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Bibliography string 'and' untranslated
+(biblatex)                at entry 'sap2019socialiqa' on input line 406.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Bibliography string 'in' untranslated
+(biblatex)                at entry 'sap2019socialiqa' on input line 406.
+
+
+Overfull \hbox (10.14697pt too wide) in paragraph at lines 406--406
+\TU/TimesNewRoman(0)/m/n/12 “  SocialIQA: Commonsense Reasoning about Social In
+teractions”. []\TU/TimesNewRoman(0)/m/it/12 Proceedings
+ []
+
+
+Package biblatex Warning: Bibliography string 'and' untranslated
+(biblatex)                at entry 'tseng2024twotales' on input line 406.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Bibliography string 'in' untranslated
+(biblatex)                at entry 'tseng2024twotales' on input line 406.
+
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'turpin2023language' on input line 406.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Overfull \hbox (5.49658pt too wide) in paragraph at lines 406--406
+\TU/TimesNewRoman(0)/m/n/12 Think: Unfaithful Explanations in Chain-of-Thought 
+Reasoning”. \TU/TimesNewRoman(0)/m/it/12 arXiv preprint
+ []
+
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'weidinger2021ethical' on input line 406.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Overfull \hbox (5.81006pt too wide) in paragraph at lines 406--406
+\TU/TimesNewRoman(0)/m/n/12 2021. “  Ethical and Social Risks of Harm from Lang
+uage Models”. \TU/TimesNewRoman(0)/m/it/12 arXiv preprint
  []
 
 [45]
-Overfull \hbox (14.36363pt too wide) in paragraph at lines 406--406
-\TU/TimesNewRoman(0)/m/n/12 Dalam \TU/TimesNewRoman(0)/m/it/12 Proceedings of t
-he International Conference on Machine Learning, \TU/TimesNewRoman(0)/m/n/12 12
-697–
- []
+
+Package biblatex Warning: Bibliography string 'and' untranslated
+(biblatex)                at entry 'zhao2021calibrate' on input line 406.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
+
+
+Package biblatex Warning: Bibliography string 'in' untranslated
+(biblatex)                at entry 'zhao2021calibrate' on input line 406.
+
+
+Package biblatex Warning: Bibliography string 'andothers' untranslated
+(biblatex)                at entry 'zhou2023largemodelsensitive' on input line 
+406.
+
+
+Package biblatex Warning: Using fallback definition for \mkbibdatelong.
+(biblatex)                The command should be defined in the .lbx file.
+(biblatex)                If you see this message, the .lbx file could not be
+(biblatex)                loaded, is faulty or does not contain a definition
+(biblatex)                for \mkbibdatelong.
 
 
 Package caption Warning: Unused \captionsetup[lstlisting] on input line 385.
@@ -1805,8 +2604,17 @@ L3 programming layer <2024-01-22>
 
 LaTeX Warning: There were undefined references.
 
-Package rerunfilecheck Info: File `ProposalTA.out' has not changed.
-(rerunfilecheck)             Checksum: 446C3ED284F4EEB7DB8E330A4F3D3977;13731.
+
+LaTeX Warning: There were multiply-defined labels.
+
+
+Package rerunfilecheck Warning: File `ProposalTA.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `ProposalTA.out':
+(rerunfilecheck)             Before: 4B031AEBF80E078FDB855EC4CDA24C11;16732
+(rerunfilecheck)             After:  C27B235EB741377F27E6A8AF09BEA692;13628.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                ProposalTA
@@ -1817,12 +2625,12 @@ Package logreq Info: Writing requests to 'ProposalTA.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 46230 strings out of 474878
- 961319 string characters out of 5762515
- 2299772 words of memory out of 5000000
- 67613 multiletter control sequences out of 15000+600000
- 564878 words of font info for 93 fonts, out of 8000000 for 9000
+ 44770 strings out of 474878
+ 932470 string characters out of 5762515
+ 2276241 words of memory out of 5000000
+ 66161 multiletter control sequences out of 15000+600000
+ 564862 words of font info for 91 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 83i,13n,93p,1199b,6187s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 83i,13n,93p,1199b,5367s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on ProposalTA.xdv (54 pages, 1020688 bytes).
+Output written on ProposalTA.pdf (55 pages).

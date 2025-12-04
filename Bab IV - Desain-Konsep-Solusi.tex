@@ -5,248 +5,62 @@
 \chapter{DESAIN KONSEP SOLUSI}
 \label{chap:desain-konsep-solusi}
 
-Bab ini memaparkan rancangan konsep solusi yang diusulkan untuk menjawab permasalahan yang telah dianalisis pada bab sebelumnya. Berdasarkan hasil analisis pemilihan solusi, pendekatan yang digunakan dalam penelitian ini adalah pengembangan sistem eksperimen terotomatisasi berbasis konfigurasi. Pembahasan dalam bab ini mencakup desain konseptual eksperimen, perancangan arsitektur perangkat lunak atau \textit{evaluation pipeline}, serta spesifikasi implementasi data dan struktur berkas. Desain ini disusun untuk memenuhi kebutuhan fungsional terkait strukturisasi \textit{user persona} dan konsistensi eksekusi lintas model.
-% ==========================================
-%====== BAB IV.1 ======
 \section{Desain Konseptual Eksperimen}
-\label{sec:desain-konseptual}
 
-Bagian ini memaparkan dasar konseptual dari eksperimen yang dikembangkan untuk mengukur pengaruh \textit{user persona} terhadap perilaku model bahasa. Perancangan ini mencakup evaluasi terhadap keterbatasan pendekatan konvensional, prinsip desain sistem terotomatisasi yang diusulkan, serta integrasi persona, model, dan \textit{benchmark} penalaran yang digunakan. Dengan adanya desain konseptual ini, alur eksperimen yang dibahas pada subbab berikutnya menjadi lebih terarah, terukur, dan dapat direplikasi.
+Bagian ini menjelaskan landasan perancangan eksperimen yang digunakan dalam penelitian. Desain ini disusun untuk melihat bagaimana dua bentuk persona, yaitu persona eksplisit dan persona implisit, memengaruhi hasil keluaran pada beberapa kategori tugas penalaran dan beberapa sistem yang berbeda. Penyusunan bagian ini dimaksudkan untuk memastikan bahwa setiap variasi yang muncul dapat ditelusuri kembali pada kondisi persona yang digunakan, bukan pada perbedaan situasi pengujian atau susunan instruksi.
 
-\subsection{Keterbatasan Model Operasional Konvensional}
+\subsection{Tujuan Perancangan Eksperimen}
 
-Pendekatan manual yang lazim digunakan dalam penelitian persona umumnya bergantung pada penulisan instruksi langsung melalui antarmuka percakapan. Meskipun sederhana, pendekatan ini memiliki dua kelemahan metodologis utama yang mengurangi validitas internal penelitian.
+Perancangan eksperimen dilakukan untuk menyediakan kerangka yang memungkinkan perbandingan persona secara terarah. Dua bentuk persona digunakan karena mewakili dua pola interaksi yang umum terjadi, yaitu ketika identitas pengguna dinyatakan secara langsung serta ketika identitas tersebut tersirat melalui cara bertutur. Kerangka ini juga dirancang agar dapat digunakan untuk membandingkan respons dari beberapa sistem secara konsisten pada jenis tugas yang sama.
 
-Pertama, terjadi instabilitas masukan. Model bahasa sangat sensitif terhadap perubahan kecil pada struktur \textit{prompt}—seperti variasi tanda baca atau perubahan gaya kalimat—yang dapat menyebabkan keluaran berbeda secara signifikan. Turpin et al.\ menunjukkan bahwa variasi kecil dalam \textit{framing} dapat menghasilkan rantai penalaran yang tidak konsisten \parencite{turpin2023language}. Ketergantungan pada input manual membuat variasi ini tidak dapat dikendalikan.
+\subsection{Komponen Utama Eksperimen}
 
-Kedua, pendekatan manual tidak menyediakan granularitas data yang memadai. Respons model biasanya hanya dicatat dalam bentuk teks akhir tanpa metadata komputasional seperti latensi atau jumlah token. Padahal, indikator tersebut penting untuk memahami beban kognitif model serta pola penalaran yang muncul pada kondisi persona tertentu \parencite{naous2025userlm}.
+Eksperimen yang dilakukan mengombinasikan tiga komponen utama, yaitu persona, sistem, dan tugas penalaran.  
+Persona mencakup bentuk eksplisit dan implisit, yang masing-masing memberikan konteks pengguna dengan kedalaman dan cara penyampaian yang berbeda.  
+Komponen sistem terdiri atas beberapa model yang tersedia melalui layanan API sehingga memungkinkan analisis lintas arsitektur.  
+Tugas penalaran yang digunakan mencakup penalaran numerik dan penalaran lintas topik untuk melihat bagaimana bentuk persona memengaruhi keluaran pada sifat tugas yang berbeda.
 
-\subsection{Sistem Eksperimen Terotomatisasi}
+\subsection{Prinsip Pengendalian Variabel}
 
-Untuk mengatasi keterbatasan tersebut, penelitian ini mengusulkan sistem eksperimen terotomatisasi dengan tiga prinsip desain inti: determinisme masukan, telemetri komprehensif, dan skalabilitas eksekusi.
+Untuk menjaga kesetaraan pengujian, seluruh instruksi disampaikan menggunakan susunan yang seragam pada setiap kombinasi persona, sistem, dan tugas. Dengan demikian, unsur yang bervariasi hanyalah bentuk persona. Pendekatan ini dilakukan agar hasil yang diperoleh dapat dibandingkan secara langsung tanpa dipengaruhi oleh variasi lain di luar persona.
 
-Pertama, determinisme masukan dicapai dengan menyimpan seluruh persona dalam berkas konfigurasi statis. Setiap \textit{prompt} dibentuk melalui mekanisme injeksi otomatis sehingga stimulus yang diterima model identik hingga tingkat karakter.
+\subsection{Ruang Konfigurasi}
 
-Kedua, sistem mencatat keluaran model secara lengkap dalam format terstruktur (JSON dan CSV). Telemetri yang direkam mencakup teks jawaban, \textit{reasoning trace} (bila tersedia), jumlah token, dan latensi inferensi. Dengan demikian, analisis dapat menilai tidak hanya kebenaran jawaban, tetapi juga pola beban komputasi yang terkait dengan masing-masing persona.
+Ruang eksperimen dibentuk berdasarkan kombinasi antara persona, sistem, dan tugas penalaran. Setiap elemen didefinisikan melalui berkas konfigurasi sehingga struktur ruang eksperimen terdokumentasi dengan jelas dan dapat diperluas apabila diperlukan. Dengan adanya pengaturan ini, seluruh kondisi yang diuji dapat ditelusuri kembali dan dianalisis berdasarkan konfigurasi yang digunakan.
 
-Ketiga, sistem mendukung eksekusi \textit{asynchronous} sehingga ribuan permintaan dapat diproses secara paralel tanpa melampaui batas layanan. Pendekatan ini meningkatkan cakupan eksperimen sekaligus mengurangi waktu eksekusi total.
+\subsection{Keterkaitan dengan Pelaksanaan Eksperimen}
 
-Model konseptual dari sistem usulan ditampilkan pada Gambar~\ref{fig:model-after}, yang dalam penomoran dokumen dicantumkan sebagai \textbf{Gambar IV.2 Model Konseptual Sistem Eksperimen Terotomatisasi}.
+Desain konseptual ini menjadi dasar bagi alur pelaksanaan yang dibahas pada bagian berikutnya. Dengan pemisahan antara tahap perancangan dan tahap pelaksanaan, eksperimen dapat dijalankan secara teratur, dan seluruh hasil yang diperoleh dapat dianalisis kembali pada bab selanjutnya.
 
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.9\textwidth,height=0.7\textheight,keepaspectratio]{image/proposed_solution.png}
-  \caption{Model konseptual sistem eksperimen terotomatisasi}
-  \label{fig:model-after}
-\end{figure}
-
-\subsection{Analisis Komparatif Metodologis}
-
-Peralihan dari pendekatan \textit{Existing} ke \textit{Proposed} bukan sekadar peningkatan efisiensi, melainkan juga penguatan validitas ilmiah. Tabel~\ref{tab:komparasi-metodologis} merangkum perbedaan metodologis utama antara kedua pendekatan tersebut.
-
-Dengan struktur yang deterministik, terdokumentasi, dan terotomatisasi, setiap kesimpulan terkait pengaruh persona terhadap penalaran model dapat ditarik secara lebih dapat dipercaya dan dapat dipertanggungjawabkan secara ilmiah.
-
-\begin{table}[htbp]
-  \centering
-  \caption{Analisis komparatif validitas metodologis}
-  \label{tab:komparasi-metodologis}
-  \renewcommand{\arraystretch}{1.25}
-  \small
-  \begin{tabularx}{\textwidth}{
-    >{\raggedright\arraybackslash}p{3.6cm}
-    >{\raggedright\arraybackslash}X
-    >{\raggedright\arraybackslash}X}
-    \toprule
-    \textbf{Dimensi Analisis} &
-    \textbf{Sistem Konvensional (Existing)} &
-    \textbf{Sistem Usulan (Proposed)} \\
-    \midrule
-
-    Pengendalian variabel &
-    Rentan terhadap gangguan input manual; sensitivitas \textit{framing} sulit dikendalikan. &
-    Deterministik; konfigurasi statis dan injeksi otomatis menjamin isolasi variabel independen. \\
-
-    Granularitas data &
-    Hanya menangkap jawaban akhir tanpa metadata. &
-    Telemetri lengkap; menangkap latensi, token, dan jejak penalaran. \\
-
-    Format penyimpanan &
-    Tidak terstruktur; raw text sulit diproses ulang. &
-    Terstruktur (JSON/CSV) dan cocok untuk analisis lanjutan. \\
-
-    Reproduktibilitas &
-    Rendah; parameter eksperimen tidak lengkap terdokumentasi. &
-    Tinggi; seluruh konfigurasi dan kode dapat diaudit dan dijalankan ulang. \\
-
-    Cakupan eksperimen &
-    Terbatas; eksekusi linear menghambat skala eksperimen. &
-    Masif; mendukung ribuan kombinasi melalui \textit{asynchronous execution}. \\
-    \bottomrule
-  \end{tabularx}
-\end{table}
-
-\subsection{Integrasi Persona, Model, dan Benchmark}
-
-Bagian ini memaparkan komponen yang membentuk konfigurasi eksperimen, yaitu himpunan persona, himpunan model, dan \textit{benchmark} penalaran yang digunakan.
-
-\subsubsection{Benchmark Penalaran}
-
-Dua \textit{benchmark} digunakan untuk mengevaluasi dua bentuk penalaran yang berbeda.
-
-\textit{GSM8K} merupakan kumpulan soal cerita matematika tingkat sekolah menengah yang menguji penalaran numerik bertahap \parencite{cobbe2021gsm8k}. Soal-soal GSM8K memiliki struktur jawaban numerik yang jelas sehingga proses evaluasi dapat dilakukan secara deterministik.
-
-\textit{MMLU-Redux} merupakan versi terkurasi dari MMLU yang memperbaiki ambiguitas format, ketidakkonsistenan pilihan jawaban, dan ketidakseimbangan kualitas antar-subjek \parencite{mmluRedux2024dataset}. Benchmark ini digunakan untuk menguji penalaran konseptual lintas domain dengan format pilihan ganda.
-
-Kombinasi GSM8K dan MMLU-Redux memberikan cakupan dua jenis penalaran yang komplementer: numerik prosedural dan konseptual deklaratif.
-
-\subsubsection{Himpunan Model}
-
-Penelitian ini menggunakan sembilan model bahasa, yang dikelompokkan ke dalam dua kategori berikut:
-
-\begin{enumerate}
-    \item Model komersial:  
-    GPT-5, GPT-5 Mini, Claude 4.5 Sonnet, Claude 4.5 Haiku, Gemini 2.5 Flash, Gemini 2.5 Pro;
-
-    \item Model publik via OpenRouter:  
-    Grok 4.1 Fast, NVIDIA Nemotron-nano-12B-v2-VL, Bert Nebulon Alpha.
-\end{enumerate}
-
-Keragaman arsitektur ini memungkinkan analisis komparatif lintas paradigma, mulai dari \textit{frontier models} hingga model publik yang tersedia secara bebas.
-
-\subsubsection{Struktur Persona}
-
-Persona disusun berdasarkan enam dimensi utama: gender, usia, agama, pekerjaan, kewarganegaraan, dan register bahasa. Kombinasi dimensi tersebut menghasilkan lima belas persona—baik eksplisit maupun implisit—ditambah satu kondisi pengguna netral.
-
-Tabel~\ref{tab:user-persona} menampilkan daftar lengkap persona yang digunakan.
-
-\begin{table}[htbp]
-\centering
-\caption{Daftar user persona untuk kondisi eksperimen}
-\label{tab:user-persona}
-\renewcommand{\arraystretch}{1.15}
-
-\resizebox{\textwidth}{!}{
-\begin{tabular}{c l l l l l l l}
-\toprule
-\textbf{ID} &
-\textbf{Persona} &
-\textbf{Mode} &
-\textbf{Gender} &
-\textbf{Age Group} &
-\textbf{Religion} &
-\textbf{Occupation} &
-\textbf{Nationality / Register} \\
-\midrule
-P1  & Implicit male baseline              & Implicit & Male   & --          & --       & --               & Neutral \\
-P2  & Implicit female baseline            & Implicit & Female & --          & --       & --               & Neutral \\
-P3  & Neutral user                        & Neutral  & --     & --          & --       & --               & Neutral \\
-P4  & Indonesian Muslim young woman       & Explicit & Female & Young adult & Muslim   & Healthcare worker & Indonesian / Semi-formal \\
-P5  & Indonesian Muslim young man         & Implicit & Male   & Young adult & Muslim   & Healthcare worker & Indonesian / Semi-formal \\
-P6  & American middle-aged male           & Explicit & Male   & Middle-aged & Christian & Engineer         & American / Formal \\
-P7  & American middle-aged female         & Implicit & Female & Middle-aged & Christian & Engineer         & American / Formal \\
-P8  & Indonesian Gen-Z female             & Explicit & Female & Gen-Z       & --       & Student          & Indonesian / Casual-slang \\
-P9  & Indonesian Gen-Z male               & Implicit & Male   & Gen-Z       & --       & Student          & Indonesian / Casual-slang \\
-P10 & Middle Eastern young adult male     & Explicit & Male   & Young adult & Muslim   & Engineer         & Middle Eastern Arabic / Formal \\
-P11 & Middle Eastern young adult female   & Implicit & Female & Young adult & Muslim   & Student          & Middle Eastern Arabic / Formal \\
-P12 & American atheist young male         & Explicit & Male   & Young adult & Atheist  & Student          & American / Formal \\
-P13 & American atheist young female       & Implicit & Female & Young adult & Atheist  & Student          & American / Formal \\
-P14 & Indonesian female healthcare worker & Explicit & Female & Young adult & Muslim   & Healthcare worker & Indonesian / Semi-formal \\
-P15 & Indonesian male healthcare worker   & Implicit & Male   & Young adult & Muslim   & Healthcare worker & Indonesian / Semi-formal \\
-\bottomrule
-\end{tabular}
-}
-\end{table}
-\subsubsection{Konfigurasi Eksekusi}
-
-Kombinasi lima belas persona dan sembilan model menghasilkan seratus tiga puluh lima
-konfigurasi eksperimen. Setiap konfigurasi melalui empat tahap eksekusi tetap:
-pemanasan persona, penetapan konteks percakapan, eksekusi \textit{benchmark}, dan
-pencatatan telemetri. Dengan demikian, setiap variasi keluaran dapat ditelusuri ulang
-secara langsung kepada kondisi persona yang diberikan.
-\subsubsection{Contoh Mekanisme Injeksi Persona}
-
-Proses injeksi persona dilakukan dengan menyusun \textit{system message} 
-yang mendefinisikan identitas dan karakter pengguna sebelum model menerima 
-stimulus pertanyaan. Dua kategori persona yang digunakan dalam penelitian ini 
-adalah persona eksplisit dan persona implisit.
-
-\begin{enumerate}
-    \item Persona eksplisit.
-\end{enumerate}
-
-Pada persona eksplisit, identitas pengguna dirumuskan secara langsung melalui 
-pola deklaratif seperti “your user is ...”. Instruksi ini menyebutkan atribut 
-sosial secara jelas—misalnya gender, usia, pekerjaan, atau preferensi gaya 
-bahasa. Contoh injeksi persona eksplisit yang digunakan dalam eksperimen adalah:
-
-\begin{quote}
-\textit{
-“Your user is an Indonesian Gen-Z male who works as a junior engineer.  
-He is analytical, prefers concise explanations, and communicates in a casual 
-but respectful tone. Adjust your reasoning structure and tone accordingly 
-when responding.”
-}
-\end{quote}
-
-Formulasi seperti ini memberikan konteks identitas yang eksplisit sehingga 
-efek persona dapat ditelusuri dengan jelas melalui perubahan pada struktur 
-penalaran dan gaya jawabannya.
-
-\begin{enumerate}
-    \setcounter{enumi}{1}
-    \item Persona implisit.
-\end{enumerate}
-
-Persona implisit tidak menyatakan identitas sosial secara langsung, tetapi 
-dibangun melalui narasi pengalaman pribadi, emosi, atau gaya tutur tertentu.  
-Model tidak diberi kategori demografis eksplisit; konteks diberikan secara halus, 
-sehingga model perlu menginterpretasikan karakter pengguna melalui sinyal 
-linguistik yang tersirat.
-
-Contoh injeksi persona implisit yang digunakan dalam penelitian ini adalah:
-
-\begin{quote}
-\textit{
-“Lately I have been feeling a strange mix of emotional exhaustion and pressure 
-to appear composed, especially when my skin starts acting up unexpectedly.  
-I keep adjusting small routines—like my skincare products—hoping something will 
-finally work. Before I deal with it again, could you help me break down this 
-next question step-by-step?”
-}
-\end{quote}
-
-Instruksi seperti ini menghasilkan kerangka persona yang lebih halus dan 
-mendukung analisis terhadap sensitivitas model terhadap gaya bahasa serta 
-cues emosional yang tidak dinyatakan secara eksplisit.
 
 %====== BAB IV.2 ======
-\section{Perancangan Arsitektur Perangkat Lunak (\textit{Evaluation Pipeline})}
-\label{sec:perancangan-pipeline}
+\section{Arsitektur \textit{Evaluation Pipeline} dan Alur Pelaksanaan Eksperimen}
+\label{sec:arsitektur-dan-alur}
 
-Subbab ini menjelaskan desain arsitektur perangkat lunak yang digunakan untuk merealisasikan \textit{evaluation pipeline} sebagaimana dirumuskan pada Subbab~\ref{sec:desain-konseptual}. Arsitektur pipeline dirancang agar proses evaluasi dapat berjalan secara otomatis, konsisten, dan dapat direproduksi. Pendekatan ini memastikan bahwa setiap kombinasi persona, model, dan \textit{benchmark task} diuji dalam kondisi yang setara dan bebas dari variasi yang tidak diperlukan.
+Bagian ini menjelaskan bagaimana rancangan konseptual pada Subbab sebelumnya direalisasikan dalam bentuk arsitektur \textit{evaluation pipeline} yang terotomatisasi, serta bagaimana pipeline tersebut menjalankan alur eksperimen dari pemuatan \textit{specification} hingga diperolehnya keluaran akhir. Pendekatan ini dirancang agar proses evaluasi berjalan secara otomatis, konsisten, dan dapat direproduksi, sehingga setiap kombinasi persona, model, dan \textit{benchmark task} diuji dalam kondisi yang setara dan bebas dari variasi yang tidak diperlukan.
 
-Pipeline yang dibangun bekerja sebagai rangkaian komponen yang saling berinteraksi: mulai dari pemuatan data, konstruksi instruksi, pengiriman permintaan ke model, hingga pencatatan \textit{telemetry}. Seluruh proses tersebut bekerja dalam satu alur terintegrasi sehingga sistem mampu menangani jumlah evaluasi yang besar secara stabil.
+Pipeline bekerja sebagai rangkaian komponen yang saling berinteraksi: mulai dari pemuatan data, konstruksi instruksi, pengiriman permintaan ke model, hingga pencatatan \textit{telemetry}. Seluruh proses tersebut membentuk satu alur terintegrasi yang mampu menangani jumlah evaluasi besar secara stabil.
 
 \subsection{Arsitektur Alur Kerja Sistem}
 \label{subsec:arsitektur-alur-kerja}
 
-Secara garis besar, \textit{evaluation pipeline} terbagi ke dalam empat komponen utama yang membentuk satu siklus pemrosesan yang berulang untuk setiap kombinasi persona dan butir soal. Keempat komponen tersebut adalah sebagai berikut.
+Secara garis besar, \textit{evaluation pipeline} terbagi ke dalam empat komponen utama yang membentuk satu siklus pemrosesan berulang untuk setiap kombinasi persona dan butir soal. Keempat komponen tersebut adalah sebagai berikut.
 
 \begin{enumerate}
     \item \textit{Configuration initialization and validation}.\\
-    Tahap ini memuat seluruh konfigurasi sistem, definisi persona, dan \textit{benchmark dataset} ke dalam memori. Validasi struktur data dilakukan untuk memastikan bahwa setiap persona memiliki \textit{system instruction} yang lengkap dan setiap butir tugas memiliki pasangan pertanyaan dan jawaban acuan. Validasi awal ini penting untuk mencegah kesalahan format yang dapat menghentikan proses pada tahap berikutnya.
+    Tahap ini memuat seluruh konfigurasi sistem, definisi persona, dan \textit{benchmark dataset} ke dalam memori. Struktur data yang dibaca dari berkas \textit{specification} (persona, model, dan \textit{task}) divalidasi untuk memastikan bahwa setiap persona memiliki \textit{system instruction} yang lengkap dan setiap butir tugas memiliki pasangan pertanyaan dan jawaban acuan. Validasi awal ini penting untuk mencegah kesalahan format yang dapat menghentikan proses pada tahap berikutnya.
 
     \item \textit{Prompt construction engine}.\\
-    Pada tahap ini, sistem membentuk dua jenis pesan: \textit{system message} yang berisi identitas persona dan \textit{user message} yang memuat pertanyaan dari benchmark. Penyusunan instruksi dilakukan menggunakan pola yang seragam untuk seluruh iterasi, sehingga setiap model menerima bentuk stimulus yang konsisten. Pendekatan ini menghilangkan variasi yang berasal dari perbedaan penulisan instruksi manual.
+    Pada tahap ini, sistem membentuk dua jenis pesan utama: \textit{system message} yang berisi identitas dan karakter persona, serta \textit{user message} yang memuat pertanyaan dari \textit{benchmark}. Penyusunan instruksi dilakukan menggunakan pola yang seragam untuk seluruh iterasi, sehingga setiap model menerima bentuk stimulus yang konsisten. Pendekatan ini menghilangkan variasi yang berasal dari perbedaan penulisan instruksi manual, sehingga perubahan keluaran dapat dikaitkan pada persona, bukan pada redaksi \textit{prompt}.
 
     \item \textit{Execution manager}.\\
-    Komponen ini mengatur pengiriman permintaan ke model-model bahasa melalui \textit{API interface}. Untuk mengatasi volume permintaan yang besar, \textit{execution manager} menggunakan pendekatan eksekusi asinkron dengan \textit{I/O concurrency}. Permintaan diatur dalam \textit{task queue} dan dieksekusi dalam kelompok sesuai batas \textit{rate limit}. Strategi ini mempercepat proses pengujian tanpa melampaui kapasitas layanan penyedia model.
+    Komponen ini mengatur pengiriman permintaan ke model-model bahasa melalui \textit{API interface}. Untuk mengatasi volume permintaan yang besar, \textit{execution manager} menggunakan pendekatan eksekusi asinkron berbasis \textit{I/O concurrency}. Permintaan disusun dalam \textit{task queue} dan dieksekusi dalam kelompok sesuai batas \textit{rate limit} dari penyedia layanan model. Strategi ini mempercepat proses pengujian tanpa melampaui kapasitas layanan.
 
     \item \textit{Telemetry logger}.\\
-    Komponen terakhir bertanggung jawab menyimpan seluruh respons model dalam format terstruktur, termasuk \textit{model output}, jumlah token, serta \textit{latency}. Data ini digunakan sebagai dasar analisis performa pada bab berikutnya.
+    Komponen terakhir bertanggung jawab menyimpan seluruh respons model dalam format terstruktur, termasuk keluaran teks, jawaban akhir yang diekstraksi, jumlah token yang digunakan, serta \textit{latency} inferensi. Data ini menjadi dasar analisis performa pada Bab~V, baik dari sisi akurasi maupun beban komputasi.
 \end{enumerate}
 
-Dengan pembagian tersebut, pipeline dapat beroperasi secara modular namun tetap terpadu dalam satu alur pemrosesan.
+Dengan pembagian tersebut, pipeline dapat beroperasi secara modular, namun tetap terpadu dalam satu alur pemrosesan yang deterministik.
 
 \subsection{Algoritma Orkestrasi dan Konkurensi}
 \label{subsec:algoritma-orkestrasi}
@@ -255,7 +69,7 @@ Eksperimen dalam penelitian ini melibatkan ribuan kombinasi persona–model–pe
 
 Pendekatan ini memungkinkan banyak permintaan dieksekusi secara paralel (hingga batas tertentu), sehingga waktu total dapat ditekan dari kompleksitas \(O(N)\) menjadi mendekati \(O(N/C)\), dengan \(C\) adalah kapasitas konkurensi maksimum. Pipeline membangun sebuah \textit{task queue} yang berisi seluruh pasangan persona–soal, kemudian memprosesnya dalam kelompok (\textit{batch}) sesuai kapasitas konkurensi. Ketika satu batch sedang diproses, sistem dapat menyiapkan batch berikutnya tanpa menunggu seluruh permintaan selesai.
 
-Selain meningkatkan efisiensi waktu, mekanisme ini juga menyediakan ketahanan terhadap kesalahan. Jika terjadi galat seperti \textit{timeout}, \textit{connection reset}, atau \texttt{429 Too Many Requests}, pipeline tidak menghentikan seluruh proses. Tugas yang gagal akan dicatat dan dijalankan ulang menggunakan strategi \textit{exponential backoff}, memastikan stabilitas eksekusi jangka panjang.
+Selain meningkatkan efisiensi waktu, mekanisme ini juga menyediakan ketahanan terhadap kesalahan. Jika terjadi galat seperti \textit{timeout}, \textit{connection reset}, atau \texttt{429 Too Many Requests}, pipeline tidak menghentikan seluruh proses. Tugas yang gagal akan dicatat dan dijalankan ulang menggunakan strategi \textit{exponential backoff}, sehingga stabilitas eksekusi jangka panjang tetap terjaga.
 
 Algoritma 4.1 berikut mendefinisikan prosedur eksekusi paralel secara formal.
 
@@ -292,163 +106,305 @@ Function RunExperiment(P, T):
   5. Return L
 \end{verbatim}
 
-Melalui orkestrasi ini, pipeline mencapai dua tujuan: (1) efisiensi waktu eksekusi yang optimal berkat pemrosesan paralel, dan (2) ketahanan proses melalui penanganan galat adaptif. Dengan demikian, seluruh kombinasi persona–model–benchmark dapat dieksekusi secara konsisten, stabil, dan dapat direproduksi.
-
+Melalui orkestrasi ini, pipeline mencapai dua tujuan sekaligus: (1) efisiensi waktu eksekusi yang optimal berkat pemrosesan paralel, dan (2) ketahanan proses melalui penanganan galat adaptif.
 
 \subsection{Mekanisme Injeksi Konteks Persona}
 \label{subsec:mekanisme-injeksi}
 
-Mekanisme injeksi persona merupakan elemen penting untuk memastikan bahwa pengaruh persona dapat diukur dengan jelas. Pipeline menerapkan dua tahap injeksi konteks yang bersifat tetap dan hanya dilakukan satu kali untuk setiap persona sebelum evaluasi dimulai.
+Mekanisme injeksi persona merupakan elemen penting untuk memastikan bahwa pengaruh persona terhadap keluaran model dapat diukur secara jelas. Pipeline menerapkan dua tahap injeksi konteks yang bersifat tetap dan hanya dilakukan satu kali untuk setiap persona sebelum rangkaian evaluasi dimulai.
 
-Tahap pertama adalah \textit{persona context initialization}. Pada tahap ini, sistem menyusun pesan awal yang merangkum identitas dan karakter persona. Pesan ini berfungsi membangun \textit{cognitive framing} awal pada model, baik untuk persona eksplisit maupun implisit. Tahap ini memastikan bahwa model berada dalam kondisi persona yang konsisten sebelum diberikan tugas.
+Tahap pertama adalah \textit{persona context initialization}. Pada tahap ini, sistem menyusun \textit{system message} yang merangkum identitas dan karakter persona, baik dalam bentuk eksplisit maupun implisit sebagaimana didefinisikan pada Subbab~\ref{tab:user-persona}. Pesan ini berfungsi membangun \textit{cognitive framing} awal pada model sehingga konteks persona tertanam sebelum tugas utama diberikan.
 
-Tahap kedua adalah \textit{persona warm-up message}. Pesan ini digunakan untuk memastikan bahwa model memberikan respons yang sesuai dengan identitas persona. Respons dari tahap ini tidak digunakan dalam evaluasi, tetapi berfungsi sebagai verifikasi bahwa proses injeksi berhasil.
+Tahap kedua adalah \textit{persona warm-up message}. Pipeline mengirimkan satu interaksi pemanasan untuk memverifikasi bahwa respons model sudah mengikuti identitas dan gaya tutur persona tersebut. Respons dari tahap ini tidak digunakan dalam evaluasi, tetapi berfungsi sebagai pemeriksaan bahwa proses injeksi berhasil.
 
-Setelah kedua tahap ini selesai, pipeline tidak lagi mengulangi injeksi persona untuk setiap pertanyaan. Identitas yang telah ditanamkan pada awal percakapan tetap digunakan selama seluruh rangkaian pengujian. Model kemudian langsung memproses seluruh soal pada GSM8K dan MMLU-Redux dalam kondisi persona yang sama. Pendekatan ini memastikan bahwa variasi keluaran model berasal dari perbedaan persona, bukan dari perbedaan struktur instruksi.
+Setelah kedua tahap ini selesai, pipeline tidak lagi mengulangi injeksi persona untuk setiap pertanyaan. Identitas yang telah ditanamkan pada awal percakapan tetap digunakan selama seluruh rangkaian pengujian. Model kemudian langsung memproses seluruh soal pada GSM8K dan MMLU-Redux dalam kondisi persona yang sama. Pendekatan ini memastikan bahwa variasi keluaran model berasal dari perbedaan persona, bukan dari perbedaan struktur instruksi pada setiap soal.
 
-\subsection{Mekanisme Toleransi Kesalahan dan Persistensi Status}
-\label{subsec:toleransi-kesalahan}
+\subsection{Alur Operasional Pelaksanaan Eksperimen}
+\label{subsec:alur-operasional}
 
-Pipeline dirancang agar tetap stabil meskipun menghadapi gangguan selama proses pengujian. Dua mekanisme utama digunakan untuk menjamin integritas data dan keberlanjutan proses.
+Secara operasional, alur pelaksanaan eksperimen mengikuti rangkaian langkah yang digambarkan pada Gambar~\ref{fig:alur-eksperimen}. Diagram tersebut menunjukkan hubungan antara pembentukan \textit{configuration}, penyusunan \textit{instruction}, eksekusi \textit{task}, dan pencatatan hasil dalam satu siklus pipeline.
 
-Pertama, sistem menerapkan \textit{state persistence}. Setelah setiap tugas berhasil diproses, status kemajuan dicatat sehingga apabila terjadi interupsi, pipeline dapat dilanjutkan kembali tanpa mengulangi tugas yang sudah selesai.
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.5\textwidth]{image/alur-eksperimen.png}
+  \caption{Diagram alur pelaksanaan eksperimen}
+  \label{fig:alur-eksperimen}
+\end{figure}
 
-Kedua, gangguan sementara ditangani dengan \textit{error handling} berbasis penjadwalan ulang adaptif. Tugas yang gagal tidak langsung dihentikan, tetapi dijalankan kembali setelah jeda waktu tertentu. Dengan kombinasi kedua strategi ini, pipeline dapat menyelesaikan seluruh rangkaian evaluasi meskipun terjadi kendala jaringan atau batasan layanan eksternal.
-%====== BAB IV.3 ======
-\section{Implementasi Data, Struktur Berkas, dan Keluaran Pipeline}
-\label{sec:implementasi-data}
-
-Subbab ini menjelaskan bagaimana rancangan pipeline yang telah disusun pada bagian sebelumnya direalisasikan dalam bentuk organisasi data, struktur direktori, serta format keluaran yang dihasilkan selama proses eksperimen. Implementasi ini dirancang untuk memastikan bahwa seluruh tahapan pemuatan aset, injeksi konteks persona, pelaksanaan inferensi, dan perekaman hasil berlangsung secara konsisten, terdokumentasi dengan baik, serta mendukung keterulangan eksperimen secara penuh.
-
-\subsection{Organisasi Direktori dan Artefak Data}
-
-Pipeline dijalankan di atas struktur direktori yang dirancang secara modular untuk memisahkan fungsi pemrosesan dan memudahkan proses audit ilmiah. Empat kelompok artefak utama disusun secara hierarkis sebagai berikut.
+Pelaksanaan eksperimen dilakukan melalui langkah-langkah berikut.
 
 \begin{enumerate}
-    \item \textit{Root directory}.  
-    Berfungsi sebagai titik masuk eksekusi sistem dan memuat skrip penggerak pipeline beserta utilitas operasional.
+    \item Memuat \textit{specification}.\\
+    \textit{System} membaca berkas \textit{specification} yang memuat daftar persona, daftar model, daftar \textit{task}, serta aturan eksekusi. Informasi tersebut diproses menjadi dasar pembentukan himpunan \textit{configuration} yang akan dievaluasi.
 
-    \item \textit{Configuration directory}.  
-    Menyimpan konfigurasi teknis yang digunakan pipeline, termasuk daftar model, kredensial layanan API, dan parameter eksekusi. Pemisahan direktori ini mendukung aspek keamanan dan memudahkan penggantian parameter tanpa memodifikasi kode utama.
+    \item Membentuk \textit{configuration} lengkap.\\
+    Seluruh kombinasi persona, model, dan \textit{task} dibentuk sebagai unit eksekusi dan dicatat untuk dijalankan selama eksperimen. Setiap \textit{configuration} menyimpan identitas persona, model, dan penanda butir soal yang terkait.
 
-    \item \textit{Input assets directory}.  
-    Memuat definisi persona serta himpunan benchmark yang telah dinormalisasi. Persona direpresentasikan dalam format terstruktur yang memuat identitas, atribut demografis, dan karakteristik gaya bahasa. Sementara itu, dataset GSM8K dan MMLU Redux dikonversi ke format konsisten untuk memastikan kompatibilitas dengan pipeline.
+    \item Memilih satu \textit{configuration}.\\
+    \textit{System} mengambil satu \textit{configuration} dari antrean tugas pada setiap siklus dan menjadwalkannya untuk dieksekusi hingga seluruh kombinasi selesai diproses.
 
-    \item \textit{Results directory}.  
-    Menyimpan keseluruhan keluaran eksperimen yang mencakup log granular pada tingkat per butir soal, tabel hasil, serta agregasi lintas persona dan lintas model. Struktur ini memudahkan proses penelusuran kembali bagi keperluan analisis.
+    \item Menerapkan \textit{persona}.\\
+    \textit{Persona} yang sesuai dengan \textit{configuration} tersebut diterapkan terlebih dahulu agar \textit{task} diproses dalam konteks pengguna yang telah ditetapkan. Pada beberapa kondisi, digunakan satu interaksi \textit{warmup} untuk memastikan bahwa respons awal model sudah mengikuti karakter persona sebelum rangkaian \textit{task} utama dikirimkan.
+
+    \item Menyusun \textit{instruction} untuk \textit{task}.\\
+    \textit{Instruction} dirumuskan dengan susunan yang seragam oleh \textit{prompt construction engine}, sehingga perbedaan hasil dapat dikaitkan pada variasi persona dan model, bukan pada perbedaan redaksi atau struktur penyampaian.
+
+    \item Mengirim \textit{instruction} kepada model.\\
+    \textit{Instruction} yang telah lengkap dikirimkan kepada model melalui \textit{execution manager} untuk memperoleh \textit{response} yang digunakan dalam tahap analisis.
+
+    \item Penanganan kegagalan.\\
+    Jika \textit{response} tidak diperoleh atau terjadi gangguan sementara, \textit{instruction} dijadwalkan ulang menggunakan jeda adaptif hingga \textit{response} valid diterima. Mekanisme ini memastikan seluruh \textit{configuration} menghasilkan keluaran yang dapat digunakan.
+
+    \item Mencatat hasil \textit{response}.\\
+    \textit{Response} yang diterima disimpan oleh \textit{telemetry logger} dalam berkas penyimpanan bersama informasi pendukung lainnya, seperti jumlah token dan \textit{latency}, untuk keperluan analisis.
+
+    \item Melanjutkan ke \textit{configuration} berikutnya.\\
+    Setelah satu \textit{configuration} selesai, \textit{system} beralih ke \textit{configuration} berikutnya hingga seluruh ruang eksperimen selesai dievaluasi.
 \end{enumerate}
 
-Pemilahan direktori ini memastikan bahwa seluruh artefak eksperimen terdokumentasi secara terstruktur dan mudah direplikasi.
+Dengan arsitektur dan alur operasional ini, eksperimen dapat dijalankan secara teratur, terukur, dan setiap hasil yang dihasilkan dapat ditelusuri kembali berdasarkan \textit{configuration} yang digunakan.
 
-\subsection{Subsistem Perangkat Lunak dan Alur Transformasi Data}
 
-Pipeline terdiri atas empat subsistem utama yang bekerja secara berurutan dalam mengelola eksekusi eksperimen:
+
+%====== BAB IV.3======
+
+\section{Integrasi Komponen Eksperimen}
+
+Bagian ini menjelaskan komponen-komponen yang digunakan dalam eksperimen, yang terdiri atas \textit{benchmark} penalaran, himpunan model, struktur persona, ruang \textit{configuration}, serta contoh mekanisme injeksi persona. Seluruh komponen tersebut didefinisikan melalui berkas \textit{specification} sehingga dapat digunakan secara konsisten pada seluruh tahapan eksperimen.
+
+\subsection{Benchmark Penalaran}
+
+Eksperimen menggunakan dua \textit{benchmark} yang mewakili dua bentuk kemampuan penalaran.
+
+\textit{Benchmark} pertama adalah \textit{GSM8K}, yang berisi soal cerita matematika tingkat sekolah menengah. \textit{Benchmark} ini menilai kemampuan sistem dalam melakukan penalaran numerik bertahap. Setiap soal memiliki jawaban numerik yang jelas sehingga pemeriksaan hasil dapat dilakukan secara deterministik \parencite{cobbe2021gsm8k}.
+
+\textit{Benchmark} kedua adalah \textit{MMLU-Redux}, versi terkurasi dari MMLU yang memperbaiki ketidakkonsistenan format dan pilihan jawaban. \textit{Benchmark} ini digunakan untuk menilai penalaran lintas topik dalam format pilihan ganda, meliputi bidang sains, matematika, humaniora, dan ilmu sosial \parencite{mmluRedux2024dataset}.
+
+Penggunaan kedua \textit{benchmark} tersebut memberikan cakupan dua bentuk penalaran yang berbeda, yaitu penalaran numerik prosedural dan penalaran konseptual deklaratif.
+
+\subsection{Himpunan Model}
+
+Eksperimen dijalankan pada beberapa model yang tersedia melalui layanan API. Model-model tersebut dipilih untuk memberikan keragaman arsitektur sehingga perbedaan respons yang muncul dapat dibandingkan lintas sistem. Model yang digunakan meliputi:
 
 \begin{enumerate}
-    \item \textit{Execution orchestration subsystem}.  
-    Subsistem ini membentuk \textit{task queue} yang memuat seluruh kombinasi model, persona, dan pertanyaan. Orkestrasi ini memastikan determinisme dan menghindari variasi eksekusi akibat intervensi manual.
+    \item Model komersial  
+    GPT-5 Mini, Claude 4.5 Haiku, Gemini 2.5 Flash, Llama 3.3 Nemotron Super 49B V1.5, Google Gemma 3n 4B, dan DeepSeek V3.2
 
-    \item \textit{Model communication subsystem}.  
-    Bertugas melakukan konstruksi instruksi, mengirimkan permintaan ke layanan model, menangani kode galat, serta menegakkan batas layanan seperti \textit{rate limit}. Seluruh komunikasi dilakukan menggunakan protokol API yang distandardisasi.
-
-    \item \textit{Monitoring subsystem}.  
-    Menyediakan mekanisme \textit{checkpointing} sehingga eksekusi dapat dilanjutkan tanpa kehilangan progres apabila terjadi gangguan jaringan atau penghentian proses secara tidak terduga. Hal ini memastikan konsistensi eksekusi dan mengurangi risiko duplikasi.
-
-    \item \textit{Analysis subsystem}.  
-    Mengolah log mentah menjadi tabel terstruktur dan menghitung metrik utama seperti akurasi, penggunaan token, dan latensi. Modul ini menghasilkan keluaran agregasi yang digunakan dalam tahap analisis pada Bab~V.
+    \item Model publik  
+    Grok 4.1 Fast, NVIDIA Nemotron-nano-12B-v2-VL, dan Bert Nebulon Alpha.
 \end{enumerate}
 
-Alur transformasi data berlangsung dari log granular menuju tabel pemetaan kemudian agregasi lintas model, sehingga memungkinkan analisis kuantitatif yang komprehensif.
+Keragaman ini memungkinkan analisis sensitivitas persona pada berbagai sistem dengan karakteristik yang berbeda.
 
-\subsection{Representasi Persona dan Mekanisme Injeksi Konteks}
+\subsection{Struktur Persona}
 
-Persona direpresentasikan dalam format terstruktur yang memuat identitas demografis, atribut gaya bahasa, serta narasi yang relevan. Representasi tersebut kemudian dikonversi menjadi \textit{system instruction} yang ditempatkan pada segmen instruksi sistem saat permintaan dikirimkan ke model.
+Persona yang digunakan dalam eksperimen disusun berdasarkan enam dimensi: gender, usia, agama, pekerjaan, kewarganegaraan, dan register bahasa. Kombinasi dimensi tersebut menghasilkan lima belas persona yang mencakup persona eksplisit dan persona implisit, serta satu kondisi pengguna netral sebagai pembanding.
 
-Injeksi konteks persona dilakukan satu kali melalui dua tahap:
+Tabel~\ref{tab:user-persona} menyajikan daftar lengkap persona yang digunakan.
+
+\begin{table}[htbp]
+\centering
+\caption{Daftar persona pada kondisi eksperimen}
+\label{tab:user-persona}
+\renewcommand{\arraystretch}{1.15}
+
+\resizebox{\textwidth}{!}{
+\begin{tabular}{c l l l l l l l}
+\toprule
+\textbf{ID} &
+\textbf{Persona} &
+\textbf{Mode} &
+\textbf{Gender} &
+\textbf{Age Group} &
+\textbf{Religion} &
+\textbf{Occupation} &
+\textbf{Nationality / Register} \\
+\midrule
+P1  & Implicit male baseline              & Implicit & Male   & -           & -        & -                & Neutral \\
+P2  & Implicit female baseline            & Implicit & Female & -           & -        & -                & Neutral \\
+P3  & Neutral user                        & Neutral  & -      & -           & -        & -                & Neutral \\
+P4  & Indonesian Muslim young woman       & Explicit & Female & Young adult & Muslim   & Healthcare worker & Indonesian / Semi-formal \\
+P5  & Indonesian Muslim young man         & Implicit & Male   & Young adult & Muslim   & Healthcare worker & Indonesian / Semi-formal \\
+P6  & American middle-aged male           & Explicit & Male   & Middle-aged & Christian & Engineer         & American / Formal \\
+P7  & American middle-aged female         & Implicit & Female & Middle-aged & Christian & Engineer         & American / Formal \\
+P8  & Indonesian Gen-Z female             & Explicit & Female & Gen-Z       & -        & Student          & Indonesian / Casual-slang \\
+P9  & Indonesian Gen-Z male               & Implicit & Male   & Gen-Z       & -        & Student          & Indonesian / Casual-slang \\
+P10 & Middle Eastern young adult male     & Explicit & Male   & Young adult & Muslim   & Engineer         & Middle Eastern Arabic / Formal \\
+P11 & Middle Eastern young adult female   & Implicit & Female & Young adult & Muslim   & Student          & Middle Eastern Arabic / Formal \\
+P12 & American atheist young male         & Explicit & Male   & Young adult & Atheist  & Student          & American / Formal \\
+P13 & American atheist young female       & Implicit & Female & Young adult & Atheist  & Student          & American / Formal \\
+P14 & Indonesian female healthcare worker & Explicit & Female & Young adult & Muslim   & Healthcare worker & Indonesian / Semi-formal \\
+P15 & Indonesian male healthcare worker   & Implicit & Male   & Young adult & Muslim   & Healthcare worker & Indonesian / Semi-formal \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+\subsection{Ruang \textit{Configuration}}
+
+Kombinasi lima belas persona dan sembilan model membentuk seratus tiga puluh lima \textit{configuration}. Setiap \textit{configuration} merepresentasikan satu pasangan persona dan model yang kemudian diuji pada himpunan \textit{task} yang sama. Dengan cara ini, variasi keluaran dapat dibandingkan pada dua tingkat, yaitu perbedaan antar persona dalam satu model dan perbedaan antar model pada persona yang sama.
+
+Untuk menjaga keteraturan proses, setiap \textit{configuration} melewati urutan eksekusi yang tetap. Urutan tersebut meliputi penerapan persona pada awal percakapan, penyiapan konteks interaksi, pelaksanaan \textit{benchmark} pada himpunan soal yang telah ditetapkan, serta pencatatan hasil dan informasi pendukung. Pola yang berulang ini memudahkan penelusuran kembali setiap hasil ke persona, model, dan \textit{task} yang digunakan.
+
+\subsection{Contoh Mekanisme Injeksi Persona}
+
+Persona diterapkan melalui \textit{system message} yang dikirim sebelum \textit{task} utama diberikan. Dua bentuk persona digunakan dalam eksperimen, yaitu persona eksplisit dan persona implisit.
+
+Pada persona eksplisit, identitas pengguna dinyatakan secara langsung melalui deskripsi. Instruksi ini menyebutkan atribut sosial yang relevan, seperti gender, usia, pekerjaan, atau preferensi gaya bahasa. Contoh yang digunakan dalam eksperimen adalah sebagai berikut.
+
+\begin{quote}
+\textit{
+“Your user is an Indonesian Gen-Z male who works as a junior engineer.  
+He is analytical, prefers concise explanations, and communicates in a casual but respectful tone.”}
+\end{quote}
+
+Formulasi seperti ini memberikan konteks identitas yang jelas sehingga perubahan pada struktur penalaran dan gaya jawaban dapat dikaitkan dengan persona yang digunakan.
+
+Pada persona implisit, identitas tidak disebutkan secara langsung, tetapi ditampilkan melalui narasi pengalaman, ekspresi emosi, atau gaya tutur tertentu. Model menerima konteks ini sebagai bagian dari cerita pengguna dan perlu menyimpulkan sendiri karakter pengguna dari isyarat linguistik yang ada. Contoh yang digunakan dalam eksperimen adalah sebagai berikut.
+
+\begin{quote}
+\textit{
+“Lately I have been feeling a strange mix of emotional exhaustion and pressure to appear composed, especially when my skin starts acting up unexpectedly. Before I deal with it again, could you help me break down this next question step-by-step?”}
+\end{quote}
+
+Kedua bentuk injeksi ini memungkinkan analisis perbedaan respons antara persona yang dinyatakan secara eksplisit dan persona yang hanya tersirat melalui cara pengguna menyampaikan situasi dan pertanyaannya.
+
+%====== BAB IV.4 ======
+\section{Perancangan Data dan Struktur Berkas}
+
+Bagian ini menjelaskan rancangan data dan struktur berkas yang digunakan dalam eksperimen. Perancangan ini diperlukan agar keluaran dari setiap \textit{configuration} dapat dicatat secara teratur, ditelusuri kembali, dan dianalisis pada tahap berikutnya. Data yang digunakan dalam eksperimen dikelompokkan menjadi empat bagian utama, yaitu data konfigurasi, data benchmark, data masukan tambahan, dan data hasil eksekusi.
+
+Data konfigurasi disimpan di dalam direktori \texttt{config}. Direktori ini memuat berkas \textit{specification} yang menjadi dasar pembentukan ruang eksperimen, termasuk berkas \texttt{model.keys.json} yang berisi daftar model yang tersedia melalui layanan API, serta berkas lain yang memuat daftar \textit{persona}, daftar \textit{task}, dan parameter eksekusi. Perubahan terhadap ruang eksperimen dapat dilakukan dengan memodifikasi berkas-berkas pada direktori ini tanpa perlu mengubah kode program.
+
+Data benchmark disimpan di dalam direktori \texttt{data}. Direktori ini berisi \textit{dataset} yang digunakan dalam eksperimen, termasuk materi \textit{GSM8K} dan \textit{MMLU-Redux} dalam bentuk mentah maupun bentuk yang telah dinormalisasi untuk keperluan pemrosesan. Dengan pemisahan ini, sumber data utama yang digunakan pipeline terdokumentasi secara jelas.
+
+Direktori \texttt{input} digunakan untuk menyimpan data pendukung yang tidak berasal dari benchmark utama tetapi dibutuhkan selama eksperimen, seperti kumpulan soal yang dihasilkan ulang, daftar pertanyaan tambahan, atau berkas uji lain yang disiapkan secara terpisah dari \textit{dataset} utama. Pemisahan antara \texttt{data} dan \texttt{input} menjaga agar data asli dan data turunan tidak tercampur, serta memudahkan pelacakan asal setiap \textit{task} yang dieksekusi.
+
+Dokumen pendukung, seperti catatan desain, skema eksperimen, dan dokumentasi penggunaan pipeline, disimpan pada direktori \texttt{docs}. Direktori ini tidak terlibat langsung dalam proses eksekusi, tetapi membantu proses audit dan pemeliharaan sistem di kemudian hari.
+
+Hasil eksperimen disimpan di dalam direktori \texttt{results}. Direktori ini memuat berkas \textit{JSON} yang mencatat \textit{response} lengkap untuk setiap \textit{configuration}, termasuk \textit{instruction} yang digunakan, jawaban model, serta metadata yang dihasilkan selama eksekusi. Ringkasan hasil disimpan dalam bentuk \textit{CSV} untuk mempermudah proses analisis, misalnya perbandingan jawaban akhir, tingkat akurasi, jumlah token, atau latensi jika informasi tersebut disediakan oleh layanan model.
+
+Seluruh kode program ditempatkan dalam direktori \texttt{src}. Direktori ini berisi modul yang memuat \textit{specification}, menyusun \textit{instruction}, menjalankan \textit{task} untuk setiap \textit{configuration}, serta mencatat hasil eksekusi ke dalam \texttt{results}. Dengan pemisahan antara kode dan data, eksperimen dapat dijalankan kembali dengan pengaturan yang sama atau diperluas dengan \textit{specification} baru tanpa mengubah struktur direktori lainnya.
+
+Dengan struktur direktori ini, setiap \textit{response} yang dihasilkan dapat ditelusuri kembali melalui \textit{persona}, model, dan \textit{task} yang digunakan. Perancangan ini mendukung kebutuhan replikasi eksperimen dan menjadi penghubung antara desain konseptual pada bagian sebelumnya dan analisis hasil pada bab berikutnya.
+
+%====== BAB IV.5 ======
+\section{Penanganan Gangguan dan Pemulihan \textit{Execution Flow}}
+
+Proses eksekusi melibatkan sejumlah besar kombinasi persona, model, dan \textit{task} sehingga rentan terhadap berbagai bentuk gangguan, baik yang bersumber dari layanan model maupun dari kondisi jaringan. Bagian ini menjelaskan mekanisme yang digunakan untuk menjaga agar alur eksekusi tetap berlanjut meskipun terjadi hambatan, serta memastikan bahwa hasil yang diperoleh tetap dapat ditelusuri dan dianalisis tanpa kehilangan konsistensi.
+
+Penanganan gangguan dilakukan dalam dua bentuk utama.
 
 \begin{enumerate}
-    \item \textit{Persona grounding}.  
-    Tahap ini menanamkan identitas dan karakteristik gaya bahasa persona secara eksplisit atau implisit pada konteks model.
+    \item \textit{Transient error handling}  
+    Sistem mendeteksi gangguan sementara seperti \textit{timeout}, penolakan layanan, atau pemutusan koneksi. Apabila gangguan terjadi, \textit{instruction} dikirim ulang menggunakan jeda adaptif. Mekanisme ini mencegah penghentian proses secara keseluruhan dan memastikan setiap \textit{configuration} tetap menghasilkan keluaran yang dapat dianalisis.
 
-    \item \textit{Warm up interaction}.  
-    Dilakukan satu interaksi pemanasan untuk menstabilkan perilaku model sehingga respons pada tahap berikutnya mengikuti karakter persona secara konsisten.
+    \item \textit{Execution flow recovery}  
+    Untuk menjaga keberlanjutan proses, sistem mencatat status terakhir setelah setiap respons diterima. Apabila eksekusi terhenti sebelum seluruh \textit{configuration} selesai diproses, pipeline dapat dilanjutkan dari posisi terakhir tanpa mengulang bagian yang telah berhasil. Dengan cara ini, proses panjang tetap dapat diselesaikan tanpa kehilangan progres.
 \end{enumerate}
 
-Setelah kedua tahap tersebut selesai, pipeline mengirim seluruh pertanyaan GSM8K dan MMLU Redux tanpa mengulang injeksi persona. Dengan demikian, kondisi kognitif model dijaga agar tetap setara di seluruh siklus inferensi.
+Kedua mekanisme ini bekerja bersamaan untuk memastikan bahwa alur eksekusi tetap stabil pada skala besar. Pendekatan ini memungkinkan seluruh rangkaian eksperimen diselesaikan meskipun terdapat hambatan teknis, sehingga hasil yang diperoleh tetap dapat dipertanggungjawabkan dalam tahap analisis pada bab berikutnya.
+
+%====== BAB IV.6 ======
+\section{Implementasi Keluaran Pipeline}
+\label{sec:implementasi-keluaran}
+
+Bagian ini menyajikan bentuk keluaran yang dihasilkan oleh \textit{evaluation pipeline}
+setelah seluruh tahapan pemrosesan dijalankan. Keluaran ini berfungsi sebagai artefak
+utama yang digunakan dalam analisis pada Bab~V. Seluruh hasil disimpan dalam direktori
+\texttt{results} dalam format terstruktur sehingga dapat ditelusuri kembali ke
+\textit{persona}, model, dan \textit{task} yang digunakan.
 
 \subsection{Contoh Struktur Log Inferensi}
 
-Untuk menjaga transparansi dan keterulangan eksperimen, pipeline mencatat setiap interaksi dengan model dalam bentuk log terstruktur. Log ini memuat informasi mengenai konfigurasi eksekusi, isi jawaban model, serta telemetri penggunaan token. Cuplikan pada Kode~\ref{code:log-noreason} menunjukkan contoh keluaran untuk model yang tidak menyediakan \textit{reasoning trace}.
+Pipeline mencatat setiap interaksi dengan model dalam bentuk berkas \texttt{JSON}.
+Log ini memuat identitas konfigurasi yang dieksekusi, jawaban model, serta
+telemetri penggunaan token. Cuplikan berikut memperlihatkan struktur log
+untuk model yang tidak menyediakan \textit{reasoning trace}.
 
-\begin{tcolorbox}[
-    colback=gray!5,
-    colframe=gray!50,
-    title={Kode IV.1 Contoh log inferensi tanpa reasoning trace},
-    fonttitle=\bfseries,
-    arc=2mm,
-    left=2mm,
-    right=2mm,
-    listing only
-]
-\footnotesize
 \begin{verbatim}
 {
- "run": {"model_id": "example-model", "question_id": "gsm8k_00001"},
- "response": {
-   "choices": [{
-     "message": {"content": "Let's break down the problem..."}
-   }],
-   "usage": {"prompt_tokens": 211, "completion_tokens": 197}
- }
+  "run": {
+    "model_id": "example-model",
+    "question_id": "gsm8k_00001",
+    "persona": "implicit_male"
+  },
+  "response": {
+    "choices": [
+      {
+        "message": {
+          "content": "Let's break down the problem..."
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 211,
+      "completion_tokens": 197,
+      "total_tokens": 408
+    }
+  },
+  "meta": {
+    "latency_ms": 842,
+    "timestamp": "2025-01-18T12:44:10Z"
+  }
 }
 \end{verbatim}
-\end{tcolorbox}
-\label{code:log-noreason}
 
-Pada model tertentu, layanan juga menyediakan informasi tambahan mengenai proses penalaran internal yang digunakan untuk menghasilkan jawaban akhir. Informasi ini direkam sebagai \textit{reasoning trace} dan disimpan terpisah dari konten jawaban. Kode~\ref{code:log-reason} memperlihatkan contoh log untuk model yang menyediakan \textit{reasoning trace} beserta jumlah token yang digunakan pada bagian tersebut.
+Struktur tersebut menunjukkan bahwa pipeline tidak hanya merekam jawaban,
+tetapi juga metadata komputasional yang diperlukan dalam analisis efisiensi.
 
-\begin{tcolorbox}[
-    colback=gray!5,
-    colframe=gray!50,
-    title={Kode IV.2 Contoh log inferensi dengan reasoning trace},
-    fonttitle=\bfseries,
-    arc=2mm,
-    left=2mm,
-    right=2mm,
-    listing only
-]
-\footnotesize
+\subsection{Contoh Struktur Log dengan Reasoning Trace}
+
+Beberapa model menyediakan tambahan berupa \textit{reasoning trace}. Bagian
+penalaran ini disimpan terpisah dari jawaban akhir dan dicatat sebagai bagian
+dari log. Cuplikan berikut menunjukkan contoh berkas log yang memuat
+\textit{reasoning trace}.
+
 \begin{verbatim}
 {
- "run": {"model_id": "example-model-reason", "question_id": "gsm8k_00003"},
- "response": {
-   "choices": [{
-     "message": {
-       "content": "Final answer: 70000",
-       "reasoning": "First compute the purchase cost..."
-     }
-   }],
-   "usage": {"completion_tokens": 867, "reasoning_tokens": 485}
- }
+  "run": {
+    "model_id": "example-model-reason",
+    "question_id": "gsm8k_00003",
+    "persona": "explicit_genz_female"
+  },
+  "response": {
+    "choices": [
+      {
+        "message": {
+          "content": "Final answer: 70000",
+          "reasoning": "First compute the purchase cost..."
+        }
+      }
+    ],
+    "usage": {
+      "completion_tokens": 867,
+      "reasoning_tokens": 485,
+      "total_tokens": 1352
+    }
+  },
+  "meta": {
+    "latency_ms": 2134,
+    "timestamp": "2025-01-18T12:52:41Z"
+  }
 }
 \end{verbatim}
-\end{tcolorbox}
-\label{code:log-reason}
 
-Kedua contoh tersebut menggambarkan bagaimana pipeline menangkap tidak hanya jawaban akhir, tetapi juga struktur penalaran dan sumber daya komputasi yang digunakan oleh model. Informasi ini menjadi dasar analisis lebih lanjut mengenai perbedaan perilaku antar model dan antar persona.
+Log ini memungkinkan analisis lebih dalam mengenai gaya penalaran dan perubahan
+struktur argumen yang mungkin disebabkan oleh persona tertentu.
 
 \subsection{Ringkasan Hasil Eksperimen}
 
-Ringkasan performa lintas model dan persona ditampilkan pada Tabel~\ref{tab:gsm8k-summary-compact}. Tabel ini memberikan gambaran umum mengenai tingkat akurasi dan beban komputasi untuk setiap konfigurasi, dan digunakan sebagai dasar analisis pada Bab~V.
+Pipeline juga menghasilkan ringkasan performa dalam bentuk tabel yang
+menggabungkan metrik akurasi dan penggunaan token untuk setiap pasangan
+persona–model. Berkas ini disimpan dalam format \texttt{CSV} untuk memudahkan
+analisis lanjutan. Tabel berikut merupakan contoh ringkasan hasil yang dihasilkan.
 
 \begin{table}[htbp]
 \centering
 \caption{Ringkasan Hasil Eksperimen GSM8K untuk Seluruh Model dan Persona}
 \label{tab:gsm8k-summary-compact}
-\renewcommand{\arraystretch}{1.18}
+\renewcommand{\arraystretch}{1.15}
 \small
-
-\begin{adjustbox}{max width=\textwidth}
 \begin{tabular}{l l c c c c}
 \toprule
 \textbf{Model} &
@@ -458,21 +414,14 @@ Ringkasan performa lintas model dan persona ditampilkan pada Tabel~\ref{tab:gsm8
 \textbf{Accuracy (\%)} &
 \textbf{Total Tokens} \\
 \midrule
-
-Bert Nebulon Alpha & man\_implicits   & 610  & 593  & 97.21 & 285250 \\
-Bert Nebulon Alpha & woman\_implicits & 641  & 627  & 97.26 & 335208 \\
+Bert Nebulon Alpha & man\_implicit   & 610  & 593  & 97.21 & 285250 \\
+Bert Nebulon Alpha & woman\_implicit & 641  & 627  & 97.26 & 335208 \\
 \midrule
-
-Grok 4.1 Fast & man\_implicits   & 1315 & 1242 & 94.45 & 1325229 \\
-Grok 4.1 Fast & woman\_implicits & 1316 & 1254 & 95.36 & 1422736 \\
+Grok 4.1 Fast & man\_implicit   & 1315 & 1242 & 94.45 & 1325229 \\
+Grok 4.1 Fast & woman\_implicit & 1316 & 1254 & 95.36 & 1422736 \\
 \midrule
-
-Nvidia Nemotron 12B v2 VL & man\_implicits   & 1305 & 1224 & 93.79 & 1156049 \\
-Nvidia Nemotron 12B v2 VL & woman\_implicits & 1315 & 1248 & 94.98 & 1986284 \\
+Nvidia Nemotron 12B v2 VL & man\_implicit   & 1305 & 1224 & 93.79 & 1156049 \\
+Nvidia Nemotron 12B v2 VL & woman\_implicit & 1306 & 1230 & 94.18 & 1184521 \\
 \bottomrule
 \end{tabular}
-\end{adjustbox}
-
 \end{table}
-
-Tabel tersebut menjadi dasar perbandingan antar model pada bab evaluasi, termasuk pengaruh persona terhadap akurasi dan kompleksitas respons.

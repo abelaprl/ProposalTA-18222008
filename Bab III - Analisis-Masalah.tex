@@ -6,23 +6,25 @@
 % ============================================================================================
 \chapter{ANALISIS MASALAH}
 \label{chap:analisis-masalah}
+
+
 \section{Analisis Kondisi Saat Ini}
 
-Perkembangan \textit{large language model} (LLM) dalam beberapa tahun terakhir mendorong pemanfaatan model bahasa dalam berbagai konteks, mulai dari penjawab pertanyaan, agen percakapan, hingga sistem pendukung pengambilan keputusan \parencite{bommasani2021opportunities}. Seiring dengan meluasnya penggunaan tersebut, muncul kebutuhan untuk memahami bagaimana model bereaksi terhadap variasi identitas dan karakteristik pengguna, bukan hanya terhadap instruksi tugas. Hal ini berkaitan dengan cara model memproses konteks interaksi yang memuat informasi tentang siapa yang berinteraksi dengan model, dalam kapasitas apa, dan dengan gaya komunikasi seperti apa.
+Perkembangan \textit{large language model} (LLM) dalam beberapa tahun terakhir mendorong pemanfaatan model bahasa dalam berbagai aplikasi, mulai dari penjawab pertanyaan, agen percakapan, hingga sistem pendukung pengambilan keputusan \parencite{bommasani2021opportunities}. Dengan penggunaan yang semakin luas, muncul kebutuhan untuk memahami bagaimana model merespons variasi identitas dan karakteristik pengguna, bukan hanya variasi instruksi tugas. Hal ini penting karena pada praktiknya, interaksi dengan LLM selalu membawa konteks mengenai siapa penggunanya dan dari gaya komunikasi seperti apa instruksi tersebut disampaikan.
 
-Penelitian mengenai persona pada LLM sejauh ini banyak berfokus pada pemberian identitas kepada model sebagai agen percakapan. Tseng et al.\ mengkaji berbagai pendekatan \textit{role-playing} dan \textit{personalization} yang umumnya memposisikan persona pada sisi model, misalnya melalui instruksi sistem yang mendeskripsikan karakter, gaya bicara, atau peran yang harus diambil oleh model \parencite{tseng2024twotales}. Pada pengaturan ini, model diminta untuk bertindak sebagai tenaga profesional, tokoh tertentu, atau asisten dengan gaya komunikasi spesifik, dan evaluasi dilakukan dengan melihat konsistensi gaya respons maupun kesesuaian perilaku dengan persona yang diberikan.
+Penelitian mengenai persona pada LLM sejauh ini lebih banyak menempatkan persona pada sisi model. Tseng et al.\ mengkaji berbagai pendekatan \textit{role-playing} dan \textit{personalization} yang memberikan identitas tertentu kepada model melalui instruksi sistem \parencite{tseng2024twotales}. Pada pengaturan ini, model diarahkan untuk meniru karakter, gaya bicara, atau peran tertentu, dan evaluasi dilakukan dengan menilai kesesuaian perilaku model terhadap persona tersebut. Fokus semacam ini berbeda dengan skenario ketika persona justru muncul dari sisi pengguna—melalui gaya penulisan, latar belakang yang dinyatakan, atau sinyal sosial lain yang terbawa dalam instruksi.
 
-Di luar \textit{role-playing} tersebut, sejumlah studi menunjukkan bahwa penyisipan persona eksplisit dapat memengaruhi penalaran model bahkan pada tugas yang dirancang sebagai soal penalaran abstrak dan tidak secara eksplisit memuat dimensi sosial. Gupta et al.\ menunjukkan bahwa identitas yang dilekatkan pada konteks dapat menggeser cara model melakukan penalaran dan memilih jawaban, termasuk pada soal yang dirancang untuk menguji penalaran formal \parencite{gupta2024biasrunsdeep}. Temuan ini mengindikasikan bahwa persona tidak hanya memengaruhi gaya bahasa, tetapi juga struktur langkah penalaran yang dihasilkan model.
+Di luar skenario \textit{role-playing}, beberapa penelitian menunjukkan bahwa penyisipan persona eksplisit dapat memengaruhi penalaran model, termasuk pada soal penalaran formal yang tidak melibatkan konteks sosial. Gupta et al.\ menemukan bahwa identitas pengguna yang disebutkan dalam instruksi dapat mengubah cara model menyusun langkah penalaran dan memilih jawaban \parencite{gupta2024biasrunsdeep}. Temuan ini menunjukkan bahwa persona tidak hanya memengaruhi pemilihan kosakata atau gaya respons, tetapi juga struktur penalaran yang digunakan model.
 
-Pada saat yang sama, struktur penalaran LLM terbukti sensitif terhadap variasi kecil pada instruksi. Turpin et al.\ memperlihatkan bahwa perubahan ringan dalam formulasi \textit{prompt} dapat menghasilkan rantai penalaran yang berbeda meskipun pertanyaannya sama \parencite{turpin2023language}. Studi lain mengenai sensitivitas model terhadap framing dan gaya penulisan menunjukkan bahwa cara sebuah instruksi disusun dapat memengaruhi isi dan gaya jawaban \parencite{zhou2023largemodelsensitive}. Kondisi ini membuat analisis persona menjadi lebih kompleks, karena persona, framing, dan gaya bahasa sering kali hadir secara bersamaan di dalam konteks interaksi, sehingga sulit memisahkan pengaruh masing-masing faktor.
+Selain itu, penalaran LLM terbukti sensitif terhadap variasi kecil pada formulasi instruksi. Turpin et al.\ memperlihatkan bahwa perubahan ringan pada \textit{prompt} dapat menghasilkan rantai penalaran yang berbeda untuk pertanyaan yang sama \parencite{turpin2023language}. Sensitivitas terhadap framing juga ditunjukkan oleh Zhou et al., yang menemukan bahwa cara instruksi disusun dapat memengaruhi isi maupun gaya jawaban model \parencite{zhou2023largemodelsensitive}. Kombinasi sifat ini membuat analisis persona menjadi lebih menantang, karena persona, framing, dan gaya penulisan sering hadir secara bersamaan dalam sebuah instruksi, sehingga pengaruh masing-masing sulit dipisahkan.
 
-Isu bias menambah lapisan kompleksitas dalam memahami perilaku model. Weidinger et al.\ menunjukkan bahwa LLM dapat mereproduksi dan memperkuat pola bias sosial yang tercermin dalam data pelatihan \parencite{weidinger2021ethical}. Ketika identitas sosial tertentu, misalnya terkait gender, profesi, atau latar budaya, dimasukkan ke dalam konteks, respons model berpotensi mencerminkan bias representasional maupun inferensial yang sudah tertanam di dalam parameter model. Dalam konteks persona, hal ini berarti bahwa perbedaan respons akibat variasi identitas pengguna tidak selalu mencerminkan perubahan kemampuan penalaran, tetapi juga dapat berkaitan dengan bias yang telah terinternalisasi.
+Lapisan kompleksitas lain muncul dari isu bias. Weidinger et al.\ menunjukkan bahwa LLM dapat mencerminkan pola bias sosial yang terdapat pada data pelatihan \parencite{weidinger2021ethical}. Ketika atribut sosial tertentu—seperti profesi, gender, atau latar budaya—muncul dalam instruksi, respons model berpotensi dipengaruhi oleh bias representasional maupun inferensial. Dalam konteks persona, hal ini berarti bahwa variasi respons tidak selalu mencerminkan perubahan kemampuan penalaran, tetapi dapat berasal dari bias yang telah terinternalisasi di dalam model.
 
-Sebagian besar studi persona yang ada menempatkan persona pada sisi model, bukan pada sisi pengguna. Instruksi yang mengubah peran model sebagai agen percakapan berbeda dengan skenario di mana konteks interaksi menyatakan bahwa pengguna memiliki identitas atau latar belakang tertentu. Riset mengenai pemodelan pengguna mulai berkembang, misalnya melalui pendekatan \textit{user language model} yang mempelajari distribusi bahasa berdasarkan karakteristik pengguna \parencite{naous2025userlm}, tetapi penelitian yang secara sistematis mengkaji dampak \textit{user persona} eksplisit maupun implisit terhadap penalaran dan kualitas jawaban pada berbagai tugas masih relatif terbatas.
+Sementara itu, penelitian yang menempatkan persona pada sisi pengguna masih terbatas. Pendekatan pemodelan pengguna, seperti \textit{user language model}, mulai dikembangkan untuk mempelajari variasi bahasa berdasarkan karakteristik pengguna \parencite{naous2025userlm}. Namun, kajian yang secara sistematis menilai pengaruh \textit{user persona}—baik eksplisit maupun implisit—terhadap penalaran dan kualitas jawaban pada berbagai jenis tugas masih belum banyak dilakukan.
 
-Dari sisi infrastruktur evaluasi, banyak studi sebelumnya masih mengandalkan eksekusi manual atau setengah otomatis ketika menjalankan eksperimen yang melibatkan variasi pengguna. Naous et al.\ menyoroti pentingnya pendekatan yang lebih terstruktur ketika mengevaluasi model dalam konteks variasi pengguna, termasuk pengelolaan konfigurasi, pencatatan hasil, serta konsistensi skenario pengujian \parencite{naous2025userlm}. Tanpa kerangka evaluasi yang terdokumentasi dengan jelas, eksperimen yang melibatkan banyak model, banyak persona, dan berbagai jenis tugas menjadi sulit direplikasi dan rawan ketidakkonsistenan.
+Dari sisi teknis, banyak studi persona masih mengandalkan eksekusi manual atau semiotomatis ketika menjalankan eksperimen. Naous et al.\ menyoroti pentingnya mekanisme evaluasi yang terstruktur, termasuk pengelolaan konfigurasi, pencatatan hasil, dan konsistensi skenario pengujian \parencite{naous2025userlm}. Tanpa kerangka evaluasi yang terdokumentasi dengan baik, eksperimen yang melibatkan banyak model, banyak persona, dan berbagai jenis tugas menjadi sulit direplikasi.
 
-Berdasarkan kondisi tersebut, masalah-masalah utama yang mendasari perumusan penelitian ini dapat diringkas pada Tabel~\ref{tab:daftar-masalah-llm-persona}.
+Berdasarkan kondisi tersebut, masalah-masalah utama yang melatarbelakangi penelitian ini dirangkum pada Tabel~\ref{tab:daftar-masalah-llm-persona}.
 
 \begin{table}[htbp]
   \centering
@@ -34,7 +36,7 @@ Berdasarkan kondisi tersebut, masalah-masalah utama yang mendasari perumusan pen
     \midrule
     M-01 &
     Persona pada LLM umumnya diterapkan pada sisi model, bukan pada sisi pengguna. &
-    Belum ada pemahaman yang sistematis mengenai bagaimana \textit{user persona} eksplisit maupun implisit memengaruhi penalaran dan kualitas jawaban pada berbagai tugas. \\[0.3cm]
+    Belum ada pemahaman sistematis mengenai bagaimana \textit{user persona} eksplisit maupun implisit memengaruhi penalaran dan kualitas jawaban pada berbagai tugas. \\[0.3cm]
     
     M-02 &
     Efek persona sulit dipisahkan dari efek framing dan gaya penulisan \textit{prompt}. &
@@ -42,7 +44,7 @@ Berdasarkan kondisi tersebut, masalah-masalah utama yang mendasari perumusan pen
     
     M-03 &
     LLM membawa bias sosial yang terinternalisasi dari data pelatihan. &
-    Ketika identitas pengguna memuat atribut sosial tertentu, respons model berpotensi mencerminkan bias representasional maupun inferensial, sehingga perbedaan jawaban bisa berkaitan dengan bias yang sudah ada di model. \\[0.3cm]
+    Ketika identitas pengguna memuat atribut sosial tertentu, respons model berpotensi mencerminkan bias representasional maupun inferensial, sehingga perbedaan jawaban bisa terkait dengan bias yang sudah ada pada model. \\[0.3cm]
     
     M-04 &
     Cakupan model dan tugas pada studi terdahulu masih terbatas. &
@@ -51,32 +53,33 @@ Berdasarkan kondisi tersebut, masalah-masalah utama yang mendasari perumusan pen
   \end{tabular}
 \end{table}
 
-Masalah M-01 berkaitan dengan dominasi pendekatan yang menempatkan persona pada sisi model. Tseng et al.\ membahas bagaimana persona digunakan untuk mengubah peran dan gaya respons model melalui instruksi sistem atau deskripsi karakter \parencite{tseng2024twotales}. Pendekatan ini berbeda dengan skenario di mana identitas dan karakteristik pengguna dinyatakan secara eksplisit atau implisit pada konteks interaksi. Akibatnya, pengaruh \textit{user persona} terhadap penalaran dan kualitas jawaban belum banyak dikaji secara sistematis.
+Masalah M-01 berkaitan dengan kecenderungan penelitian sebelumnya yang lebih banyak menempatkan persona pada sisi model. Tseng et al.\ membahas bagaimana persona digunakan untuk mengubah gaya dan peran model melalui instruksi sistem \parencite{tseng2024twotales}. Pendekatan ini berbeda dengan skenario ketika identitas pengguna—baik eksplisit maupun implisit—menjadi bagian dari konteks interaksi. Akibatnya, pengaruh \textit{user persona} terhadap penalaran dan kualitas jawaban belum banyak dikaji secara sistematis.
 
-Masalah M-02 muncul karena struktur penalaran LLM sangat sensitif terhadap variasi kecil dalam formulasi instruksi. Turpin et al.\ menunjukkan bahwa perubahan ringan pada susunan \textit{prompt} dapat menghasilkan rantai penalaran yang berbeda meskipun pertanyaannya sama \parencite{turpin2023language}. Zhou et al.\ juga menunjukkan bahwa framing dan gaya penulisan instruksi dapat memengaruhi isi dan gaya jawaban \parencite{zhou2023largemodelsensitive}. Dalam konteks ini, efek \textit{user persona} berpotensi tercampur dengan efek framing, sehingga diperlukan desain eksperimen yang mampu membedakan keduanya.
+Masalah M-02 muncul karena struktur penalaran LLM sangat sensitif terhadap variasi kecil dalam formulasi instruksi. Turpin et al.\ menunjukkan bahwa perubahan ringan dalam \textit{prompt} dapat menghasilkan rantai penalaran yang berbeda meskipun pertanyaannya sama \parencite{turpin2023language}. Zhou et al.\ juga memperlihatkan bahwa framing dan gaya penulisan instruksi dapat memengaruhi isi dan gaya jawaban \parencite{zhou2023largemodelsensitive}. Untuk itu, penelitian yang menilai pengaruh persona perlu dirancang sedemikian rupa agar dapat membedakan pengaruh persona dari pengaruh framing.
 
-Masalah M-03 berhubungan dengan bias sosial yang sudah tertanam di dalam model. Weidinger et al.\ menunjukkan bahwa LLM dapat mereproduksi dan memperkuat pola bias dari data pelatihan \parencite{weidinger2021ethical}. Ketika \textit{user persona} memuat atribut sosial seperti gender, profesi, atau latar budaya, respons model terhadap persona tersebut dapat dipengaruhi oleh bias yang telah ada sebelumnya. Hal ini menyulitkan interpretasi hasil, karena perbedaan jawaban bisa berasal dari kombinasi antara penyesuaian terhadap persona dan bias yang sudah terinternalisasi di dalam model.
+Masalah M-03 berhubungan dengan bias sosial yang sudah tertanam di dalam model. Weidinger et al.\ menunjukkan bahwa LLM dapat mereproduksi dan memperkuat bias yang terdapat pada data pelatihan \parencite{weidinger2021ethical}. Ketika \textit{user persona} memuat atribut sosial tertentu, respons model dapat dipengaruhi oleh bias tersebut. Hal ini membuat interpretasi hasil menjadi lebih rumit karena variasi jawaban bisa berasal dari interaksi antara persona dan bias model.
 
-Masalah M-04 menyoroti keterbatasan cakupan model dan tugas pada studi-studi terdahulu. Banyak penelitian persona hanya menguji sedikit model atau fokus pada satu jenis tugas, sehingga belum memberikan gambaran yang cukup luas mengenai bagaimana variasi \textit{user persona} memengaruhi perilaku model pada spektrum tugas penalaran dan percakapan yang lebih beragam \parencite{gupta2024biasrunsdeep, tseng2024twotales}. Keterbatasan ini membuka peluang untuk merancang eksperimen yang melibatkan kombinasi multi model dan multi persona pada beberapa kategori tugas yang terpilih.
+Masalah M-04 menyoroti keterbatasan cakupan model dan tugas pada penelitian persona sebelumnya. Banyak studi hanya menguji sedikit model atau fokus pada satu jenis tugas, sehingga belum memberikan gambaran yang lebih luas mengenai bagaimana variasi \textit{user persona} memengaruhi perilaku model pada berbagai kategori tugas \parencite{gupta2024biasrunsdeep, tseng2024twotales}. Kondisi ini membuka peluang untuk merancang eksperimen dengan cakupan multi model dan multi persona.
+
 \section{Analisis Kebutuhan}
-
-Bagian ini menjabarkan kebutuhan penelitian yang diturunkan dari masalah M-01 sampai M-04 pada analisis kondisi saat ini. Kebutuhan tersebut mencakup kebutuhan konseptual dan teknis yang harus dipenuhi agar eksperimen mengenai pengaruh \textit{user persona} eksplisit dan implisit terhadap penalaran, kualitas jawaban, dan kecenderungan \textit{human bias} pada beberapa \textit{large language model} dapat dilaksanakan secara terstruktur.
 
 \subsection{Identifikasi Masalah Pengguna}
 
-Dalam konteks tugas akhir ini, pengguna yang dimaksud adalah peneliti yang ingin mengevaluasi perilaku model bahasa di bawah variasi \textit{user persona}. Berdasarkan analisis pada Bagian Analisis Kondisi Saat Ini, beberapa permasalahan yang dihadapi pengguna dapat diidentifikasi sebagai berikut.
+Pengguna dalam penelitian ini adalah peneliti yang ingin mengevaluasi perilaku model bahasa di bawah variasi \textit{user persona}. Berdasarkan kondisi yang telah dibahas sebelumnya, beberapa kebutuhan dasar dapat diidentifikasi sebagai berikut.
 
 \begin{enumerate}
-    \item Definisi dan pengorganisasian \textit{user persona} eksplisit dan \textit{user persona} implisit belum terdokumentasi secara terstruktur. Sebagian besar contoh yang tersedia berfokus pada persona di sisi model, sehingga perumusan persona di sisi pengguna harus disusun sendiri oleh peneliti.
-    \item Perbedaan keluaran model berpotensi dipengaruhi oleh variasi formulasi instruksi dan framing \textit{prompt}, sehingga tidak selalu jelas apakah perubahan respons model disebabkan oleh variasi \textit{user persona} atau oleh perubahan cara pertanyaan disampaikan.
-    \item Eksperimen yang melibatkan beberapa model dan beberapa jenis tugas menuntut adanya cara yang terkelola untuk menjalankan skenario yang sama dan mencatat hasilnya secara konsisten, agar dapat dilakukan analisis perbandingan yang sistematis.
+    \item Belum tersedia cara yang terstruktur untuk merumuskan \textit{user persona} eksplisit maupun implisit pada sisi pengguna. Literatur yang ada umumnya berfokus pada persona di sisi model, sehingga peneliti perlu menyusun sendiri definisi persona yang diperlukan dalam eksperimen.
+    
+    \item Perbedaan respons model dapat dipengaruhi oleh variasi kecil pada formulasi pertanyaan. Hal ini menyulitkan proses analisis, karena tidak selalu jelas apakah perubahan jawaban disebabkan oleh persona atau oleh perbedaan cara instruksi disampaikan.
+    
+    \item Eksperimen yang melibatkan lebih dari satu model dan beberapa kategori tugas membutuhkan prosedur yang memungkinkan skenario yang sama dijalankan kembali dan hasilnya dicatat secara konsisten, sehingga perbandingan antar kondisi dapat dilakukan secara sistematis.
 \end{enumerate}
 
-Permasalahan-permasalahan tersebut menjadi dasar penyusunan kebutuhan fungsional dan kebutuhan nonfungsional pada penelitian ini.
+Identifikasi ini menjadi dasar penyusunan kebutuhan fungsional dan nonfungsional penelitian.
 
 \subsection{Kebutuhan Fungsional}
 
-Kebutuhan fungsional menggambarkan kemampuan utama yang harus didukung oleh rancangan eksperimen agar permasalahan pada subbagian sebelumnya dapat ditangani. Ringkasan kebutuhan fungsional ditunjukkan pada Tabel~\ref{tab:kebutuhan-fungsional-llm-persona}.
+Kebutuhan fungsional merujuk pada kemampuan yang perlu tersedia agar eksperimen dapat berjalan sesuai tujuan. Kebutuhan tersebut ditampilkan pada Tabel~\ref{tab:kebutuhan-fungsional-llm-persona}.
 
 \begin{table}[htbp]
   \centering
@@ -87,25 +90,27 @@ Kebutuhan fungsional menggambarkan kemampuan utama yang harus didukung oleh ranc
     Kode & Uraian kebutuhan fungsional & Terkait masalah \\
     \midrule
     KF-01 &
-    Tersedia cara yang terstruktur untuk mendefinisikan \textit{user persona} eksplisit dan \textit{user persona} implisit dalam bentuk skenario teks, sehingga variasi persona dapat dirancang secara konsisten dan digunakan kembali. &
+    Mekanisme untuk mendefinisikan \textit{user persona} eksplisit dan implisit dalam bentuk skenario teks yang seragam, sehingga persona dapat dirancang secara konsisten dan digunakan kembali. &
     M-01 \\[0.2cm]
     
     KF-02 &
-    Tersedia mekanisme untuk menjalankan pertanyaan yang sama pada beberapa \textit{user persona} dan beberapa model bahasa, serta menyimpan keluaran model beserta informasi persona, model, dan jenis tugas yang digunakan. &
+    Mekanisme untuk menjalankan pertanyaan yang sama pada beberapa persona dan beberapa model, serta mencatat respons berikut informasi persona, model, dan jenis tugas. &
     M-02, M-04 \\[0.2cm]
     
     KF-03 &
-    Tersedia format pencatatan hasil yang memungkinkan penilaian sederhana terhadap jawaban model, misalnya penandaan benar atau salah dan indikasi adanya \textit{human bias}, sehingga hasil dapat dianalisis secara sistematis. &
+    Format pencatatan hasil yang mendukung penilaian sederhana seperti benar–salah dan indikasi bias, sehingga keluaran model dapat dianalisis lebih lanjut tanpa perlakuan tambahan yang kompleks. &
     M-03, M-04 \\
     \bottomrule
   \end{tabular}
 \end{table}
 
-KF-01 berhubungan dengan kebutuhan untuk merepresentasikan persona secara eksplisit, sehingga skenario eksperimen dapat direplikasi. KF-02 menekankan pentingnya eksekusi skenario yang sama pada beberapa model dan persona dengan pencatatan hasil yang terstruktur. KF-03 memastikan bahwa keluaran model terdokumentasi dalam bentuk yang mendukung analisis kuantitatif maupun kualitatif tanpa menuntut skema penilaian yang terlalu kompleks.
+KF-01 berfungsi memastikan bahwa definisi persona disusun secara terstandar.  
+KF-02 memungkinkan skenario eksperimen diterapkan secara konsisten pada beberapa kondisi.  
+KF-03 menyediakan dasar pencatatan yang mendukung proses analisis baik secara kuantitatif maupun kualitatif.
 
 \subsection{Kebutuhan Nonfungsional}
 
-Kebutuhan nonfungsional berkaitan dengan kualitas pelaksanaan eksperimen, terutama dari sisi keterulangan, kesederhanaan implementasi, dan kemampuan pengembangan. Ringkasan kebutuhan nonfungsional ditunjukkan pada Tabel~\ref{tab:kebutuhan-nonfungsional-llm-persona}.
+Kebutuhan nonfungsional berkaitan dengan kualitas pelaksanaan eksperimen dan sifat teknis dari kerangka kerja yang digunakan. Daftar kebutuhan nonfungsional ditunjukkan pada Tabel~\ref{tab:kebutuhan-nonfungsional-llm-persona}.
 
 \begin{table}[htbp]
   \centering
@@ -117,38 +122,48 @@ Kebutuhan nonfungsional berkaitan dengan kualitas pelaksanaan eksperimen, teruta
     \midrule
     KNF-01 &
     Reproducibility &
-    Proses eksperimen dapat diulang melalui skrip atau konfigurasi yang terdokumentasi, sehingga skenario persona, model, dan tugas dapat dijalankan kembali dengan pengaturan yang sama. \\[0.2cm]
+    Seluruh rangkaian eksperimen dapat dijalankan ulang melalui skrip atau konfigurasi yang terdokumentasi, sehingga model, persona, dan tugas dapat diuji kembali dalam kondisi yang serupa. \\[0.2cm]
     
     KNF-02 &
     Simplicity &
-    Implementasi eksperimen tetap sederhana dan dapat dijalankan dengan sumber daya komputasi yang wajar, misalnya melalui pemanggilan API tanpa memerlukan infrastruktur tambahan yang kompleks. \\[0.2cm]
+    Pelaksanaan eksperimen dapat dilakukan dengan langkah-langkah yang langsung dan tidak memerlukan infrastruktur tambahan di luar pemanggilan API atau prosedur serupa. \\[0.2cm]
     
     KNF-03 &
     Extensibility &
-    Rancangan eksperimen memungkinkan penambahan model atau \textit{user persona} baru tanpa perubahan besar pada struktur keseluruhan, sehingga dapat menyesuaikan dengan ketersediaan model dan kebutuhan analisis lanjutan. \\
+    Struktur eksperimen memungkinkan penambahan model atau persona baru tanpa perubahan besar pada kerangka yang sudah ada, sehingga penelitian dapat dikembangkan lebih lanjut sesuai kebutuhan. \\
     \bottomrule
   \end{tabular}
 \end{table}
 
+KNF-01 memastikan eksperimen dapat diujikan kembali dalam kondisi yang sama.  
+KNF-02 menekankan agar implementasi tidak menimbulkan kompleksitas teknis yang tidak diperlukan.  
+KNF-03 memberi fleksibilitas untuk memperluas cakupan eksperimen pada tahap selanjutnya.
+
 \section{Analisis Pemilihan Solusi}
 
-Bagian ini membahas alternatif pendekatan yang dapat digunakan untuk melaksanakan eksperimen \textit{multi model} dan \textit{multi persona}, kemudian menjelaskan dasar pemilihan solusi yang digunakan dalam penelitian. Analisis dilakukan dengan mempertimbangkan kebutuhan struktur representasi \textit{user persona}, konsistensi eksekusi lintas model dan lintas tugas, kemudahan pencatatan hasil untuk analisis, serta tingkat kerumitan implementasi.
+Bagian ini membahas alternatif pendekatan yang dapat digunakan untuk melaksanakan eksperimen \textit{multi model} dan \textit{multi persona}, kemudian menjelaskan dasar pemilihan solusi yang digunakan dalam penelitian. Analisis dilakukan dengan mempertimbangkan kebutuhan representasi \textit{user persona}, konsistensi eksekusi lintas model dan tugas, kemudahan pencatatan hasil, serta tingkat kerumitan implementasi.
 
 \subsection{Alternatif Solusi}
 
-Berdasarkan kebutuhan yang telah dirumuskan pada analisis kebutuhan, beberapa alternatif solusi yang dapat diidentifikasi adalah sebagai berikut.
+Berdasarkan kebutuhan yang telah dirumuskan pada Subbagian~3.2, beberapa alternatif solusi yang dapat dipertimbangkan adalah sebagai berikut.
 
 \begin{enumerate}
-    \item Pendekatan evaluasi manual berbasis antarmuka percakapan. Pada alternatif ini, interaksi dengan \textit{large language model} dilakukan langsung melalui antarmuka percakapan yang disediakan oleh penyedia layanan. \textit{User persona} disisipkan ke dalam konteks, pertanyaan diajukan satu per satu, dan jawaban dicatat secara manual ke dalam dokumen atau lembar kerja. Setiap kombinasi model, persona, dan tugas dieksekusi secara terpisah. Pendekatan ini mudah dimulai karena tidak memerlukan pengembangan skrip, tetapi sangat bergantung pada prosedur manual dan kurang terstruktur ketika jumlah kombinasi skenario menjadi besar. Selain itu, reproduksi eksperimen menjadi bergantung pada kedisiplinan pencatatan dan rentan terhadap kesalahan manusia.
+    \item Evaluasi manual melalui antarmuka percakapan.
     
-    \item Skrip eksperimen semi terotomatisasi berbasis konfigurasi. Pada alternatif ini, definisi \textit{user persona} eksplisit dan implisit, daftar model yang dievaluasi, serta kumpulan tugas dari \textit{benchmark} seperti GSM8K dan MMLU-redux disimpan dalam berkas konfigurasi yang terstruktur. Skrip eksperimen membaca konfigurasi tersebut, membentuk \textit{prompt} berdasarkan kombinasi model, persona, dan tugas, kemudian mengirim \textit{prompt} ke model melalui antarmuka pemrograman aplikasi. Keluaran model, beserta metadata seperti nama model, jenis persona, jenis tugas, dan identitas soal, disimpan dalam berkas JSON pada direktori log. Tahap berikutnya, skrip analisis mengolah berkas JSON menjadi berkas CSV yang lebih ringkas untuk perhitungan metrik dan analisis lanjutan. Pendekatan ini menuntut pengembangan skrip, tetapi memberikan struktur yang jelas dan memudahkan pelaksanaan eksperimen berskala besar.
+    Interaksi dengan \textit{large language model} dilakukan langsung melalui antarmuka percakapan yang disediakan oleh penyedia layanan. \textit{User persona} disisipkan ke dalam instruksi, pertanyaan dijalankan satu per satu, dan hasil dicatat secara manual. Alternatif ini mudah digunakan pada tahap awal, tetapi tidak efisien ketika jumlah kombinasi skenario menjadi besar. Prosesnya rentan terhadap variasi formulasi instruksi dan bergantung pada ketelitian pencatatan, sehingga menyulitkan replikasi dengan kondisi yang sama.
     
-    \item Kerangka evaluasi umum yang dapat digunakan kembali. Pada alternatif ini, dibangun sebuah kerangka evaluasi yang lebih umum, misalnya berupa pustaka atau layanan yang dirancang agar dapat digunakan kembali untuk berbagai studi terkait \textit{user persona} pada \textit{large language model}. Kerangka tersebut tidak hanya mencakup skrip eksekusi eksperimen berbasis konfigurasi, tetapi juga modul moduler untuk penjadwalan eksekusi, pengelolaan versi konfigurasi, penilaian otomatis, dan visualisasi hasil. Pendekatan ini berpotensi mendukung penggunaan jangka panjang dan kolaborasi yang lebih luas, namun memerlukan usaha perancangan dan implementasi yang lebih besar dibandingkan kebutuhan minimum untuk sebuah studi tugas akhir.
+    \item Skrip eksperimen semi terotomatisasi berbasis konfigurasi.
+    
+    Pada alternatif ini, daftar persona, model, dan kumpulan tugas (misalnya GSM8K dan MMLU-Redux) disimpan dalam berkas konfigurasi yang terstruktur. Skrip eksperimen membaca konfigurasi tersebut, menyusun \textit{prompt} untuk setiap kombinasi skenario, memanggil model melalui API, lalu menyimpan keluaran beserta metadata ke dalam berkas JSON. Tahap analisis kemudian mengolah JSON menjadi keluaran yang lebih ringkas, seperti CSV, untuk perhitungan metrik dan evaluasi lanjutan. Pendekatan ini memerlukan penulisan skrip, tetapi memberikan struktur yang rapi dan mendukung eksekusi dalam jumlah besar.
+    
+    \item Kerangka evaluasi umum yang dapat digunakan kembali.
+    
+    Alternatif ini merupakan perluasan dari pendekatan kedua dengan membangun kerangka evaluasi yang lebih lengkap, misalnya berupa pustaka atau layanan khusus. Fitur yang disediakan dapat mencakup penjadwalan eksekusi, pengelolaan versi konfigurasi, penilaian otomatis, hingga visualisasi hasil. Pendekatan ini cenderung lebih fleksibel untuk penggunaan jangka panjang, tetapi memerlukan usaha perancangan dan implementasi yang cukup besar untuk konteks tugas akhir.
 \end{enumerate}
 
 \subsection{Analisis Penentuan Solusi}
 
-Penentuan solusi dilakukan dengan membandingkan ketiga alternatif berdasarkan beberapa kriteria utama, yaitu kemampuan merepresentasikan \textit{user persona} dan skenario eksperimen secara terstruktur dan dapat digunakan kembali, konsistensi eksekusi lintas model dan lintas tugas, dukungan pencatatan hasil dan metadata untuk analisis kuantitatif dan kualitatif, keterulangan (\textit{reproducibility}) proses eksperimen, serta tingkat kerumitan implementasi dan pemeliharaan. Ringkasan perbandingan alternatif ditunjukkan pada Tabel~\ref{tab:analisis-pemilihan-solusi}, dengan skala kualitatif rendah, sedang, dan tinggi.
+Ketiga alternatif dibandingkan berdasarkan beberapa kriteria, yaitu kemampuan merepresentasikan skenario eksperimen secara terstruktur, konsistensi eksekusi, dukungan pencatatan metadata, keterulangan (\textit{reproducibility}), tingkat kerumitan implementasi, serta kemudahan menambahkan model atau persona baru. Ringkasan perbandingan ditunjukkan pada Tabel~\ref{tab:analisis-pemilihan-solusi}.
 
 \begin{table}[htbp]
   \centering
@@ -161,7 +176,7 @@ Penentuan solusi dilakukan dengan membandingkan ketiga alternatif berdasarkan be
     Skrip semi terotomatisasi &
     Kerangka evaluasi umum \\
     \midrule
-    Representasi \textit{user persona} dan skenario yang terstruktur &
+    Representasi \textit{user persona} dan skenario terstruktur &
     Rendah &
     Tinggi &
     Tinggi \\[0.2cm]
@@ -171,12 +186,12 @@ Penentuan solusi dilakukan dengan membandingkan ketiga alternatif berdasarkan be
     Tinggi &
     Tinggi \\[0.2cm]
     
-    Pencatatan hasil dan metadata untuk analisis &
+    Pencatatan hasil dan metadata &
     Rendah &
     Tinggi &
     Tinggi \\[0.2cm]
     
-    Keterulangan (\textit{reproducibility}) proses eksperimen &
+    Keterulangan eksperimen &
     Rendah &
     Tinggi &
     Tinggi \\[0.2cm]
@@ -194,10 +209,10 @@ Penentuan solusi dilakukan dengan membandingkan ketiga alternatif berdasarkan be
   \end{tabular}
 \end{table}
 
-Pendekatan evaluasi manual relatif mudah digunakan pada tahap eksplorasi awal, tetapi tidak memadai untuk eksperimen \textit{multi model} dan \textit{multi persona} dengan jumlah kombinasi yang besar. Keterbatasan utama muncul pada konsistensi eksekusi, keterulangan eksperimen, serta pencatatan hasil yang sistematis.
+Pendekatan evaluasi manual mudah digunakan, tetapi tidak memenuhi kebutuhan eksperimen dengan banyak kombinasi model dan persona. Keterbatasan terutama terlihat pada konsistensi eksekusi, dokumentasi hasil, serta kesulitan mengulang percobaan dengan kondisi identik.
 
-Pendekatan kerangka evaluasi umum memberikan dukungan yang kuat terhadap struktur dan keterulangan, namun menuntut upaya perancangan arsitektur dan pengembangan perangkat lunak yang cukup besar. Beban tersebut berpotensi mengalihkan fokus dari tujuan utama penelitian, yaitu analisis empiris pengaruh \textit{user persona} terhadap penalaran, kualitas jawaban, dan kecenderungan \textit{human bias}.
+Pendekatan kerangka evaluasi umum menyediakan fleksibilitas yang lebih luas, tetapi memerlukan usaha perancangan dan implementasi yang cukup besar. Beban tersebut dapat mengalihkan fokus dari tujuan utama penelitian.
 
-Pendekatan skrip eksperimen semi terotomatisasi berbasis konfigurasi memberikan keseimbangan yang lebih sesuai. Representasi model, persona, dan tugas dapat diatur dalam direktori konfigurasi yang terpisah dari kode, sementara skrip eksekusi dan analisis ditempatkan dalam direktori tersendiri. Keluaran eksperimen disimpan sebagai berkas JSON pada direktori log dan diolah lebih lanjut menjadi berkas CSV pada direktori hasil. Struktur ini mendukung konsistensi eksekusi, keterulangan eksperimen, dan analisis terukur tanpa memerlukan pembangunan kerangka evaluasi yang terlalu umum.
+Pendekatan skrip eksperimen semi terotomatisasi berbasis konfigurasi menawarkan keseimbangan yang paling sesuai. Representasi model, persona, dan tugas dapat diatur dalam direktori konfigurasi, sedangkan proses eksekusi dan analisis dijalankan melalui skrip yang konsisten. Seluruh keluaran disimpan dalam format terstruktur sehingga mudah dianalisis kembali. Struktur seperti ini mendukung keterulangan eksperimen dan perluasan skenario tanpa memerlukan pembangunan kerangka yang kompleks.
 
-Berdasarkan pertimbangan tersebut, penelitian ini memilih pendekatan skrip eksperimen semi terotomatisasi berbasis konfigurasi sebagai solusi utama untuk melaksanakan eksperimen \textit{multi model} dan \textit{multi persona}.
+Berdasarkan pertimbangan tersebut, penelitian ini menggunakan pendekatan skrip eksperimen semi terotomatisasi berbasis konfigurasi sebagai solusi utama dalam melaksanakan eksperimen \textit{multi model} dan \textit{multi persona}.

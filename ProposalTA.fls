@@ -391,10 +391,6 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/biblatex/lbx/english.lbx
 INPUT ./ProposalTA.aux
 INPUT ./ProposalTA.aux
 INPUT ProposalTA.aux
-INPUT /usr/share/texlive/texmf-dist/tex/generic/babel/locale/en/babel-english.tex
-INPUT /usr/share/texlive/texmf-dist/tex/generic/babel/locale/en/babel-english.tex
-INPUT /usr/share/texlive/texmf-dist/tex/generic/babel/locale/en/babel-english.tex
-INPUT /usr/share/texlive/texmf-dist/tex/generic/babel/locale/en/babel-en.ini
 OUTPUT ProposalTA.aux
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
@@ -411,13 +407,7 @@ INPUT ./ProposalTA.out
 OUTPUT ProposalTA.out
 INPUT /usr/share/texlive/texmf-dist/tex/latex/floatrow/fr-longtable.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/floatrow/fr-longtable.sty
-INPUT /usr/share/texlive/texmf-dist/tex/latex/biblatex/lbx/english.lbx
 OUTPUT ProposalTA.bcf
-INPUT ProposalTA.bbl
-INPUT ./ProposalTA.bbl
-INPUT ./ProposalTA.bbl
-INPUT ./ProposalTA.bbl
-INPUT ProposalTA.bbl
 INPUT ./image/ganesha.jpg
 INPUT ./image/ganesha.jpg
 INPUT ./image/ganesha.jpg
@@ -474,20 +464,12 @@ INPUT Bab III - Analisis-Masalah.tex
 INPUT ./Bab IV - Desain-Konsep-Solusi.tex
 INPUT ./Bab IV - Desain-Konsep-Solusi.tex
 INPUT Bab IV - Desain-Konsep-Solusi.tex
-INPUT ./image/proposed_solution.png
-INPUT ./image/proposed_solution.png
-INPUT ./image/proposed_solution.png
+INPUT ./image/alur-eksperimen.png
+INPUT ./image/alur-eksperimen.png
+INPUT ./image/alur-eksperimen.png
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
-INPUT ./Bab V - Rencana-Selanjutnya.tex
-INPUT ./Bab V - Rencana-Selanjutnya.tex
-INPUT Bab V - Rencana-Selanjutnya.tex
-INPUT ProposalTA.aux
-INPUT ./ProposalTA.out
-INPUT ./ProposalTA.out
-INPUT ProposalTA.run.xml
-OUTPUT ProposalTA.run.xml
