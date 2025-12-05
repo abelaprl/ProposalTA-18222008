@@ -16,7 +16,7 @@ eksplisit, dan netral). Bagian ini merumuskan langkah implementasi teknis,
 asumsi kebutuhan token, serta estimasi biaya penggunaan API berdasarkan harga
 resmi masing-masing model pada platform OpenRouter%
 
-Estimasi dilakukan menggunakan kurs konstan 1 USD = Rp16.000.
+Estimasi dilakukan menggunakan kurs konstan 1 USD = Rp16.700.
 
 % -------------------------------------------------------------
 % 5.1.1 Rencana Implementasi Eksperimen
@@ -78,7 +78,7 @@ Eksperimen ini menggunakan sembilan model dengan rincian sebagai berikut.
   \item Enam model berbayar (via OpenRouter):
   \begin{enumerate}
     \item openai/gpt-5-mini
-    \item anthropic/claude-haiku-4.5
+    \item qwen/qwen3-vl-30b-a3b-instruct
     \item google/gemini-2.5-flash
     \item deepseek/deepseek-v3.2
     \item nvidia/llama-3.3-nemotron-super-49b-v1.5
@@ -156,14 +156,13 @@ Komposisi token diasumsikan:
   T_{\text{in}} = 0.4T_{\text{model}},\qquad
   T_{\text{out}} = 0.6T_{\text{model}}.
 \]
-
 % -------------------------------------------------------------
 % 5.1.4 Estimasi Biaya per Model
 % -------------------------------------------------------------
 \subsection{Estimasi Biaya per Model}
 
 Harga token per model mengacu pada dokumentasi OpenRouter%
-\parencite{openrouter_gpt5mini,openrouter_claudehaiku45,openrouter_gemini25flash,
+\parencite{openrouter_gpt5mini,openrouter_qwen3vl30ba3b,openrouter_gemini25flash,
 openrouter_deepseek32,openrouter_llama33,openrouter_gemma3n}.  
 Biaya untuk model ke-$m$ dihitung dengan rumus:
 \[
@@ -175,7 +174,7 @@ Biaya untuk model ke-$m$ dihitung dengan rumus:
 dengan $p_{\text{in},m}$ dan $p_{\text{out},m}$ adalah harga per satu juta
 token untuk \textit{input} dan \textit{output}.
 
-Estimasi berikut menggunakan kurs Rp\,16.000 per USD dan total token
+Estimasi berikut menggunakan kurs Rp\,16.700 per USD dan total token
 $T_{\text{model}} \approx 71{,}7 \times 10^6$.
 
 \begin{table}[htbp]
@@ -193,14 +192,14 @@ $T_{\text{model}} \approx 71{,}7 \times 10^6$.
 \textbf{Biaya (USD)} &
 \textbf{Biaya (Rp)} \\
 \midrule
-openai/gpt-5-mini & $\approx 71{,}7 \times 10^6$ & 93.20  & $\approx 1{,}491{,}000$ \\
-anthropic/claude-haiku-4.5 & $\approx 71{,}7 \times 10^6$ & 243.75 & $\approx 3{,}900{,}000$ \\
-google/gemini-2.5-flash & $\approx 71{,}7 \times 10^6$ & 116.14 & $\approx 1{,}858{,}000$ \\
-deepseek/deepseek-v3.2 & $\approx 71{,}7 \times 10^6$ & 24.95  & $\approx 399{,}000$ \\
-nvidia/llama-3.3-nemotron-super-49b-v1.5 & $\approx 71{,}7 \times 10^6$ & 20.07  & $\approx 321{,}000$ \\
-google/gemma-3n-e4b-it & $\approx 71{,}7 \times 10^6$ & 2.29   & $\approx 37{,}000$ \\
+openai/gpt-5-mini & $\approx 71{,}7 \times 10^6$ & 93.20  & $\approx 1{,}556{,}000$ \\
+qwen/qwen3-vl-30b-a3b-instruct & $\approx 71{,}7 \times 10^6$ & 30.11 & $\approx 503{,}000$ \\
+google/gemini-2.5-flash & $\approx 71{,}7 \times 10^6$ & 116.14 & $\approx 1{,}939{,}000$ \\
+deepseek/deepseek-v3.2 & $\approx 71{,}7 \times 10^6$ & 24.95  & $\approx 417{,}000$ \\
+nvidia/llama-3.3-nemotron-super-49b-v1.5 & $\approx 71{,}7 \times 10^6$ & 20.07  & $\approx 335{,}000$ \\
+google/gemma-3n-e4b-it & $\approx 71{,}7 \times 10^6$ & 2.29   & $\approx 38{,}000$ \\
 \midrule
-\textbf{Total enam model berbayar} & -- & \textbf{500.40} & $\approx \textbf{8{,}006{,}000}$ \\
+\textbf{Total enam model berbayar} & -- & \textbf{286.76} & $\approx \textbf{4{,}788{,}000}$ \\
 \bottomrule
 \end{tabular}
 \end{adjustbox}
@@ -214,11 +213,13 @@ diverifikasi kembali sebelum eksperimen akhir dijalankan.
 
 Dengan demikian, estimasi total biaya finansial untuk menjalankan seluruh
 eksperimen multi-model, multi-persona, dan dua \textit{benchmark} penalaran
-adalah sekitar 500,40 USD atau kurang lebih 8 juta rupiah. Angka ini
-bersifat konservatif karena telah memasukkan biaya \textit{warm-up}
-dan \textit{retry}, sehingga realisasi biaya dapat lebih rendah apabila
-konsumsi token aktual per soal ternyata lebih kecil dari asumsi yang
-digunakan dalam perhitungan ini.
+adalah sekitar \textbf{286.76 USD}, atau kurang lebih
+\textbf{4,8 juta rupiah}. Angka ini bersifat konservatif karena telah
+memasukkan biaya \textit{warm-up}, \textit{retry}, dan variasi panjang
+jawaban, sehingga realisasi biaya dapat lebih rendah apabila konsumsi token
+aktual per soal ternyata lebih kecil atau lebih besar dari asumsi yang digunakan dalam
+perhitungan ini.
+
 
 \section{Desain Pengujian dan Evaluasi}
 \label{sec:desain-pengujian-evaluasi}

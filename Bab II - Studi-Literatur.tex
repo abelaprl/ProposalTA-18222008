@@ -4,18 +4,63 @@
 \chapter{STUDI LITERATUR}
 
 % -------------------------------------------------------------
-\section{Large Language Model}
 
-Large language model (LLM) adalah model berbasis arsitektur transformator yang dilatih menggunakan korpus teks dalam jumlah sangat besar. Melalui proses pelatihan ini, model mempelajari hubungan antar-token, pola semantik, serta variasi penggunaan bahasa yang umum ditemukan pada teks manusia \parencite{bommasani2021opportunities}. Dengan kemampuan tersebut, LLM dapat menghasilkan jawaban yang relevan meskipun hanya diberikan instruksi berbasis teks.
+\section{Large Language Models}
 
-Salah satu ciri penting LLM adalah sensitivitasnya terhadap konteks. Model tidak hanya melihat makna literal suatu kata, tetapi juga memperhatikan gaya penulisan, struktur kalimat, dan isyarat pragmatik yang terdapat pada instruksi. Penelitian menunjukkan bahwa perubahan kecil dalam cara instruksi ditulis—misalnya perbedaan nada atau tingkat formalitas—dapat menghasilkan jawaban yang berbeda meskipun maksud pengguna tetap sama \parencite{zhou2023largemodelsensitive}.
+\textit{Large language models} merupakan fondasi utama dari sistem generatif modern yang digunakan dalam penelitian ini. Perkembangan model berskala besar seperti GPT-3 yang diperkenalkan oleh \textcite{brown2020language} menunjukkan bahwa peningkatan kapasitas model dan jumlah data pelatihan secara signifikan meningkatkan kemampuan representasi serta menghasilkan fenomena emergen seperti pemahaman instruksi dan kemampuan menghasilkan penalaran eksplisit. 
 
-Sifat ini juga berpengaruh pada bentuk penalaran yang dihasilkan. Turpin \parencite{turpin2023language} menemukan bahwa langkah penalaran LLM dapat berubah hanya karena variasi kecil dalam formulasi instruksi. Temuan ini menunjukkan bahwa LLM tidak selalu mengikuti jalur penalaran yang konsisten, tetapi menyesuaikannya dengan konteks linguistik yang diterima saat inferensi dilakukan.
+Pemahaman terhadap mekanisme internal \textit{large language models} menjadi penting dalam konteks penelitian ini karena perilaku persona dan variasi penalaran yang diamati merupakan konsekuensi langsung dari sifat probabilistik, struktur arsitektural, dan tujuan pelatihan model. Model bahasa tidak melakukan penalaran simbolik, melainkan mempelajari distribusi token dari data dan menghasilkan keluaran melalui estimasi probabilitas token berikutnya. Dengan demikian, fenomena seperti pergeseran gaya respons, koherensi argumen, atau sensitivitas terhadap persona berakar pada mekanisme internal tersebut.
 
-Selain peka terhadap bahasa, LLM juga mempelajari pola sosial dari data pelatihan. Weidinger \parencite{weidinger2021ethical} menunjukkan bahwa model dapat menyerap preferensi sosial atau bias yang muncul dalam korpus pelatihan. Dalam praktiknya, gaya penulisan pengguna dapat ditafsirkan sebagai sinyal identitas tertentu. Studi mengenai \textit{role-playing} juga menunjukkan bahwa isyarat persona dapat memengaruhi gaya penjelasan, tingkat kehati-hatian, dan pola penalaran yang dihasilkan model \parencite{tseng2024twotales}.
+Selain itu, model berskala besar membawa bias yang terdapat dalam data pelatihan. Analisis oleh \textcite{bender2021stochastic} menunjukkan bahwa data berukuran sangat besar yang tidak terkurasi dapat merepresentasikan ketidakseimbangan sosial, kultur, dan bahasa. Konsekuensinya, \textit{large language models} dapat menginternalisasi dan mereproduksi bias tersebut. Pemahaman mengenai dasar matematis dan arsitektural menjadi penting untuk menjelaskan bagaimana bias tersebut muncul serta bagaimana persona dapat mengubah pola keluaran model.
 
-Karena persona merupakan variasi konteks linguistik yang dapat mengubah cara model menafsirkan instruksi, pemahaman mengenai sensitivitas ini menjadi dasar penting bagi penelitian. Pengaruh persona terhadap penalaran model perlu dianalisis secara sistematis pada berbagai LLM dengan ukuran dan karakteristik yang berbeda.
+Subbagian berikut membahas dasar matematis dari pemodelan bahasa autoregresif sebagai komponen fundamental dari sebagian besar \textit{large language models}.
 
+\subsection{Autoregressive Language Modeling}
+
+\textit{Autoregressive language modeling} digunakan oleh sebagian besar \textit{large language models} untuk membentuk distribusi probabilitas atas urutan token melalui prediksi token berikutnya berdasarkan seluruh konteks sebelumnya. Pendekatan ini menyediakan kerangka matematis yang menjelaskan bagaimana keluaran model terbentuk, bagaimana representasi internal berubah ketika konteks dimodifikasi, serta bagaimana instruksi awal seperti persona dapat menghasilkan variasi pola respons.
+
+\subsubsection{Formulasi Probabilistik dan Next-Token Prediction}
+
+Pada \textit{autoregressive language modeling}, probabilitas urutan token $x_1, x_2, \dots, x_T$ difaktorisasi menjadi
+
+\begin{equation}
+p(x_1, x_2, \dots, x_T)
+=
+\prod_{t=1}^{T} p(x_t \mid x_{<t}).
+\label{eq:autoregressive-factorization}
+\end{equation}
+
+Pendekatan ini diperkenalkan oleh \textcite{bengio2003nlm} dan menjadi fondasi bagi model bahasa berbasis jaringan saraf. Model menghasilkan distribusi token melalui mekanisme \textit{next-token prediction}, di mana setiap prediksi dibentuk dari representasi konteks dalam hidden state. Setiap hidden state merupakan hasil transformasi berulang dari embedding token sebelumnya, sehingga konteks awal seperti instruksi persona secara langsung menentukan bentuk representasi yang mengalir ke langkah-langkah berikutnya.
+
+Distribusi token dihitung melalui fungsi softmax atas nilai logit yang dihasilkan oleh model. Karena fungsi softmax bersifat sensitif terhadap perbedaan kecil pada logit, perubahan kecil pada hidden state akibat instruksi persona dapat menghasilkan pergeseran yang signifikan dalam distribusi probabilitas token berikutnya. Dengan demikian, efek persona muncul sebagai fenomena matematis berupa perubahan representasi konteks yang memodulasi arah prediksi token.
+
+\textcite{brown2020language} menunjukkan bahwa model berskala besar mampu menampilkan pola respons yang mengikuti struktur instruksi pengguna. Dalam instruction following, model menghasilkan keluaran yang konsisten dengan pola instruksi dalam data pelatihan. Struktur respons yang mengikuti instruksi tercapai karena model mempelajari hubungan statistik antara bentuk perintah dan rentang respons yang berasosiasi dengannya.
+
+Model juga menghasilkan rangkaian token yang tampak sebagai penjelasan berurutan ketika diberikan tugas tertentu. Pada contextual reasoning, urutan token yang dihasilkan membentuk struktur langkah-langkah yang selaras dengan konteks sebelumnya. Struktur ini muncul dari kecocokan probabilistik antartoken dalam embedding space dan tidak bergantung pada mekanisme penalaran eksplisit. Token dipilih berdasarkan kedekatannya secara distribusional terhadap konteks, sehingga rangkaian yang terbentuk tampak menyerupai penalaran.
+
+Efek persona terhadap distribusi token dapat diilustrasikan melalui pergeseran embedding cluster. Instruksi persona dengan gaya formal menghasilkan hidden state yang memberi skor logit lebih tinggi bagi token dengan register formal, sehingga token tersebut menjadi lebih mungkin muncul. Sebaliknya, persona santai menghasilkan distribusi yang memberi preferensi terhadap token informal. Pergeseran ini terjadi pada level representasi, bukan pada perubahan struktur arsitektural.
+
+Selain itu, proses inferensi bersifat autoregresif dan tidak menggunakan token benar seperti pada pelatihan. Ketika model menghasilkan tokennya sendiri, distribusi prediksi dapat mengalami deviasi yang semakin besar seiring panjang urutan, sebuah ketidaksesuaian yang dikenal dengan istilah training–inference mismatch. Kondisi ini memperbesar sensitivitas terhadap konteks awal, sehingga pengaruh persona menjadi lebih menonjol.
+
+\subsubsection{Cross-Entropy Loss dan Implikasi Pelatihan}
+
+Model dilatih dengan mengoptimalkan \textit{cross-entropy loss}, yang mengukur seberapa baik distribusi prediksi model mendekati distribusi token benar dalam data. Objektif ini diformulasikan sebagai
+
+\begin{equation}
+\mathcal{L}
+=
+- \sum_{t=1}^{T} \log p_{\theta}(x_t \mid x_{<t}).
+\label{eq:cross-entropy-loss}
+\end{equation}
+
+Sebagaimana dijelaskan oleh \textcite{goodfellow2016deep}, optimasi terhadap cross-entropy loss mendorong model untuk menyesuaikan parameter sehingga meningkatkan probabilitas token yang benar. Pelatihan ini tidak dirancang untuk mengoptimalkan koherensi semantik atau struktur argumentatif, melainkan untuk meniru distribusi token dalam corpus pelatihan.
+
+Konsekuensi penting dari pendekatan ini adalah terinternalisasinya bias distribusional yang terdapat dalam data pelatihan. \textcite{bender2021stochastic} menunjukkan bahwa corpus berskala besar sering kali memuat ketidakseimbangan representasi linguistik dan sosial. Karena model melakukan estimasi probabilitas berdasarkan pola distribusional tersebut, bias yang tertanam dalam data dapat muncul kembali dalam keluaran model.
+
+Sensitivitas mekanisme autoregresif terhadap konteks awal memperkuat pengaruh persona. Instruksi persona yang muncul pada bagian awal masukan membentuk hidden state awal dan memodulasi jalur prediksi token, sehingga menghasilkan perbedaan konsisten dalam gaya argumentasi, tingkat ketegasan, dan struktur penjelasan meskipun instruksi utamanya sama. Fenomena ini menjadi landasan bagi penelitian ini dalam mengevaluasi bagaimana persona mempengaruhi keluaran model dan persepsi pengguna.
+
+
+%======================== gajadi dipake
 
 % --2.2 Persona dalam Interaksi Model Bahasa --
 \section{Persona dalam Interaksi Model Bahasa}
