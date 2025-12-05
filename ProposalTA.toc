@@ -276,37 +276,41 @@
 \contentsline {chapter}{\numberline {IV}DESAIN KONSEP SOLUSI}{36}{chapter.4}%
 \contentsline {section}{\numberline {IV.1}Desain Konseptual Eksperimen}{36}{section.4.1}%
 \contentsline {subsection}{\numberline {IV.1.1}Tujuan Perancangan Eksperimen}{36}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {IV.1.2}Komponen Utama Eksperimen}{36}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {IV.1.2}Komponen Utama Eksperimen}{37}{subsection.4.1.2}%
 \contentsline {subsection}{\numberline {IV.1.3}Prinsip Pengendalian Variabel}{37}{subsection.4.1.3}%
 \contentsline {subsection}{\numberline {IV.1.4}Ruang Konfigurasi}{37}{subsection.4.1.4}%
 \contentsline {subsection}{\numberline {IV.1.5}Keterkaitan dengan Pelaksanaan Eksperimen}{37}{subsection.4.1.5}%
 \contentsline {section}{\numberline {IV.2}Arsitektur \textit {Evaluation Pipeline} dan Alur Pelaksanaan Eksperimen}{37}{section.4.2}%
 \contentsline {subsection}{\numberline {IV.2.1}Arsitektur Alur Kerja Sistem}{38}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {IV.2.2}Algoritma Orkestrasi dan Konkurensi}{39}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {IV.2.3}Mekanisme Injeksi Konteks Persona}{40}{subsection.4.2.3}%
-\contentsline {subsection}{\numberline {IV.2.4}Alur Operasional Pelaksanaan Eksperimen}{41}{subsection.4.2.4}%
-\contentsline {section}{\numberline {IV.3}Integrasi Komponen Eksperimen}{43}{section.4.3}%
-\contentsline {subsection}{\numberline {IV.3.1}Benchmark Penalaran}{43}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {IV.2.2}Algoritma Orkestrasi dan Konkurensi}{38}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {IV.2.3}Pseudocode Eksekusi Batch Benchmark GSM8K dan MMLU-Redux}{39}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {IV.2.4}Mekanisme Injeksi Konteks Persona}{42}{subsection.4.2.4}%
+\contentsline {subsection}{\numberline {IV.2.5}Alur Operasional Pelaksanaan Eksperimen}{43}{subsection.4.2.5}%
+\contentsline {section}{\numberline {IV.3}Integrasi Komponen Eksperimen}{45}{section.4.3}%
+\contentsline {subsection}{\numberline {IV.3.1}Benchmark Penalaran}{45}{subsection.4.3.1}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\contentsline {subsection}{\numberline {IV.3.2}Himpunan Model}{44}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {IV.3.3}Struktur Persona}{44}{subsection.4.3.3}%
-\contentsline {subsection}{\numberline {IV.3.4}Struktur Konfigurasi Eksperimen}{45}{subsection.4.3.4}%
-\contentsline {subsection}{\numberline {IV.3.5}Contoh Mekanisme Injeksi Persona}{45}{subsection.4.3.5}%
-\contentsline {section}{\numberline {IV.4}Perancangan Data dan Struktur Berkas}{46}{section.4.4}%
-\contentsline {section}{\numberline {IV.5}Penanganan Gangguan dan Pemulihan \textit {Execution Flow}}{47}{section.4.5}%
-\contentsline {section}{\numberline {IV.6}Implementasi Keluaran Pipeline}{48}{section.4.6}%
-\contentsline {subsection}{\numberline {IV.6.1}Contoh Struktur Log Inferensi}{48}{subsection.4.6.1}%
-\contentsline {subsection}{\numberline {IV.6.2}Contoh Struktur Log dengan Reasoning Trace}{49}{subsection.4.6.2}%
-\contentsline {subsection}{\numberline {IV.6.3}Ringkasan Hasil Eksperimen}{50}{subsection.4.6.3}%
-\contentsline {chapter}{\numberline {V}RENCANA SELANJUTNYA}{51}{chapter.5}%
-\contentsline {section}{\numberline {V.1}Rencana Implementasi dan Estimasi Biaya}{51}{section.5.1}%
-\contentsline {subsection}{\numberline {V.1.1}Rencana Implementasi Eksperimen}{51}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {V.1.2}Himpunan Model dan Skenario Eksekusi}{52}{subsection.5.1.2}%
-\contentsline {subsection}{\numberline {V.1.3}Asumsi Jumlah Soal dan Kebutuhan Token}{52}{subsection.5.1.3}%
-\contentsline {subsection}{\numberline {V.1.4}Estimasi Biaya per Model}{53}{subsection.5.1.4}%
+\contentsline {subsection}{\numberline {IV.3.2}Himpunan Model}{46}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {IV.3.3}Struktur Persona}{46}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {IV.3.4}Struktur Konfigurasi Eksperimen}{46}{subsection.4.3.4}%
+\contentsline {subsection}{\numberline {IV.3.5}Contoh Mekanisme Injeksi Persona}{47}{subsection.4.3.5}%
+\contentsline {section}{\numberline {IV.4}Perancangan Data dan Struktur Berkas}{48}{section.4.4}%
+\contentsline {subsection}{\numberline {IV.4.1}Pseudocode Pengunduhan dan Normalisasi Benchmark}{49}{subsection.4.4.1}%
+\contentsline {section}{\numberline {IV.5}Penanganan Gangguan dan Pemulihan \textit {Execution Flow}}{51}{section.4.5}%
+\contentsline {subsection}{\numberline {IV.5.1}Pseudocode Pemantauan Checkpoint dan Pemulihan Eksekusi}{51}{subsection.4.5.1}%
+\contentsline {section}{\numberline {IV.6}Implementasi Keluaran Pipeline}{53}{section.4.6}%
+\contentsline {subsection}{\numberline {IV.6.1}Pseudocode Analisis Hasil dan Rekapitulasi}{53}{subsection.4.6.1}%
+\contentsline {subsection}{\numberline {IV.6.2}Contoh Struktur Log Inferensi}{55}{subsection.4.6.2}%
+\contentsline {subsection}{\numberline {IV.6.3}Contoh Struktur Log dengan Reasoning Trace}{56}{subsection.4.6.3}%
+\contentsline {subsection}{\numberline {IV.6.4}Ringkasan Hasil Eksperimen}{57}{subsection.4.6.4}%
+\contentsline {chapter}{\numberline {V}RENCANA SELANJUTNYA}{58}{chapter.5}%
+\contentsline {section}{\numberline {V.1}Rencana Implementasi dan Estimasi Biaya}{58}{section.5.1}%
+\contentsline {subsection}{\numberline {V.1.1}Rencana Implementasi Eksperimen}{58}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {V.1.2}Himpunan Model dan Skenario Eksekusi}{59}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {V.1.3}Asumsi Jumlah Soal dan Kebutuhan Token}{59}{subsection.5.1.3}%
+\contentsline {subsection}{\numberline {V.1.4}Estimasi Biaya per Model}{60}{subsection.5.1.4}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
@@ -319,8 +323,8 @@
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\contentsline {section}{\numberline {V.2}Desain Pengujian dan Evaluasi}{54}{section.5.2}%
-\contentsline {section}{\numberline {V.3}Analisis Risiko dan Mitigasi}{56}{section.5.3}%
+\contentsline {section}{\numberline {V.2}Desain Pengujian dan Evaluasi}{61}{section.5.2}%
+\contentsline {section}{\numberline {V.3}Analisis Risiko dan Mitigasi}{63}{section.5.3}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 

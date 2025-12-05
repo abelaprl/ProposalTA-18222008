@@ -4,6 +4,12 @@
 
 \chapter{DESAIN KONSEP SOLUSI}
 \label{chap:desain-konsep-solusi}
+Bab ini menguraikan rancangan solusi yang digunakan untuk melaksanakan eksperimen
+multi-model dan multi-persona pada tugas penalaran. Pembahasan dimulai dari desain
+konseptual eksperimen, diikuti arsitektur dan alur kerja \textit{evaluation pipeline},
+integrasi komponen-komponen utama (persona, model, dan \textit{benchmark}),
+perancangan struktur data dan berkas, hingga mekanisme penanganan gangguan serta
+bentuk keluaran yang dihasilkan untuk analisis pada bab berikutnya.
 
 \section{Desain Konseptual Eksperimen}
 
@@ -30,7 +36,7 @@ Ruang eksperimen dibentuk berdasarkan kombinasi antara persona, sistem, dan tuga
 
 \subsection{Keterkaitan dengan Pelaksanaan Eksperimen}
 
-Desain konseptual ini menjadi dasar bagi alur pelaksanaan yang dibahas pada bagian berikutnya. Dengan pemisahan antara tahap perancangan dan tahap pelaksanaan, eksperimen dapat dijalankan secara teratur, dan seluruh hasil yang diperoleh dapat dianalisis kembali pada bab selanjutnya.
+Desain konseptual ini menjadi dasar bagi alur pelaksanaan yang dibahas pada bagian berikutnya. Dengan pemisahan antara tahap perancangan dan tahap pelaksanaan, eksperimen dapat dijalankan secara teratur dan seluruh hasil yang diperoleh dapat dianalisis kembali pada bab selanjutnya.
 
 
 %====== BAB IV.2 ======
@@ -39,7 +45,7 @@ Desain konseptual ini menjadi dasar bagi alur pelaksanaan yang dibahas pada bagi
 
 Bagian ini menjelaskan bagaimana rancangan konseptual pada Subbab sebelumnya direalisasikan dalam bentuk arsitektur \textit{evaluation pipeline} yang terotomatisasi, serta bagaimana pipeline tersebut menjalankan alur eksperimen dari pemuatan \textit{specification} hingga diperolehnya keluaran akhir. Pendekatan ini dirancang agar proses evaluasi berjalan secara otomatis, konsisten, dan dapat direproduksi, sehingga setiap kombinasi persona, model, dan \textit{benchmark task} diuji dalam kondisi yang setara dan bebas dari variasi yang tidak diperlukan.
 
-Pipeline bekerja sebagai rangkaian komponen yang saling berinteraksi: mulai dari pemuatan data, konstruksi instruksi, pengiriman permintaan ke model, hingga pencatatan \textit{telemetry}. Seluruh proses tersebut membentuk satu alur terintegrasi yang mampu menangani jumlah evaluasi besar secara stabil.
+Pipeline bekerja sebagai rangkaian komponen yang saling berinteraksi, mulai dari pemuatan data, konstruksi instruksi, pengiriman permintaan ke model, hingga pencatatan \textit{telemetry}. Seluruh proses tersebut membentuk satu alur terintegrasi yang mampu menangani jumlah evaluasi besar secara stabil.
 
 \subsection{Arsitektur Alur Kerja Sistem}
 \label{subsec:arsitektur-alur-kerja}
@@ -48,72 +54,176 @@ Secara garis besar, \textit{evaluation pipeline} terbagi ke dalam empat komponen
 
 \begin{enumerate}
     \item \textit{Configuration initialization and validation}.\\
-    Tahap ini memuat seluruh konfigurasi sistem, definisi persona, dan \textit{benchmark dataset} ke dalam memori. Struktur data yang dibaca dari berkas \textit{specification} (persona, model, dan \textit{task}) divalidasi untuk memastikan bahwa setiap persona memiliki \textit{system instruction} yang lengkap dan setiap butir tugas memiliki pasangan pertanyaan dan jawaban acuan. Validasi awal ini penting untuk mencegah kesalahan format yang dapat menghentikan proses pada tahap berikutnya.
+    Tahap ini memuat seluruh konfigurasi sistem, definisi persona, dan \textit{benchmark dataset} ke dalam memori. Struktur data yang dibaca dari berkas \textit{specification} (persona, model, dan \textit{task}) divalidasi untuk memastikan bahwa setiap persona memiliki \textit{system instruction} yang lengkap dan setiap butir tugas memiliki pasangan pertanyaan dan jawaban acuan.
 
     \item \textit{Prompt construction engine}.\\
-    Pada tahap ini, sistem membentuk dua jenis pesan utama: \textit{system message} yang berisi identitas dan karakter persona, serta \textit{user message} yang memuat pertanyaan dari \textit{benchmark}. Penyusunan instruksi dilakukan menggunakan pola yang seragam untuk seluruh iterasi, sehingga setiap model menerima bentuk stimulus yang konsisten. Pendekatan ini menghilangkan variasi yang berasal dari perbedaan penulisan instruksi manual, sehingga perubahan keluaran dapat dikaitkan pada persona, bukan pada redaksi \textit{prompt}.
+    Sistem membentuk \textit{system message} yang berisi identitas persona serta \textit{user message} yang memuat pertanyaan dari \textit{benchmark}. Seluruh instruksi dirumuskan secara seragam untuk menjaga konsistensi antar kondisi.
 
     \item \textit{Execution manager}.\\
-    Komponen ini mengatur pengiriman permintaan ke model-model bahasa melalui \textit{API interface}. Untuk mengatasi volume permintaan yang besar, \textit{execution manager} menggunakan pendekatan eksekusi asinkron berbasis \textit{I/O concurrency}. Permintaan disusun dalam \textit{task queue} dan dieksekusi dalam kelompok sesuai batas \textit{rate limit} dari penyedia layanan model. Strategi ini mempercepat proses pengujian tanpa melampaui kapasitas layanan.
+    Komponen ini menangani pemanggilan API menggunakan eksekusi asinkron berbasis \textit{I/O concurrency}. Permintaan ditempatkan dalam \textit{task queue} dan dijalankan dalam batch sesuai batas \textit{rate limit} layanan model.
 
     \item \textit{Telemetry logger}.\\
-    Komponen terakhir bertanggung jawab menyimpan seluruh respons model dalam format terstruktur, termasuk keluaran teks, jawaban akhir yang diekstraksi, jumlah token yang digunakan, serta \textit{latency} inferensi. Data ini menjadi dasar analisis performa pada Bab~V, baik dari sisi akurasi maupun beban komputasi.
+    Komponen terakhir bertugas menyimpan seluruh keluaran model, termasuk teks jawaban, jawaban akhir yang diekstraksi, jumlah token, serta \textit{latency} inferensi.
 \end{enumerate}
 
-Dengan pembagian tersebut, pipeline dapat beroperasi secara modular, namun tetap terpadu dalam satu alur pemrosesan yang deterministik.
+Dengan pembagian tersebut, pipeline dapat beroperasi secara modular namun tetap terpadu dalam satu alur pemrosesan yang deterministik.
 
 \subsection{Algoritma Orkestrasi dan Konkurensi}
 \label{subsec:algoritma-orkestrasi}
 
-Eksperimen dalam penelitian ini melibatkan ribuan kombinasi persona–model–pertanyaan yang menghasilkan volume permintaan API dalam jumlah besar. Eksekusi secara sekuensial tidak praktis karena setiap permintaan memiliki latensi yang bervariasi, sementara penyedia model menerapkan batas \textit{rate limit} yang ketat. Untuk mengatasi hal tersebut, pipeline menggunakan pendekatan eksekusi asinkron berbasis \textit{I/O concurrency}.
+Eksperimen melibatkan ribuan kombinasi persona–model–pertanyaan sehingga volume permintaan API menjadi sangat besar. Eksekusi sekuensial tidak praktis karena setiap permintaan memiliki latensi yang berbeda dan layanan API menerapkan batas \textit{rate limit}. Untuk itu, pipeline menggunakan eksekusi asinkron berbasis \textit{I/O concurrency}.
 
-Pendekatan ini memungkinkan banyak permintaan dieksekusi secara paralel (hingga batas tertentu), sehingga waktu total dapat ditekan dari kompleksitas \(O(N)\) menjadi mendekati \(O(N/C)\), dengan \(C\) adalah kapasitas konkurensi maksimum. Pipeline membangun sebuah \textit{task queue} yang berisi seluruh pasangan persona–soal, kemudian memprosesnya dalam kelompok (\textit{batch}) sesuai kapasitas konkurensi. Ketika satu batch sedang diproses, sistem dapat menyiapkan batch berikutnya tanpa menunggu seluruh permintaan selesai.
+Pendekatan ini menurunkan waktu total dari kompleksitas \(O(N)\) menjadi mendekati \(O(N/C)\), dengan \(C\) adalah kapasitas konkurensi. Pipeline juga menerapkan \textit{exponential backoff} untuk menangani galat seperti \textit{timeout} atau \texttt{429 Too Many Requests}.
 
-Selain meningkatkan efisiensi waktu, mekanisme ini juga menyediakan ketahanan terhadap kesalahan. Jika terjadi galat seperti \textit{timeout}, \textit{connection reset}, atau \texttt{429 Too Many Requests}, pipeline tidak menghentikan seluruh proses. Tugas yang gagal akan dicatat dan dijalankan ulang menggunakan strategi \textit{exponential backoff}, sehingga stabilitas eksekusi jangka panjang tetap terjaga.
+Kode~\ref{lst:algoritma-eksperimen} berikut merumuskan prosedur orkestrasi secara formal.
 
-Algoritma 4.1 berikut mendefinisikan prosedur eksekusi paralel secara formal.
-
-\begin{verbatim}
-Algoritma 4.1: Prosedur Eksekusi Eksperimen Paralel
-
+\begin{lstlisting}[caption={Prosedur eksekusi eksperimen paralel}, label={lst:algoritma-eksperimen}]
 Input : Himpunan Persona P, Himpunan Tugas T, Batas Konkurensi C
 Output: Himpunan Log L
 
 Function RunExperiment(P, T):
-  1. Inisialisasi Antrean Tugas Q <- Kosong
-  2. Untuk setiap p dalam P lakukan:
-       Untuk setiap t dalam T lakukan:
-         Prompt <- ConstructPrompt(p.instruction, t.question)
-         Enqueue(Q, Prompt)
+  1. Q <- Queue kosong
+  2. Untuk setiap p dalam P:
+       Untuk setiap t dalam T:
+         prompt <- ConstructPrompt(p, t)
+         Enqueue(Q, prompt)
 
-  3. Inisialisasi Semaphore S dengan kapasitas C
+  3. S <- Semaphore(C)
 
-  4. While Q tidak kosong lakukan secara Asinkron:
-       Batch <- DequeueBatch(Q, C)
-       Untuk setiap item i dalam Batch lakukan secara Paralel:
+  4. While Q tidak kosong (asinkron):
+       batch <- DequeueBatch(Q, C)
+       Untuk setiap item i dalam batch (paralel):
          Acquire(S)
-         Coba:
-           Respons <- AsyncCallAPI(i.prompt, i.config)
-           Metadata <- ExtractTelemetry(Respons)
-           SaveLog(Respons, Metadata)
-           Tambahkan ke L
-         Tangkap Galat:
-           LogGalat(i)
+         Try:
+           resp <- AsyncCallAPI(i)
+           meta <- ExtractTelemetry(resp)
+           SaveLog(resp, meta)
+         Catch error:
            RetryWithBackoff(i)
-         Akhirnya:
+         Finally:
            Release(S)
 
   5. Return L
-\end{verbatim}
+\end{lstlisting}
 
-Melalui orkestrasi ini, pipeline mencapai dua tujuan sekaligus: (1) efisiensi waktu eksekusi yang optimal berkat pemrosesan paralel, dan (2) ketahanan proses melalui penanganan galat adaptif.
+\subsection{Pseudocode Eksekusi Batch Benchmark GSM8K dan MMLU-Redux}
+\label{subsec:pseudocode-benchmark}
+
+Untuk merealisasikan algoritma orkestrasi tersebut, pipeline menggunakan sebuah prosedur generik bernama \texttt{RunBenchmarkBatch}. Berbeda dari implementasi awal yang memisahkan GSM8K dan MMLU-Redux, pipeline pada penelitian ini menggabungkan keduanya ke dalam satu algoritma yang menangani dua format evaluasi:  
+(1) jawaban numerik bebas (GSM8K) dan  
+(2) pilihan ganda (MMLU-Redux).
+
+Pseudocode berikut merangkum alur lengkap yang diterapkan pada kedua \textit{benchmark}.
+
+\begin{lstlisting}[caption={Pseudocode prosedur eksekusi batch untuk GSM8K dan MMLU-Redux},label={lst:run-benchmark-batch}]
+Input :
+  - ModelConfig M
+  - PersonaConfig P_cfg
+  - BenchmarkFile F_bench
+  - BenchmarkType T_bench   // "gsm8k" atau "mmlu"
+  - Direktori keluaran D_out
+
+Output:
+  - Himpunan log L_JSON
+  - Berkas summary.json
+
+Prosedur RunBenchmarkBatch(M, P_cfg, F_bench, T_bench, D_out):
+
+  1. persona_data  <- LoadJSON(P_cfg.file_path)
+     persona_entry <- SelectPersona(persona_data, P_cfg.persona_id)
+     persona_text  <- persona_entry.text
+
+  2. system_prompt <- BuildSystemPrompt(M, persona_text)
+
+  3. items <- LoadBenchmarkItems(F_bench, T_bench)
+     Inisialisasi L_JSON <- {}
+     Inisialisasi summary_rows <- []
+
+  4. Untuk setiap item x dalam items:
+        q_id <- x.id
+
+        Jika T_bench == "gsm8k":
+            q_stem <- x.question_text
+            gold   <- x.reference_answer
+            user_msg <- BuildUserPromptGSM8K(q_stem)
+
+        Jika T_bench == "mmlu":
+            q_stem  <- x.question_stem
+            options <- x.options
+            gold    <- x.correct_choice
+            user_msg <- BuildUserPromptMMLU(q_stem, options)
+
+        messages <- [
+          { "role": "system", "content": system_prompt },
+          { "role": "user",   "content": user_msg }
+        ]
+
+        t0       <- Now()
+        response <- CallOpenRouterAPI(M.model_id, messages, M.extra_params)
+        latency  <- Now() - t0
+
+        resp_text <- ExtractText(response)
+
+        Jika T_bench == "gsm8k":
+            pred <- ExtractFinalAnswerGSM8K(resp_text)
+
+        Jika T_bench == "mmlu":
+            pred <- ExtractChoiceMMLU(resp_text)
+
+        raw_record <- {
+          "run": {
+            "model_id":    M.name,
+            "question_id": q_id,
+            "persona":     P_cfg.persona_id
+          },
+          "request": {
+            "system_prompt": system_prompt,
+            "user_prompt":   user_msg
+          },
+          "response": response,
+          "meta": { "latency_ms": latency * 1000 }
+        }
+
+        WriteJSON( JoinPath(D_out, q_id + ".json"), raw_record )
+        Tambahkan raw_record ke L_JSON
+
+        summary_row <- {
+          "question_id": q_id,
+          "gold_answer": gold,
+          "predicted":   pred,
+          "is_correct":  CompareAnswers(gold, pred, T_bench),
+          "total_tokens":      SafeGet(response, "usage.total_tokens"),
+          "prompt_tokens":     SafeGet(response, "usage.prompt_tokens"),
+          "completion_tokens": SafeGet(response, "usage.completion_tokens"),
+          "latency_ms":        latency * 1000
+        }
+
+        Tambahkan summary_row ke summary_rows
+
+  5. summary <- {
+       "model_name": M.name,
+       "model_id":   M.model_id,
+       "persona": {
+         "source_file": P_cfg.file_path,
+         "id":          P_cfg.persona_id,
+         "text":        persona_text
+       },
+       "system_prompt": system_prompt,
+       "items":         summary_rows
+     }
+
+     WriteJSON( JoinPath(D_out, "summary.json"), summary )
+\end{lstlisting}
+
+Pseudocode gabungan ini menunjukkan bagaimana pipeline menangani dua jenis \textit{benchmark} dengan struktur instruksi dan mekanisme ekstraksi jawaban yang berbeda, namun tetap mempertahankan alur eksekusi yang konsisten dan dapat direproduksi.
+
 
 \subsection{Mekanisme Injeksi Konteks Persona}
 \label{subsec:mekanisme-injeksi}
 
 Mekanisme injeksi persona merupakan elemen penting untuk memastikan bahwa pengaruh persona terhadap keluaran model dapat diukur secara jelas. Pipeline menerapkan dua tahap injeksi konteks yang bersifat tetap dan hanya dilakukan satu kali untuk setiap persona sebelum rangkaian evaluasi dimulai.
 
-Tahap pertama adalah \textit{persona context initialization}. Pada tahap ini, sistem menyusun \textit{system message} yang merangkum identitas dan karakter persona, baik dalam bentuk eksplisit maupun implisit sebagaimana didefinisikan pada Subbab~\ref{tab:user-persona}. Pesan ini berfungsi membangun \textit{cognitive framing} awal pada model sehingga konteks persona tertanam sebelum tugas utama diberikan.
+Tahap pertama adalah \textit{persona context initialization}. Pada tahap ini, sistem menyusun \textit{system message} yang merangkum identitas dan karakter persona, baik dalam bentuk eksplisit maupun implisit sebagaimana didefinisikan pada Tabel~\ref{tab:user-persona}. Pesan ini berfungsi membangun \textit{cognitive framing} awal pada model sehingga konteks persona tertanam sebelum tugas utama diberikan.
 
 Tahap kedua adalah \textit{persona warm-up message}. Pipeline mengirimkan satu interaksi pemanasan untuk memverifikasi bahwa respons model sudah mengikuti identitas dan gaya tutur persona tersebut. Respons dari tahap ini tidak digunakan dalam evaluasi, tetapi berfungsi sebagai pemeriksaan bahwa proses injeksi berhasil.
 
@@ -165,9 +275,7 @@ Pelaksanaan eksperimen dilakukan melalui langkah-langkah berikut.
 Dengan arsitektur dan alur operasional ini, eksperimen dapat dijalankan secara teratur, terukur, dan setiap hasil yang dihasilkan dapat ditelusuri kembali berdasarkan \textit{configuration} yang digunakan.
 
 
-
-%====== BAB IV.3======
-
+%====== BAB IV.3 ======
 \section{Integrasi Komponen Eksperimen}
 
 Bagian ini menjelaskan komponen-komponen yang digunakan dalam eksperimen, yang terdiri atas \textit{benchmark} penalaran, himpunan model, struktur persona, ruang \textit{configuration}, serta contoh mekanisme injeksi persona. Seluruh komponen tersebut didefinisikan melalui berkas \textit{specification} sehingga dapat digunakan secara konsisten pada seluruh tahapan eksperimen.
@@ -188,7 +296,7 @@ Eksperimen dijalankan pada beberapa model yang tersedia melalui layanan API. Mod
 
 \begin{enumerate}
     \item Model komersial  
-    GPT-5 Mini, Claude 4.5 Haiku, Gemini 2.5 Flash, Llama 3.3 Nemotron Super 49B V1.5, Google Gemma 3n 4B, dan DeepSeek V3.2
+    GPT-5 Mini, Qwen 3 VL Instruct, Gemini 2.5 Flash, Llama 3.3 Nemotron Super 49B V1.5, Google Gemma 3n 4B, dan DeepSeek V3.2
 
     \item Model publik  
     Grok 4.1 Fast, NVIDIA Nemotron-nano-12B-v2-VL, dan Bert Nebulon Alpha.
@@ -269,59 +377,287 @@ Pada persona implisit, identitas tidak disebutkan secara langsung, tetapi ditamp
 
 Kedua bentuk injeksi ini memungkinkan analisis perbedaan respons antara persona yang dinyatakan secara eksplisit dan persona yang hanya tersirat melalui cara pengguna menyampaikan situasi dan pertanyaannya.
 
+
 %====== BAB IV.4 ======
 \section{Perancangan Data dan Struktur Berkas}
 \label{sec:perancangan-data-struktur}
 
-Bagian ini menjelaskan rancangan data dan struktur berkas yang digunakan dalam eksperimen. Perancangan ini diperlukan agar keluaran dari setiap \textit{configuration} dapat dicatat secara teratur, ditelusuri kembali, dan dianalisis pada tahap berikutnya. Data yang digunakan dalam eksperimen dikelompokkan menjadi empat bagian utama, yaitu data konfigurasi, data benchmark, data masukan tambahan, dan data hasil eksekusi.
+Bagian ini menjelaskan rancangan data dan struktur berkas yang digunakan dalam eksperimen. Tujuan perancangan ini adalah agar keluaran dari setiap \textit{configuration} dapat dicatat secara teratur, ditelusuri kembali, dan dianalisis pada tahap berikutnya. Data yang digunakan dalam eksperimen dikelompokkan menjadi empat bagian utama, yaitu data konfigurasi, data \textit{benchmark}, data masukan tambahan, dan data hasil eksekusi.
 
 Data konfigurasi disimpan di dalam direktori \texttt{config}. Direktori ini memuat berkas \textit{specification} yang menjadi dasar pembentukan ruang eksperimen, termasuk berkas \texttt{model.keys.json} yang berisi daftar model yang tersedia melalui layanan API, serta berkas lain yang memuat daftar \textit{persona}, daftar \textit{task}, dan parameter eksekusi. Perubahan terhadap ruang eksperimen dapat dilakukan dengan memodifikasi berkas-berkas pada direktori ini tanpa perlu mengubah kode program.
 
-Data benchmark disimpan di dalam direktori \texttt{data}. Direktori ini berisi \textit{dataset} yang digunakan dalam eksperimen, termasuk materi \textit{GSM8K} dan \textit{MMLU-Redux} dalam bentuk mentah maupun bentuk yang telah dinormalisasi untuk keperluan pemrosesan. Dengan pemisahan ini, sumber data utama yang digunakan pipeline terdokumentasi secara jelas.
+Data \textit{benchmark} disimpan di dalam direktori \texttt{data}. Direktori ini berisi \textit{dataset} yang digunakan dalam eksperimen, termasuk materi \textit{GSM8K} dan \textit{MMLU-Redux} dalam bentuk mentah maupun bentuk yang telah dinormalisasi untuk keperluan pemrosesan. Pemisahan ini membantu mendokumentasikan sumber data utama yang digunakan pipeline secara jelas.
 
-Direktori \texttt{input} digunakan untuk menyimpan data pendukung yang tidak berasal dari benchmark utama tetapi dibutuhkan selama eksperimen, seperti kumpulan soal yang dihasilkan ulang, daftar pertanyaan tambahan, atau berkas uji lain yang disiapkan secara terpisah dari \textit{dataset} utama. Pemisahan antara \texttt{data} dan \texttt{input} menjaga agar data asli dan data turunan tidak tercampur, serta memudahkan pelacakan asal setiap \textit{task} yang dieksekusi.
+Direktori \texttt{input} digunakan untuk menyimpan data pendukung yang tidak berasal dari \textit{benchmark} utama tetapi dibutuhkan selama eksperimen, seperti kumpulan soal yang dihasilkan ulang, daftar pertanyaan tambahan, atau berkas uji lain yang disiapkan secara terpisah dari \textit{dataset} utama. Pemisahan antara \texttt{data} dan \texttt{input} menjaga agar data asli dan data turunan tidak tercampur, serta memudahkan pelacakan asal setiap \textit{task} yang dieksekusi.
 
 Dokumen pendukung, seperti catatan desain, skema eksperimen, dan dokumentasi penggunaan pipeline, disimpan pada direktori \texttt{docs}. Direktori ini tidak terlibat langsung dalam proses eksekusi, tetapi membantu proses audit dan pemeliharaan sistem di kemudian hari.
 
-Hasil eksperimen disimpan di dalam direktori \texttt{results}. Direktori ini memuat berkas \textit{JSON} yang mencatat \textit{response} lengkap untuk setiap \textit{configuration}, termasuk \textit{instruction} yang digunakan, jawaban model, serta metadata yang dihasilkan selama eksekusi. Ringkasan hasil disimpan dalam bentuk \textit{CSV} untuk mempermudah proses analisis, misalnya perbandingan jawaban akhir, tingkat akurasi, jumlah token, atau latensi jika informasi tersebut disediakan oleh layanan model.
+Hasil eksperimen disimpan di dalam direktori \texttt{results}. Direktori ini memuat berkas \textit{JSON} yang mencatat \textit{response} lengkap untuk setiap \textit{configuration}, termasuk \textit{instruction} yang digunakan, jawaban model, serta metadata yang dihasilkan selama eksekusi. Ringkasan hasil disimpan dalam bentuk \textit{CSV} untuk mempermudah proses analisis, misalnya perbandingan jawaban akhir, tingkat akurasi, jumlah token, atau latensi apabila informasi tersebut disediakan oleh layanan model.
 
 Seluruh kode program ditempatkan dalam direktori \texttt{src}. Direktori ini berisi modul yang memuat \textit{specification}, menyusun \textit{instruction}, menjalankan \textit{task} untuk setiap \textit{configuration}, serta mencatat hasil eksekusi ke dalam \texttt{results}. Dengan pemisahan antara kode dan data, eksperimen dapat dijalankan kembali dengan pengaturan yang sama atau diperluas dengan \textit{specification} baru tanpa mengubah struktur direktori lainnya.
 
 Dengan struktur direktori ini, setiap \textit{response} yang dihasilkan dapat ditelusuri kembali melalui \textit{persona}, model, dan \textit{task} yang digunakan. Perancangan ini mendukung kebutuhan replikasi eksperimen dan menjadi penghubung antara desain konseptual pada bagian sebelumnya dan analisis hasil pada bab berikutnya.
 
+\subsection{Pseudocode Pengunduhan dan Normalisasi Benchmark}\par
+
+Persiapan data \textit{benchmark} dilakukan melalui skrip
+\texttt{gsm8k\_download.py} dan \texttt{mmlu\_redux\_download.py}. Kedua skrip ini
+bertugas mengunduh dataset dari sumber resmi, menyimpannya pada direktori
+\texttt{data}, dan menormalkan struktur data ke format yang konsisten sebelum
+digunakan oleh pipeline.
+
+Kode~\ref{lst:download-benchmarks} merangkum alur utama yang diimplementasikan
+pada kedua skrip tersebut.
+
+\begin{lstlisting}[caption={Pseudocode pengunduhan dan normalisasi benchmark},label={lst:download-benchmarks}]
+Input :
+  - URL_GSM8K_RAW
+  - URL_MMLU_REDUX
+  - Direktori data D_data
+
+Output:
+  - Berkas GSM8K terstruktur (gsm8k_normalized.json)
+  - Berkas MMLU-Redux terstruktur (mmlu_redux_normalized.json)
+
+Prosedur PrepareGSM8K(D_data):
+  1. raw_file     <- DownloadFile(URL_GSM8K_RAW)
+  2. parsed_items <- ParseRawGSM8K(raw_file)
+  3. normalized   <- []
+  4. Untuk setiap item dalam parsed_items lakukan:
+       record <- {
+         "id":            item.id,
+         "question_text": item.question,
+         "answer":        item.answer
+       }
+       Tambahkan record ke normalized
+  5. out_path <- JoinPath(D_data, "gsm8k_normalized.json")
+  6. WriteJSON(out_path, normalized)
+
+Prosedur PrepareMMLURedux(D_data):
+  1. raw_file     <- DownloadFile(URL_MMLU_REDUX)
+  2. parsed_items <- ParseRawMMLU(raw_file)
+  3. normalized   <- []
+  4. Untuk setiap item dalam parsed_items lakukan:
+       record <- {
+         "id":            item.id,
+         "subject":       item.subject,
+         "question_stem": item.stem,
+         "options":       item.options,
+         "correct":       item.correct_option
+       }
+       Tambahkan record ke normalized
+  5. out_path <- JoinPath(D_data, "mmlu_redux_normalized.json")
+  6. WriteJSON(out_path, normalized)
+
+Prosedur PrepareAllBenchmarks(D_data):
+  1. EnsureDirExists(D_data)
+  2. PrepareGSM8K(D_data)
+  3. PrepareMMLURedux(D_data)
+\end{lstlisting}
+
+Melalui prosedur ini, seluruh \textit{benchmark} yang digunakan pipeline tersedia
+dalam format terstruktur yang konsisten dan dapat diolah kembali apabila diperlukan.
+
+
 %====== BAB IV.5 ======
 \section{Penanganan Gangguan dan Pemulihan \textit{Execution Flow}}
 
-Proses eksekusi melibatkan sejumlah besar kombinasi persona, model, dan \textit{task} sehingga rentan terhadap berbagai bentuk gangguan, baik yang bersumber dari layanan model maupun dari kondisi jaringan. Bagian ini menjelaskan mekanisme yang digunakan untuk menjaga agar alur eksekusi tetap berlanjut meskipun terjadi hambatan, serta memastikan bahwa hasil yang diperoleh tetap dapat ditelusuri dan dianalisis tanpa kehilangan konsistensi.
+Proses eksekusi melibatkan sejumlah besar kombinasi persona, model, dan \textit{task}, sehingga rentan terhadap gangguan yang bersumber dari layanan model maupun kondisi jaringan. Bagian ini menjelaskan mekanisme yang digunakan untuk mempertahankan keberlanjutan proses dan menjaga agar hasil yang diperoleh tetap konsisten serta dapat ditelusuri kembali.
 
 Penanganan gangguan dilakukan dalam dua bentuk utama.
 
 \begin{enumerate}
     \item \textit{Transient error handling}  
-    \\ Sistem mendeteksi gangguan sementara seperti \textit{timeout}, penolakan layanan, atau pemutusan koneksi. Apabila gangguan terjadi, \textit{instruction} dikirim ulang menggunakan jeda adaptif. Mekanisme ini mencegah penghentian proses secara keseluruhan dan memastikan setiap \textit{configuration} tetap menghasilkan keluaran yang dapat dianalisis.
+    Sistem mendeteksi gangguan sementara seperti \textit{timeout}, penolakan layanan, atau pemutusan koneksi. Jika gangguan terjadi, instruksi dijadwalkan ulang menggunakan jeda adaptif, sehingga proses tidak terhenti dan setiap \textit{configuration} tetap menghasilkan keluaran yang dapat dianalisis.
 
     \item \textit{Execution flow recovery}  
-    \\ Untuk menjaga keberlanjutan proses, sistem mencatat status terakhir setelah setiap respons diterima. Apabila eksekusi terhenti sebelum seluruh \textit{configuration} selesai diproses, pipeline dapat dilanjutkan dari posisi terakhir tanpa mengulang bagian yang telah berhasil. Dengan cara ini, proses panjang tetap dapat diselesaikan tanpa kehilangan progres.
+    Sistem mencatat status terakhir setiap kali respons berhasil diterima. Jika eksekusi terhenti sebelum seluruh \textit{configuration} selesai diproses, pipeline dapat dilanjutkan dari titik terakhir tanpa mengulang langkah yang telah berhasil. Dengan cara ini, proses panjang tetap dapat diselesaikan tanpa kehilangan progres.
 \end{enumerate}
 
-Kedua mekanisme ini bekerja bersamaan untuk memastikan bahwa alur eksekusi tetap stabil pada skala besar. Pendekatan ini memungkinkan seluruh rangkaian eksperimen diselesaikan meskipun terdapat hambatan teknis, sehingga hasil yang diperoleh tetap dapat dipertanggungjawabkan dalam tahap analisis pada bab berikutnya.
+Kedua mekanisme tersebut menjaga stabilitas eksekusi pada skala besar dan memastikan bahwa alur eksperimen tetap dapat dipertanggungjawabkan pada tahap analisis.
+
+\subsection{Pseudocode Pemantauan Checkpoint dan Pemulihan Eksekusi}
+
+Penanganan gangguan pada pipeline didukung oleh dua skrip utama, yaitu \texttt{checkpoint\_monitor.py} dan \texttt{wait\_and\_report.py}.  
+Skrip \texttt{checkpoint\_monitor.py} memantau progres eksekusi dan mencatat daftar \textit{configuration} yang telah menghasilkan keluaran lengkap.  
+Skrip \texttt{wait\_and\_report.py} digunakan untuk memantau progres secara berkala dan melaporkan status eksekusi tanpa perlu membuka setiap berkas log secara manual.
+
+Kode~\ref{lst:checkpoint-monitor} merangkum mekanisme pembaruan \textit{checkpoint}.
+
+\begin{lstlisting}[caption={Pseudocode pemantauan checkpoint eksekusi},label={lst:checkpoint-monitor}]
+Input :
+  - Direktori hasil D_results
+  - Daftar konfigurasi C (persona x model x task)
+
+Output:
+  - Berkas checkpoint (checkpoint.json)
+
+Prosedur UpdateCheckpoint(D_results, C):
+  1. completed <- Himpunan kosong
+
+  2. Untuk setiap cfg dalam C lakukan:
+       run_id   <- BuildRunId(cfg)
+       log_path <- JoinPath(D_results, run_id, "summary.json")
+
+       Jika FileExists(log_path):
+         Tambahkan run_id ke completed
+
+  3. checkpoint <- {
+       "total_configurations": Panjang(C),
+       "completed_runs":       completed,
+       "remaining_runs":       (C \ completed),
+       "last_update":          Now()
+     }
+
+  4. WriteJSON(JoinPath(D_results, "checkpoint.json"), checkpoint)
+\end{lstlisting}
+
+Pemantauan progres dilakukan melalui loop berkala sebagaimana diringkas pada Kode~\ref{lst:wait-and-report}.
+
+\begin{lstlisting}[caption={Pseudocode pemantauan progres dan pelaporan},label={lst:wait-and-report}]
+Input :
+  - Direktori hasil D_results
+  - Interval pemantauan Delta_t
+
+Prosedur WaitAndReport(D_results, Delta_t):
+  1. Loop tak hingga:
+
+       checkpoint_path <- JoinPath(D_results, "checkpoint.json")
+
+       Jika FileExists(checkpoint_path):
+         cp        <- ReadJSON(checkpoint_path)
+         total     <- cp.total_configurations
+         completed <- Len(cp.completed_runs)
+         remaining <- total - completed
+         progress  <- completed / total
+
+         Print("Progress:",
+               completed, "/", total,
+               "(remaining:", remaining, ",",
+               "progress:", FormatPercent(progress), ")")
+
+         Jika remaining == 0:
+           Print("All configurations completed.")
+           Keluar dari loop
+
+       Tunggu selama Delta_t detik
+\end{lstlisting}
+
+Dengan mekanisme ini, eksekusi yang terhenti secara tidak terduga dapat dilanjutkan berdasarkan \textit{checkpoint} terakhir, dan progres keseluruhan dapat dipantau secara otomatis tanpa intervensi manual.
+
 
 %====== BAB IV.6 ======
 \section{Implementasi Keluaran Pipeline}
 \label{sec:implementasi-keluaran}
 
-Bagian ini menyajikan bentuk keluaran yang dihasilkan oleh \textit{evaluation pipeline}
-setelah seluruh tahapan pemrosesan dijalankan. Keluaran ini berfungsi sebagai artefak
-utama yang digunakan dalam analisis pada Bab~V. Seluruh hasil disimpan dalam direktori
-\texttt{results} dalam format terstruktur sehingga dapat ditelusuri kembali ke
-\textit{persona}, model, dan \textit{task} yang digunakan.
+Bagian ini menjelaskan bentuk keluaran yang dihasilkan oleh \textit{evaluation pipeline}
+setelah seluruh tahap pemrosesan selesai dijalankan. Keluaran tersebut berfungsi sebagai
+artefak utama yang dianalisis pada Bab~V. Seluruh hasil disimpan dalam direktori
+\texttt{results} dalam format terstruktur sehingga setiap entri dapat ditelusuri kembali
+ke persona, model, dan \textit{task} yang digunakan.
+
+\subsection{Pseudocode Analisis Hasil dan Rekapitulasi}\par
+
+Tahap pasca-proses hasil eksperimen direalisasikan melalui sejumlah skrip,
+antara lain \texttt{parse\_gsm8k\_results.py}, \texttt{analyze\_results.py},
+\texttt{analyze\_answers\_deep.py}, \texttt{generate\_results\_csv.py},
+\texttt{quick\_summary.py}, dan \texttt{generate\_excel.py}.  
+Skrip-skrip tersebut membaca log \texttt{JSON} per konfigurasi, menghitung metrik performa
+(misalnya akurasi dan penggunaan token), lalu menyusun ringkasan dalam format
+\texttt{CSV} dan \texttt{spreadsheet}.
+
+Kode~\ref{lst:postprocessing} merangkum alur utama pasca-proses tersebut.
+
+\begin{lstlisting}[caption={Pseudocode pasca-proses hasil eksperimen},label={lst:postprocessing}]
+Input :
+  - Direktori hasil D_results
+  - Daftar konfigurasi C (persona x model x task)
+
+Output:
+  - Berkas CSV ringkasan per konfigurasi
+  - Berkas Excel agregasi lintas model dan persona
+
+Prosedur BuildPerConfigSummary(D_results, C):
+  1. rows <- daftar kosong
+
+  2. Untuk setiap cfg dalam C lakukan:
+       run_id       <- BuildRunId(cfg)
+       summary_path <- JoinPath(D_results, run_id, "summary.json")
+
+       Jika FileExists(summary_path) == False:
+         Lanjutkan ke konfigurasi berikutnya
+
+       summary <- ReadJSON(summary_path)
+       items   <- summary.items
+
+       // Hitung metrik utama
+       total_q    <- Len(items)
+       correct_q  <- Count(item.is_correct untuk item dalam items)
+       acc        <- correct_q / total_q
+
+       total_tok  <- Sum(item.total_tokens untuk item dalam items jika tersedia)
+       avg_tok    <- total_tok / total_q
+
+       avg_lat_ms <- Mean(item.latency_ms untuk item dalam items)
+
+       row <- {
+         "model_name":      summary.model_name,
+         "persona_id":      summary.persona.id,
+         "task_type":       DetectTaskType(run_id),
+         "total_questions": total_q,
+         "correct":         correct_q,
+         "accuracy":        acc,
+         "avg_tokens":      avg_tok,
+         "avg_latency_ms":  avg_lat_ms
+       }
+
+       Tambahkan row ke rows
+
+  3. WriteCSV(JoinPath(D_results, "summary_per_config.csv"), rows)
+
+
+Prosedur BuildExcelAggregation(D_results):
+  1. csv_path <- JoinPath(D_results, "summary_per_config.csv")
+  2. table    <- ReadCSV(csv_path)
+
+  3. pivot_model_persona <- Pivot(
+         data         = table,
+         index        = ["model_name"],
+         columns      = ["persona_id"],
+         values       = ["accuracy"],
+         agg_function = Mean
+       )
+
+  4. pivot_task <- Pivot(
+         data         = table,
+         index        = ["task_type"],
+         columns      = ["model_name"],
+         values       = ["accuracy"],
+         agg_function = Mean
+       )
+
+  5. workbook <- CreateExcelWorkbook()
+  6. AddSheet(workbook, "per_config",        table)
+  7. AddSheet(workbook, "by_model_persona",  pivot_model_persona)
+  8. AddSheet(workbook, "by_task_model",     pivot_task)
+  9. SaveExcel(workbook,
+               JoinPath(D_results,
+                        "summary_aggregated.xlsx"))
+
+Prosedur RunPostProcessing(D_results, C):
+  1. BuildPerConfigSummary(D_results, C)
+  2. BuildExcelAggregation(D_results)
+\end{lstlisting}
+
+Pseudocode ini menunjukkan bagaimana log mentah yang dihasilkan oleh pipeline
+dikonversi menjadi ringkasan numerik yang kemudian digunakan dalam analisis pada Bab~V.
 
 \subsection{Contoh Struktur Log Inferensi}
 
-Pipeline mencatat setiap interaksi dengan model dalam bentuk berkas \texttt{JSON}.
-Log ini memuat identitas konfigurasi yang dieksekusi, jawaban model, serta
-telemetri penggunaan token. Cuplikan berikut memperlihatkan struktur log
-untuk model yang tidak menyediakan \textit{reasoning trace}.
+Setiap interaksi antara pipeline dan model dicatat dalam berkas \texttt{JSON}.
+Berkas ini mencakup identitas konfigurasi, isi permintaan, jawaban model, serta
+telemetri penggunaan token. Cuplikan berikut menunjukkan contoh log untuk model
+yang tidak menyediakan \textit{reasoning trace}.
 
 \begin{verbatim}
 {
@@ -351,15 +687,11 @@ untuk model yang tidak menyediakan \textit{reasoning trace}.
 }
 \end{verbatim}
 
-Struktur tersebut menunjukkan bahwa pipeline tidak hanya merekam jawaban,
-tetapi juga metadata komputasional yang diperlukan dalam analisis efisiensi.
-
 \subsection{Contoh Struktur Log dengan Reasoning Trace}
 
-Beberapa model menyediakan tambahan berupa \textit{reasoning trace}. Bagian
-penalaran ini disimpan terpisah dari jawaban akhir dan dicatat sebagai bagian
-dari log. Cuplikan berikut menunjukkan contoh berkas log yang memuat
-\textit{reasoning trace}.
+Beberapa model menyediakan bagian penalaran (\textit{reasoning trace}) selain jawaban akhir.
+Bagian ini disimpan sebagai elemen terpisah di dalam log. Cuplikan berikut
+menampilkan struktur log lengkap dari model yang menyediakan informasi tersebut.
 
 \begin{verbatim}
 {
@@ -390,19 +722,19 @@ dari log. Cuplikan berikut menunjukkan contoh berkas log yang memuat
 }
 \end{verbatim}
 
-Log ini memungkinkan analisis lebih dalam mengenai gaya penalaran dan perubahan
-struktur argumen yang mungkin disebabkan oleh persona tertentu.
+Log seperti ini memungkinkan analisis lebih dalam mengenai gaya penalaran
+serta perubahan struktur argumen yang mungkin dipengaruhi oleh persona.
 
 \subsection{Ringkasan Hasil Eksperimen}
 
-Pipeline juga menghasilkan ringkasan performa dalam bentuk tabel yang
-menggabungkan metrik akurasi dan penggunaan token untuk setiap pasangan
-persona–model. Berkas ini disimpan dalam format \texttt{CSV} untuk memudahkan
-analisis lanjutan. Tabel berikut merupakan contoh ringkasan hasil yang dihasilkan.
+Pipeline menghasilkan ringkasan performa dalam bentuk tabel yang menggabungkan
+metrik akurasi dan penggunaan token untuk setiap pasangan persona--model. Berkas
+ringkasan disimpan dalam format \texttt{CSV} untuk memudahkan analisis lanjutan.
+Tabel berikut merupakan contoh representasi ringkasan hasil.
 
 \begin{table}[htbp]
 \centering
-\caption{Contoh Ringkasan Hasil Eksperimen GSM8K untuk Seluruh Model dan Persona}
+\caption{Contoh ringkasan hasil eksperimen GSM8K untuk seluruh model dan persona}
 \label{tab:gsm8k-summary-compact}
 \renewcommand{\arraystretch}{1.15}
 \footnotesize
@@ -428,3 +760,5 @@ Nvidia Nemotron 12B v2 VL & woman\_implicit & 1306 & 1230 & 94.18 & 1184521 \\
 \end{tabular}
 \end{adjustbox}
 \end{table}
+
+

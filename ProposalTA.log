@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2025.11.12)  5 DEC 2025 15:07
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2025.11.12)  5 DEC 2025 16:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1654,26 +1654,57 @@ Underfull \hbox (badness 10000) in paragraph at lines 196--196
 Bab IV.
 [36
 
-] [37]
-Overfull \hbox (28.19656pt too wide) in paragraph at lines 68--69
-\TU/TimesNewRoman(0)/m/n/12 Eksperimen dalam penelitian ini melibatkan ribuan k
-ombinasi persona–model–pertanyaan
- []
-
-[38] [39] [40]
+] [37] [38]
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
+nput line 80.
+ [39] [40] [41] [42]
 File: image/alur-eksperimen.png Graphic file (type bmp)
 <image/alur-eksperimen.png>
 
 
-LaTeX Warning: Float too large for page by 8.69908pt on input line 132.
+LaTeX Warning: Float too large for page by 8.69908pt on input line 242.
 
-[41] [42] [43]
-Overfull \hbox (0.38016pt too wide) in paragraph at lines 201--202
+[43] [44] [45]
+Overfull \hbox (0.38016pt too wide) in paragraph at lines 309--310
 \TU/TimesNewRoman(0)/m/n/12 Persona yang digunakan dalam eksperimen disusun ber
 dasarkan enam dimensi: gen-
  []
 
-[44] [45] [46] [47] [48] [49]) (./Bab V - Rencana-Selanjutnya.tex [50]
+[46] [47] [48]
+Overfull \hbox (106.79665pt too wide) in paragraph at lines 403--408
+\TU/TimesNewRoman(0)/m/n/12 Persiapan data \TU/TimesNewRoman(0)/m/it/12 benchma
+rk \TU/TimesNewRoman(0)/m/n/12 dilakukan melalui skrip \TU/lmtt/m/n/12 gsm8k_do
+wnload.py \TU/TimesNewRoman(0)/m/n/12 dan \TU/lmtt/m/n/12 mmlu_redux_download.p
+y\TU/TimesNewRoman(0)/m/n/12 .
+ []
+
+[49] [50]
+Overfull \hbox (81.21368pt too wide) in paragraph at lines 481--484
+\TU/TimesNewRoman(0)/m/n/12 Penanganan gangguan pada pipeline didukung oleh dua
+ skrip utama, yaitu \TU/lmtt/m/n/12 checkpoint_monitor.py
+ []
+
+[51] [52]
+Overfull \hbox (24.39558pt too wide) in paragraph at lines 561--568
+\TU/TimesNewRoman(0)/m/n/12 lain \TU/lmtt/m/n/12 parse_gsm8k_results.py\TU/Time
+sNewRoman(0)/m/n/12 , \TU/lmtt/m/n/12 analyze_results.py\TU/TimesNewRoman(0)/m/
+n/12 , \TU/lmtt/m/n/12 analyze_answers_deep.py\TU/TimesNewRoman(0)/m/n/12 ,
+ []
+
+
+Overfull \hbox (14.13428pt too wide) in paragraph at lines 561--568
+\TU/lmtt/m/n/12 generate_results_csv.py\TU/TimesNewRoman(0)/m/n/12 , \TU/lmtt/m
+/n/12 quick_summary.py\TU/TimesNewRoman(0)/m/n/12 , dan \TU/lmtt/m/n/12 generat
+e_excel.py\TU/TimesNewRoman(0)/m/n/12 . Skrip-
+ []
+
+[53] [54]
+Overfull \hbox (1.79465pt too wide) in paragraph at lines 657--661
+\TU/TimesNewRoman(0)/m/n/12 mencakup identitas konfigurasi, isi permintaan, jaw
+aban model, serta telemetri peng-
+ []
+
+[55] [56]) (./Bab V - Rencana-Selanjutnya.tex [57]
 Bab V.
 
 Overfull \hbox (16.26198pt too wide) in paragraph at lines 44--49
@@ -1681,35 +1712,31 @@ Overfull \hbox (16.26198pt too wide) in paragraph at lines 44--49
 soal GSM8K dan MMLU-
  []
 
-[51
+[58
 
-] [52] [53] [54]
+] [59] [60] [61]
 Overfull \hbox (1.35867pt too wide) in paragraph at lines 256--259
 []\TU/TimesNewRoman(0)/m/n/12 Tahap warm-up diverifikasi dengan menilai apakah 
 respons awal model meng-
  []
 
-[55] [56]) [57] [58
+[62] [63]) [64] [65
 
 
-] [59]
+] [66]
 Overfull \hbox (64.1498pt too wide) in paragraph at lines 398--398
 \TU/TimesNewRoman(0)/m/n/12 Unfaithful Explanations in Chain-of-Thought Reasoni
 ng”. \TU/TimesNewRoman(0)/m/it/12 arXiv preprint arXiv:2305.04388,
  []
 
-[60]
+[67]
 Overfull \hbox (14.36363pt too wide) in paragraph at lines 398--398
 \TU/TimesNewRoman(0)/m/n/12 Dalam \TU/TimesNewRoman(0)/m/it/12 Proceedings of t
 he International Conference on Machine Learning, \TU/TimesNewRoman(0)/m/n/12 12
 697–
  []
 
-
-Package caption Warning: Unused \captionsetup[lstlisting] on input line 378.
-See the caption package documentation for explanation.
-
-[61] (./ProposalTA.aux)
+[68] (./ProposalTA.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -1719,7 +1746,7 @@ L3 programming layer <2024-01-22>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `ProposalTA.out' has not changed.
-(rerunfilecheck)             Checksum: 132B17D63AC43607BCFE5D38E184F0AE;20165.
+(rerunfilecheck)             Checksum: 453E4D0BDE94BAE3A4996954974C4FB3;21475.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                ProposalTA
@@ -1730,12 +1757,12 @@ Package logreq Info: Writing requests to 'ProposalTA.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 45791 strings out of 474878
- 955321 string characters out of 5762515
- 2299121 words of memory out of 5000000
- 67173 multiletter control sequences out of 15000+600000
- 565037 words of font info for 96 fonts, out of 8000000 for 9000
+ 45811 strings out of 474878
+ 955703 string characters out of 5762515
+ 2437027 words of memory out of 5000000
+ 67191 multiletter control sequences out of 15000+600000
+ 565045 words of font info for 97 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  83i,14n,93p,1199b,7877s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on ProposalTA.xdv (69 pages, 1384076 bytes).
+Output written on ProposalTA.xdv (76 pages, 1557332 bytes).
