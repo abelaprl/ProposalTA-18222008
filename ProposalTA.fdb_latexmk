@@ -1,17 +1,17 @@
 # Fdb version 4
-["biber ProposalTA"] 1764951128.65014 "ProposalTA.bcf" "ProposalTA.bbl" "ProposalTA" 1764951146.27822 0
-  "ProposalTA.bcf" 1764951144.11201 213349 7640631e355c634acb7987819a75dc4b "xelatex"
+["biber ProposalTA"] 1764951167.72107 "ProposalTA.bcf" "ProposalTA.bbl" "ProposalTA" 1764951183.67998 0
+  "ProposalTA.bcf" 1764951181.91982 213199 3877379c52a99cf2c0f24ad28377367a "xelatex"
   "daftar-pustaka.bib" 1764930447.02526 10742 2fe7637d31b4894e9653ed6b613368b6 ""
   (generated)
   "ProposalTA.bbl"
   "ProposalTA.blg"
   (rewritten before read)
-["xdvipdfmx"] 1764951145.24208 "ProposalTA.xdv" "ProposalTA.pdf" "ProposalTA" 1764951146.30501 0
-  "ProposalTA.xdv" 1764951144.14103 1756852 4316ab82f8deefdb7dca38f66f4ce49a "xelatex"
+["xdvipdfmx"] 1764951182.68241 "ProposalTA.xdv" "ProposalTA.pdf" "ProposalTA" 1764951183.69871 0
+  "ProposalTA.xdv" 1764951181.94873 1757396 4536bf89af411c0e5e1571d54072ac2c "xelatex"
   (generated)
   "ProposalTA.pdf"
   (rewritten before read)
-["xelatex"] 1764951130.08846 "ProposalTA.tex" "ProposalTA.xdv" "ProposalTA" 1764951146.28326 0
+["xelatex"] 1764951169.73924 "ProposalTA.tex" "ProposalTA.xdv" "ProposalTA" 1764951183.68347 0
   "/etc/texmf/web2c/texmf.cnf" 1762933463.62717 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
@@ -239,19 +239,19 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/web2c/xetex/xelatex.fmt" 1762933535 10846519 6b1bfb4c12635fdd3916d5ea0669f58c ""
   "Bab I - Pendahuluan.tex" 1764949979.64878 12698 7d65c3790f59b4a62a2020a19d0a0474 ""
-  "Bab II - Studi-Literatur.tex" 1764951114.60303 56228 eed16bc8251772a199e00737bcd92cd2 ""
+  "Bab II - Studi-Literatur.tex" 1764951152.05697 56284 4bef642964011dc594c503c267734e07 ""
   "Bab III - Analisis-Masalah.tex" 1764941158.83997 21877 8002fd665376688b1d19546108e3240f ""
   "Bab IV - Desain-Konsep-Solusi.tex" 1764949981.39863 44141 29cbfd8eaccfdaa46c4090ceda9dcc20 ""
   "Bab V - Rencana-Selanjutnya.tex" 1764942230.11343 16676 cb016d593163623f9d7e154aae4e7bb7 ""
-  "ProposalTA.aux" 1764951143.34965 48646 d6346809785ea5ee0bb5b99a2099a025 "xelatex"
-  "ProposalTA.bbl" 1764951130.51323 57172 bd7662154596370b3e557a9d5c342461 "biber ProposalTA"
-  "ProposalTA.lof" 1764951144.1333 10913 41e2e8c02fd7f686b1ed964541d42cba "xelatex"
-  "ProposalTA.lol" 1764951144.13803 1140 49c8380bb2caccd0ac8aa92eb1d2ffde "xelatex"
-  "ProposalTA.lot" 1764951144.13594 11614 090c648296ca6d25821eac7776379057 "xelatex"
-  "ProposalTA.out" 1764951144.09849 22866 d69f9589d26014f7e62a8ae4af2c049e "xelatex"
-  "ProposalTA.run.xml" 1764951144.12737 2420 213a90b5970b004a123579c946b55427 "xelatex"
+  "ProposalTA.aux" 1764951181.09453 48374 9236d3ca1821de351447ec81ac442355 "xelatex"
+  "ProposalTA.bbl" 1764951168.97646 57172 bd7662154596370b3e557a9d5c342461 "biber ProposalTA"
+  "ProposalTA.lof" 1764951181.93983 10787 47ca234a70451f09d4b4cdf12df7fa76 "xelatex"
+  "ProposalTA.lol" 1764951181.94526 1140 49c8380bb2caccd0ac8aa92eb1d2ffde "xelatex"
+  "ProposalTA.lot" 1764951181.94283 11488 56b71f6d3b74f978f41a8eb72e2b558f "xelatex"
+  "ProposalTA.out" 1764951181.90682 22866 d69f9589d26014f7e62a8ae4af2c049e "xelatex"
+  "ProposalTA.run.xml" 1764951181.93383 2420 213a90b5970b004a123579c946b55427 "xelatex"
   "ProposalTA.tex" 1764950520.7159 18554 0a6a12e35a3855ba07d9d223d92b6e87 ""
-  "ProposalTA.toc" 1764951144.13064 21088 8065ef77c6be582f9779064c09125233 "xelatex"
+  "ProposalTA.toc" 1764951181.93683 20962 702073763b770fa9e12a376ec266be16 "xelatex"
   "image/arsitektur-transformer.png" 1764914944.54378 66645 b9c3f7ecdb3a74b3499c9b865ee707cc ""
   "image/diagram-hierarki.png" 1764934153.70682 23113 dbc1904618d3494f018194c4ec09bb0c ""
   "image/ganesha.jpg" 1762746839.26207 204312 0727b11a021a00ed8072dfbbb26b807b ""

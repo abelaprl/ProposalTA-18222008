@@ -467,3 +467,28 @@ INPUT Bab II - Studi-Literatur.tex
 INPUT ./image/arsitektur-transformer.png
 INPUT ./image/arsitektur-transformer.png
 INPUT ./image/arsitektur-transformer.png
+INPUT ./Bab III - Analisis-Masalah.tex
+INPUT ./Bab III - Analisis-Masalah.tex
+INPUT Bab III - Analisis-Masalah.tex
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
+INPUT ./Bab IV - Desain-Konsep-Solusi.tex
+INPUT ./Bab IV - Desain-Konsep-Solusi.tex
+INPUT Bab IV - Desain-Konsep-Solusi.tex
+INPUT ./image/diagram-hierarki.png
+INPUT ./image/diagram-hierarki.png
+INPUT ./image/diagram-hierarki.png
+INPUT ./Bab V - Rencana-Selanjutnya.tex
+INPUT ./Bab V - Rencana-Selanjutnya.tex
+INPUT Bab V - Rencana-Selanjutnya.tex
+INPUT ProposalTA.aux
+INPUT ./ProposalTA.out
+INPUT ./ProposalTA.out
+INPUT ProposalTA.run.xml
+OUTPUT ProposalTA.run.xml
