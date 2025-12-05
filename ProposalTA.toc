@@ -1,4 +1,8 @@
 \babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
 \contentsline {chapter}{DAFTAR GAMBAR}{v}{figure.caption.1}%
 \contentsline {chapter}{DAFTAR TABEL}{vi}{figure.caption.1}%
 \contentsline {chapter}{\centering \normalsize DAFTAR KODE}{vii}{chapter*.2}%
@@ -57,7 +61,95 @@
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\contentsline {section}{\numberline {II.2}Persona dalam Interaksi Model Bahasa}{9}{section.2.2}%
+\contentsline {subsection}{\numberline {II.1.2}Arsitektur Transformer}{9}{subsection.2.1.2}%
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\contentsline {subsubsection}{\numberline {II.1.2.1}Mekanisme Self-Attention}{10}{subsubsection.2.1.2.1}%
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\contentsline {subsubsection}{\numberline {II.1.2.2}Multi-Head Attention dan Layer-Wise Representations}{11}{subsubsection.2.1.2.2}%
+\contentsline {subsubsection}{\numberline {II.1.2.3}Positional Encoding dan Bias Struktural}{11}{subsubsection.2.1.2.3}%
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\contentsline {subsubsection}{\numberline {II.1.2.4}Feed-Forward Networks, Residual Connection, dan Layer Normalization}{12}{subsubsection.2.1.2.4}%
+\contentsline {subsection}{\numberline {II.1.3}Pelatihan dan Inferensi}{12}{subsection.2.1.3}%
+\contentsline {subsubsection}{\numberline {II.1.3.1}Teacher Forcing dan Exposure Bias}{13}{subsubsection.2.1.3.1}%
+\contentsline {subsubsection}{\numberline {II.1.3.2}Training–Inference Mismatch}{13}{subsubsection.2.1.3.2}%
+\contentsline {subsubsection}{\numberline {II.1.3.3}Strategi Decoding dan Dampaknya pada Pola Keluaran}{13}{subsubsection.2.1.3.3}%
+\contentsline {subsubsection}{\numberline {II.1.3.4}Implikasi Terhadap Pengaruh Persona}{14}{subsubsection.2.1.3.4}%
+\contentsline {subsection}{\numberline {II.1.4}Sumber Bias dalam LLM}{14}{subsection.2.1.4}%
+\contentsline {subsubsection}{\numberline {II.1.4.1}Bias Berbasis Data}{15}{subsubsection.2.1.4.1}%
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\contentsline {subsubsection}{\numberline {II.1.4.2}Bias Struktural}{15}{subsubsection.2.1.4.2}%
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\contentsline {subsubsection}{\numberline {II.1.4.3}Bias Objektif Pelatihan}{15}{subsubsection.2.1.4.3}%
+\contentsline {subsubsection}{\numberline {II.1.4.4}Bias Alignment}{16}{subsubsection.2.1.4.4}%
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\contentsline {section}{\numberline {II.2}Persona sebagai Konstruksi Linguistik dalam Interaksi LLM}{16}{section.2.2}%
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\contentsline {subsection}{\numberline {II.2.1}Definisi Persona dalam Konteks Model Bahasa}{17}{subsection.2.2.1}%
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\contentsline {subsection}{\numberline {II.2.2}Mekanisme Persona dalam Model Autoregresif}{17}{subsection.2.2.2}%
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\contentsline {subsection}{\numberline {II.2.3}Klasifikasi Persona dalam Literatur}{18}{subsection.2.2.3}%
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\contentsline {subsubsection}{\numberline {II.2.3.1}Persona eksplisit}{19}{subsubsection.2.2.3.1}%
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\contentsline {subsubsection}{\numberline {II.2.3.2}Persona implisit melalui gaya tutur}{19}{subsubsection.2.2.3.2}%
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\contentsline {subsubsection}{\numberline {II.2.3.3}Persona netral}{19}{subsubsection.2.2.3.3}%
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\contentsline {subsection}{\numberline {II.2.4}Persona sebagai Variabel Eksperimental dalam Penelitian Ini}{20}{subsection.2.2.4}%
+\contentsline {subsubsection}{\numberline {II.2.4.1}Konfigurasi persona dan dimensi identitas}{20}{subsubsection.2.2.4.1}%
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\contentsline {subsubsection}{\numberline {II.2.4.2}Integrasi persona dalam pipeline eksperimen}{20}{subsubsection.2.2.4.2}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
@@ -72,62 +164,56 @@
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\contentsline {section}{\numberline {II.3}Pengaruh Persona terhadap Perilaku LLM}{10}{section.2.3}%
-\contentsline {subsection}{\numberline {II.3.1}Pengaruh Persona terhadap Penalaran}{10}{subsection.2.3.1}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
+\contentsline {subsubsection}{\numberline {II.2.4.3}Kontrol struktur prompt dan pengaruh framing}{21}{subsubsection.2.2.4.3}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\contentsline {subsection}{\numberline {II.3.2}Pengaruh Persona terhadap Gaya Respons}{11}{subsection.2.3.2}%
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\contentsline {subsection}{\numberline {II.3.3}Faktor yang Memengaruhi Efek Persona}{11}{subsection.2.3.3}%
-\contentsline {section}{\numberline {II.4}Bias dalam Respons LLM}{11}{section.2.4}%
-\contentsline {subsection}{\numberline {II.4.1}Bentuk-bentuk Bias}{11}{subsection.2.4.1}%
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\contentsline {subsection}{\numberline {II.4.2}Dampak Bias terhadap Keluaran}{12}{subsection.2.4.2}%
-\contentsline {subsection}{\numberline {II.4.3}Kaitannya dengan Persona}{12}{subsection.2.4.3}%
+\contentsline {subsection}{\numberline {II.2.5}Efek Persona terhadap Keluaran Model}{21}{subsection.2.2.5}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\contentsline {section}{\numberline {II.5}Evaluasi Penalaran dan Benchmark}{13}{section.2.5}%
-\contentsline {subsection}{\numberline {II.5.1}GSM8K}{13}{subsection.2.5.1}%
+\contentsline {subsubsection}{\numberline {II.2.5.1}Pergeseran register dan gaya respons}{22}{subsubsection.2.2.5.1}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\contentsline {subsection}{\numberline {II.5.2}MMLU-Redux}{13}{subsection.2.5.2}%
+\contentsline {subsubsection}{\numberline {II.2.5.2}Perubahan struktur penjelasan}{22}{subsubsection.2.2.5.2}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\contentsline {subsection}{\numberline {II.5.3}Tantangan Evaluasi Berbasis Persona}{14}{subsection.2.5.3}%
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\contentsline {section}{\numberline {II.6}Penelitian Terdahulu dan Kesenjangan Penelitian}{14}{section.2.6}%
-\contentsline {subsection}{\numberline {II.6.1}Ringkasan Literatur Terkait}{14}{subsection.2.6.1}%
+\contentsline {subsubsection}{\numberline {II.2.5.3}Modifikasi jalur reasoning}{22}{subsubsection.2.2.5.3}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
+\contentsline {subsubsection}{\numberline {II.2.5.4}Implikasi terhadap evaluasi model}{23}{subsubsection.2.2.5.4}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\contentsline {subsection}{\numberline {II.6.2}Keterbatasan Penelitian Sebelumnya}{15}{subsection.2.6.2}%
-\contentsline {subsection}{\numberline {II.6.3}Posisi dan Kontribusi Penelitian Ini}{15}{subsection.2.6.3}%
-\contentsline {chapter}{\numberline {III}ANALISIS MASALAH}{16}{chapter.3}%
-\contentsline {section}{\numberline {III.1}Analisis Kondisi Saat Ini}{16}{section.3.1}%
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
+\contentsline {section}{\numberline {II.3}Evaluasi Benchmark}{23}{section.2.3}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
+\contentsline {subsection}{\numberline {II.3.1}GSM8K}{24}{subsection.2.3.1}%
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\contentsline {subsection}{\numberline {II.3.2}MMLU-Redux}{24}{subsection.2.3.2}%
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\contentsline {subsection}{\numberline {II.3.3}Tantangan Evaluasi Berbasis Persona}{24}{subsection.2.3.3}%
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\contentsline {section}{\numberline {II.4}Penelitian Terdahulu dan Kesenjangan Penelitian}{25}{section.2.4}%
+\contentsline {subsection}{\numberline {II.4.1}Ringkasan Literatur Terkait}{25}{subsection.2.4.1}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
@@ -142,55 +228,16 @@
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
+\contentsline {subsection}{\numberline {II.4.2}Keterbatasan Penelitian Sebelumnya}{26}{subsection.2.4.2}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
+\contentsline {subsection}{\numberline {II.4.3}Posisi dan Kontribusi Penelitian Ini}{27}{subsection.2.4.3}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\contentsline {section}{\numberline {III.2}Analisis Kebutuhan}{19}{section.3.2}%
-\contentsline {subsection}{\numberline {III.2.1}Identifikasi Masalah Pengguna}{19}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {III.2.2}Kebutuhan Fungsional}{19}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {III.2.3}Kebutuhan Nonfungsional}{20}{subsection.3.2.3}%
-\contentsline {section}{\numberline {III.3}Analisis Pemilihan Solusi}{21}{section.3.3}%
-\contentsline {subsection}{\numberline {III.3.1}Alternatif Solusi}{21}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {III.3.2}Analisis Penentuan Solusi}{22}{subsection.3.3.2}%
-\contentsline {chapter}{\numberline {IV}DESAIN KONSEP SOLUSI}{24}{chapter.4}%
-\contentsline {section}{\numberline {IV.1}Desain Konseptual Eksperimen}{24}{section.4.1}%
-\contentsline {subsection}{\numberline {IV.1.1}Tujuan Perancangan Eksperimen}{24}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {IV.1.2}Komponen Utama Eksperimen}{24}{subsection.4.1.2}%
-\contentsline {subsection}{\numberline {IV.1.3}Prinsip Pengendalian Variabel}{25}{subsection.4.1.3}%
-\contentsline {subsection}{\numberline {IV.1.4}Ruang Konfigurasi}{25}{subsection.4.1.4}%
-\contentsline {subsection}{\numberline {IV.1.5}Keterkaitan dengan Pelaksanaan Eksperimen}{25}{subsection.4.1.5}%
-\contentsline {section}{\numberline {IV.2}Arsitektur \textit {Evaluation Pipeline} dan Alur Pelaksanaan Eksperimen}{25}{section.4.2}%
-\contentsline {subsection}{\numberline {IV.2.1}Arsitektur Alur Kerja Sistem}{26}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {IV.2.2}Algoritma Orkestrasi dan Konkurensi}{27}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {IV.2.3}Mekanisme Injeksi Konteks Persona}{28}{subsection.4.2.3}%
-\contentsline {subsection}{\numberline {IV.2.4}Alur Operasional Pelaksanaan Eksperimen}{29}{subsection.4.2.4}%
-\contentsline {section}{\numberline {IV.3}Integrasi Komponen Eksperimen}{31}{section.4.3}%
-\contentsline {subsection}{\numberline {IV.3.1}Benchmark Penalaran}{31}{subsection.4.3.1}%
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\babel@toc {english}{}\relax 
-\babel@toc {indonesian}{}\relax 
-\contentsline {subsection}{\numberline {IV.3.2}Himpunan Model}{32}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {IV.3.3}Struktur Persona}{32}{subsection.4.3.3}%
-\contentsline {subsection}{\numberline {IV.3.4}Struktur Konfigurasi Eksperimen}{33}{subsection.4.3.4}%
-\contentsline {subsection}{\numberline {IV.3.5}Contoh Mekanisme Injeksi Persona}{33}{subsection.4.3.5}%
-\contentsline {section}{\numberline {IV.4}Perancangan Data dan Struktur Berkas}{34}{section.4.4}%
-\contentsline {section}{\numberline {IV.5}Penanganan Gangguan dan Pemulihan \textit {Execution Flow}}{35}{section.4.5}%
-\contentsline {section}{\numberline {IV.6}Implementasi Keluaran Pipeline}{36}{section.4.6}%
-\contentsline {subsection}{\numberline {IV.6.1}Contoh Struktur Log Inferensi}{36}{subsection.4.6.1}%
-\contentsline {subsection}{\numberline {IV.6.2}Contoh Struktur Log dengan Reasoning Trace}{37}{subsection.4.6.2}%
-\contentsline {subsection}{\numberline {IV.6.3}Ringkasan Hasil Eksperimen}{38}{subsection.4.6.3}%
-\contentsline {chapter}{\numberline {V}RENCANA SELANJUTNYA}{39}{chapter.5}%
-\contentsline {section}{\numberline {V.1}Rencana Implementasi dan Estimasi Biaya}{39}{section.5.1}%
-\contentsline {subsection}{\numberline {V.1.1}Rencana Implementasi Eksperimen}{39}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {V.1.2}Himpunan Model dan Skenario Eksekusi}{40}{subsection.5.1.2}%
-\contentsline {subsection}{\numberline {V.1.3}Asumsi Jumlah Soal dan Kebutuhan Token}{40}{subsection.5.1.3}%
-\contentsline {subsection}{\numberline {V.1.4}Estimasi Biaya per Model}{41}{subsection.5.1.4}%
+\contentsline {chapter}{\numberline {III}ANALISIS MASALAH}{28}{chapter.3}%
+\contentsline {section}{\numberline {III.1}Analisis Kondisi Saat Ini}{28}{section.3.1}%
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
@@ -203,8 +250,85 @@
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
-\contentsline {section}{\numberline {V.2}Desain Pengujian dan Evaluasi}{42}{section.5.2}%
-\contentsline {section}{\numberline {V.3}Analisis Risiko dan Mitigasi}{44}{section.5.3}%
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\contentsline {section}{\numberline {III.2}Analisis Kebutuhan}{31}{section.3.2}%
+\contentsline {subsection}{\numberline {III.2.1}Identifikasi Masalah Pengguna}{31}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {III.2.2}Kebutuhan Fungsional}{31}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {III.2.3}Kebutuhan Nonfungsional}{32}{subsection.3.2.3}%
+\contentsline {section}{\numberline {III.3}Analisis Pemilihan Solusi}{33}{section.3.3}%
+\contentsline {subsection}{\numberline {III.3.1}Alternatif Solusi}{33}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {III.3.2}Analisis Penentuan Solusi}{34}{subsection.3.3.2}%
+\contentsline {chapter}{\numberline {IV}DESAIN KONSEP SOLUSI}{36}{chapter.4}%
+\contentsline {section}{\numberline {IV.1}Desain Konseptual Eksperimen}{36}{section.4.1}%
+\contentsline {subsection}{\numberline {IV.1.1}Tujuan Perancangan Eksperimen}{36}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {IV.1.2}Komponen Utama Eksperimen}{36}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {IV.1.3}Prinsip Pengendalian Variabel}{37}{subsection.4.1.3}%
+\contentsline {subsection}{\numberline {IV.1.4}Ruang Konfigurasi}{37}{subsection.4.1.4}%
+\contentsline {subsection}{\numberline {IV.1.5}Keterkaitan dengan Pelaksanaan Eksperimen}{37}{subsection.4.1.5}%
+\contentsline {section}{\numberline {IV.2}Arsitektur \textit {Evaluation Pipeline} dan Alur Pelaksanaan Eksperimen}{37}{section.4.2}%
+\contentsline {subsection}{\numberline {IV.2.1}Arsitektur Alur Kerja Sistem}{38}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {IV.2.2}Algoritma Orkestrasi dan Konkurensi}{39}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {IV.2.3}Mekanisme Injeksi Konteks Persona}{40}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {IV.2.4}Alur Operasional Pelaksanaan Eksperimen}{41}{subsection.4.2.4}%
+\contentsline {section}{\numberline {IV.3}Integrasi Komponen Eksperimen}{43}{section.4.3}%
+\contentsline {subsection}{\numberline {IV.3.1}Benchmark Penalaran}{43}{subsection.4.3.1}%
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\contentsline {subsection}{\numberline {IV.3.2}Himpunan Model}{44}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {IV.3.3}Struktur Persona}{44}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {IV.3.4}Struktur Konfigurasi Eksperimen}{45}{subsection.4.3.4}%
+\contentsline {subsection}{\numberline {IV.3.5}Contoh Mekanisme Injeksi Persona}{45}{subsection.4.3.5}%
+\contentsline {section}{\numberline {IV.4}Perancangan Data dan Struktur Berkas}{46}{section.4.4}%
+\contentsline {section}{\numberline {IV.5}Penanganan Gangguan dan Pemulihan \textit {Execution Flow}}{47}{section.4.5}%
+\contentsline {section}{\numberline {IV.6}Implementasi Keluaran Pipeline}{48}{section.4.6}%
+\contentsline {subsection}{\numberline {IV.6.1}Contoh Struktur Log Inferensi}{48}{subsection.4.6.1}%
+\contentsline {subsection}{\numberline {IV.6.2}Contoh Struktur Log dengan Reasoning Trace}{49}{subsection.4.6.2}%
+\contentsline {subsection}{\numberline {IV.6.3}Ringkasan Hasil Eksperimen}{50}{subsection.4.6.3}%
+\contentsline {chapter}{\numberline {V}RENCANA SELANJUTNYA}{51}{chapter.5}%
+\contentsline {section}{\numberline {V.1}Rencana Implementasi dan Estimasi Biaya}{51}{section.5.1}%
+\contentsline {subsection}{\numberline {V.1.1}Rencana Implementasi Eksperimen}{51}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {V.1.2}Himpunan Model dan Skenario Eksekusi}{52}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {V.1.3}Asumsi Jumlah Soal dan Kebutuhan Token}{52}{subsection.5.1.3}%
+\contentsline {subsection}{\numberline {V.1.4}Estimasi Biaya per Model}{53}{subsection.5.1.4}%
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\contentsline {section}{\numberline {V.2}Desain Pengujian dan Evaluasi}{54}{section.5.2}%
+\contentsline {section}{\numberline {V.3}Analisis Risiko dan Mitigasi}{56}{section.5.3}%
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {indonesian}{}\relax 
 \babel@toc {english}{}\relax 

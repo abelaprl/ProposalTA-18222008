@@ -7,13 +7,13 @@
 
 \section{Large Language Models}
 
-\textit{Large language models} merupakan fondasi utama dari sistem generatif modern yang digunakan dalam penelitian ini. Perkembangan model berskala besar seperti GPT-3 yang diperkenalkan oleh \textcite{brown2020language} menunjukkan bahwa peningkatan kapasitas model dan jumlah data pelatihan secara signifikan meningkatkan kemampuan representasi serta menghasilkan fenomena emergen seperti pemahaman instruksi dan kemampuan menghasilkan penalaran eksplisit. 
+\textit{Large language models} merupakan fondasi utama dari sistem generatif modern yang digunakan dalam penelitian ini. Perkembangan model berskala besar seperti GPT-3 yang diperkenalkan oleh \textcite{brown2020language} menunjukkan bahwa peningkatan kapasitas model dan jumlah data pelatihan secara signifikan meningkatkan kemampuan representasi serta menghasilkan keluaran yang semakin selaras dengan instruksi dan lebih terstruktur pada berbagai tugas pemrosesan bahasa.
 
 Pemahaman terhadap mekanisme internal \textit{large language models} menjadi penting dalam konteks penelitian ini karena perilaku persona dan variasi penalaran yang diamati merupakan konsekuensi langsung dari sifat probabilistik, struktur arsitektural, dan tujuan pelatihan model. Model bahasa tidak melakukan penalaran simbolik, melainkan mempelajari distribusi token dari data dan menghasilkan keluaran melalui estimasi probabilitas token berikutnya. Dengan demikian, fenomena seperti pergeseran gaya respons, koherensi argumen, atau sensitivitas terhadap persona berakar pada mekanisme internal tersebut.
 
 Selain itu, model berskala besar membawa bias yang terdapat dalam data pelatihan. Analisis oleh \textcite{bender2021stochastic} menunjukkan bahwa data berukuran sangat besar yang tidak terkurasi dapat merepresentasikan ketidakseimbangan sosial, kultur, dan bahasa. Konsekuensinya, \textit{large language models} dapat menginternalisasi dan mereproduksi bias tersebut. Pemahaman mengenai dasar matematis dan arsitektural menjadi penting untuk menjelaskan bagaimana bias tersebut muncul serta bagaimana persona dapat mengubah pola keluaran model.
 
-Subbagian berikut membahas dasar matematis dari pemodelan bahasa autoregresif sebagai komponen fundamental dari sebagian besar \textit{large language models}.
+Subbagian berikut membahas dasar matematis dari \textit{autoregressive language modeling} sebagai komponen fundamental dari sebagian besar \textit{large language models}.
 
 \subsection{Autoregressive Language Modeling}
 
@@ -22,7 +22,6 @@ Subbagian berikut membahas dasar matematis dari pemodelan bahasa autoregresif se
 \subsubsection{Formulasi Probabilistik dan Next-Token Prediction}
 
 Pada \textit{autoregressive language modeling}, probabilitas urutan token $x_1, x_2, \dots, x_T$ difaktorisasi menjadi
-
 \begin{equation}
 p(x_1, x_2, \dots, x_T)
 =
@@ -34,9 +33,9 @@ Pendekatan ini diperkenalkan oleh \textcite{bengio2003nlm} dan menjadi fondasi b
 
 Distribusi token dihitung melalui fungsi softmax atas nilai logit yang dihasilkan oleh model. Karena fungsi softmax bersifat sensitif terhadap perbedaan kecil pada logit, perubahan kecil pada hidden state akibat instruksi persona dapat menghasilkan pergeseran yang signifikan dalam distribusi probabilitas token berikutnya. Dengan demikian, efek persona muncul sebagai fenomena matematis berupa perubahan representasi konteks yang memodulasi arah prediksi token.
 
-\textcite{brown2020language} menunjukkan bahwa model berskala besar mampu menampilkan pola respons yang mengikuti struktur instruksi pengguna. Dalam instruction following, model menghasilkan keluaran yang konsisten dengan pola instruksi dalam data pelatihan. Struktur respons yang mengikuti instruksi tercapai karena model mempelajari hubungan statistik antara bentuk perintah dan rentang respons yang berasosiasi dengannya.
+\textcite{brown2020language} menunjukkan bahwa model berskala besar mampu menampilkan pola respons yang mengikuti struktur instruksi pengguna. Dalam \textit{instruction following}, model menghasilkan keluaran yang konsisten dengan pola instruksi dalam data pelatihan. Struktur respons yang mengikuti instruksi tercapai karena model mempelajari hubungan statistik antara bentuk perintah dan rentang respons yang berasosiasi dengannya.
 
-Model juga menghasilkan rangkaian token yang tampak sebagai penjelasan berurutan ketika diberikan tugas tertentu. Pada contextual reasoning, urutan token yang dihasilkan membentuk struktur langkah-langkah yang selaras dengan konteks sebelumnya. Struktur ini muncul dari kecocokan probabilistik antartoken dalam embedding space dan tidak bergantung pada mekanisme penalaran eksplisit. Token dipilih berdasarkan kedekatannya secara distribusional terhadap konteks, sehingga rangkaian yang terbentuk tampak menyerupai penalaran.
+Model juga menghasilkan rangkaian token yang tampak sebagai penjelasan berurutan ketika diberikan tugas tertentu. Pada \textit{contextual reasoning}, urutan token yang dihasilkan membentuk struktur langkah-langkah yang selaras dengan konteks sebelumnya. Struktur ini muncul dari kecocokan probabilistik antartoken dalam embedding space dan tidak bergantung pada mekanisme penalaran eksplisit. Token dipilih berdasarkan kedekatannya secara distribusional terhadap konteks, sehingga rangkaian yang terbentuk tampak menyerupai penalaran.
 
 Efek persona terhadap distribusi token dapat diilustrasikan melalui pergeseran embedding cluster. Instruksi persona dengan gaya formal menghasilkan hidden state yang memberi skor logit lebih tinggi bagi token dengan register formal, sehingga token tersebut menjadi lebih mungkin muncul. Sebaliknya, persona santai menghasilkan distribusi yang memberi preferensi terhadap token informal. Pergeseran ini terjadi pada level representasi, bukan pada perubahan struktur arsitektural.
 
@@ -45,7 +44,6 @@ Selain itu, proses inferensi bersifat autoregresif dan tidak menggunakan token b
 \subsubsection{Cross-Entropy Loss dan Implikasi Pelatihan}
 
 Model dilatih dengan mengoptimalkan \textit{cross-entropy loss}, yang mengukur seberapa baik distribusi prediksi model mendekati distribusi token benar dalam data. Objektif ini diformulasikan sebagai
-
 \begin{equation}
 \mathcal{L}
 =
@@ -53,130 +51,295 @@ Model dilatih dengan mengoptimalkan \textit{cross-entropy loss}, yang mengukur s
 \label{eq:cross-entropy-loss}
 \end{equation}
 
-Sebagaimana dijelaskan oleh \textcite{goodfellow2016deep}, optimasi terhadap cross-entropy loss mendorong model untuk menyesuaikan parameter sehingga meningkatkan probabilitas token yang benar. Pelatihan ini tidak dirancang untuk mengoptimalkan koherensi semantik atau struktur argumentatif, melainkan untuk meniru distribusi token dalam corpus pelatihan.
+Sebagaimana dijelaskan oleh \textcite{goodfellow2016deep}, optimasi terhadap \textit{cross-entropy loss} mendorong model untuk menyesuaikan parameter sehingga meningkatkan probabilitas token yang benar. Pelatihan ini tidak dirancang untuk mengoptimalkan koherensi semantik atau struktur argumentatif, melainkan untuk meniru distribusi token dalam corpus pelatihan.
 
 Konsekuensi penting dari pendekatan ini adalah terinternalisasinya bias distribusional yang terdapat dalam data pelatihan. \textcite{bender2021stochastic} menunjukkan bahwa corpus berskala besar sering kali memuat ketidakseimbangan representasi linguistik dan sosial. Karena model melakukan estimasi probabilitas berdasarkan pola distribusional tersebut, bias yang tertanam dalam data dapat muncul kembali dalam keluaran model.
 
 Sensitivitas mekanisme autoregresif terhadap konteks awal memperkuat pengaruh persona. Instruksi persona yang muncul pada bagian awal masukan membentuk hidden state awal dan memodulasi jalur prediksi token, sehingga menghasilkan perbedaan konsisten dalam gaya argumentasi, tingkat ketegasan, dan struktur penjelasan meskipun instruksi utamanya sama. Fenomena ini menjadi landasan bagi penelitian ini dalam mengevaluasi bagaimana persona mempengaruhi keluaran model dan persepsi pengguna.
 
+\subsection{Arsitektur Transformer}
 
-%======================== gajadi dipake
+Arsitektur Transformer merupakan dasar bagi sebagian besar \textit{large language models} modern. Arsitektur ini dirancang untuk memproses urutan secara efisien melalui mekanisme \textit{self-attention}, yang memungkinkan model membentuk representasi konteks secara global tanpa hambatan ketergantungan sekuensial. Mekanisme ini memiliki peran penting dalam menentukan bagaimana informasi mengalir di dalam model, bagaimana representasi konteks diperbarui di setiap lapisan, serta bagaimana instruksi persona memodulasi distribusi token selama proses prediksi. Secara ringkas, struktur komponen utama Transformer ditunjukkan pada Gambar~\ref{fig:transformer-architecture}.
 
-% --2.2 Persona dalam Interaksi Model Bahasa --
-\section{Persona dalam Interaksi Model Bahasa}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{image/arsitektur-transformer.png}
+    \caption{Struktur umum arsitektur Transformer sebagaimana dijelaskan oleh \textcite{vaswani2017attention}. Gambar ini menunjukkan aliran informasi melalui mekanisme attention, multi-head integration, \textit{positional encoding}, feed-forward block, residual connection, dan layer normalization pada setiap lapisan.}
+    \label{fig:transformer-architecture}
+\end{figure}
 
-Persona dalam konteks LLM merujuk pada karakteristik identitas yang tercermin melalui cara seseorang menulis atau berkomunikasi. Ciri ini dapat berupa pilihan kosakata, tingkat formalitas, struktur kalimat, atau pola penyampaian informasi. Dalam komunikasi manusia, perbedaan persona membantu lawan bicara menafsirkan maksud dan menyesuaikan respons. Hal serupa juga terjadi pada LLM karena model belajar dari data yang memuat berbagai gaya komunikasi \parencite{tseng2024twotales}.
+\subsubsection{Mekanisme Self-Attention}
 
-Dalam interaksi dengan LLM, persona dapat muncul dalam dua bentuk, yaitu eksplisit dan implisit. Persona eksplisit muncul ketika identitas disebutkan secara langsung, seperti “Sebagai mahasiswa teknik informatika…”. Informasi seperti ini memberikan sinyal identitas yang jelas sehingga model dapat menyesuaikan gaya atau struktur jawaban. Gupta \parencite{gupta2024biasrunsdeep} menunjukkan bahwa penugasan persona eksplisit dapat menghasilkan bentuk penalaran yang berbeda meskipun tugas yang diberikan sama.
+Mekanisme \textit{self-attention} menghitung hubungan antartoken melalui representasi query, key, dan value yang diproyeksikan dari token masukan. Formulasi ini dijelaskan oleh \textcite{vaswani2017attention} sebagai
+\begin{equation}
+\text{Attention}(Q, K, V)
+=
+\text{softmax}\left(
+\frac{QK^{T}}{\sqrt{d_k}}
+\right)V,
+\label{eq:self-attention}
+\end{equation}
+di mana $d_k$ adalah dimensi key. Operasi ini memberikan bobot perhatian berdasarkan kecocokan distribusional antara query dan key. Bobot tersebut mengatur kontribusi value dalam pembentukan representasi token, sehingga token dengan relevansi lebih tinggi terhadap konteks akan memiliki pengaruh lebih besar.
 
-Persona implisit muncul ketika model menyimpulkan identitas pengguna dari gaya penulisan tanpa adanya pernyataan langsung. Misalnya, gaya formal sering diasosiasikan dengan konteks akademis, sedangkan gaya santai lebih banyak ditemukan pada percakapan sehari-hari. Ketika pola tertentu muncul dalam instruksi, model dapat menafsirkannya sebagai identitas tertentu dan menyesuaikan jawabannya. Tseng \parencite{tseng2024twotales} menunjukkan bahwa inferensi identitas seperti ini dapat terjadi hanya dari perbedaan pola bahasa.
+Fungsi softmax yang digunakan pada perhatian sensitif terhadap variasi kecil pada nilai logit, sehingga perubahan kecil pada hidden state awal—seperti akibat instruksi persona—dapat menghasilkan perubahan nontrivial pada bobot perhatian. Dengan demikian, persona mempengaruhi jalur informasi sejak lapisan pertama dengan memodifikasi representasi konteks yang digunakan untuk membangun distribusi token selanjutnya.
 
-Persona dapat memengaruhi dua aspek utama dalam respons model. Pertama, bentuk jawaban. Variasi persona dapat mengubah panjang penjelasan, pilihan kosakata, atau tingkat formalitas. Model cenderung menyesuaikan gaya jawaban agar sesuai dengan persona yang muncul pada instruksi.
+\subsubsection{Multi-Head Attention dan Layer-Wise Representations}
 
-Kedua, penalaran. Karena LLM peka terhadap formulasi instruksi \parencite{zhou2023largemodelsensitive} dan dapat menghasilkan langkah penalaran yang berbeda meskipun tugasnya sama \parencite{turpin2023language}, perubahan persona dapat memicu variasi dalam cara model mencapai kesimpulan. Persona tertentu dapat membuat model menyusun penalaran yang lebih panjang atau lebih berhati-hati, sedangkan persona lain dapat menghasilkan penalaran yang lebih ringkas.
+Komponen \textit{multi-head attention} memperluas mekanisme perhatian dengan memproses beberapa proyeksi query, key, dan value secara paralel. Setiap head mempelajari pola ketergantungan yang berbeda dalam urutan, seperti hubungan sintaktis, asosiasi semantik, koherensi wacana, atau struktur respons yang berulang dalam data pelatihan.
 
-Penelitian mengenai bias juga menunjukkan bahwa persona dapat berinteraksi dengan pola sosial yang dipelajari model. Weidinger \parencite{weidinger2021ethical} menunjukkan bahwa model dapat memperlakukan persona tertentu secara berbeda jika pola tersebut sering muncul dalam data pelatihan. Dalam beberapa situasi, persona dapat menggeser preferensi model dalam memilih sudut pandang atau jenis penjelasan yang diberikan \parencite{gupta2024biasrunsdeep}.
+Representasi yang dihasilkan oleh setiap head kemudian digabungkan untuk membentuk layer-wise representations, yaitu representasi token yang diperbarui di setiap lapisan berdasarkan kombinasi informasi dari seluruh head. Lapisan-lapisan Transformer menyusun hierarchical representations yang semakin kaya, karena representasi pada lapisan berikutnya memanfaatkan konteks yang telah diperkaya oleh lapisan sebelumnya.
 
-Persona bukan sekadar tambahan informasi dalam instruksi, tetapi merupakan bagian dari konteks yang dipertimbangkan model ketika membentuk jawaban. Karena persona dapat mengubah gaya maupun penalaran model, analisis pengaruh persona menjadi penting untuk memahami konsistensi respons LLM pada kondisi identitas pengguna yang berbeda.
+Dalam konteks persona, modifikasi kecil pada hidden state awal dapat memengaruhi sensitivitas head tertentu terhadap pola bahasa tertentu. Sebagai contoh, persona formal dapat memperkuat kontribusi head yang secara statistik lebih sering terkait dengan struktur kalimat baku, sedangkan persona santai dapat menggeser perhatian ke pola yang lebih percakapan. Efek ini terpropagasi sepanjang lapisan dan berdampak langsung pada distribusi logit yang menentukan token berikutnya.
 
-% -- 2.3 Pengaruh Persona terhadap Perilaku LLM --
-\section{Pengaruh Persona terhadap Perilaku LLM}
+\subsubsection{Positional Encoding dan Bias Struktural}
 
-Persona dapat memengaruhi cara LLM memahami instruksi dan menghasilkan jawaban. Efek ini muncul karena model belajar dari data pelatihan yang berisi berbagai gaya bahasa dan situasi komunikasi. Ketika instruksi ditulis dengan gaya tertentu, model dapat menafsirkannya sebagai sinyal identitas dan menyesuaikan cara menjawab.
+Karena \textit{self-attention} tidak mengandung informasi posisi secara inheren, Transformer menggunakan \textit{positional encoding} untuk menggabungkan informasi urutan ke dalam representasi token. Encoding ini memastikan bahwa model dapat membedakan token berdasarkan posisinya, yang penting untuk menjaga struktur urutan bahasa.
 
-\subsection{Pengaruh Persona terhadap Penalaran}
+Kajian oleh \textcite{liu2024lost} menunjukkan bahwa penggunaan \textit{positional encoding} dan struktur perhatian menyebabkan beberapa bias struktural, termasuk:
+\begin{itemize}
+    \item \textit{recency bias}, yaitu kecenderungan model memberi bobot perhatian lebih besar pada token yang muncul di akhir konteks,
+    \item \textit{positional bias}, yakni sensitivitas yang berbeda terhadap token di posisi tertentu,
+    \item penurunan pemanfaatan informasi pada bagian tengah urutan (\textit{lost in the middle}).
+\end{itemize}
 
-Penelitian menunjukkan bahwa langkah penalaran LLM tidak selalu konsisten. Gupta \parencite{gupta2024biasrunsdeep} menemukan bahwa menambahkan persona eksplisit ke dalam instruksi dapat membuat model menghasilkan penalaran yang berbeda meskipun tugasnya sama. Perbedaan ini dapat terlihat pada urutan penjelasan, tingkat kehati-hatian, atau cara model menyusun argumen.
+Bias ini relevan terhadap fenomena persona karena instruksi persona biasanya berada di awal konteks. Representasi awal tersebut tetap berpengaruh kuat terhadap representasi selanjutnya meskipun bagian lain dari urutan berada lebih jauh.
 
-Pada persona implisit, perubahan penalaran muncul dari hal-hal yang lebih halus, seperti pilihan kata atau tingkat formalitas. Instruksi dengan gaya formal sering membuat model memberikan penjelasan yang lebih terstruktur. Sebaliknya, gaya penulisan yang santai dapat memicu jawaban yang lebih ringkas. Temuan Turpin \parencite{turpin2023language} menunjukkan bahwa perubahan kecil pada formulasi instruksi dapat mengubah langkah penalaran yang dihasilkan model. Kondisi ini membuat persona menjadi salah satu faktor yang dapat memicu perbedaan tersebut.
 
-\subsection{Pengaruh Persona terhadap Gaya Respons}
 
-Selain penalaran, persona juga memengaruhi cara model menyampaikan jawaban. Tseng \parencite{tseng2024twotales} menunjukkan bahwa model dapat menyesuaikan gaya bahasa meskipun identitas pengguna tidak disebutkan secara langsung. Efek ini dapat terlihat dari panjang kalimat, tingkat formalitas, atau nada penjelasan.
 
-Jika model mengaitkan persona tertentu dengan konteks profesional, respons yang diberikan cenderung lebih sistematis dan terstruktur. Sebaliknya, pada persona yang diasosiasikan dengan percakapan santai, jawaban yang muncul biasanya lebih singkat dan langsung.
+\subsubsection{Feed-Forward Networks, Residual Connection, dan Layer Normalization}
 
-\subsection{Faktor yang Memengaruhi Efek Persona}
+Setiap lapisan Transformer mencakup feed-forward block yang menerapkan transformasi nonlinier pada setiap representasi token. Komponen ini memperkaya representasi dengan menambahkan nonlinieritas dan meningkatkan kapasitas model untuk mempelajari pola yang lebih kompleks.
 
-Pengaruh persona dapat menjadi lebih kuat ketika framing instruksi konsisten. Selain itu, jenis tugas juga berperan. Pada tugas yang lebih terbuka, seperti skenario sosial, efek persona cenderung lebih terlihat dibandingkan pada tugas yang memiliki jawaban pasti. Ukuran dan kapasitas model juga memengaruhi sejauh mana persona berdampak terhadap respons. Model yang lebih besar umumnya lebih sensitif terhadap variasi gaya bahasa.
+Residual connection memungkinkan informasi dari lapisan sebelumnya tetap dipertahankan dan membantu stabilitas propagasi sinyal di sepanjang jaringan. Layer normalization menjaga distribusi aktivasi tetap stabil selama pelatihan, sehingga setiap lapisan dapat membentuk representasi token yang konsisten dan dapat diprediksi.
 
-% -- 2.4 Bias dalam Respons LLM --
-\section{Bias dalam Respons LLM}
+Interaksi antara feed-forward block, residual connection, dan layer normalization membentuk hierarchical representations yang digunakan untuk menghitung skor logit pada setiap langkah prediksi token. Modifikasi kecil pada representasi awal—misalnya akibat persona—akan terpropagasi melalui seluruh lapisan dan menghasilkan pola respons yang konsisten dengan karakter persona tersebut.
 
-Bias pada LLM muncul karena model belajar dari data yang mengandung kecenderungan tertentu. Selain informasi faktual, data pelatihan juga memuat pola sosial, stereotip, atau kebiasaan bahasa yang umum digunakan. Pola tersebut dapat terbawa ke dalam jawaban model.
+\subsection{Pelatihan dan Inferensi}
 
-\subsection{Bentuk-bentuk Bias}
+Proses pelatihan dan inferensi pada \textit{large language models} memiliki perbedaan mendasar dalam distribusi konteks yang digunakan untuk menghasilkan prediksi. Perbedaan ini menentukan stabilitas keluaran, sensitivitas terhadap instruksi awal, serta konsistensi struktur respons. Memahami dinamika ini penting untuk menjelaskan bagaimana persona dapat memengaruhi pola prediksi model.
 
-Weidinger \parencite{weidinger2021ethical} menunjukkan bahwa model dapat meniru stereotip yang ada pada data pelatihan. Bias seperti ini disebut bias representasional, misalnya ketika model menggambarkan suatu profesi atau kelompok sosial dengan cara yang tidak seimbang.
+\subsubsection{Teacher Forcing dan Exposure Bias}
 
-Selain itu, terdapat bias inferensial, yaitu ketika model menarik kesimpulan berdasarkan asosiasi yang tidak relevan. Model dapat menambahkan detail yang tidak disebutkan pengguna hanya karena pola tersebut sering muncul dalam data pelatihan.
+Selama pelatihan, model menggunakan token benar dari data sebagai konteks pada setiap langkah prediksi melalui prosedur \textit{teacher forcing}. Distribusi yang dipelajari model pada langkah ke-$t$ didasarkan pada probabilitas
+\begin{equation}
+p_{\theta}(x_t \mid x_{<t}),
+\end{equation}
+yang dihitung dengan mengondisikan representasi pada token yang benar. Prosedur ini mempercepat konvergensi tetapi menciptakan ketergantungan kuat terhadap distribusi konteks yang tidak muncul pada saat inferensi.
 
-Bias penalaran juga dapat muncul. Gupta \parencite{gupta2024biasrunsdeep} menemukan bahwa persona tertentu dapat mendorong model menggunakan pola penjelasan tertentu yang tidak selalu muncul pada instruksi netral.
+Berbeda dari pelatihan, pada proses inferensi model tidak lagi menerima token benar; model menggunakan token yang dihasilkannya sendiri sebagai konteks berikutnya. Ketidaksesuaian antara kondisi pelatihan dan inferensi ini menimbulkan \textit{exposure bias}, yaitu akumulasi deviasi akibat kesalahan kecil pada tahap awal. Akumulasi ini memperkuat pengaruh konteks awal, termasuk instruksi persona, karena representasi yang terbentuk pada awal urutan digunakan berulang kali pada langkah-langkah selanjutnya.
 
-\subsection{Dampak Bias terhadap Keluaran}
+\subsubsection{Training–Inference Mismatch}
 
-Bias dapat memengaruhi ketepatan jawaban. Model dapat memberikan respons yang terdengar meyakinkan tetapi tidak sesuai dengan konteks yang diminta. Bias juga dapat memengaruhi panjang atau gaya penjelasan. Dalam beberapa kasus, model memberikan penjelasan lebih rinci kepada persona tertentu dan lebih singkat kepada persona lainnya.
+Optimasi selama pelatihan dilakukan dengan meminimalkan \textit{cross-entropy loss}:
+\begin{equation}
+\mathcal{L}
+=
+- \sum_{t=1}^{T} \log p_{\theta}(x_t \mid x_{<t}),
+\end{equation}
+yang mengukur kecocokan model terhadap distribusi token benar. Namun distribusi yang digunakan pada inferensi adalah distribusi yang dibentuk oleh token prediksi model sendiri. Karena token prediksi tersebut dapat menyimpang dari token benar, model bekerja pada konteks yang secara statistik berbeda dari konteks yang digunakan untuk melatihnya. Ketidaksesuaian ini membuat keluaran model sangat sensitif terhadap variasi kecil pada konteks awal, termasuk modifikasi representasi akibat persona.
 
-Bias juga dapat memperkuat pola sosial tertentu secara tidak langsung. Misalnya, pemilihan kata atau nada penjelasan dapat mencerminkan kecenderungan tertentu tanpa disadari.
+\subsubsection{Strategi Decoding dan Dampaknya pada Pola Keluaran}
 
-\subsection{Kaitannya dengan Persona}
+Inferensi memerlukan pemilihan token dari distribusi probabilitas yang dihitung oleh model. Pemilihan ini ditentukan oleh strategi decoding, yang memainkan peran signifikan dalam membentuk struktur dan koherensi keluaran.
 
-Persona dapat memperkuat atau mengubah bias tersebut. Pada persona eksplisit, penyebutan identitas dapat memicu asosiasi tertentu yang pernah muncul dalam data pelatihan. Pada persona implisit, perubahan gaya bahasa dapat membuat model menafsirkan identitas tertentu meskipun tidak disebutkan secara langsung \parencite{tseng2024twotales}.
+Pendekatan deterministik seperti \textit{greedy decoding} memilih token dengan probabilitas tertinggi pada setiap langkah, menghasilkan respons yang stabil namun kurang variatif. Metode pencarian seperti \textit{beam search} mengevaluasi beberapa kandidat urutan sekaligus sehingga meningkatkan koherensi, meskipun sensitivitas terhadap konteks awal tetap tinggi. Pendekatan berbasis sampling, seperti \textit{top-$k$ sampling} atau \textit{nucleus sampling}, memilih token dari distribusi terpotong dan menghasilkan variasi respons yang lebih besar.
 
-Penelitian Zhou \parencite{zhou2023largemodelsensitive} dan Turpin \parencite{turpin2023language} menunjukkan bahwa LLM sangat sensitif terhadap perubahan formulasi instruksi. Karena persona merupakan bagian dari formulasi tersebut, variasi persona dapat menyebabkan perubahan dalam penjelasan atau penalaran yang dihasilkan model.
+Perbedaan strategi ini memengaruhi struktur keluaran yang tampak seperti reasoning. Respons yang tampak lebih linier dan terkontrol sering muncul pada decoding deterministik, sementara respons yang lebih bervariasi muncul pada pendekatan sampling. Kedua pola tersebut merupakan hasil dinamika probabilistik, bukan hasil dari mekanisme penalaran eksplisit.
 
-Pengaruh ini lebih terlihat pada tugas yang bersifat terbuka, seperti skenario sosial. Pada konteks seperti ini, ruang interpretasi yang lebih luas membuat bias dan persona lebih mudah memengaruhi hasil akhir.
+\subsubsection{Implikasi Terhadap Pengaruh Persona}
 
-%-- 2.5 Evaluasi Penalaran dan Brenchmark --
-\section{Evaluasi Penalaran dan Benchmark}
+Dinamika pelatihan dan inferensi serta variasi strategi decoding menjelaskan mengapa persona memiliki pengaruh kuat terhadap keluaran model. Instruksi persona ditempatkan pada awal konteks dan langsung membentuk representasi awal pada hidden state. Ketika model memasuki tahap inferensi dan menggunakan keluarannya sendiri sebagai konteks, perbedaan kecil dalam representasi awal akibat persona dapat terakumulasi dan menghasilkan variasi respons yang konsisten. Strategi decoding berbasis sampling memperbesar variasi tersebut, sedangkan pendekatan deterministik memperkuat konsistensi gaya persona tetapi dengan rentang ekspresi yang lebih sempit. Fenomena ini menjadi dasar penjelasan bagaimana persona dapat menghasilkan keluaran yang berbeda secara sistematis meskipun instruksi utama tidak berubah.
 
-Evaluasi terhadap LLM umumnya dilakukan menggunakan benchmark yang dirancang untuk mengukur kemampuan penalaran dan pemahaman model secara lebih terstruktur. Benchmark membantu memberikan gambaran mengenai performa model pada tugas yang bersifat konsisten dan terukur. Dalam penelitian ini, dua benchmark digunakan untuk menilai bagaimana persona dapat memengaruhi cara model menjawab, yaitu GSM8K dan MMLU-Redux.
+\subsection{Sumber Bias dalam LLM}
+
+Bias pada \textit{large language models} muncul sebagai konsekuensi dari proses pelatihan berbasis data skala besar, struktur arsitektural model, tujuan optimasi, dan prosedur penyelarasan. Bias tersebut tidak muncul secara eksplisit sebagai keputusan, melainkan sebagai hasil dari pemodelan distribusi data yang tidak seimbang atau prosedur pelatihan yang tidak simetris. Pemahaman mengenai sumber bias ini penting untuk menjelaskan bagaimana model membentuk pola keluaran tertentu dan bagaimana instruksi persona dapat memperkuat atau memodulasi kecenderungan tersebut.
+
+\subsubsection{Bias Berbasis Data}
+
+Corpus pelatihan untuk LLM sering kali mencakup miliaran token yang dikumpulkan dari berbagai sumber daring. \textcite{bender2021stochastic} menekankan bahwa data semacam ini tidak terhindarkan dari ketidakseimbangan representasi sosial, linguistik, maupun kultural. Ketidakseimbangan tersebut terekam dalam distribusi token, sehingga model mempelajari korelasi yang merefleksikan bias dalam data.
+
+Karena model mengoptimalkan kecocokan terhadap distribusi tersebut, token atau pola yang sering muncul dalam corpus memiliki probabilitas lebih tinggi untuk diprediksi. Akibatnya, perbedaan gaya, perspektif, atau struktur diskursus yang dominan dalam corpus dapat muncul kembali dalam keluaran model. Ketika persona diperkenalkan, persona tersebut berinteraksi dengan bias data karena representasi awalnya memodulasi kecenderungan yang sudah tertanam dalam distribusi model.
+
+\subsubsection{Bias Struktural}
+
+Arsitektur Transformer secara inheren memiliki struktur yang memengaruhi pola keluaran model. Kajian oleh \textcite{liu2024lost} menunjukkan adanya \textit{recency bias}, yaitu kecenderungan model memberikan perhatian lebih besar pada token yang muncul di bagian akhir konteks. Selain itu, adanya \textit{positional encoding} dan struktur perhatian yang terdistribusi menghasilkan \textit{positional bias}, yaitu sensitivitas yang berbeda terhadap token berdasarkan posisinya.
+
+Fenomena \textit{lost in the middle} juga menjadi salah satu bentuk bias struktural. Model menunjukkan penurunan performa dalam memanfaatkan informasi yang berada pada posisi tengah dalam urutan panjang. Bias struktural ini dapat berinteraksi dengan persona: instruksi persona pada awal konteks membentuk representasi awal yang stabil, sementara bagian tengah konteks dapat tereduksi kontribusinya. Dengan demikian, persona memperoleh pengaruh kuat dalam jalur prediksi model.
+
+\subsubsection{Bias Objektif Pelatihan}
+
+Proses pelatihan LLM berfokus pada optimasi \textit{cross-entropy loss}, yang mendorong model untuk memprediksi token yang paling konsisten dengan distribusi corpus. Tujuan optimasi ini tidak mempertimbangkan kebenaran faktual, keadilan representasional, atau keseimbangan perspektif. Fokus tunggal pada kecocokan distribusi membuat model mereplikasi pola teks yang paling sering muncul, termasuk bias distribusional yang tidak disengaja.
+
+Selain itu, karena pelatihan dilakukan dengan prosedur \textit{teacher forcing}, distribusi konteks selama pelatihan berbeda dari kondisi inferensi. Ketidaksesuaian tersebut dapat memperkuat pola bias, terutama jika token yang diprediksi pada tahap awal menyebabkan pergeseran representasi yang terpropagasi sepanjang urutan. Persona yang ditempatkan di awal konteks dapat memperbesar efek ini karena modifikasi representasi awal akan terakumulasi melalui mekanisme autoregresif.
+
+\subsubsection{Bias Alignment}
+
+Prosedur penyelarasan model dengan instruksi manusia, seperti \textit{reinforcement learning from human feedback} (RLHF), memperkenalkan bias tambahan. \textcite{ouyang2022training} menunjukkan bahwa preferensi anotator manusia membentuk pola respons tertentu yang dianggap lebih sesuai. Proses ini tidak netral, karena distribusi preferensi anotator dapat mencerminkan bias budaya, gaya komunikasi, atau norma tertentu.
+
+Selama penyelarasan, model mempelajari pola respons yang diberi skor lebih tinggi oleh anotator, sehingga memperkuat gaya tertentu dan melemahkan gaya yang lain. Interaksi antara alignment bias dan persona menjadi relevan karena persona yang berusaha meniru gaya tertentu dapat bertemu dengan bias bawaan dari prosedur RLHF, menghasilkan respons yang berbeda dari persona yang secara nominal memiliki instruksi sama.
+
+Secara keseluruhan, kombinasi bias data, bias struktural, bias objektif pelatihan, dan bias alignment membentuk spektrum kecenderungan dalam model. Persona tidak menciptakan bias baru, tetapi memodulasi bias yang sudah ada melalui perubahan representasi awal yang digunakan dalam proses prediksi token.
+
+%==== 2.2.1
+
+\section{Persona sebagai Konstruksi Linguistik dalam Interaksi LLM}
+
+Persona dalam konteks \textit{large language models} tidak merujuk pada sifat psikologis atau karakter manusia, tetapi pada instruksi linguistik yang ditempatkan di awal konteks untuk mengarahkan model menghasilkan respons dengan gaya, register, atau struktur tertentu. Instruksi tersebut berfungsi sebagai sinyal kondisional yang memodulasi representasi awal dalam hidden state, sehingga memengaruhi jalur prediksi token selama proses autoregresif.
+
+Penelitian mengenai \textit{prompt-based conditioning} menunjukkan bahwa perubahan kecil pada formulasi konteks dapat menghasilkan keluaran yang berbeda secara signifikan \parencite{schick2021pet, zhao2021calibration}. Model bahasa merespons pola instruksi berdasarkan distribusi representasi yang telah dipelajari selama pra-pelatihan dan penyelarasan. Oleh karena itu, pemahaman tentang persona penting untuk memastikan bahwa penggunaan persona sebagai variabel eksperimen memiliki landasan teoretis yang jelas.
+
+Subbagian berikut membahas definisi persona dalam model bahasa serta mekanisme teknis yang membuat persona mampu memodulasi keluaran model.
+
+\subsection{Definisi Persona dalam Konteks Model Bahasa}
+
+Persona dalam model bahasa dipahami sebagai instruksi linguistik yang membingkai cara model menghasilkan respons. Instruksi ini dapat berupa pernyataan peran (\textit{role prompt}), deskripsi gaya komunikasi, atau konteks mengenai karakteristik pengguna yang ditempatkan pada awal masukan. Instruksi tersebut memengaruhi representasi awal yang terbentuk melalui embedding token dan hidden state pertama, sehingga mengubah distribusi probabilitas token pada langkah-langkah berikutnya selama generasi.
+
+Literatur mengenai \textit{prompt-based learning} menunjukkan bahwa model sangat sensitif terhadap struktur dan formulasi instruksi yang diberikan \parencite{schick2021pet}. Pola respons yang selaras dengan instruksi bukan merupakan bentuk penalaran laten, tetapi hasil dari kecocokan distribusional antara instruksi dan representasi yang dipelajari selama pra-pelatihan. Dengan kata lain, persona berperan sebagai sinyal yang menggeser distribusi prediktif model tanpa membangun struktur kepribadian atau preferensi yang stabil.
+
+Penelitian mengenai kalibrasi konteks menunjukkan bahwa bahkan variasi kecil dalam deskripsi atau framing dapat menghasilkan perbedaan yang berarti dalam keluaran model \parencite{zhao2021calibration}. Instruksi seperti “You are a formal academic assistant” dan “Your user is a university student” bekerja melalui mekanisme yang sama: keduanya memodifikasi representasi awal, yang kemudian menentukan pola prediksi token sepanjang proses autoregresif. Dengan demikian, persona dipandang sebagai alat linguistik yang mempengaruhi keluaran melalui perubahan kondisi awal, bukan sebagai entitas dengan perilaku internal.
+
+\subsection{Mekanisme Persona dalam Model Autoregresif}
+
+Efek persona dalam model autoregresif muncul dari cara model membentuk representasi konteks pada langkah awal inferensi. Instruksi persona dimasukkan sebagai token pertama dan diproses melalui embedding layer serta lapisan awal Transformer. Proses ini menghasilkan hidden state awal yang digunakan untuk menghitung distribusi probabilitas token pertama, dan hidden state tersebut menjadi dasar bagi seluruh langkah prediksi berikutnya. Perubahan kecil pada representasi awal dapat menghasilkan perbedaan signifikan karena sifat propagatif dari mekanisme autoregresif.
+
+Mekanisme \textit{self-attention} memperkuat efek ini. Setiap token dalam instruksi persona berkontribusi pada perhitungan perhatian melalui operasi $\text{softmax}\!\left(\frac{QK^{T}}{\sqrt{d_k}}\right)$, sehingga memodulasi bobot yang menentukan bagaimana representasi konteks dibangun pada setiap lapisan. Perubahan distribusi perhatian tersebut menyebabkan pergeseran representasi yang memengaruhi logit pada seluruh langkah generasi. Hasilnya, persona tidak hanya mengubah gaya bahasa, tetapi juga memengaruhi struktur respons dan pola penjelasan yang dihasilkan model.
+
+Konsistensi efek persona diperkuat oleh sifat autoregresif model: token yang dihasilkan pada langkah awal menjadi bagian dari konteks untuk langkah berikutnya. Fenomena ini sejalan dengan \textit{training–inference mismatch} dan \textit{exposure bias}, di mana deviasi kecil pada konteks awal diperkuat sepanjang urutan \parencite{liu2023pretrain}. Akibatnya, persona dapat menghasilkan pergeseran sistematis dalam keluaran meskipun instruksi tugas tetap sama.
+
+Temuan empiris mengenai teknik prompting, seperti \textit{chain-of-thought prompting} \parencite{wei2022chain}, menunjukkan bahwa modifikasi konteks awal berdampak langsung pada struktur penjelasan dan pola reasoning yang ditampilkan model. Hal ini mendukung pemahaman bahwa persona adalah sinyal kondisional yang bekerja melalui mekanisme representasi awal dan propagasi token dalam model autoregresif. Oleh karena itu, analisis mekanisme ini menjadi dasar penting bagi penggunaan persona dalam penelitian ini.
+
+\subsection{Klasifikasi Persona dalam Literatur}
+
+Penelitian mengenai persona pada \textit{large language models} menunjukkan bahwa pemberian identitas atau gaya pengguna pada konteks awal dapat menggeser pola penalaran, struktur respons, serta tingkat kehati-hatian model \parencite{gupta2024biasrunsdeep}. Survei komprehensif mengenai persona dan personalisasi pada LLM membedakan antara persona di sisi pengguna, persona yang menetapkan peran pada model, dan skema personalisasi jangka panjang \parencite{tseng2024twotales}. Berdasarkan batasan metodologis penelitian ini, hanya persona di sisi pengguna yang digunakan, yaitu persona eksplisit, persona implisit, dan persona netral sebagai baseline.
+
+\subsubsection{Persona eksplisit}
+
+Persona eksplisit menyatakan identitas pengguna secara langsung melalui deskripsi identitas pada system message. Identitas dirumuskan berdasarkan beberapa dimensi yang relevan seperti gender, rentang usia, agama, pekerjaan, kewarganegaraan, dan register bahasa \parencite{gupta2024biasrunsdeep}. Dalam penelitian ini, persona eksplisit direalisasikan melalui deskripsi identitas yang ditempatkan pada awal konteks, tanpa memberikan informasi tambahan terkait jawaban atau strategi penyelesaian soal. Format teknis seperti “Your user is …” digunakan sebagai implementasi praktis dari \textit{identity descriptor} yang dijelaskan pada penelitian persona-assigned models, meskipun tidak berasal dari satu paper tertentu. Deskripsi identitas ini bekerja sebagai sinyal kondisional yang memodulasi representasi awal sehingga mempengaruhi struktur penjelasan atau langkah-langkah reasoning yang dipilih model.
+
+\subsubsection{Persona implisit melalui gaya tutur}
+
+Persona implisit tidak menyebutkan identitas pengguna secara eksplisit, tetapi dibentuk melalui narasi pengalaman, pilihan diksi, atau gaya tutur pada masukan pengguna. Survei \textcite{tseng2024twotales} menunjukkan bahwa LLM dapat menginferensi persona dari isyarat linguistik semacam ini, sehingga gaya tutur dapat berfungsi sebagai bentuk persona tersirat. Penelitian mengenai sensitivitas model terhadap framing prompt menemukan bahwa variasi kecil dalam formulasi bahasa dapat menghasilkan perbedaan yang sistematis dalam gaya respons atau tingkat perincian penjelasan \parencite{zhou2023largemodelsensitive, zhao2021calibrate}. Dalam penelitian ini, persona implisit diberikan melalui paragraf naratif yang merepresentasikan sudut pandang pengguna. Representasi tersirat ini mendorong model untuk menyesuaikan register dan pola penalaran berdasarkan interpretasinya terhadap karakter pengguna yang muncul dari gaya bahasanya.
+
+\subsubsection{Persona netral}
+
+Persona netral digunakan sebagai baseline ketika tidak ada sinyal identitas atau gaya tambahan yang diberikan. Pada kondisi ini, system message hanya berfokus pada instruksi tugas tanpa menyebutkan gender, usia, pekerjaan, atau atribut sosial lain. Baseline diperlukan untuk memisahkan efek persona eksplisit dan implisit dari variasi yang mungkin muncul akibat struktur instruksi atau noise dalam proses decoding. Studi mengenai ketidaksetiaan penjelasan model pada reasoning \parencite{turpin2023language} menekankan pentingnya baseline yang jelas ketika mengevaluasi pergeseran pola reasoning, sehingga persona netral menjadi komponen metodologis penting dalam penelitian ini.
+
+Ruang lingkup penelitian ini tidak mencakup role-playing persona yang menetapkan identitas tertentu pada model, maupun pendekatan personalisasi jangka panjang yang melibatkan penyimpanan profil pengguna. Survei \textcite{tseng2024twotales} serta kajian risiko etis pada model bahasa \parencite{weidinger2021ethical, bommasani2021opportunities} menunjukkan bahwa personalisasi jangka panjang dan role-playing persona membawa implikasi metodologis serta risiko bias yang berbeda dari persona berbasis konteks linguistik yang digunakan dalam penelitian ini.
+
+\subsection{Persona sebagai Variabel Eksperimental dalam Penelitian Ini}
+
+Dalam penelitian ini, persona diperlakukan sebagai variabel eksperimen yang memodulasi kondisi awal pada proses generasi token tanpa mengubah isi soal, struktur tugas, atau informasi kunci yang dibutuhkan untuk menjawab pertanyaan. Persona hanya memengaruhi framing identitas pengguna dan gaya komunikasi, sehingga setiap variasi keluaran dapat dikaitkan secara langsung dengan perbedaan konteks linguistik.
+
+\subsubsection{Konfigurasi persona dan dimensi identitas}
+
+Persona disusun berdasarkan enam dimensi identitas yang muncul dalam penelitian sebelumnya, yaitu gender, rentang usia, agama, pekerjaan, kewarganegaraan, dan register bahasa \parencite{gupta2024biasrunsdeep}. Dimensi tersebut digunakan untuk membentuk himpunan persona eksplisit dan implisit yang konsisten, terstruktur, dan dapat direplikasi. Pada persona eksplisit, seluruh dimensi dituliskan secara langsung dalam system message sebagai deskripsi identitas. Pada persona implisit, dimensi tersebut direpresentasikan secara tersirat melalui narasi pengguna sehingga model perlu menginferensikannya dari gaya tutur \parencite{tseng2024twotales}.
+
+\subsubsection{Integrasi persona dalam pipeline eksperimen}
+
+Penerapan persona dilakukan melalui dua tahap, yaitu persona context initialization dan persona warm-up message. Tahap pertama membentuk konteks identitas melalui system message. Tahap kedua berupa satu interaksi pemanasan yang digunakan untuk memastikan bahwa model mengikuti gaya persona sebelum mengerjakan soal. Pendekatan kalibrasi konteks ini sejalan dengan temuan bahwa performa few-shot LLM sangat sensitif terhadap formulasi instruksi dan framing awal \parencite{zhao2021calibrate, liu2023pretrain}.
+
+Setelah kalibrasi, seluruh soal dalam benchmark dijalankan dalam kondisi persona yang sama. Penelitian ini menggunakan GSM8K untuk menguji penalaran aritmetika berbasis soal cerita \parencite{cobbe2021gsm8k}, serta MMLU-Redux 2.0 untuk mengevaluasi kemampuan penalaran multi-bidang \parencite{hendryckstest2021, gema2024arewedonewithmmlu, mmluRedux2024dataset}. Relevansi persona terhadap interaksi sosial juga dikaitkan dengan karakteristik tugas seperti SocialIQA yang menguji penalaran sosial dalam konteks naratif \parencite{sap2019socialiqa}. Pemilihan benchmark ini konsisten dengan rekomendasi evaluasi holistik pada model bahasa \parencite{liang2023helm}.
+
+\subsubsection{Kontrol struktur prompt dan pengaruh framing}
+
+Struktur prompt dibuat seragam pada seluruh model dan seluruh persona agar variabel yang berubah hanyalah konteks identitas dan gaya tutur. Instruksi tugas tidak diubah dan berada dalam format yang sama, sedangkan bagian yang bervariasi hanya system message untuk persona eksplisit dan gaya tutur pada masukan pengguna untuk persona implisit. Penelitian mengenai sensitivitas model terhadap framing \parencite{zhou2023largemodelsensitive} menegaskan bahwa desain prompt harus dikontrol ketat untuk memastikan bahwa perbedaan keluaran memang berasal dari persona, bukan variasi teknis lain.
+
+Dengan desain ini, persona berfungsi sebagai faktor kondisional yang memengaruhi representasi awal pada hidden state, sesuai dengan mekanisme autoregresif yang dijelaskan pada Subbab~2.1. Variasi keluaran pada benchmark dapat dianalisis sebagai konsekuensi langsung dari perubahan konteks linguistik di awal interaksi, bukan dari modifikasi parameter model atau struktur tugas.
+
+\subsection{Efek Persona terhadap Keluaran Model}
+
+Persona berfungsi sebagai sinyal kondisional yang membentuk representasi awal pada hidden state, sehingga memodulasi jalur prediksi token selama proses autoregresif. Efek persona muncul bukan karena model memiliki pemahaman tentang identitas pengguna, tetapi karena model menafsirkan deskripsi identitas atau gaya tutur sebagai bagian dari konteks linguistik yang mempengaruhi pembobotan perhatian, pemilihan token, dan struktur penjelasan. Penelitian mengenai reasoning bias pada persona-assigned models menunjukkan bahwa perubahan kecil dalam deskripsi identitas dapat menyebabkan pergeseran sistematis dalam pola penalaran \parencite{gupta2024biasrunsdeep}. Selain itu, sensitivitas LLM terhadap framing instruksi \parencite{zhou2023largemodelsensitive} dan pentingnya kalibrasi konteks awal \parencite{zhao2021calibrate} mendukung bahwa persona berpotensi mempengaruhi keluaran meskipun tugas yang diberikan tetap sama.
+
+Efek persona dalam penelitian ini dianalisis melalui tiga mekanisme utama, yaitu pergeseran register dan gaya respons, perubahan struktur penjelasan, dan modifikasi jalur reasoning.
+
+\subsubsection{Pergeseran register dan gaya respons}
+
+Persona eksplisit dan implisit dapat mengubah register bahasa, tingkat formalitas, atau preferensi gaya penyampaian model. Variasi ini terjadi karena deskripsi identitas atau gaya tutur mempengaruhi distribusi representasi pada lapisan awal Transformer. Framing linguistik yang berbeda telah terbukti menghasilkan respons yang berbeda meskipun instruksi tugas sama \parencite{zhou2023largemodelsensitive}. Dengan demikian, persona dapat menyebabkan keluaran yang lebih formal, lebih ringkas, atau lebih naratif, meskipun jawaban yang benar tidak berubah. Pergeseran gaya ini penting untuk dianalisis agar tidak disalahartikan sebagai variasi kemampuan model.
+
+\subsubsection{Perubahan struktur penjelasan}
+
+Persona juga dapat memodulasi kecenderungan model untuk memberikan penjelasan panjang, ringkas, berhati-hati, atau langsung ke jawaban. Perubahan struktur penjelasan sejalan dengan temuan bahwa model dapat memberikan penjelasan yang terdengar rasional tetapi tidak selalu merefleksikan proses reasoning internal \parencite{turpin2023language}. Karena itu, persona yang mendorong gaya tertentu—seperti persona akademik atau persona yang berbicara santai—dapat mempengaruhi format penjelasan model tanpa mempengaruhi validitas langkah reasoning yang sebenarnya diperlukan untuk menyelesaikan soal.
+
+\subsubsection{Modifikasi jalur reasoning}
+
+Efek paling penting dari persona adalah pergeseran pada langkah-langkah reasoning yang dipilih model. Penelitian \textcite{gupta2024biasrunsdeep} menunjukkan bahwa deskripsi identitas dapat mengubah preferensi model terhadap pola reasoning tertentu, seperti memilih penjelasan yang lebih hati-hati, lebih sistematis, atau lebih cepat menuju jawaban. Dalam konteks penelitian ini, tugas penalaran pada GSM8K dan MMLU-Redux sangat sensitif terhadap perubahan konteks awal karena model mengakumulasi informasi secara autoregresif. Persona implisit melalui narasi gaya tutur juga dapat mendorong model menafsirkan situasi sosial atau emosi tertentu sebelum memulai reasoning, sebagaimana ditunjukkan oleh temuan mengenai inferensi persona tersirat \parencite{tseng2024twotales}. Hal ini dapat menggeser struktur reasoning meskipun konten soal identik.
+
+\subsubsection{Implikasi terhadap evaluasi model}
+
+Efek persona harus diperlakukan sebagai variabel eksperimental yang mempengaruhi keluaran model, bukan sebagai indikator perubahan kemampuan. Evaluasi holistik \parencite{liang2023helm} menekankan bahwa model harus diuji pada berbagai kondisi untuk memahami sensitivitasnya terhadap variasi konteks. Dengan demikian, analisis persona dalam penelitian ini tidak hanya mengevaluasi apakah model memperoleh jawaban yang benar, tetapi juga bagaimana perubahan framing identitas dan gaya tutur mempengaruhi keandalan reasoning, kestabilan respons, dan konsistensi performa lintas model.
+
+Dengan kerangka ini, persona dipahami sebagai faktor linguistik yang menggeser dinamika prediksi token, sehingga mengubah jalur reasoning dan struktur respons tanpa mengubah akses model terhadap informasi atau kemampuan umum yang dimilikinya.
+
+%======= 2.3
+\section{Evaluasi Benchmark}
+
+Benchmark digunakan sebagai instrumen evaluasi yang memberikan ukuran terstandarisasi terhadap kemampuan penalaran \textit{large language models}. Melalui benchmark, performa model dapat dibandingkan secara konsisten lintas persona, model, dan skenario instruksi. Evaluasi berbasis benchmark juga penting dalam konteks penelitian ini karena keluaran reasoning LLM dapat dipengaruhi oleh framing linguistik, termasuk variasi persona yang diberikan di awal konteks \parencite{zhou2023largemodelsensitive}. 
+
+Selain itu, penelitian menunjukkan bahwa penjelasan yang dihasilkan model tidak selalu mencerminkan proses penalaran internal, tetapi dapat berupa penjelasan yang tidak setia (\textit{unfaithful}) terhadap mekanisme prediksi yang sebenarnya digunakan \parencite{turpin2023language}. Oleh karena itu, benchmark diperlukan untuk menyediakan dasar evaluasi yang objektif ketika menganalisis bagaimana persona memengaruhi struktur reasoning dan keputusan model.
+
+Dalam penelitian ini digunakan dua benchmark yang saling melengkapi, yaitu GSM8K dan MMLU-Redux. Keduanya mewakili dua bentuk penalaran yang berbeda: penalaran numerik prosedural dan penalaran konseptual berbasis pengetahuan.
 
 \subsection{GSM8K}
 
-GSM8K adalah kumpulan soal matematika tingkat sekolah dasar yang dirancang untuk menguji kemampuan penalaran numerik \parencite{cobbe2021gsm8k}. Setiap soal biasanya membutuhkan beberapa langkah pemikiran sederhana, seperti memahami konteks, melakukan perhitungan dasar, dan menarik kesimpulan. Bagi manusia, soal-soal ini relatif mudah, tetapi bagi LLM, benchmark ini menantang karena model harus menyusun langkah penyelesaian yang runtut.
+GSM8K merupakan benchmark untuk mengevaluasi \textit{numerical reasoning} melalui soal cerita matematika tingkat sekolah dasar \parencite{cobbe2021gsm8k}. Setiap soal membutuhkan identifikasi informasi penting, penyusunan langkah-langkah perhitungan yang logis, serta penarikan kesimpulan secara runtut. Meskipun sederhana bagi manusia, struktur reasoning ini menantang bagi LLM karena model harus menghasilkan urutan token yang menyerupai alur penyelesaian multi-langkah.
 
-Benchmark ini digunakan dalam penelitian untuk melihat apakah variasi persona dapat memengaruhi cara model membentuk langkah penalaran tersebut. Misalnya, persona tertentu dapat membuat model memberikan penjelasan lebih panjang, sementara persona lain mendorong model untuk menjawab lebih singkat. Dengan demikian, GSM8K memberikan konteks yang jelas untuk mengamati perubahan pada pola penalaran model.
+GSM8K relevan dalam konteks persona karena penalaran numerik yang bersifat prosedural terbukti sensitif terhadap variasi framing instruksi. Penelitian mengenai sensitivitas LLM terhadap perubahan gaya prompt menunjukkan bahwa perbedaan kecil dalam formulasi konteks dapat menggeser struktur langkah reasoning yang dihasilkan \parencite{zhou2023largemodelsensitive}. Hal ini memungkinkan persona memengaruhi panjang penjelasan, tingkat kehati-hatian, atau bentuk argumentasi yang ditampilkan model selama menyelesaikan soal numerik.
 
 \subsection{MMLU-Redux}
 
-MMLU-Redux merupakan versi kurasi ulang dari benchmark MMLU yang berisi pertanyaan dari berbagai bidang pengetahuan \parencite{mmluRedux2024dataset}. Tidak seperti GSM8K yang terfokus pada matematika dasar, MMLU-Redux mencakup berbagai kategori seperti sains, humaniora, dan ilmu sosial. Soal-soal dalam benchmark ini menguji kemampuan model dalam memahami konsep dan memilih jawaban yang paling tepat berdasarkan pengetahuan umum.
+MMLU-Redux adalah versi kurasi ulang dari benchmark MMLU yang mengevaluasi kemampuan penalaran konseptual dan pemahaman lintas disiplin \parencite{mmluRedux2024dataset}. Benchmark ini mencakup berbagai bidang seperti sains, humaniora, hukum, kedokteran, dan ilmu sosial. Berbeda dari GSM8K, tugas dalam MMLU-Redux disajikan dalam format \textit{multiple-choice}, sehingga model harus memilih jawaban yang paling tepat berdasarkan representasi pengetahuan dan pemahaman konsep.
 
-Benchmark ini digunakan dalam penelitian untuk melihat bagaimana persona dapat memengaruhi pilihan jawaban model, terutama pada pertanyaan yang memerlukan pemahaman konsep dan penalaran tingkat menengah. Karena format soal bersifat pilihan ganda, MMLU-Redux memberikan lingkungan evaluasi yang lebih terkontrol, sehingga perbedaan respons yang muncul lebih mudah diamati dari sisi persona.
+Karena format evaluasi bersifat tertutup, MMLU-Redux memudahkan pengamatan terhadap pergeseran preferensi jawaban yang muncul akibat variasi persona. Sensitivitas terhadap framing telah dibahas dalam literatur \parencite{zhou2023largemodelsensitive}, sehingga perubahan gaya linguistik pada konteks awal dapat memengaruhi kecenderungan model dalam memilih opsi tertentu meskipun informasi faktual tidak berubah.
 
 \subsection{Tantangan Evaluasi Berbasis Persona}
 
-Penggunaan benchmark dalam penelitian persona memiliki beberapa tantangan. Tantangan pertama adalah memastikan bahwa perubahan jawaban benar-benar disebabkan oleh persona, bukan oleh perbedaan formulasi instruksi. Karena LLM peka terhadap gaya penulisan \parencite{zhou2023largemodelsensitive}, evaluasi perlu dilakukan dengan struktur prompt yang konsisten.
+Evaluasi berbasis persona menghadapi beberapa tantangan metodologis. Tantangan pertama adalah memastikan bahwa perubahan respons disebabkan oleh persona, bukan karena variasi formulasi instruksi. Karena LLM sangat peka terhadap struktur prompt dan pilihan kata \parencite{zhao2021calibrate}, penelitian ini menggunakan format prompt yang sepenuhnya konsisten untuk seluruh eksperimen.
 
-Tantangan berikutnya adalah variasi hasil yang terjadi antarpemanggilan model. LLM dapat menghasilkan jawaban berbeda meskipun instruksi yang diberikan sama \parencite{turpin2023language}. Oleh karena itu, proses evaluasi dilakukan secara terotomatisasi dan terstandarisasi agar hasil yang diperoleh lebih dapat dibandingkan.
+Tantangan kedua adalah variabilitas keluaran model. LLM dapat memberikan respons berbeda meskipun instruksi identik, terutama pada tugas yang melibatkan reasoning multi-langkah \parencite{turpin2023language}. Untuk mengurangi variabilitas tersebut, proses evaluasi diotomatisasi dan seluruh benchmark dijalankan dalam konfigurasi deterministik yang seragam.
 
-Harapannya, benchmark GSM8K dan MMLU-Redux memberikan dasar yang jelas untuk melihat bagaimana persona dapat memengaruhi penalaran dan pilihan jawaban model dalam dua konteks yang berbeda, yaitu penalaran numerik dan pengetahuan umum.
-
-%-- 2.6 Relevansi --
+Dengan demikian, GSM8K dan MMLU-Redux memberikan dua perspektif berbeda tentang bagaimana persona memengaruhi reasoning. GSM8K memperlihatkan efek persona pada struktur reasoning prosedural, sedangkan MMLU-Redux menunjukkan bagaimana framing identitas pengguna dapat menggeser preferensi jawaban dalam tugas konseptual. Kombinasi keduanya memberikan fondasi metodologis yang kuat untuk analisis pada Bab IV dan Bab V.
 
 \section{Penelitian Terdahulu dan Kesenjangan Penelitian}
 
-Pembahasan mengenai persona dan perilaku LLM telah dibahas dalam beberapa penelitian sebelumnya. Secara umum, penelitian-penelitian tersebut menunjukkan bahwa identitas pengguna—baik yang dinyatakan secara langsung maupun tersirat melalui gaya penulisan—dapat memengaruhi cara model menghasilkan jawaban. Namun, sebagian besar studi masih terbatas pada jenis model atau bentuk persona tertentu sehingga gambaran mengenai pengaruh persona secara lebih luas belum banyak diuraikan.
+Penelitian mengenai persona pada \textit{large language models} menunjukkan bahwa variasi identitas pengguna, gaya tutur, dan framing instruksi dapat memengaruhi pola penalaran dan bentuk respons model. Kajian ini relevan dengan mekanisme internal LLM yang dijelaskan pada Subbab~2.1 dan sensitivitas model terhadap konteks awal yang dijelaskan pada Subbab~2.2. Meskipun demikian, literatur yang ada masih menyisakan sejumlah pertanyaan mendasar mengenai sejauh mana persona memengaruhi reasoning dalam struktur evaluasi yang terukur dan terstandarisasi.
 
 \subsection{Ringkasan Literatur Terkait}
 
-Gupta \parencite{gupta2024biasrunsdeep} menunjukkan bahwa pemberian persona eksplisit dapat mengubah langkah penalaran model pada tugas yang sama. Temuan ini memperlihatkan bahwa model tidak hanya memproses isi instruksi, tetapi juga memperhatikan informasi identitas yang disisipkan ke dalam prompt.
+Gupta \parencite{gupta2024biasrunsdeep} menunjukkan bahwa persona eksplisit dapat menggeser langkah penalaran yang dihasilkan model, bahkan ketika isi tugas tetap sama. Temuan ini mengindikasikan bahwa identitas yang ditempatkan pada konteks awal tidak hanya memengaruhi gaya bahasa, tetapi juga struktur reasoning.
 
-Tseng \parencite{tseng2024twotales} menyoroti persona implisit yang muncul dari pilihan kata dan gaya penulisan. Dalam banyak kasus, model menafsirkan pola bahasa tersebut sebagai sinyal identitas tertentu dan menyesuaikan struktur responsnya. Studi ini memperlihatkan bahwa persona dapat terbentuk bahkan tanpa penyebutan identitas secara langsung.
+Tseng \parencite{tseng2024twotales} menegaskan bahwa persona tidak hanya muncul melalui deklarasi identitas, tetapi juga melalui pola bahasa yang implisit. Model dapat menafsirkan ciri pengguna dari pilihan kata dan narasi, kemudian menyesuaikan respons sesuai interpretasi tersebut. Kondisi ini konsisten dengan mekanisme pembentukan representasi awal yang dijelaskan pada Subbab~2.2.
 
-Turpin \parencite{turpin2023language} menemukan bahwa LLM dapat menghasilkan urutan penalaran yang berbeda hanya karena perubahan kecil dalam formulasi instruksi. Temuan ini menunjukkan bahwa penalaran model sangat dipengaruhi oleh konteks linguistik yang diterima saat inferensi.
+Turpin \parencite{turpin2023language} menunjukkan bahwa reasoning yang dihasilkan LLM sering kali tidak stabil dan dapat berubah akibat variasi kecil dalam prompt. Penelitian ini memperkuat pemahaman bahwa penalaran model bukan proses simbolik, melainkan hasil dinamika distribusi token yang sangat sensitif terhadap konteks.
 
-Dalam konteks bias, Weidinger \parencite{weidinger2021ethical} menunjukkan bahwa model dapat meniru pola sosial atau stereotip yang ada dalam data pelatihan. Kondisi ini relevan ketika menilai pengaruh persona karena identitas tertentu dapat memperkuat pola bias yang sudah ada.
+Selain itu, penelitian mengenai risiko bias menunjukkan bahwa LLM dapat memunculkan pola sosial yang tidak seimbang sebagai konsekuensi dari data pelatihan \parencite{weidinger2021ethical, bommasani2021opportunities}. Ketika persona tertentu diperkenalkan, bias yang sudah ada dapat teramplifikasi atau termodulasi.
+
+Penelitian terkait sensitivitas prompt \parencite{zhou2023largemodelsensitive} dan kalibrasi konteks \parencite{zhao2021calibrate} juga menunjukkan bahwa framing linguistik di awal interaksi dapat mengubah respons model secara signifikan. Hasil ini memperkuat argumen bahwa persona, sebagai bentuk framing, dapat memengaruhi reasoning yang dihasilkan model.
 
 \subsection{Keterbatasan Penelitian Sebelumnya}
 
-Meskipun penelitian sebelumnya memberikan kontribusi penting, sebagian besar studi masih memiliki beberapa keterbatasan. Pertama, banyak penelitian hanya menguji sedikit model sehingga belum memberikan gambaran mengenai bagaimana pengaruh persona dapat berbeda antar-LLM. Kedua, jumlah persona yang digunakan umumnya terbatas sehingga variasi efek persona belum terobservasi secara lebih luas. Ketiga, sebagian penelitian hanya menguji sedikit jenis tugas, padahal persona dapat memengaruhi model secara berbeda pada tugas numerik, pengetahuan umum, atau skenario sosial. Selain itu, tidak semua penelitian menggunakan kerangka evaluasi yang terstandarisasi sehingga sulit memastikan bahwa perubahan jawaban benar-benar disebabkan oleh persona.
+Meskipun kontribusi penelitian terdahulu penting, beberapa keterbatasan masih terlihat jelas.
+
+Pertama, sebagian besar penelitian persona hanya menguji sedikit model dan tidak melakukan analisis lintas-LLM. Hal ini menyebabkan sulitnya menggeneralisasi bagaimana pengaruh persona berbeda antarmodel.
+
+Kedua, variasi persona yang digunakan pada studi sebelumnya sering kali terbatas pada beberapa contoh representatif, sehingga belum menangkap spektrum identitas pengguna yang lebih luas. Sebaliknya, penelitian ini menggunakan himpunan persona eksplisit dan implisit yang lebih beragam.
+
+Ketiga, sedikit penelitian yang mengevaluasi persona dalam konteks benchmark reasoning yang terstandarisasi. Banyak studi berfokus pada dialog atau tugas generatif yang tidak memiliki jawaban benar salah, sehingga efek persona sulit diukur secara objektif.
+
+Keempat, tidak semua penelitian memastikan konsistensi struktur prompt. Karena LLM sangat sensitif terhadap perubahan formulasi instruksi \parencite{zhou2023largemodelsensitive, zhao2021calibrate}, perbedaan kecil dalam prompt berpotensi mencemari hasil analisis persona.
+
+Kelima, stabilitas reasoning jarang dievaluasi pada benchmark yang berbeda secara kognitif, misalnya penalaran numerik (GSM8K) versus penalaran konseptual (MMLU-Redux). Padahal, persona dapat berdampak berbeda pada tiap jenis tugas.
 
 \subsection{Posisi dan Kontribusi Penelitian Ini}
 
-Penelitian ini disusun untuk mengatasi keterbatasan tersebut. Berbeda dari sebagian studi sebelumnya, penelitian ini menggunakan beberapa model dan beberapa persona untuk melihat bagaimana keduanya memengaruhi penalaran dan respons model. Penelitian ini juga menggunakan dua benchmark yang berbeda—GSM8K dan MMLU-Redux—agar pengaruh persona dapat diamati pada tugas numerik dan pengetahuan umum.
+Penelitian ini dirancang untuk mengisi kesenjangan tersebut melalui beberapa kontribusi utama.
 
-Selain itu, penelitian ini menggunakan \textit{pipeline} evaluasi yang terotomatisasi sehingga setiap model menerima instruksi yang konsisten. Pendekatan ini membantu memastikan bahwa perbedaan yang muncul benar-benar berasal dari persona dan bukan dari variasi struktur prompt.
+Pertama, penelitian ini mengevaluasi beberapa model LLM secara paralel, sehingga memungkinkan analisis komparatif mengenai perbedaan sensitivitas persona antarmodel.
 
-Dengan demikian, penelitian ini diharapkan dapat memberikan gambaran yang lebih menyeluruh mengenai bagaimana persona memengaruhi perilaku model bahasa, terutama ketika melibatkan beberapa model dan kategori tugas yang berbeda.
+Kedua, penelitian ini menggunakan himpunan persona eksplisit dan implisit yang dirancang secara sistematis dan selaras dengan kerangka teoretis pada Subbab~2.2, sehingga variasi pengaruh persona dapat diamati secara lebih komprehensif.
 
+Ketiga, penelitian ini menggunakan dua benchmark reasoning yang memiliki karakteristik kognitif berbeda—GSM8K untuk penalaran numerik prosedural dan MMLU-Redux untuk penalaran konseptual berbasis pilihan ganda. Pendekatan ini menyediakan analisis yang lebih kaya mengenai bagaimana persona memengaruhi bentuk reasoning yang berbeda.
+
+Keempat, seluruh evaluasi dijalankan dalam \textit{pipeline} terotomatisasi dengan struktur prompt yang benar-benar seragam, mengikuti rekomendasi penelitian mengenai sensitivitas prompt \parencite{zhou2023largemodelsensitive}. Hal ini memastikan bahwa variasi keluaran dapat ditelusuri secara jelas ke persona, bukan ke perbedaan instruksi.
+
+Dengan demikian, penelitian ini tidak hanya mereplikasi studi tentang persona, tetapi memperluas ruang analisis melalui evaluasi lintas-model, lintas-persona, dan lintas-benchmark. Formulasi ini memberikan kontribusi empiris baru mengenai bagaimana identitas pengguna memengaruhi pola reasoning dalam \textit{large language models}.

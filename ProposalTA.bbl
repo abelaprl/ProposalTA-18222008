@@ -404,7 +404,6 @@
       \field{journaltitle}{arXiv preprint arXiv:2406.04127}
       \field{title}{Are We Done with MMLU?}
       \field{year}{2024}
-      \true{nocite}
       \verb{urlraw}
       \verb https://arxiv.org/abs/2406.04127
       \endverb
@@ -602,7 +601,6 @@
       \field{journaltitle}{International Conference on Learning Representations}
       \field{title}{Measuring Massive Multitask Language Understanding}
       \field{year}{2021}
-      \true{nocite}
       \verb{urlraw}
       \verb https://arxiv.org/abs/2009.03300
       \endverb
@@ -653,12 +651,12 @@
       \true{moreauthor}
       \true{morelabelname}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=ad8b44fb7f6f1b83fe7fb3b875afaf99}{%
+        {{un=1,uniquepart=given,hash=ad8b44fb7f6f1b83fe7fb3b875afaf99}{%
            family={Liu},
            familyi={L\bibinitperiod},
            given={Nelson\bibnamedelima F},
            giveni={N\bibinitperiod\bibinitdelim F\bibinitperiod},
-           givenun=0}}%
+           givenun=1}}%
       }
       \strng{namehash}{aafa2d245e70b7be840882cd4df991be}
       \strng{fullhash}{aafa2d245e70b7be840882cd4df991be}
@@ -675,12 +673,47 @@
       \field{journaltitle}{Transactions of the Association for Computational Linguistics}
       \field{title}{Lost in the Middle: How Language Models Use Long Contexts}
       \field{year}{2024}
-      \true{nocite}
       \verb{urlraw}
       \verb https://arxiv.org/abs/2307.03172
       \endverb
       \verb{url}
       \verb https://arxiv.org/abs/2307.03172
+      \endverb
+    \endentry
+    \entry{liu2023pretrain}{article}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{un=1,uniquepart=given,hash=b2e07ef809f78891cf3fb983160853ce}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Pengfei},
+           giveni={P\bibinitperiod},
+           givenun=1}}%
+      }
+      \strng{namehash}{5fb4c79982eb75d167e5e91db1aef15a}
+      \strng{fullhash}{5fb4c79982eb75d167e5e91db1aef15a}
+      \strng{bibnamehash}{5fb4c79982eb75d167e5e91db1aef15a}
+      \strng{authorbibnamehash}{5fb4c79982eb75d167e5e91db1aef15a}
+      \strng{authornamehash}{5fb4c79982eb75d167e5e91db1aef15a}
+      \strng{authorfullhash}{5fb4c79982eb75d167e5e91db1aef15a}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{ACM Computing Surveys}
+      \field{title}{Pre-train, Prompt, and Predict: A Systematic Survey of Prompting Methods in Natural Language Processing}
+      \field{year}{2023}
+      \verb{doi}
+      \verb 10.1145/3560815
+      \endverb
+      \verb{urlraw}
+      \verb https://dl.acm.org/doi/10.1145/3560815
+      \endverb
+      \verb{url}
+      \verb https://dl.acm.org/doi/10.1145/3560815
       \endverb
     \endentry
     \entry{naous2025userlm}{article}{}
@@ -784,7 +817,6 @@
       \field{journaltitle}{arXiv preprint arXiv:2203.02155}
       \field{title}{Training Language Models to Follow Instructions with Human Feedback}
       \field{year}{2022}
-      \true{nocite}
       \verb{urlraw}
       \verb https://arxiv.org/abs/2203.02155
       \endverb
@@ -893,12 +925,48 @@
       \field{booktitle}{Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing}
       \field{title}{SocialIQA: Commonsense Reasoning about Social Interactions}
       \field{year}{2019}
-      \true{nocite}
       \verb{urlraw}
       \verb https://arxiv.org/abs/1904.09728
       \endverb
       \verb{url}
       \verb https://arxiv.org/abs/1904.09728
+      \endverb
+    \endentry
+    \entry{schick2021pet}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=cc3adfa0ec8180459be4de68ba1b83cd}{%
+           family={Schick},
+           familyi={S\bibinitperiod},
+           given={Timo},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9a80de0e5ec6df57363aaf321a5d05be}{%
+           family={Schütze},
+           familyi={S\bibinitperiod},
+           given={Hinrich},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{40322da929f290a9af8c79926308e128}
+      \strng{fullhash}{40322da929f290a9af8c79926308e128}
+      \strng{bibnamehash}{40322da929f290a9af8c79926308e128}
+      \strng{authorbibnamehash}{40322da929f290a9af8c79926308e128}
+      \strng{authornamehash}{40322da929f290a9af8c79926308e128}
+      \strng{authorfullhash}{40322da929f290a9af8c79926308e128}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{EACL}
+      \field{title}{Exploiting Cloze Questions for Few-Shot Text Classification and Natural Language Inference}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://aclanthology.org/2021.eacl-main.24/
+      \endverb
+      \verb{url}
+      \verb https://aclanthology.org/2021.eacl-main.24/
       \endverb
     \endentry
     \entry{openrouter_qwen3vl30ba3b}{misc}{}
@@ -1095,7 +1163,39 @@
       \field{booktitle}{Advances in Neural Information Processing Systems}
       \field{title}{Attention Is All You Need}
       \field{year}{2017}
-      \true{nocite}
+    \endentry
+    \entry{wei2022chain}{article}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=61331a11b490f3d927555985facd25b3}{%
+           family={Wei},
+           familyi={W\bibinitperiod},
+           given={Jason},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{7e5e566ee8f47df717196e96221e7705}
+      \strng{fullhash}{7e5e566ee8f47df717196e96221e7705}
+      \strng{bibnamehash}{7e5e566ee8f47df717196e96221e7705}
+      \strng{authorbibnamehash}{7e5e566ee8f47df717196e96221e7705}
+      \strng{authornamehash}{7e5e566ee8f47df717196e96221e7705}
+      \strng{authorfullhash}{7e5e566ee8f47df717196e96221e7705}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{NeurIPS}
+      \field{title}{Chain-of-Thought Prompting Elicits Reasoning in Large Language Models}
+      \field{year}{2022}
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2201.11903
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2201.11903
+      \endverb
     \endentry
     \entry{weidinger2021ethical}{article}{}
       \true{moreauthor}
@@ -1180,12 +1280,12 @@
     \endentry
     \entry{zhao2021calibrate}{inproceedings}{}
       \name{author}{5}{}{%
-        {{un=0,uniquepart=base,hash=78a7ab552c85ce1f26aff83be636a386}{%
+        {{un=1,uniquepart=given,hash=78a7ab552c85ce1f26aff83be636a386}{%
            family={Zhao},
            familyi={Z\bibinitperiod},
            given={Yanhao},
            giveni={Y\bibinitperiod},
-           givenun=0}}%
+           givenun=1}}%
         {{un=0,uniquepart=base,hash=f7bf50210206dec5bb19e32a74e1a580}{%
            family={Wallace},
            familyi={W\bibinitperiod},
@@ -1226,9 +1326,41 @@
       \field{booktitle}{Proceedings of the International Conference on Machine Learning}
       \field{title}{Calibrate Before Use: Improving Few-Shot Performance of Language Models}
       \field{year}{2021}
-      \true{nocite}
       \field{pages}{12697\bibrangedash 12706}
       \range{pages}{10}
+    \endentry
+    \entry{zhao2021calibration}{inproceedings}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{un=1,uniquepart=given,hash=7a53fe43fcf303ae120dd9b7e4836cd9}{%
+           family={Zhao},
+           familyi={Z\bibinitperiod},
+           given={Zhengxuan},
+           giveni={Z\bibinitperiod},
+           givenun=1}}%
+      }
+      \strng{namehash}{50cb105082ebc019ae776c48d7711333}
+      \strng{fullhash}{50cb105082ebc019ae776c48d7711333}
+      \strng{bibnamehash}{50cb105082ebc019ae776c48d7711333}
+      \strng{authorbibnamehash}{50cb105082ebc019ae776c48d7711333}
+      \strng{authornamehash}{50cb105082ebc019ae776c48d7711333}
+      \strng{authorfullhash}{50cb105082ebc019ae776c48d7711333}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{ICML}
+      \field{title}{Calibrate Before Use: Improving Few-Shot Performance of Language Models}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2102.09690
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2102.09690
+      \endverb
     \endentry
     \entry{zhou2023largemodelsensitive}{article}{}
       \true{moreauthor}
