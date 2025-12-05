@@ -220,123 +220,198 @@ jawaban, sehingga realisasi biaya dapat lebih rendah apabila konsumsi token
 aktual per soal ternyata lebih kecil atau lebih besar dari asumsi yang digunakan dalam
 perhitungan ini.
 
+%------------------- BAB V.2 Rencana Pengerjaan dan Pengembangan -------------------
+
+\subsection{Rencana Pengerjaan dan Pengembangan}
+
+Pelaksanaan Tugas Akhir ini dirancang dalam beberapa tahapan yang saling
+berurutan, mencakup penyusunan kerangka eksperimen, pengembangan
+\textit{evaluation pipeline}, pelaksanaan evaluasi pada berbagai model dan
+persona, hingga analisis hasil. Mengingat cakupan eksperimen yang luas
+(\textit{multi model} × \textit{multi persona}), durasi pengerjaan diperpanjang
+untuk memastikan seluruh proses dapat berjalan stabil dan menghasilkan keluaran
+yang dapat dianalisis secara komprehensif. Rincian tahapan pelaksanaan Tugas
+Akhir ditampilkan pada Tabel~\ref{tab:rencana-pengerjaan} berikut.
+
+\begin{table}[H]
+\centering
+\caption{Rencana tahapan pelaksanaan Tugas Akhir }
+\begin{tabular}{p{5cm} p{3cm} p{6cm}}
+\toprule
+\textbf{Kegiatan} & \textbf{Durasi} & \textbf{Output Utama} \\
+\midrule
+
+Studi literatur lanjutan dan perumusan kerangka eksperimen &
+4 minggu &
+Pemutakhiran tinjauan pustaka, definisi metodologi, pemetaan risiko bias
+persona, serta penyusunan struktur awal \textit{evaluation pipeline}. \\
+
+Pengembangan dan implementasi \textit{evaluation pipeline} (multi-model) &
+6 minggu &
+Modul pemanggilan model, integrasi API, modul persona, modul benchmark,
+mekanisme \textit{logging}, serta verifikasi format keluaran model. \\
+
+Pengujian internal, \textit{dry-run}, dan penyempurnaan pipeline &
+2 minggu &
+Pipeline stabil dan konsisten, validasi batas token,
+pengujian kesalahan, serta standarisasi format data untuk analisis. \\
+
+Pelaksanaan eksperimen penuh (persona × model × benchmark) &
+4 minggu &
+Dataset hasil eksperimen yang lengkap: keluaran GSM8K dan MMLU-Redux,
+statistik token, latensi, tingkat keberhasilan respons, dan log eksekusi. \\
+
+Replikasi eksperimen dan verifikasi ulang hasil &
+1--2 minggu &
+Eksperimen ulang untuk meningkatkan reliabilitas, mengurangi noise,
+dan memastikan konsistensi antar-konfigurasi. \\
+
+Analisis hasil dan penyusunan bagian laporan &
+3 minggu &
+Visualisasi hasil, analisis kuantitatif dan kualitatif,
+interpretasi pengaruh persona terhadap performa model, serta
+penulisan laporan akhir Tugas Akhir. \\
+
+\bottomrule
+\end{tabular}
+\label{tab:rencana-pengerjaan}
+\end{table}
 
 \section{Desain Pengujian dan Evaluasi}
 \label{sec:desain-pengujian-evaluasi}
 
-Desain pengujian pada tahap berikut disusun untuk memastikan bahwa seluruh
-hasil eksperimen dapat diverifikasi, divalidasi, dan direplikasi. Struktur
-pengujian memanfaatkan artefak log granular, telemetry penggunaan token,
-serta pemeriksaan konsistensi yang telah ditanamkan dalam pipeline pada Bab~IV.
+Desain pengujian disusun untuk memastikan bahwa seluruh hasil eksperimen dapat
+diverifikasi, divalidasi, dan direplikasi. Pengujian memanfaatkan artefak log
+granular, telemetry token, dan pemeriksaan konsistensi yang telah ditanamkan
+dalam pipeline pada Bab~IV.
 
 \begin{enumerate}
 
-  \item Verifikasi konsistensi eksekusi.
+  \item Verifikasi konsistensi eksekusi
 
-  Verifikasi dilakukan untuk memastikan bahwa setiap model menerima stimulus
-  yang identik pada setiap soal dan persona, sehingga variasi respons dapat
-  dikaitkan langsung dengan perbedaan persona atau arsitektur model.
+    Tahap ini memastikan bahwa setiap model menerima stimulus yang identik pada
+    seluruh soal dan persona sehingga variasi performa dapat dikaitkan secara
+    langsung dengan persona atau arsitektur model.
 
-  (i) Konsistensi konstruksi prompt.
+    \begin{enumerate}[label=(\alph*)]
+      \item Konsistensi konstruksi prompt
 
-  Pemeriksaan dilakukan untuk memastikan bahwa struktur persona pada
-  \textit{system message} dan isi soal pada \textit{user message} identik pada
-  seluruh eksekusi. Setiap variasi kecil seperti pergeseran tanda baca atau
-  perubahan format dapat mengubah jalur penalaran model, sehingga pemeriksaan
-  dilakukan secara programatik pada log JSON.
+            Pemeriksaan memastikan bahwa struktur persona pada system message dan
+            konten soal pada user message identik pada semua eksekusi. Variasi kecil
+            seperti perbedaan tanda baca dapat mengubah penalaran model sehingga
+            verifikasi dilakukan secara programatik melalui log JSON.
 
-  (ii) Kesesuaian urutan eksekusi.
+      \item Kesesuaian urutan eksekusi
 
-  Pemeriksaan dilakukan dengan mencocokkan indeks interaksi, nomor soal,
-  dan urutan persona pada seluruh berkas log untuk memastikan bahwa sistem
-  menjalankan eksperimen sesuai konfigurasi yang direncanakan.
+            Urutan indeks interaksi, nomor soal, dan urutan persona diperiksa untuk
+            memastikan pipeline mengikuti konfigurasi eksperimen.
 
-  (iii) Keberhasilan tahap warm-up.
+      \item Keberhasilan tahap warm-up
 
-  Tahap warm-up diverifikasi dengan menilai apakah respons awal model
-  mengikuti identitas dan gaya bahasa persona. Kegagalan tahap ini dicatat
-  sebagai anomali dan disertai eksekusi ulang sebelum proses utama dimulai.
+            Respons awal model dinilai untuk melihat apakah gaya bahasa persona sudah
+            terserap dengan benar. Kegagalan dianggap anomali dan dieksekusi ulang.
+    \end{enumerate}
 
-  \item Validasi keluaran model.
+  \item Validasi keluaran model
 
-  Validasi keluaran bertujuan memastikan bahwa jawaban model berada dalam
-  format yang sesuai untuk dievaluasi. Pendekatan validasi dibedakan untuk
-  GSM8K dan MMLU-Redux.
+    Validasi memastikan bahwa keluaran model memiliki format yang dapat
+    dievaluasi secara otomatis pada GSM8K dan MMLU-Redux.
 
-  (i) Validasi GSM8K.
+    \begin{enumerate}[label=(\alph*)]
+      \item Validasi GSM8K
 
-  Model harus memberikan jawaban numerik akhir yang dapat diekstraksi secara
-  deterministik. Selain itu, respons harus mencakup penalaran langkah demi
-  langkah sebelum menyatakan jawaban akhir.
+            Model harus menghasilkan jawaban numerik akhir yang dapat diekstraksi
+            secara deterministik dan menyertakan penalaran langkah demi langkah.
 
-  (ii) Validasi MMLU-Redux.
+      \item Validasi MMLU-Redux
 
-  Model harus memberikan pilihan jawaban dalam format A, B, C, atau D. Meskipun
-  merupakan soal pilihan ganda, model tetap diminta menjelaskan penalaran
-  sebelum memilih opsi, sehingga respons memiliki struktur yang konsisten.
+            Model harus memilih salah satu opsi A, B, C, atau D, serta memberikan
+            penjelasan penalaran sebelum menentukan jawaban.
 
-  (iii) Pemeriksaan konsistensi format respons.
+      \item Pemeriksaan konsistensi format respons
 
-  Pemeriksaan mencakup panjang respons, struktur teks, keberadaan penalaran,
-  serta keterbacaan sehingga setiap respons dapat diproses ulang tanpa kesalahan
-  parsing.
+            Pemeriksaan mencakup panjang teks, struktur, keterbacaan, dan kesesuaian
+            format untuk menghindari kesalahan parsing.
+    \end{enumerate}
 
-  \item Evaluasi kuantitatif.
+  \item Evaluasi kuantitatif
 
-  Evaluasi kuantitatif dilakukan untuk mengukur dampak persona terhadap performa
-  model pada dua benchmark.
+    Evaluasi kuantitatif dilakukan untuk mengukur dampak persona terhadap
+    performa model.
 
-  (i) Akurasi jawaban.
+    \begin{enumerate}[label=(\alph*)]
+      \item Akurasi jawaban
 
-  Akurasi dihitung dengan membandingkan jawaban akhir yang diekstraksi terhadap
-  ground truth. Penghitungan dilakukan pada tabel agregasi hasil.
+            Akurasi dihitung dengan membandingkan jawaban akhir terhadap ground
+            truth dan diagregasi per model dan per persona.
 
-  (ii) Konsumsi token.
+      \item Konsumsi token
 
-  Evaluasi melibatkan token input, token output, dan token penalaran sebagai
-  indikator beban komputasi dan kecenderungan verbosity model di bawah persona
-  tertentu.
+            Analisis mencakup token input, token output, dan token penalaran sebagai
+            indikator beban komputasi serta kecenderungan verbosity.
 
-  (iii) Latensi eksekusi.
+      \item Latensi eksekusi
 
-  Latensi diambil dari metadata waktu pada log JSON untuk menilai stabilitas
-  waktu respons model ketika menangani beban besar dan variasi persona.
+            Latensi dihitung berdasarkan timestamp pada log JSON untuk menilai
+            stabilitas waktu respons pada eksekusi berskala besar.
+    \end{enumerate}
 
 \end{enumerate}
 
-%========= V.3 Analisis Risiko dan Mitigasi ==========
 
+%========= V.3 Analisis Risiko dan Mitigasi ==========
 \section{Analisis Risiko dan Mitigasi}
-Pelaksanaan eksperimen pada lingkungan multi-model dan multi-persona menimbulkan sejumlah risiko metodologis dan operasional yang perlu dikelola secara sistematis agar integritas penelitian tetap terjaga. Risiko-risiko tersebut mencakup aspek reliabilitas penggunaan API, kestabilan keluaran model, konsistensi proses penalaran, menjaga ketepatan pesan sepanjang percakapan, serta akurasi proses agregasi data. Selain itu, penelitian sebelumnya menunjukkan bahwa konsistensi LLM dapat menurun pada evaluasi berskala besar dan bahwa penalaran model dapat terpengaruh oleh faktor-faktor non-linguistik yang tidak terkontrol. Berdasarkan temuan tersebut, bagian ini menguraikan tiga kategori risiko utama serta strategi mitigasinya.
+
+Pelaksanaan eksperimen pada lingkungan multi-model dan multi-persona menimbulkan
+sejumlah risiko yang perlu dikelola untuk menjaga integrist hasil Tugas Akhir.
+Risiko terutama berkaitan dengan reliabilitas API, stabilitas keluaran model,
+dan konsistensi penyimpanan log.
 
 \begin{enumerate}
-  \item Risiko kegagalan pemanggilan API.
-  
-  Risiko ini mencakup galat seperti \textit{timeout}, gangguan koneksi, dan pembatasan layanan (rate limit). Kegagalan ini berpotensi menyebabkan hilangnya sebagian data atau ketidaksinkronan indeks percobaan.
 
-  (i) Mitigasi dilakukan melalui mekanisme \textit{retry} adaptif berbasis \textit{exponential backoff}, sesuai praktik standar pada sistem terdistribusi.
+  \item Risiko kegagalan pemanggilan API
 
-  (ii) Seluruh kegagalan direkam dalam log terpisah untuk memastikan keterlacakan sehingga perbaikan atau pengulangan dapat dilakukan secara selektif.
+    Risiko meliputi timeout, gangguan koneksi, dan rate limit yang dapat
+    menyebabkan hilangnya data atau ketidaksinkronan indeks eksekusi.
 
-  (iii) Tingkat konkurensi dijalankan secara otomatis ketika sistem mendeteksi peningkatan laju galat, guna menjaga stabilitas kapasitas layanan.
+    \begin{enumerate}[label=(\alph*)]
+      \item Penggunaan mekanisme retry adaptif berbasis exponential backoff
 
-  \item Risiko lonjakan konsumsi token.
-  
-  LLM sering menghasilkan keluaran yang lebih panjang daripada yang diinstruksikan, terutama ketika diminta memberikan penalaran langkah demi langkah. Fenomena ini berdampak langsung pada biaya dan durasi eksperimen.
+      \item Pencatatan seluruh galat dalam log terpisah sehingga dapat dilakukan
+            re-eksekusi selektif
 
-  (i) Sistem membatasi panjang keluaran dengan parameter \textit{maximum completion length} untuk mencegah respons berlebihan.
+      \item Penurunan tingkat konkurensi secara otomatis ketika laju galat
+            meningkat untuk menjaga stabilitas
+    \end{enumerate}
 
-  (ii) Validasi awal dijalankan secara berkala untuk memantau rata-rata konsumsi token per soal.
+  \item Risiko lonjakan konsumsi token
 
-  (iii) Persona yang terbukti memicu keluaran terlalu panjang dilakukan penyesuaian instruksi secara minimal untuk mengendalikan panjang teks tanpa mengubah maksud identitas sosial.
+    Respons model dapat menjadi terlalu panjang, terutama ketika diminta
+    memberikan penalaran eksplisit, sehingga meningkatkan biaya dan durasi
+    eksperimen.
 
-  \item Risiko penyimpanan dan konsistensi log.
-  
-  Volume log yang besar berpotensi menimbulkan risiko korupsi berkas dan ketidakcocokan antara indeks model, persona, dan soal.
+    \begin{enumerate}[label=(\alph*)]
+      \item Penetapan batas maximum completion length
 
-  (i) Setiap respons disimpan dalam format terstruktur (JSON) dengan skema tetap.
+      \item Pemantauan berkala terhadap rata-rata konsumsi token
 
-  (ii) Proses agregasi mengadopsi pemeriksaan konsistensi silang antara jumlah entri dan indeks soal.
+      \item Penyesuaian minimal pada instruksi persona yang memicu keluaran
+            berlebihan
+    \end{enumerate}
 
-  (iii) Mekanisme \textit{checkpointing} diterapkan untuk menghindari kehilangan data apabila eksekusi terhenti di tengah proses.
+  \item Risiko penyimpanan dan konsistensi log
+
+    Volume log yang besar meningkatkan risiko korupsi berkas dan ketidaksesuaian
+    antara indeks model, persona, dan soal.
+
+    \begin{enumerate}[label=(\alph*)]
+      \item Penyimpanan respons dalam format JSON dengan skema tetap
+
+      \item Pemeriksaan silang jumlah entri, indeks soal, dan struktur pipeline
+            selama agregasi
+
+      \item Penerapan checkpointing untuk mencegah kehilangan data jika eksekusi
+            terhenti mendadak
+    \end{enumerate}
+
 \end{enumerate}

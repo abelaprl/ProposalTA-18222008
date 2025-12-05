@@ -103,6 +103,15 @@
 \tcbuselibrary{listings,skins} % untuk listing dalam tcolorbox
 \usepackage[bahasai]{datetime2}
 
+% ==========================================
+% PENGATURAN HYPHENATION (PEMENGGALAN KATA)
+% ==========================================
+\hyphenpenalty=10000        % Mencegah pemenggalan kata
+\exhyphenpenalty=10000      % Mencegah pemenggalan setelah tanda hubung eksplisit
+\tolerance=1000             % Toleransi untuk spasi antar kata
+\emergencystretch=3em       % Ruang tambahan untuk menghindari overfull box
+\sloppy                     % Mode sloppy untuk menghindari kata terpotong
+
 
 \setcounter{tocdepth}{4} % kedalaman daftar isi sampai subsubbab
 \setcounter{secnumdepth}{4} % kedalaman penomoran sampai subsubbab
@@ -213,7 +222,7 @@
     
     \vspace*{1cm}
     
-    {\Large\bfseries EKSPERIMEN MULTI-MODEL DAN MULTI-PERSONA UNTUK MENGANALISIS DAMPAK \textit{PERSONA} TERHADAP PENALARAN, PERILAKU KELUARAN, DAN \textit{HUMAN BIAS} PADA LARGE LANGUAGE MODEL}\\
+      {\Large\bfseries EKSPERIMEN MULTI-MODEL DAN MULTI-PERSONA DENGAN PENDEKATAN \textit{SPEC-DRIVEN EXPERIMENT ORCHESTRATION} UNTUK MENGANALISIS DAMPAK PERSONA TERHADAP PENALARAN DAN \textit{HUMAN BIAS} PADA LARGE LANGUAGE MODEL}\\
      \vspace{3cm}
 
     {\Large \textbf{Proposal Tugas Akhir}}\\
@@ -259,7 +268,7 @@
 \begin{center}
   \textbf{\large LEMBAR PENGESAHAN}\\[0.8cm]
     
-    {\Large\bfseries EKSPERIMEN MULTI-MODEL DAN MULTI-PERSONA UNTUK MENGANALISIS DAMPAK \textit{PERSONA} TERHADAP PENALARAN, PERILAKU KELUARAN, DAN \textit{HUMAN BIAS} PADA LARGE LANGUAGE MODEL}\\
+    {\Large\bfseries EKSPERIMEN MULTI-MODEL DAN MULTI-PERSONA DENGAN PENDEKATAN \textit{SPEC-DRIVEN EXPERIMENT ORCHESTRATION} UNTUK MENGANALISIS DAMPAK PERSONA TERHADAP PENALARAN DAN \textit{HUMAN BIAS} PADA LARGE LANGUAGE MODEL}\\
      \vspace{1cm}
 
   {\Large \textbf{Proposal Tugas Akhir}}\\
@@ -299,8 +308,8 @@
 
 \begin{tabular}{p{7cm}p{7cm}}
    Pembimbing 1 & Pembimbing 2 \\[2.5cm]
-   Dr. Eng. Ayu Purwarianti, S.T., M.T. & Dr. Alham Fikri Aji, S.T., M.Sc. \\[0.2cm]
-   NIP. x & NIP. x
+   Dr. Eng. Ayu Purwarianti, S.T., M.T. & Dr. Alham Fikri Aji, S.T., M.Sc., Ph.D. \\[0.2cm]
+   NIP.  197701272008012011
 \end{tabular}
 
 \end{center}
@@ -353,6 +362,74 @@
 \lstlistoflistings
 \addcontentsline{toc}{chapter}{\lstlistlistingname}
 
+% --- DAFTAR ISTILAH ---
+\newpage
+{\centering\large\bfseries DAFTAR ISTILAH\par}
+\addcontentsline{toc}{chapter}{DAFTAR ISTILAH}
+\vspace{1em}
+
+\begin{longtable}{>{\raggedright}p{3.5cm} p{9cm} >{\centering\arraybackslash}p{1.5cm}}
+\toprule
+\textbf{Istilah} & \textbf{Deskripsi} & \textbf{Hal.} \\
+\midrule
+\endfirsthead
+
+\toprule
+\textbf{Istilah} & \textbf{Deskripsi} & \textbf{Hal.} \\
+\midrule
+\endhead
+
+\midrule
+\multicolumn{3}{r}{\textit{Berlanjut ke halaman berikutnya...}} \\
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+API (\textit{Application Programming Interface}) & Antarmuka pemrograman yang digunakan untuk mengakses dan memanggil model bahasa secara terprogram dalam pelaksanaan eksperimen. & \pageref{term:api} \\
+
+Arsitektur decoder-only & Arsitektur model bahasa yang menghasilkan token secara autoregresif, yaitu memprediksi token berikutnya berdasarkan rangkaian token sebelumnya. Seluruh model yang digunakan dalam penelitian ini termasuk dalam kategori ini. & \pageref{term:decoder-only} \\
+
+Benchmark & Kumpulan tugas atau dataset terstandardisasi yang digunakan untuk mengevaluasi dan membandingkan kinerja model bahasa. & \pageref{term:benchmark} \\
+
+Bias & Kecenderungan atau penyimpangan tertentu pada keluaran model yang tidak sepenuhnya disebabkan oleh isi pertanyaan, tetapi juga oleh cara model memersepsi pengguna atau konteks. & \pageref{term:bias} \\
+
+\textit{Chain-of-thought} & Rangkaian penjelasan langkah penalaran yang dihasilkan model sebelum memberikan jawaban akhir. & \pageref{term:cot} \\
+
+\textit{Evaluation pipeline} & Rangkaian proses terotomatisasi yang mengatur pemanggilan model, penerapan persona, eksekusi tugas, pencatatan respons, dan pengolahan hasil untuk keperluan analisis. & \pageref{term:pipeline} \\
+
+GSM8K & Benchmark penalaran numerik yang terdiri atas soal cerita matematika tingkat sekolah dasar hingga menengah, digunakan untuk mengukur kemampuan penalaran langkah demi langkah. & \pageref{term:gsm8k} \\
+
+\textit{Human bias} & Bias yang berkaitan dengan identitas atau karakteristik manusia, seperti gender, usia, latar belakang sosial, atau stereotip tertentu, yang tercermin dalam keluaran model. & \pageref{term:human-bias} \\
+
+Large Language Model (LLM) & Model bahasa berskala besar yang dilatih pada korpus teks dalam jumlah besar dan mampu menyelesaikan berbagai tugas, seperti penalaran, tanya jawab, dan penyusunan teks. & \pageref{term:llm} \\
+
+MMLU-Redux & Versi terkurasi dari benchmark \textit{Massive Multitask Language Understanding} yang mencakup berbagai topik pengetahuan umum dan tugas penalaran multi-topik. & \pageref{term:mmlu-redux} \\
+
+Multi-model evaluation & Pengaturan eksperimen yang melibatkan lebih dari satu model bahasa untuk membandingkan perilaku, performa, dan sensitivitas masing-masing model. & \pageref{term:multi-model} \\
+
+Multi-persona evaluation & Pengaturan eksperimen yang melibatkan beberapa persona untuk melihat bagaimana variasi persona memengaruhi keluaran model pada tugas yang sama. & \pageref{term:multi-persona} \\
+
+Penalaran (\textit{reasoning}) & Proses penyusunan langkah pemikiran oleh model untuk menyelesaikan suatu tugas, misalnya penalaran numerik, logis, atau berbasis skenario sosial. & \pageref{term:reasoning} \\
+
+Persona & Representasi identitas atau karakter pengguna yang dimasukkan ke dalam prompt, baik secara eksplisit maupun implisit, dan dapat memengaruhi cara model menyusun respons. & \pageref{term:persona} \\
+
+Persona eksplisit & Persona yang dinyatakan secara langsung di dalam prompt, misalnya dengan menyebutkan latar belakang, profesi, atau karakter pengguna secara eksplisit. & \pageref{term:persona-eksplisit} \\
+
+Persona implisit & Persona yang tersirat dari gaya bahasa, pilihan kata, tingkat formalitas, dan cara pengguna menyampaikan pertanyaan tanpa penyebutan identitas secara langsung. & \pageref{term:persona-implisit} \\
+
+Prompt & Teks masukan yang diberikan kepada model untuk memicu dan mengarahkan respons yang dihasilkan. & \pageref{term:prompt} \\
+
+Prompt-based evaluation & Pendekatan evaluasi yang menggunakan variasi prompt untuk menguji perilaku model tanpa melakukan pelatihan ulang atau perubahan parameter internal. & \pageref{term:prompt-based} \\
+
+Robustness & Tingkat ketahanan model terhadap variasi prompt atau persona, yaitu sejauh mana model tetap memberikan respons yang konsisten pada tugas yang sama. & \pageref{term:robustness} \\
+
+Sensitivitas model (\textit{sensitivity}) & Tingkat kepekaan model terhadap perubahan pada prompt atau persona, yang tercermin dari seberapa besar variasi respons yang dihasilkan. & \pageref{term:sensitivity} \\
+
+\textit{Spec-driven experiment orchestration} & Pendekatan perancangan eksperimen yang berbasis pada dokumen spesifikasi formal. Spesifikasi tersebut mendefinisikan kombinasi model, persona, skenario prompt, dan benchmark yang dieksekusi secara otomatis melalui pipeline, sehingga evaluasi dapat dilakukan secara konsisten, terstruktur, dan dapat direproduksi. & \pageref{term:spec-driven} \\
+
+\end{longtable}
+
 \mainmatter
 % --- FORMAT TAMPILAN JUDUL BAB, SUBBAB, JUDUL GAMBAR DAN TABEL ---
 % --- Judul Bab ---
@@ -389,6 +466,8 @@
 \input{Bab V - Rencana-Selanjutnya.tex}
 
 \backmatter
+
+
 
 % ==========================================
 % DAFTAR PUSTAKA

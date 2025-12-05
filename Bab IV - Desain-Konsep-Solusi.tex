@@ -26,6 +26,102 @@ Persona mencakup bentuk eksplisit dan implisit, yang masing-masing memberikan ko
 Komponen sistem terdiri atas beberapa model yang tersedia melalui layanan API sehingga memungkinkan analisis lintas arsitektur.  
 Tugas penalaran yang digunakan mencakup penalaran numerik dan penalaran lintas topik untuk melihat bagaimana bentuk persona memengaruhi keluaran pada sifat tugas yang berbeda.
 
+\subsection{Spec-Driven Experiment Orchestration}
+
+Penelitian ini menggunakan pendekatan \textit{spec-driven experiment orchestration},
+yaitu metode di mana seluruh eksperimen dikendalikan melalui satu berkas spesifikasi
+(\textit{spec}) yang mendefinisikan daftar model, persona, benchmark, serta parameter
+eksekusi. Spec ini menjadi \textit{single source of truth} yang memastikan bahwa seluruh
+kombinasi skenario dijalankan secara konsisten dan dapat direproduksi.
+
+\subsubsection{Isi dan Struktur Spec}
+
+Berkas spec memuat empat komponen utama:
+
+\begin{enumerate}
+    \item Daftar model: mencakup ID model, nama model, dan \textit{provider}.
+    \item Daftar persona: mencakup persona eksplisit, implisit, dan netral.
+    \item Daftar benchmark: termasuk \textit{dataset}, \textit{split}, dan subjek.
+    \item Ruang skenario: kombinasi 
+          \textit{model} $\times$ \textit{persona} $\times$ \textit{benchmark} 
+          yang harus dieksekusi oleh pipeline.
+\end{enumerate}
+
+Keempat komponen ini menjadikan spec sebagai konfigurasi lengkap mengenai eksperimen
+tanpa perlu menyunting kode program.
+
+\subsubsection{Contoh Spec Eksperimen}
+
+Listing~\ref{lst:spec-example} menunjukkan contoh berkas YAML yang akan digunakan
+dalam penelitian ini.
+
+\begin{lstlisting}[language=yaml,caption={Contoh ringkas berkas spesifikasi eksperimen},label={lst:spec-example}]
+experiment_id: persona-reasoning-eval-v1
+
+models:
+  - id: llama-3-8b
+    provider: groq
+  - id: gpt-4.1-mini
+    provider: openrouter
+
+personas:
+  - id: explicit_woman_student
+    type: explicit
+  - id: implicit_woman_student
+    type: implicit
+  - id: neutral
+    type: neutral
+
+benchmarks:
+  - id: gsm8k
+    split: test
+  - id: mmlu-redux
+    subjects:
+      - sociology
+      - abstract_algebra
+
+scenarios:
+  - model: llama-3-8b
+    persona: explicit_woman_student
+    benchmark: gsm8k
+
+  - model: llama-3-8b
+    persona: neutral
+    benchmark: gsm8k
+
+  - model: gpt-4.1-mini
+    persona: implicit_woman_student
+    benchmark: mmlu-redux
+\end{lstlisting}
+
+\subsubsection{Peran Spec dalam Pipeline}
+
+Pipeline eksperimen membaca berkas spec dan:
+
+\begin{enumerate}
+    \item menghasilkan daftar lengkap kombinasi skenario,
+    \item menyiapkan persona sesuai konfigurasi,
+    \item menyusun prompt secara konsisten untuk seluruh model,
+    \item mengeksekusi seluruh skenario secara otomatis,
+    \item menyimpan keluaran model beserta metadata konfigurasi.
+\end{enumerate}
+
+Pendekatan ini memenuhi kebutuhan KF-04 dan KNF-04 karena:
+
+\begin{itemize}
+    \item eksperimen dapat diubah atau diperluas hanya dengan memodifikasi isi spec
+          tanpa mengubah kode,
+    \item struktur prompt dan alur eksekusi tetap seragam untuk seluruh model dan persona,
+    \item seluruh kombinasi \textit{multi model} $\times$ \textit{multi persona}
+          $\times$ \textit{multi benchmark} dapat dijalankan otomatis,
+    \item setiap hasil eksperimen dapat ditelusuri ulang ke konfigurasi yang jelas,
+          terdokumentasi, dan dapat direproduksi.
+\end{itemize}
+
+Dengan demikian, spec berfungsi sebagai unit kontrol utama dalam desain eksperimen
+dan memastikan bahwa pipeline berjalan secara terstruktur, konsisten, dan replikatif.
+
+
 \subsection{Prinsip Pengendalian Variabel}
 
 Untuk menjaga kesetaraan pengujian, seluruh instruksi disampaikan menggunakan susunan yang seragam pada setiap kombinasi persona, sistem, dan tugas. Dengan demikian, unsur yang bervariasi hanyalah bentuk persona. Pendekatan ini dilakukan agar hasil yang diperoleh dapat dibandingkan secara langsung tanpa dipengaruhi oleh variasi lain di luar persona.
@@ -229,51 +325,39 @@ Tahap kedua adalah \textit{persona warm-up message}. Pipeline mengirimkan satu i
 
 Setelah kedua tahap ini selesai, pipeline tidak lagi mengulangi injeksi persona untuk setiap pertanyaan. Identitas yang telah ditanamkan pada awal percakapan tetap digunakan selama seluruh rangkaian pengujian. Model kemudian langsung memproses seluruh soal pada GSM8K dan MMLU-Redux dalam kondisi persona yang sama. Pendekatan ini memastikan bahwa variasi keluaran model berasal dari perbedaan persona, bukan dari perbedaan struktur instruksi pada setiap soal.
 
-\subsection{Alur Operasional Pelaksanaan Eksperimen}
+\subsection{Alur Pelaksanaan Eksperimen}
 \label{subsec:alur-operasional}
 
-Secara operasional, alur pelaksanaan eksperimen mengikuti rangkaian langkah yang digambarkan pada Gambar~\ref{fig:alur-eksperimen}. Diagram tersebut menunjukkan hubungan antara pembentukan \textit{configuration}, penyusunan \textit{instruction}, eksekusi \textit{task}, dan pencatatan hasil dalam satu siklus pipeline.
 
-\begin{figure}[htbp]
+Secara operasional, pelaksanaan eksperimen mengikuti alur yang diringkas pada Gambar~\ref{fig:alur-eksperimen}. Diagram hierarki tersebut menunjukkan bagaimana berkas spesifikasi (\textit{spec}) menjadi titik awal yang menurunkan himpunan model, persona, dan benchmark, kemudian dikombinasikan menjadi skenario eksperimen yang dieksekusi oleh \textit{pipeline}.
+
+\begin{figure}[H]
   \centering
-  \includegraphics[width=0.5\textwidth]{image/alur-eksperimen.png}
-  \caption{Diagram alur pelaksanaan eksperimen}
+  \includegraphics[width=0.7\textwidth]{image/diagram-hierarki.png}
+  \caption{Diagram hierarki spec, skenario eksperimen, dan pipeline eksekusi}
   \label{fig:alur-eksperimen}
 \end{figure}
 
-Pelaksanaan eksperimen dilakukan melalui langkah-langkah berikut.
+Alur operasional dapat diringkas dalam beberapa langkah berikut.
 
 \begin{enumerate}
-    \item Memuat \textit{specification}.\\
-    \textit{System} membaca berkas \textit{specification} yang memuat daftar persona, daftar model, daftar \textit{task}, serta aturan eksekusi. Informasi tersebut diproses menjadi dasar pembentukan himpunan \textit{configuration} yang akan dievaluasi.
+    \item Memuat spesifikasi eksperimen.\\
+    Sistem membaca berkas \textit{spec} yang memuat daftar model, daftar persona, daftar benchmark (misalnya GSM8K dan MMLU-Redux), serta parameter eksekusi. Informasi ini menjadi \textit{single source of truth} bagi seluruh eksperimen.
 
-    \item Membentuk \textit{configuration} lengkap.\\
-    Seluruh kombinasi persona, model, dan \textit{task} dibentuk sebagai unit eksekusi dan dicatat untuk dijalankan selama eksperimen. Setiap \textit{configuration} menyimpan identitas persona, model, dan penanda butir soal yang terkait.
+    \item Membentuk ruang skenario eksperimen.\\
+    Berdasarkan \textit{spec}, sistem membentuk himpunan skenario sebagai kombinasi \textit{multi model} $\times$ \textit{multi persona} $\times$ \textit{multi benchmark} beserta indeks soal. Setiap kombinasi disimpan sebagai satu \textit{configuration} yang akan dieksekusi.
 
-    \item Memilih satu \textit{configuration}.\\
-    \textit{System} mengambil satu \textit{configuration} dari antrean tugas pada setiap siklus dan menjadwalkannya untuk dieksekusi hingga seluruh kombinasi selesai diproses.
+    \item Menjalankan \textit{pipeline} untuk setiap skenario.\\
+    Untuk setiap \textit{configuration}, sistem menerapkan persona (termasuk \textit{warm-up} jika digunakan), menyusun \textit{prompt} tugas dengan struktur yang seragam, lalu memanggil model melalui API. Jika terjadi kegagalan sementara, \textit{request} diulang hingga respons yang valid diperoleh atau batas percobaan tercapai.
 
-    \item Menerapkan \textit{persona}.\\
-    \textit{Persona} yang sesuai dengan \textit{configuration} tersebut diterapkan terlebih dahulu agar \textit{task} diproses dalam konteks pengguna yang telah ditetapkan. Pada beberapa kondisi, digunakan satu interaksi \textit{warmup} untuk memastikan bahwa respons awal model sudah mengikuti karakter persona sebelum rangkaian \textit{task} utama dikirimkan.
+    \item Mengevaluasi dan mencatat hasil.\\
+    Respons model dievaluasi terhadap kunci jawaban atau label yang tersedia pada benchmark, kemudian disimpan bersama metadata penting seperti identitas model, persona, benchmark, jumlah token, dan waktu eksekusi.
 
-    \item Menyusun \textit{instruction} untuk \textit{task}.\\
-    \textit{Instruction} dirumuskan dengan susunan yang seragam oleh \textit{prompt construction engine}, sehingga perbedaan hasil dapat dikaitkan pada variasi persona dan model, bukan pada perbedaan redaksi atau struktur penyampaian.
-
-    \item Mengirim \textit{instruction} kepada model.\\
-    \textit{Instruction} yang telah lengkap dikirimkan kepada model melalui \textit{execution manager} untuk memperoleh \textit{response} yang digunakan dalam tahap analisis.
-
-    \item Penanganan kegagalan.\\
-    Jika \textit{response} tidak diperoleh atau terjadi gangguan sementara, \textit{instruction} dijadwalkan ulang menggunakan jeda adaptif hingga \textit{response} valid diterima. Mekanisme ini memastikan seluruh \textit{configuration} menghasilkan keluaran yang dapat digunakan.
-
-    \item Mencatat hasil \textit{response}.\\
-    \textit{Response} yang diterima disimpan oleh \textit{telemetry logger} dalam berkas penyimpanan bersama informasi pendukung lainnya, seperti jumlah token dan \textit{latency}, untuk keperluan analisis.
-
-    \item Melanjutkan ke \textit{configuration} berikutnya.\\
-    Setelah satu \textit{configuration} selesai, \textit{system} beralih ke \textit{configuration} berikutnya hingga seluruh ruang eksperimen selesai dievaluasi.
+    \item Mengulangi hingga seluruh skenario selesai.\\
+    Proses pada butir sebelumnya diulang untuk seluruh \textit{configuration} dalam ruang eksperimen sampai semua kombinasi persona, model, dan benchmark dievaluasi.
 \end{enumerate}
 
-Dengan arsitektur dan alur operasional ini, eksperimen dapat dijalankan secara teratur, terukur, dan setiap hasil yang dihasilkan dapat ditelusuri kembali berdasarkan \textit{configuration} yang digunakan.
-
+Dengan alur hierarkis ini, setiap hasil eksperimen dapat ditelusuri kembali ke \textit{spec} yang digunakan, sehingga pelaksanaan eksperimen bersifat terstruktur, dapat direproduksi, dan mudah diperluas.
 
 %====== BAB IV.3 ======
 \section{Integrasi Komponen Eksperimen}
@@ -656,10 +740,10 @@ dikonversi menjadi ringkasan numerik yang kemudian digunakan dalam analisis pada
 
 Setiap interaksi antara pipeline dan model dicatat dalam berkas \texttt{JSON}.
 Berkas ini mencakup identitas konfigurasi, isi permintaan, jawaban model, serta
-telemetri penggunaan token. Cuplikan berikut menunjukkan contoh log untuk model
+telemetri penggunaan token. Kode~\ref{lst:log-inferensi} menunjukkan contoh log untuk model
 yang tidak menyediakan \textit{reasoning trace}.
 
-\begin{verbatim}
+\begin{lstlisting}[caption={Contoh struktur log inferensi}, label={lst:log-inferensi}]
 {
   "run": {
     "model_id": "example-model",
@@ -685,15 +769,15 @@ yang tidak menyediakan \textit{reasoning trace}.
     "timestamp": "2025-01-18T12:44:10Z"
   }
 }
-\end{verbatim}
+\end{lstlisting}
 
 \subsection{Contoh Struktur Log dengan Reasoning Trace}
 
 Beberapa model menyediakan bagian penalaran (\textit{reasoning trace}) selain jawaban akhir.
-Bagian ini disimpan sebagai elemen terpisah di dalam log. Cuplikan berikut
+Bagian ini disimpan sebagai elemen terpisah di dalam log. Kode~\ref{lst:log-reasoning}
 menampilkan struktur log lengkap dari model yang menyediakan informasi tersebut.
 
-\begin{verbatim}
+\begin{lstlisting}[caption={Contoh struktur log dengan reasoning trace}, label={lst:log-reasoning}]
 {
   "run": {
     "model_id": "example-model-reason",
@@ -720,7 +804,7 @@ menampilkan struktur log lengkap dari model yang menyediakan informasi tersebut.
     "timestamp": "2025-01-18T12:52:41Z"
   }
 }
-\end{verbatim}
+\end{lstlisting}
 
 Log seperti ini memungkinkan analisis lebih dalam mengenai gaya penalaran
 serta perubahan struktur argumen yang mungkin dipengaruhi oleh persona.

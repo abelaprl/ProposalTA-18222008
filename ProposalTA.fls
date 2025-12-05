@@ -481,9 +481,18 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
 INPUT ./Bab IV - Desain-Konsep-Solusi.tex
 INPUT ./Bab IV - Desain-Konsep-Solusi.tex
 INPUT Bab IV - Desain-Konsep-Solusi.tex
-INPUT ./image/alur-eksperimen.png
-INPUT ./image/alur-eksperimen.png
-INPUT ./image/alur-eksperimen.png
+INPUT /usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/listings/lstlang2.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/listings/lstlang2.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/listings/lstlang2.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/listings/lstlang3.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/listings/lstlang3.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/listings/lstlang3.sty
+INPUT ./image/diagram-hierarki.png
+INPUT ./image/diagram-hierarki.png
+INPUT ./image/diagram-hierarki.png
 INPUT ./Bab V - Rencana-Selanjutnya.tex
 INPUT ./Bab V - Rencana-Selanjutnya.tex
 INPUT Bab V - Rencana-Selanjutnya.tex

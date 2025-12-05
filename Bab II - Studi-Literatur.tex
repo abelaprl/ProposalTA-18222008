@@ -64,9 +64,11 @@ Arsitektur Transformer merupakan dasar bagi sebagian besar \textit{large languag
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{image/arsitektur-transformer.png}
-    \caption{Struktur umum arsitektur Transformer sebagaimana dijelaskan oleh \textcite{vaswani2017attention}. Gambar ini menunjukkan aliran informasi melalui mekanisme attention, multi-head integration, \textit{positional encoding}, feed-forward block, residual connection, dan layer normalization pada setiap lapisan.}
+    \caption{Struktur umum arsitektur Transformer \parencite{vaswani2017attention}}
     \label{fig:transformer-architecture}
 \end{figure}
+
+Gambar~\ref{fig:transformer-architecture} menunjukkan aliran informasi melalui mekanisme \textit{attention}, \textit{multi-head integration}, \textit{positional encoding}, \textit{feed-forward block}, \textit{residual connection}, dan \textit{layer normalization} pada setiap lapisan.
 
 \subsubsection{Mekanisme Self-Attention}
 
@@ -239,7 +241,7 @@ Persona disusun berdasarkan enam dimensi identitas yang muncul dalam penelitian 
 
 Penerapan persona dilakukan melalui dua tahap, yaitu persona context initialization dan persona warm-up message. Tahap pertama membentuk konteks identitas melalui system message. Tahap kedua berupa satu interaksi pemanasan yang digunakan untuk memastikan bahwa model mengikuti gaya persona sebelum mengerjakan soal. Pendekatan kalibrasi konteks ini sejalan dengan temuan bahwa performa few-shot LLM sangat sensitif terhadap formulasi instruksi dan framing awal \parencite{zhao2021calibrate, liu2023pretrain}.
 
-Setelah kalibrasi, seluruh soal dalam benchmark dijalankan dalam kondisi persona yang sama. Penelitian ini menggunakan GSM8K untuk menguji penalaran aritmetika berbasis soal cerita \parencite{cobbe2021gsm8k}, serta MMLU-Redux 2.0 untuk mengevaluasi kemampuan penalaran multi-bidang \parencite{hendryckstest2021, gema2024arewedonewithmmlu, mmluRedux2024dataset}. Relevansi persona terhadap interaksi sosial juga dikaitkan dengan karakteristik tugas seperti SocialIQA yang menguji penalaran sosial dalam konteks naratif \parencite{sap2019socialiqa}. Pemilihan benchmark ini konsisten dengan rekomendasi evaluasi holistik pada model bahasa \parencite{liang2023helm}.
+Setelah kalibrasi, seluruh soal dalam benchmark dijalankan dalam kondisi persona yang sama. Pelaksanaan kombinasi persona–model–benchmark diatur melalui pendekatan \textit{spec-driven experiment orchestration}, yaitu eksperimen yang disusun terlebih dahulu di dalam berkas spesifikasi formal sebelum dijalankan secara otomatis oleh \textit{pipeline}. Penelitian ini menggunakan GSM8K untuk menguji penalaran aritmetika berbasis soal cerita \parencite{cobbe2021gsm8k}, serta MMLU-Redux 2.0 untuk mengevaluasi kemampuan penalaran multi-bidang \parencite{hendryckstest2021, gema2024arewedonewithmmlu, mmluRedux2024dataset}.
 
 \subsubsection{Kontrol struktur prompt dan pengaruh framing}
 
@@ -330,6 +332,8 @@ Keempat, tidak semua penelitian memastikan konsistensi struktur prompt. Karena L
 
 Kelima, stabilitas reasoning jarang dievaluasi pada benchmark yang berbeda secara kognitif, misalnya penalaran numerik (GSM8K) versus penalaran konseptual (MMLU-Redux). Padahal, persona dapat berdampak berbeda pada tiap jenis tugas.
 
+Keenam, kerangka evaluasi LLM yang umum digunakan—seperti HELM \parencite{liang2023helm}, LM Evaluation Harness, dan OpenAI Evals—belum dirancang untuk mengevaluasi pengaruh persona sebagai variabel eksperimen. Framework-framework tersebut berfokus pada pengujian model terhadap benchmark terstandarisasi dengan prompt yang statis, sehingga tidak mendukung integrasi persona eksplisit maupun implisit, \textit{warm-up} konteks, ataupun variasi framing identitas pengguna. Selain itu, kerangka tersebut tidak menyediakan mekanisme untuk mengeksekusi kombinasi \textit{multi model}~$\times$~\textit{multi persona}~$\times$~\textit{multi benchmark} secara otomatis serta tidak menyimpan keluaran lengkap yang diperlukan untuk menganalisis perubahan struktur penjelasan, gaya bahasa, atau pola \textit{bias} berbasis persona. Akibatnya, pendekatan evaluasi yang ada belum mampu menangani kebutuhan metodologis penelitian ini secara menyeluruh.
+
 \subsection{Posisi dan Kontribusi Penelitian Ini}
 
 Penelitian ini dirancang untuk mengisi kesenjangan tersebut melalui beberapa kontribusi utama.
@@ -340,6 +344,6 @@ Kedua, penelitian ini menggunakan himpunan persona eksplisit dan implisit yang d
 
 Ketiga, penelitian ini menggunakan dua benchmark reasoning yang memiliki karakteristik kognitif berbeda—GSM8K untuk penalaran numerik prosedural dan MMLU-Redux untuk penalaran konseptual berbasis pilihan ganda. Pendekatan ini menyediakan analisis yang lebih kaya mengenai bagaimana persona memengaruhi bentuk reasoning yang berbeda.
 
-Keempat, seluruh evaluasi dijalankan dalam \textit{pipeline} terotomatisasi dengan struktur prompt yang benar-benar seragam, mengikuti rekomendasi penelitian mengenai sensitivitas prompt \parencite{zhou2023largemodelsensitive}. Hal ini memastikan bahwa variasi keluaran dapat ditelusuri secara jelas ke persona, bukan ke perbedaan instruksi.
+Keempat, seluruh evaluasi dijalankan dalam \textit{pipeline} terotomatisasi dengan struktur prompt yang benar-benar seragam melalui pendekatan \textit{spec-driven experiment orchestration}, mengikuti rekomendasi penelitian mengenai sensitivitas prompt \parencite{zhou2023largemodelsensitive}. Hal ini memastikan bahwa variasi keluaran dapat ditelusuri secara jelas ke persona, bukan ke perbedaan instruksi.
 
 Dengan demikian, penelitian ini tidak hanya mereplikasi studi tentang persona, tetapi memperluas ruang analisis melalui evaluasi lintas-model, lintas-persona, dan lintas-benchmark. Formulasi ini memberikan kontribusi empiris baru mengenai bagaimana identitas pengguna memengaruhi pola reasoning dalam \textit{large language models}.

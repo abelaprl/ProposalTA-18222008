@@ -22,7 +22,8 @@ Lapisan kompleksitas lain muncul dari isu bias. Weidinger et al.\ menunjukkan ba
 
 Sementara itu, penelitian yang menempatkan persona pada sisi pengguna masih terbatas. Pendekatan pemodelan pengguna, seperti \textit{user language model}, mulai dikembangkan untuk mempelajari variasi bahasa berdasarkan karakteristik pengguna \parencite{naous2025userlm}. Namun, kajian yang secara sistematis menilai pengaruh \textit{user persona}—baik eksplisit maupun implisit—terhadap penalaran dan kualitas jawaban pada berbagai jenis tugas masih belum banyak dilakukan.
 
-Dari sisi teknis, banyak studi persona masih mengandalkan eksekusi manual atau semiotomatis ketika menjalankan eksperimen. Naous et al.\ menyoroti pentingnya mekanisme evaluasi yang terstruktur, termasuk pengelolaan konfigurasi, pencatatan hasil, dan konsistensi skenario pengujian \parencite{naous2025userlm}. Tanpa kerangka evaluasi yang terdokumentasi dengan baik, eksperimen yang melibatkan banyak model, banyak persona, dan berbagai jenis tugas menjadi sulit direplikasi.
+Dari sisi teknis, banyak studi persona masih mengandalkan eksekusi manual atau semiotomatis ketika menjalankan eksperimen. Naous et al.\ menyoroti pentingnya mekanisme evaluasi yang terstruktur, termasuk pengelolaan konfigurasi, pencatatan hasil, dan konsistensi skenario pengujian \parencite{naous2025userlm}. Tanpa kerangka evaluasi yang terdokumentasi dengan baik, eksperimen yang melibatkan banyak model, banyak persona, dan berbagai jenis tugas menjadi sulit direplikasi \parencite{naous2025userlm}. Kondisi ini menunjukkan perlunya pendekatan \textit{spec-driven experiment orchestration}, yaitu perancangan eksperimen yang didasarkan pada spesifikasi eksplisit mengenai kombinasi model, persona, dan tugas yang kemudian dijalankan secara otomatis melalui \textit{pipeline} terstruktur.
+
 
 Berdasarkan kondisi tersebut, masalah-masalah utama yang melatarbelakangi penelitian ini dirangkum pada Tabel~\ref{tab:daftar-masalah-llm-persona}.
 
@@ -103,13 +104,37 @@ Kebutuhan fungsional merujuk pada kemampuan yang perlu tersedia agar eksperimen 
     KF-03 &
     Format pencatatan hasil yang mendukung penilaian sederhana seperti benar–salah dan indikasi bias, sehingga keluaran model dapat dianalisis lebih lanjut tanpa perlakuan tambahan yang kompleks. &
     M-03, M-04 \\
+
+    KF-04 &
+Mendukung eksekusi eksperimen berbasis konfigurasi (\textit{spec-driven execution}), 
+di mana daftar model, persona, benchmark, serta parameter eksekusi disusun dalam 
+satu berkas spesifikasi yang dapat dibaca otomatis oleh \textit{pipeline}. 
+Pendekatan ini memastikan bahwa perubahan skenario eksperimen tidak memerlukan 
+modifikasi kode. &
+M-02, M-04 \\[0.2cm]
+
     \bottomrule
   \end{tabular}
 \end{table}
 
-KF-01 berfungsi memastikan bahwa definisi persona disusun secara terstandar.  
-KF-02 memungkinkan skenario eksperimen diterapkan secara konsisten pada beberapa kondisi.  
-KF-03 menyediakan dasar pencatatan yang mendukung proses analisis baik secara kuantitatif maupun kualitatif.
+Penjelasan singkat atas kebutuhan fungsional adalah sebagai berikut.
+
+KF-01 menyediakan mekanisme untuk menyusun \textit{user persona} eksplisit 
+dan implisit secara terstandar, sehingga persona dapat digunakan ulang 
+dan dibandingkan secara konsisten.
+
+KF-02 memastikan bahwa pertanyaan yang sama dapat dijalankan pada beberapa 
+persona dan beberapa model, serta seluruh keluaran dicatat bersama metadata, 
+memungkinkan analisis komparatif yang terstruktur.
+
+KF-03 menyediakan format pencatatan hasil yang mendukung evaluasi benar–salah 
+dan indikasi bias, sehingga keluaran model dapat dianalisis tanpa proses 
+pengolahan tambahan yang kompleks.
+
+KF-04 mendukung pendekatan \textit{spec-driven execution}, di mana seluruh 
+kombinasi model, persona, dan benchmark dikendalikan melalui satu berkas 
+spesifikasi, sehingga eksperimen dapat direproduksi dan dimodifikasi tanpa 
+mengubah kode.
 
 \subsection{Kebutuhan Nonfungsional}
 
@@ -134,13 +159,38 @@ Kebutuhan nonfungsional berkaitan dengan kualitas pelaksanaan eksperimen dan sif
     KNF-03 &
     Extensibility &
     Struktur eksperimen memungkinkan penambahan model atau persona baru tanpa perubahan besar pada kerangka yang sudah ada, sehingga penelitian dapat dikembangkan lebih lanjut sesuai kebutuhan. \\
+    
+    KNF-04 &
+    Configuration-driven design &
+    Seluruh eksperimen dikendalikan melalui satu berkas spesifikasi 
+    (\textit{experiment specification}) yang mengatur model, persona, benchmark, 
+    parameter eksekusi, serta struktur prompt. Pendekatan ini memastikan 
+    reproducibility, konsistensi lintas percobaan, serta kemudahan dalam 
+    mengubah atau memperluas skenario eksperimen tanpa mengubah kode. \\ 
+
+
     \bottomrule
   \end{tabular}
 \end{table}
 
-KNF-01 memastikan eksperimen dapat diujikan kembali dalam kondisi yang sama.  
-KNF-02 menekankan agar implementasi tidak menimbulkan kompleksitas teknis yang tidak diperlukan.  
-KNF-03 memberi fleksibilitas untuk memperluas cakupan eksperimen pada tahap selanjutnya.
+Penjelasan singkat atas kebutuhan nonfungsional tersebut adalah sebagai berikut.
+
+KNF-01 (Reproducibility) memastikan bahwa eksperimen dapat diulang dalam 
+kondisi yang sama, sehingga perbedaan keluaran dapat ditelusuri secara jelas 
+ke variasi persona.
+
+KNF-02 (Simplicity) menjaga agar proses eksekusi tetap sederhana tanpa 
+ketergantungan infrastruktur tambahan, sehingga fokus penelitian berada pada 
+analisis hasil.
+
+KNF-03 (Extensibility) memungkinkan penambahan model, persona, atau benchmark 
+baru tanpa perubahan besar pada kode, sehingga penelitian dapat dikembangkan 
+lebih lanjut.
+
+KNF-04 (Configuration-driven) memastikan bahwa seluruh eksperimen dikendalikan 
+melalui satu berkas spesifikasi, sehingga skenario \textit{multi model} 
+$\times$ \textit{multi persona} $\times$ \textit{multi benchmark} dapat 
+dikelola dan direproduksi secara konsisten.
 
 \section{Analisis Pemilihan Solusi}
 
@@ -157,7 +207,7 @@ Berdasarkan kebutuhan yang telah dirumuskan pada Subbagian~3.2, beberapa alterna
     
     \item Skrip eksperimen semi terotomatisasi berbasis konfigurasi.
     
-    Pada alternatif ini, daftar persona, model, dan kumpulan tugas (misalnya GSM8K dan MMLU-Redux) disimpan dalam berkas konfigurasi yang terstruktur. Skrip eksperimen membaca konfigurasi tersebut, menyusun \textit{prompt} untuk setiap kombinasi skenario, memanggil model melalui API, lalu menyimpan keluaran beserta metadata ke dalam berkas JSON. Tahap analisis kemudian mengolah JSON menjadi keluaran yang lebih ringkas, seperti CSV, untuk perhitungan metrik dan evaluasi lanjutan. Pendekatan ini memerlukan penulisan skrip, tetapi memberikan struktur yang rapi dan mendukung eksekusi dalam jumlah besar.
+Pada alternatif ini, daftar persona, model, dan kumpulan tugas (misalnya GSM8K dan MMLU-Redux) disimpan dalam berkas konfigurasi yang terstruktur. Skrip eksperimen membaca konfigurasi tersebut, menyusun \textit{prompt} untuk setiap kombinasi skenario, memanggil model melalui API, lalu menyimpan keluaran beserta metadata ke dalam berkas JSON. Tahap analisis kemudian mengolah JSON menjadi keluaran yang lebih ringkas, seperti CSV, untuk perhitungan metrik dan evaluasi lanjutan. Pendekatan ini memerlukan penulisan skrip, tetapi memberikan struktur yang rapi, mendukung eksekusi dalam jumlah besar, dan secara praktis merealisasikan gagasan \textit{spec-driven experiment orchestration} karena seluruh ruang eksperimen diturunkan dari spesifikasi konfigurasi.
     
     \item Kerangka evaluasi umum yang dapat digunakan kembali.
     
@@ -209,4 +259,4 @@ Pendekatan kerangka evaluasi umum menyediakan fleksibilitas yang lebih luas, tet
 
 Pendekatan skrip eksperimen semi terotomatisasi berbasis konfigurasi menawarkan keseimbangan yang paling sesuai. Representasi model, persona, dan tugas dapat diatur dalam direktori konfigurasi, sedangkan proses eksekusi dan analisis dijalankan melalui skrip yang konsisten. Seluruh keluaran disimpan dalam format terstruktur sehingga mudah dianalisis kembali. Struktur seperti ini mendukung keterulangan eksperimen dan perluasan skenario tanpa memerlukan pembangunan kerangka yang kompleks.
 
-Berdasarkan pertimbangan tersebut, penelitian ini menggunakan pendekatan skrip eksperimen semi terotomatisasi berbasis konfigurasi sebagai solusi utama dalam melaksanakan eksperimen \textit{multi model} dan \textit{multi persona}.
+Berdasarkan pertimbangan tersebut, penelitian ini menggunakan pendekatan skrip eksperimen semi terotomatisasi berbasis konfigurasi sebagai solusi utama dalam melaksanakan eksperimen \textit{multi model} dan \textit{multi persona}. Dalam konteks penelitian ini, pendekatan tersebut diimplementasikan sebagai \textit{spec-driven experiment orchestration}, di mana konfigurasi model, persona, dan benchmark didefinisikan terlebih dahulu dalam bentuk spesifikasi sebelum dieksekusi secara otomatis oleh \textit{pipeline}.

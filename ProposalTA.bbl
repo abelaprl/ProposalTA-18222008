@@ -608,6 +608,44 @@
       \verb https://arxiv.org/abs/2009.03300
       \endverb
     \endentry
+    \entry{jurafsky2023slp3}{book}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=3147296c99a3f829087becd1a4eaec08}{%
+           family={Jurafsky},
+           familyi={J\bibinitperiod},
+           given={Dan},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9ed8bee488b2703da341cded66bf83cb}{%
+           family={Martin},
+           familyi={M\bibinitperiod},
+           given={James\bibnamedelima H.},
+           giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{1098524cc7b74c43e679459ba6a87270}
+      \strng{fullhash}{1098524cc7b74c43e679459ba6a87270}
+      \strng{bibnamehash}{1098524cc7b74c43e679459ba6a87270}
+      \strng{authorbibnamehash}{1098524cc7b74c43e679459ba6a87270}
+      \strng{authornamehash}{1098524cc7b74c43e679459ba6a87270}
+      \strng{authorfullhash}{1098524cc7b74c43e679459ba6a87270}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{3rd}
+      \field{note}{Draft of January 7, 2023}
+      \field{title}{Speech and Language Processing}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://web.stanford.edu/~jurafsky/slp3/
+      \endverb
+      \verb{url}
+      \verb https://web.stanford.edu/~jurafsky/slp3/
+      \endverb
+    \endentry
     \entry{liang2023helm}{article}{}
       \true{moreauthor}
       \true{morelabelname}
@@ -925,6 +963,7 @@
       \field{booktitle}{Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing}
       \field{title}{SocialIQA: Commonsense Reasoning about Social Interactions}
       \field{year}{2019}
+      \true{nocite}
       \verb{urlraw}
       \verb https://arxiv.org/abs/1904.09728
       \endverb
