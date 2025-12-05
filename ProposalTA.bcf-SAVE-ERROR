@@ -99,15 +99,15 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxbibnames</bcf:key>
-      <bcf:value>10</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxcitenames</bcf:key>
-      <bcf:value>3</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxsortnames</bcf:key>
-      <bcf:value>10</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxitems</bcf:key>
@@ -119,7 +119,7 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>minbibnames</bcf:key>
-      <bcf:value>7</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>mincitenames</bcf:key>
@@ -127,7 +127,7 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>minsortnames</bcf:key>
-      <bcf:value>7</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>minitems</bcf:key>
@@ -337,15 +337,15 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxbibnames</bcf:key>
-      <bcf:value>10</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxcitenames</bcf:key>
-      <bcf:value>3</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxsortnames</bcf:key>
-      <bcf:value>10</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxitems</bcf:key>
@@ -357,7 +357,7 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>minbibnames</bcf:key>
-      <bcf:value>7</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>mincitenames</bcf:key>
@@ -365,7 +365,7 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>minsortnames</bcf:key>
-      <bcf:value>7</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>minitems</bcf:key>
@@ -555,15 +555,15 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxbibnames</bcf:key>
-      <bcf:value>10</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxcitenames</bcf:key>
-      <bcf:value>3</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxsortnames</bcf:key>
-      <bcf:value>10</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxitems</bcf:key>
@@ -575,7 +575,7 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>minbibnames</bcf:key>
-      <bcf:value>7</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>mincitenames</bcf:key>
@@ -583,7 +583,7 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>minsortnames</bcf:key>
-      <bcf:value>7</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>minitems</bcf:key>
@@ -773,15 +773,15 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxbibnames</bcf:key>
-      <bcf:value>10</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxcitenames</bcf:key>
-      <bcf:value>3</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxsortnames</bcf:key>
-      <bcf:value>10</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxitems</bcf:key>
@@ -793,7 +793,7 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>minbibnames</bcf:key>
-      <bcf:value>7</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>mincitenames</bcf:key>
@@ -801,7 +801,7 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>minsortnames</bcf:key>
-      <bcf:value>7</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>minitems</bcf:key>
@@ -998,15 +998,15 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxbibnames</bcf:key>
-      <bcf:value>10</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxcitenames</bcf:key>
-      <bcf:value>3</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxsortnames</bcf:key>
-      <bcf:value>10</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxitems</bcf:key>
@@ -1018,7 +1018,7 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>minbibnames</bcf:key>
-      <bcf:value>7</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>mincitenames</bcf:key>
@@ -1026,7 +1026,7 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>minsortnames</bcf:key>
-      <bcf:value>7</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>minitems</bcf:key>
@@ -1223,15 +1223,15 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxbibnames</bcf:key>
-      <bcf:value>10</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxcitenames</bcf:key>
-      <bcf:value>3</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxsortnames</bcf:key>
-      <bcf:value>10</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxitems</bcf:key>
@@ -1243,7 +1243,7 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>minbibnames</bcf:key>
-      <bcf:value>7</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>mincitenames</bcf:key>
@@ -1251,7 +1251,7 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>minsortnames</bcf:key>
-      <bcf:value>7</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>minitems</bcf:key>
@@ -1448,15 +1448,15 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxbibnames</bcf:key>
-      <bcf:value>10</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxcitenames</bcf:key>
-      <bcf:value>3</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxsortnames</bcf:key>
-      <bcf:value>10</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxitems</bcf:key>
@@ -1468,7 +1468,7 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>minbibnames</bcf:key>
-      <bcf:value>7</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>mincitenames</bcf:key>
@@ -1476,7 +1476,7 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>minsortnames</bcf:key>
-      <bcf:value>7</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>minitems</bcf:key>
@@ -1666,15 +1666,15 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxbibnames</bcf:key>
-      <bcf:value>10</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxcitenames</bcf:key>
-      <bcf:value>3</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxsortnames</bcf:key>
-      <bcf:value>10</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxitems</bcf:key>
@@ -1686,7 +1686,7 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>minbibnames</bcf:key>
-      <bcf:value>7</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>mincitenames</bcf:key>
@@ -1694,7 +1694,7 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>minsortnames</bcf:key>
-      <bcf:value>7</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>minitems</bcf:key>
@@ -1884,15 +1884,15 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxbibnames</bcf:key>
-      <bcf:value>10</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxcitenames</bcf:key>
-      <bcf:value>3</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxsortnames</bcf:key>
-      <bcf:value>10</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxitems</bcf:key>
@@ -1904,7 +1904,7 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>minbibnames</bcf:key>
-      <bcf:value>7</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>mincitenames</bcf:key>
@@ -1912,7 +1912,7 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>minsortnames</bcf:key>
-      <bcf:value>7</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>minitems</bcf:key>
@@ -2102,15 +2102,15 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxbibnames</bcf:key>
-      <bcf:value>10</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxcitenames</bcf:key>
-      <bcf:value>3</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxsortnames</bcf:key>
-      <bcf:value>10</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxitems</bcf:key>
@@ -2122,7 +2122,7 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>minbibnames</bcf:key>
-      <bcf:value>7</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>mincitenames</bcf:key>
@@ -2130,7 +2130,7 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>minsortnames</bcf:key>
-      <bcf:value>7</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>minitems</bcf:key>
@@ -2320,15 +2320,15 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxbibnames</bcf:key>
-      <bcf:value>10</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxcitenames</bcf:key>
-      <bcf:value>3</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxsortnames</bcf:key>
-      <bcf:value>10</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxitems</bcf:key>
@@ -2340,7 +2340,7 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>minbibnames</bcf:key>
-      <bcf:value>7</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>mincitenames</bcf:key>
@@ -2348,7 +2348,7 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>minsortnames</bcf:key>
-      <bcf:value>7</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>minitems</bcf:key>
@@ -2538,15 +2538,15 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxbibnames</bcf:key>
-      <bcf:value>10</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxcitenames</bcf:key>
-      <bcf:value>3</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxsortnames</bcf:key>
-      <bcf:value>10</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>maxitems</bcf:key>
@@ -2558,7 +2558,7 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>minbibnames</bcf:key>
-      <bcf:value>7</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>mincitenames</bcf:key>
@@ -2566,7 +2566,7 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>minsortnames</bcf:key>
-      <bcf:value>7</bcf:value>
+      <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>minitems</bcf:key>
@@ -4973,52 +4973,162 @@
     <bcf:citekey order="4" intorder="1">tseng2024twotales</bcf:citekey>
     <bcf:citekey order="5" intorder="1">naous2025userlm</bcf:citekey>
     <bcf:citekey order="6" intorder="1">liang2023helm</bcf:citekey>
-    <bcf:citekey order="7" intorder="1">turpin2023language</bcf:citekey>
-    <bcf:citekey order="7" intorder="2">cobbe2021gsm8k</bcf:citekey>
-    <bcf:citekey order="8" intorder="1">gupta2024biasrunsdeep</bcf:citekey>
-    <bcf:citekey order="8" intorder="2">tseng2024twotales</bcf:citekey>
-    <bcf:citekey order="8" intorder="3">naous2025userlm</bcf:citekey>
-    <bcf:citekey order="9" intorder="1">bommasani2021opportunities</bcf:citekey>
-    <bcf:citekey order="10" intorder="1">zhou2023largemodelsensitive</bcf:citekey>
-    <bcf:citekey order="11" intorder="1">turpin2023language</bcf:citekey>
-    <bcf:citekey order="12" intorder="1">weidinger2021ethical</bcf:citekey>
-    <bcf:citekey order="13" intorder="1">tseng2024twotales</bcf:citekey>
-    <bcf:citekey order="14" intorder="1">tseng2024twotales</bcf:citekey>
-    <bcf:citekey order="15" intorder="1">gupta2024biasrunsdeep</bcf:citekey>
-    <bcf:citekey order="16" intorder="1">tseng2024twotales</bcf:citekey>
-    <bcf:citekey order="17" intorder="1">zhou2023largemodelsensitive</bcf:citekey>
-    <bcf:citekey order="18" intorder="1">turpin2023language</bcf:citekey>
-    <bcf:citekey order="19" intorder="1">weidinger2021ethical</bcf:citekey>
-    <bcf:citekey order="20" intorder="1">gupta2024biasrunsdeep</bcf:citekey>
-    <bcf:citekey order="21" intorder="1">gupta2024biasrunsdeep</bcf:citekey>
-    <bcf:citekey order="22" intorder="1">turpin2023language</bcf:citekey>
-    <bcf:citekey order="23" intorder="1">tseng2024twotales</bcf:citekey>
-    <bcf:citekey order="24" intorder="1">weidinger2021ethical</bcf:citekey>
-    <bcf:citekey order="25" intorder="1">gupta2024biasrunsdeep</bcf:citekey>
-    <bcf:citekey order="26" intorder="1">tseng2024twotales</bcf:citekey>
-    <bcf:citekey order="27" intorder="1">zhou2023largemodelsensitive</bcf:citekey>
-    <bcf:citekey order="28" intorder="1">turpin2023language</bcf:citekey>
-    <bcf:citekey order="29" intorder="1">cobbe2021gsm8k</bcf:citekey>
-    <bcf:citekey order="30" intorder="1">mmluRedux2024dataset</bcf:citekey>
-    <bcf:citekey order="31" intorder="1">zhou2023largemodelsensitive</bcf:citekey>
-    <bcf:citekey order="32" intorder="1">turpin2023language</bcf:citekey>
-    <bcf:citekey order="33" intorder="1">gupta2024biasrunsdeep</bcf:citekey>
-    <bcf:citekey order="34" intorder="1">tseng2024twotales</bcf:citekey>
-    <bcf:citekey order="35" intorder="1">turpin2023language</bcf:citekey>
-    <bcf:citekey order="36" intorder="1">weidinger2021ethical</bcf:citekey>
-    <bcf:citekey order="37" intorder="1">bommasani2021opportunities</bcf:citekey>
+    <bcf:citekey order="7" intorder="1">gupta2024biasrunsdeep</bcf:citekey>
+    <bcf:citekey order="7" intorder="2">tseng2024twotales</bcf:citekey>
+    <bcf:citekey order="7" intorder="3">naous2025userlm</bcf:citekey>
+    <bcf:citekey order="8" intorder="1">brown2020language</bcf:citekey>
+    <bcf:citekey order="9" intorder="1">brown2020language</bcf:citekey>
+    <bcf:citekey order="10" intorder="1">bender2021stochastic</bcf:citekey>
+    <bcf:citekey order="11" intorder="1">bender2021stochastic</bcf:citekey>
+    <bcf:citekey order="12" intorder="1">bengio2003nlm</bcf:citekey>
+    <bcf:citekey order="13" intorder="1">bengio2003nlm</bcf:citekey>
+    <bcf:citekey order="14" intorder="1">brown2020language</bcf:citekey>
+    <bcf:citekey order="15" intorder="1">brown2020language</bcf:citekey>
+    <bcf:citekey order="16" intorder="1">goodfellow2016deep</bcf:citekey>
+    <bcf:citekey order="17" intorder="1">goodfellow2016deep</bcf:citekey>
+    <bcf:citekey order="18" intorder="1">bender2021stochastic</bcf:citekey>
+    <bcf:citekey order="19" intorder="1">bender2021stochastic</bcf:citekey>
+    <bcf:citekey order="20" intorder="1">vaswani2017attention</bcf:citekey>
+    <bcf:citekey order="21" intorder="1">vaswani2017attention</bcf:citekey>
+    <bcf:citekey order="22" intorder="1">vaswani2017attention</bcf:citekey>
+    <bcf:citekey order="23" intorder="1">vaswani2017attention</bcf:citekey>
+    <bcf:citekey order="24" intorder="1">liu2024lost</bcf:citekey>
+    <bcf:citekey order="25" intorder="1">liu2024lost</bcf:citekey>
+    <bcf:citekey order="26" intorder="1">bender2021stochastic</bcf:citekey>
+    <bcf:citekey order="27" intorder="1">bender2021stochastic</bcf:citekey>
+    <bcf:citekey order="28" intorder="1">liu2024lost</bcf:citekey>
+    <bcf:citekey order="29" intorder="1">liu2024lost</bcf:citekey>
+    <bcf:citekey order="30" intorder="1">ouyang2022training</bcf:citekey>
+    <bcf:citekey order="31" intorder="1">ouyang2022training</bcf:citekey>
+    <bcf:citekey order="32" intorder="1">schick2021pet</bcf:citekey>
+    <bcf:citekey order="32" intorder="2">zhao2021calibration</bcf:citekey>
+    <bcf:citekey order="33" intorder="1">schick2021pet</bcf:citekey>
+    <bcf:citekey order="34" intorder="1">zhao2021calibration</bcf:citekey>
+    <bcf:citekey order="35" intorder="1">liu2023pretrain</bcf:citekey>
+    <bcf:citekey order="36" intorder="1">wei2022chain</bcf:citekey>
+    <bcf:citekey order="37" intorder="1">gupta2024biasrunsdeep</bcf:citekey>
     <bcf:citekey order="38" intorder="1">tseng2024twotales</bcf:citekey>
     <bcf:citekey order="39" intorder="1">gupta2024biasrunsdeep</bcf:citekey>
-    <bcf:citekey order="40" intorder="1">turpin2023language</bcf:citekey>
-    <bcf:citekey order="41" intorder="1">zhou2023largemodelsensitive</bcf:citekey>
-    <bcf:citekey order="42" intorder="1">weidinger2021ethical</bcf:citekey>
-    <bcf:citekey order="43" intorder="1">naous2025userlm</bcf:citekey>
-    <bcf:citekey order="44" intorder="1">naous2025userlm</bcf:citekey>
+    <bcf:citekey order="40" intorder="1">tseng2024twotales</bcf:citekey>
+    <bcf:citekey order="41" intorder="1">tseng2024twotales</bcf:citekey>
+    <bcf:citekey order="42" intorder="1">zhou2023largemodelsensitive</bcf:citekey>
+    <bcf:citekey order="42" intorder="2">zhao2021calibrate</bcf:citekey>
+    <bcf:citekey order="43" intorder="1">turpin2023language</bcf:citekey>
+    <bcf:citekey order="44" intorder="1">tseng2024twotales</bcf:citekey>
     <bcf:citekey order="45" intorder="1">tseng2024twotales</bcf:citekey>
-    <bcf:citekey order="46" intorder="1">turpin2023language</bcf:citekey>
-    <bcf:citekey order="47" intorder="1">zhou2023largemodelsensitive</bcf:citekey>
-    <bcf:citekey order="48" intorder="1">weidinger2021ethical</bcf:citekey>
-    <bcf:citekey order="49" intorder="1">gupta2024biasrunsdeep</bcf:citekey>
-    <bcf:citekey order="49" intorder="2">tseng2024twotales</bcf:citekey>
+    <bcf:citekey order="46" intorder="1">weidinger2021ethical</bcf:citekey>
+    <bcf:citekey order="46" intorder="2">bommasani2021opportunities</bcf:citekey>
+    <bcf:citekey order="47" intorder="1">gupta2024biasrunsdeep</bcf:citekey>
+    <bcf:citekey order="48" intorder="1">tseng2024twotales</bcf:citekey>
+    <bcf:citekey order="49" intorder="1">zhao2021calibrate</bcf:citekey>
+    <bcf:citekey order="49" intorder="2">liu2023pretrain</bcf:citekey>
     <bcf:citekey order="50" intorder="1">cobbe2021gsm8k</bcf:citekey>
-    <bcf:citekey order="51" intorder="1">mmluRedux2024dataset</bcf:citekey>
+    <bcf:citekey order="51" intorder="1">hendryckstest2021</bcf:citekey>
+    <bcf:citekey order="51" intorder="2">gema2024arewedonewithmmlu</bcf:citekey>
+    <bcf:citekey order="51" intorder="3">mmluRedux2024dataset</bcf:citekey>
+    <bcf:citekey order="52" intorder="1">zhou2023largemodelsensitive</bcf:citekey>
+    <bcf:citekey order="53" intorder="1">gupta2024biasrunsdeep</bcf:citekey>
+    <bcf:citekey order="54" intorder="1">zhou2023largemodelsensitive</bcf:citekey>
+    <bcf:citekey order="55" intorder="1">zhao2021calibrate</bcf:citekey>
+    <bcf:citekey order="56" intorder="1">zhou2023largemodelsensitive</bcf:citekey>
+    <bcf:citekey order="57" intorder="1">turpin2023language</bcf:citekey>
+    <bcf:citekey order="58" intorder="1">gupta2024biasrunsdeep</bcf:citekey>
+    <bcf:citekey order="59" intorder="1">gupta2024biasrunsdeep</bcf:citekey>
+    <bcf:citekey order="60" intorder="1">tseng2024twotales</bcf:citekey>
+    <bcf:citekey order="61" intorder="1">liang2023helm</bcf:citekey>
+    <bcf:citekey order="62" intorder="1">zhou2023largemodelsensitive</bcf:citekey>
+    <bcf:citekey order="63" intorder="1">turpin2023language</bcf:citekey>
+    <bcf:citekey order="64" intorder="1">cobbe2021gsm8k</bcf:citekey>
+    <bcf:citekey order="65" intorder="1">zhou2023largemodelsensitive</bcf:citekey>
+    <bcf:citekey order="66" intorder="1">mmluRedux2024dataset</bcf:citekey>
+    <bcf:citekey order="67" intorder="1">zhou2023largemodelsensitive</bcf:citekey>
+    <bcf:citekey order="68" intorder="1">zhao2021calibrate</bcf:citekey>
+    <bcf:citekey order="69" intorder="1">turpin2023language</bcf:citekey>
+    <bcf:citekey order="70" intorder="1">gupta2024biasrunsdeep</bcf:citekey>
+    <bcf:citekey order="71" intorder="1">tseng2024twotales</bcf:citekey>
+    <bcf:citekey order="72" intorder="1">turpin2023language</bcf:citekey>
+    <bcf:citekey order="73" intorder="1">weidinger2021ethical</bcf:citekey>
+    <bcf:citekey order="73" intorder="2">bommasani2021opportunities</bcf:citekey>
+    <bcf:citekey order="74" intorder="1">zhou2023largemodelsensitive</bcf:citekey>
+    <bcf:citekey order="75" intorder="1">zhao2021calibrate</bcf:citekey>
+    <bcf:citekey order="76" intorder="1">zhou2023largemodelsensitive</bcf:citekey>
+    <bcf:citekey order="76" intorder="2">zhao2021calibrate</bcf:citekey>
+    <bcf:citekey order="77" intorder="1">liang2023helm</bcf:citekey>
+    <bcf:citekey order="78" intorder="1">zhou2023largemodelsensitive</bcf:citekey>
+    <bcf:citekey order="79" intorder="1">bommasani2021opportunities</bcf:citekey>
+    <bcf:citekey order="80" intorder="1">tseng2024twotales</bcf:citekey>
+    <bcf:citekey order="81" intorder="1">gupta2024biasrunsdeep</bcf:citekey>
+    <bcf:citekey order="82" intorder="1">turpin2023language</bcf:citekey>
+    <bcf:citekey order="83" intorder="1">zhou2023largemodelsensitive</bcf:citekey>
+    <bcf:citekey order="84" intorder="1">weidinger2021ethical</bcf:citekey>
+    <bcf:citekey order="85" intorder="1">naous2025userlm</bcf:citekey>
+    <bcf:citekey order="86" intorder="1">naous2025userlm</bcf:citekey>
+    <bcf:citekey order="87" intorder="1">naous2025userlm</bcf:citekey>
+    <bcf:citekey order="88" intorder="1">tseng2024twotales</bcf:citekey>
+    <bcf:citekey order="89" intorder="1">turpin2023language</bcf:citekey>
+    <bcf:citekey order="90" intorder="1">zhou2023largemodelsensitive</bcf:citekey>
+    <bcf:citekey order="91" intorder="1">weidinger2021ethical</bcf:citekey>
+    <bcf:citekey order="92" intorder="1">gupta2024biasrunsdeep</bcf:citekey>
+    <bcf:citekey order="92" intorder="2">tseng2024twotales</bcf:citekey>
+    <bcf:citekey order="93" intorder="1">cobbe2021gsm8k</bcf:citekey>
+    <bcf:citekey order="94" intorder="1">mmluRedux2024dataset</bcf:citekey>
+    <bcf:citekey order="95" intorder="1">openrouter_gpt5mini</bcf:citekey>
+    <bcf:citekey order="95" intorder="2">openrouter_qwen3vl30ba3b</bcf:citekey>
+    <bcf:citekey order="95" intorder="3">openrouter_gemini25flash</bcf:citekey>
+    <bcf:citekey order="95" intorder="4">openrouter_deepseek32</bcf:citekey>
+    <bcf:citekey order="95" intorder="5">openrouter_llama33</bcf:citekey>
+    <bcf:citekey order="95" intorder="6">openrouter_gemma3n</bcf:citekey>
+    <bcf:citekey order="96" intorder="1" nocite="1">*</bcf:citekey>
+  </bcf:section>
+  <!-- SORTING TEMPLATES -->
+  <bcf:sortingtemplate name="cms">
+    <bcf:sort order="1">
+      <bcf:sortitem order="1">presort</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="2" final="1">
+      <bcf:sortitem order="1">sortkey</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="3">
+      <bcf:sortitem order="1">sortname</bcf:sortitem>
+      <bcf:sortitem order="2">author</bcf:sortitem>
+      <bcf:sortitem order="3">namea</bcf:sortitem>
+      <bcf:sortitem order="4">editor</bcf:sortitem>
+      <bcf:sortitem order="5">nameb</bcf:sortitem>
+      <bcf:sortitem order="6">translator</bcf:sortitem>
+      <bcf:sortitem order="7">namec</bcf:sortitem>
+      <bcf:sortitem order="8">sorttitle</bcf:sortitem>
+      <bcf:sortitem order="9">journaltitle</bcf:sortitem>
+      <bcf:sortitem order="10">organization</bcf:sortitem>
+      <bcf:sortitem order="11">title</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="4">
+      <bcf:sortitem order="1">sortyear</bcf:sortitem>
+      <bcf:sortitem order="2">labelyear</bcf:sortitem>
+      <bcf:sortitem order="3">year</bcf:sortitem>
+      <bcf:sortitem order="4">origyear</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="5">
+      <bcf:sortitem order="1">sorttitle</bcf:sortitem>
+      <bcf:sortitem order="2">title</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="6">
+      <bcf:sortitem order="1">endyear</bcf:sortitem>
+      <bcf:sortitem order="2">eventendyear</bcf:sortitem>
+      <bcf:sortitem order="3">origendyear</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="7">
+      <bcf:sortitem order="1" pad_side="left" pad_width="4" pad_char="0">volume</bcf:sortitem>
+      <bcf:sortitem literal="1" order="2">0000</bcf:sortitem>
+    </bcf:sort>
+  </bcf:sortingtemplate>
+  <!-- DATALISTS -->
+  <bcf:datalist section="0"
+                name="cms/global//global/global"
+                type="entry"
+                sortingtemplatename="cms"
+                sortingnamekeytemplatename="global"
+                labelprefix=""
+                uniquenametemplatename="global"
+                labelalphanametemplatename="global">
+  </bcf:datalist>
+</bcf:controlfile>

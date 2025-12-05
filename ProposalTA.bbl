@@ -48,8 +48,8 @@
       }
       \strng{namehash}{c73d9460425aeddbb561b189551a3a98}
       \strng{fullhash}{bbf10c0c69ab0ad0f378e6f018b71dc8}
-      \strng{bibnamehash}{bbf10c0c69ab0ad0f378e6f018b71dc8}
-      \strng{authorbibnamehash}{bbf10c0c69ab0ad0f378e6f018b71dc8}
+      \strng{bibnamehash}{c73d9460425aeddbb561b189551a3a98}
+      \strng{authorbibnamehash}{c73d9460425aeddbb561b189551a3a98}
       \strng{authornamehash}{c73d9460425aeddbb561b189551a3a98}
       \strng{authorfullhash}{bbf10c0c69ab0ad0f378e6f018b71dc8}
       \field{sortinit}{B}
@@ -94,8 +94,8 @@
       }
       \strng{namehash}{058f6aa7282521dda725a309bd2d3fea}
       \strng{fullhash}{214c0985c7c874b6fb51e84e6ea66db3}
-      \strng{bibnamehash}{214c0985c7c874b6fb51e84e6ea66db3}
-      \strng{authorbibnamehash}{214c0985c7c874b6fb51e84e6ea66db3}
+      \strng{bibnamehash}{058f6aa7282521dda725a309bd2d3fea}
+      \strng{authorbibnamehash}{058f6aa7282521dda725a309bd2d3fea}
       \strng{authornamehash}{058f6aa7282521dda725a309bd2d3fea}
       \strng{authorfullhash}{214c0985c7c874b6fb51e84e6ea66db3}
       \field{sortinit}{B}
@@ -134,11 +134,11 @@
            giveni={E\bibinitperiod},
            givenun=0}}%
       }
-      \strng{namehash}{bac94d7b736df30c6b2c7b10af28f8a3}
+      \strng{namehash}{e1331c79138f819881e39bc36f1b80e0}
       \strng{fullhash}{bac94d7b736df30c6b2c7b10af28f8a3}
-      \strng{bibnamehash}{bac94d7b736df30c6b2c7b10af28f8a3}
-      \strng{authorbibnamehash}{bac94d7b736df30c6b2c7b10af28f8a3}
-      \strng{authornamehash}{bac94d7b736df30c6b2c7b10af28f8a3}
+      \strng{bibnamehash}{e1331c79138f819881e39bc36f1b80e0}
+      \strng{authorbibnamehash}{e1331c79138f819881e39bc36f1b80e0}
+      \strng{authornamehash}{e1331c79138f819881e39bc36f1b80e0}
       \strng{authorfullhash}{bac94d7b736df30c6b2c7b10af28f8a3}
       \field{sortinit}{B}
       \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
@@ -217,8 +217,8 @@
       }
       \strng{namehash}{85437fe07696e4c57f916c83d4ba5581}
       \strng{fullhash}{f5be1f4c09fbc54d33c3f41013b52179}
-      \strng{bibnamehash}{f5be1f4c09fbc54d33c3f41013b52179}
-      \strng{authorbibnamehash}{f5be1f4c09fbc54d33c3f41013b52179}
+      \strng{bibnamehash}{85437fe07696e4c57f916c83d4ba5581}
+      \strng{authorbibnamehash}{85437fe07696e4c57f916c83d4ba5581}
       \strng{authornamehash}{85437fe07696e4c57f916c83d4ba5581}
       \strng{authorfullhash}{f5be1f4c09fbc54d33c3f41013b52179}
       \field{sortinit}{B}
@@ -308,8 +308,8 @@
       }
       \strng{namehash}{45858a0ae98644e6c6bc549ac1a2cfa3}
       \strng{fullhash}{2b1c5987decdf5a17625aab169f4133e}
-      \strng{bibnamehash}{3daa7f48fd086e402169a03fe3a98f08}
-      \strng{authorbibnamehash}{3daa7f48fd086e402169a03fe3a98f08}
+      \strng{bibnamehash}{45858a0ae98644e6c6bc549ac1a2cfa3}
+      \strng{authorbibnamehash}{45858a0ae98644e6c6bc549ac1a2cfa3}
       \strng{authornamehash}{45858a0ae98644e6c6bc549ac1a2cfa3}
       \strng{authorfullhash}{2b1c5987decdf5a17625aab169f4133e}
       \field{sortinit}{C}
@@ -391,8 +391,8 @@
       }
       \strng{namehash}{c96601b0b6d8e28d1b4c86fbc96b0d94}
       \strng{fullhash}{61000b55739e7e7e26d576de2e3a1422}
-      \strng{bibnamehash}{61000b55739e7e7e26d576de2e3a1422}
-      \strng{authorbibnamehash}{61000b55739e7e7e26d576de2e3a1422}
+      \strng{bibnamehash}{c96601b0b6d8e28d1b4c86fbc96b0d94}
+      \strng{authorbibnamehash}{c96601b0b6d8e28d1b4c86fbc96b0d94}
       \strng{authornamehash}{c96601b0b6d8e28d1b4c86fbc96b0d94}
       \strng{authorfullhash}{61000b55739e7e7e26d576de2e3a1422}
       \field{sortinit}{G}
@@ -435,11 +435,11 @@
       \list{publisher}{1}{%
         {MIT Press}%
       }
-      \strng{namehash}{3ae53fe582e8a815b118d26947eaa326}
+      \strng{namehash}{d17e6557c5836d2d978179999ea1037f}
       \strng{fullhash}{3ae53fe582e8a815b118d26947eaa326}
-      \strng{bibnamehash}{3ae53fe582e8a815b118d26947eaa326}
-      \strng{authorbibnamehash}{3ae53fe582e8a815b118d26947eaa326}
-      \strng{authornamehash}{3ae53fe582e8a815b118d26947eaa326}
+      \strng{bibnamehash}{d17e6557c5836d2d978179999ea1037f}
+      \strng{authorbibnamehash}{d17e6557c5836d2d978179999ea1037f}
+      \strng{authornamehash}{d17e6557c5836d2d978179999ea1037f}
       \strng{authorfullhash}{3ae53fe582e8a815b118d26947eaa326}
       \field{sortinit}{G}
       \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
@@ -521,8 +521,8 @@
       }
       \strng{namehash}{0d0464b9e9d69978ec3641a8542e3388}
       \strng{fullhash}{c1f47fe6e9e40b451faafc2be4439a00}
-      \strng{bibnamehash}{c1f47fe6e9e40b451faafc2be4439a00}
-      \strng{authorbibnamehash}{c1f47fe6e9e40b451faafc2be4439a00}
+      \strng{bibnamehash}{0d0464b9e9d69978ec3641a8542e3388}
+      \strng{authorbibnamehash}{0d0464b9e9d69978ec3641a8542e3388}
       \strng{authornamehash}{0d0464b9e9d69978ec3641a8542e3388}
       \strng{authorfullhash}{c1f47fe6e9e40b451faafc2be4439a00}
       \field{sortinit}{G}
@@ -588,8 +588,8 @@
       }
       \strng{namehash}{f461c117afa272374439d2db3ee67282}
       \strng{fullhash}{37926f74925a7ec5129b3f44dd0fd2f0}
-      \strng{bibnamehash}{37926f74925a7ec5129b3f44dd0fd2f0}
-      \strng{authorbibnamehash}{37926f74925a7ec5129b3f44dd0fd2f0}
+      \strng{bibnamehash}{f461c117afa272374439d2db3ee67282}
+      \strng{authorbibnamehash}{f461c117afa272374439d2db3ee67282}
       \strng{authornamehash}{f461c117afa272374439d2db3ee67282}
       \strng{authorfullhash}{37926f74925a7ec5129b3f44dd0fd2f0}
       \field{sortinit}{H}
@@ -623,11 +623,11 @@
            giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod},
            givenun=0}}%
       }
-      \strng{namehash}{1098524cc7b74c43e679459ba6a87270}
+      \strng{namehash}{b54aeb64c9e09184a85a84910f037e3c}
       \strng{fullhash}{1098524cc7b74c43e679459ba6a87270}
-      \strng{bibnamehash}{1098524cc7b74c43e679459ba6a87270}
-      \strng{authorbibnamehash}{1098524cc7b74c43e679459ba6a87270}
-      \strng{authornamehash}{1098524cc7b74c43e679459ba6a87270}
+      \strng{bibnamehash}{b54aeb64c9e09184a85a84910f037e3c}
+      \strng{authorbibnamehash}{b54aeb64c9e09184a85a84910f037e3c}
+      \strng{authornamehash}{b54aeb64c9e09184a85a84910f037e3c}
       \strng{authorfullhash}{1098524cc7b74c43e679459ba6a87270}
       \field{sortinit}{J}
       \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
@@ -663,11 +663,11 @@
            giveni={R\bibinitperiod},
            givenun=0}}%
       }
-      \strng{namehash}{5d43ac86dc0175529f27a369922ec6e9}
+      \strng{namehash}{ecbf3a6576271b286ef3198b03ba094f}
       \strng{fullhash}{5d43ac86dc0175529f27a369922ec6e9}
-      \strng{bibnamehash}{5d43ac86dc0175529f27a369922ec6e9}
-      \strng{authorbibnamehash}{5d43ac86dc0175529f27a369922ec6e9}
-      \strng{authornamehash}{5d43ac86dc0175529f27a369922ec6e9}
+      \strng{bibnamehash}{ecbf3a6576271b286ef3198b03ba094f}
+      \strng{authorbibnamehash}{ecbf3a6576271b286ef3198b03ba094f}
+      \strng{authornamehash}{ecbf3a6576271b286ef3198b03ba094f}
       \strng{authorfullhash}{5d43ac86dc0175529f27a369922ec6e9}
       \field{sortinit}{L}
       \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
@@ -771,11 +771,11 @@
            giveni={B\bibinitperiod},
            givenun=0}}%
       }
-      \strng{namehash}{ad041da584edadf73e4ceb02de3f6e01}
+      \strng{namehash}{f2a4854c92ee6d740a728a697ac4ee86}
       \strng{fullhash}{ad041da584edadf73e4ceb02de3f6e01}
-      \strng{bibnamehash}{ad041da584edadf73e4ceb02de3f6e01}
-      \strng{authorbibnamehash}{ad041da584edadf73e4ceb02de3f6e01}
-      \strng{authornamehash}{ad041da584edadf73e4ceb02de3f6e01}
+      \strng{bibnamehash}{f2a4854c92ee6d740a728a697ac4ee86}
+      \strng{authorbibnamehash}{f2a4854c92ee6d740a728a697ac4ee86}
+      \strng{authornamehash}{f2a4854c92ee6d740a728a697ac4ee86}
       \strng{authorfullhash}{ad041da584edadf73e4ceb02de3f6e01}
       \field{sortinit}{N}
       \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
@@ -842,8 +842,8 @@
       }
       \strng{namehash}{13d52a5bcb04f48fa855da0c9fb052de}
       \strng{fullhash}{0929691bf1a50d21a4a456b3b4d7bacd}
-      \strng{bibnamehash}{0929691bf1a50d21a4a456b3b4d7bacd}
-      \strng{authorbibnamehash}{0929691bf1a50d21a4a456b3b4d7bacd}
+      \strng{bibnamehash}{13d52a5bcb04f48fa855da0c9fb052de}
+      \strng{authorbibnamehash}{13d52a5bcb04f48fa855da0c9fb052de}
       \strng{authornamehash}{13d52a5bcb04f48fa855da0c9fb052de}
       \strng{authorfullhash}{0929691bf1a50d21a4a456b3b4d7bacd}
       \field{sortinit}{O}
@@ -891,8 +891,8 @@
       }
       \strng{namehash}{f5b5b34ccc096b5267b4ac2014ec8964}
       \strng{fullhash}{fdf93e0ccb0d3fcd4e44eaffc2323465}
-      \strng{bibnamehash}{fdf93e0ccb0d3fcd4e44eaffc2323465}
-      \strng{authorbibnamehash}{fdf93e0ccb0d3fcd4e44eaffc2323465}
+      \strng{bibnamehash}{f5b5b34ccc096b5267b4ac2014ec8964}
+      \strng{authorbibnamehash}{f5b5b34ccc096b5267b4ac2014ec8964}
       \strng{authornamehash}{f5b5b34ccc096b5267b4ac2014ec8964}
       \strng{authorfullhash}{fdf93e0ccb0d3fcd4e44eaffc2323465}
       \field{sortinit}{R}
@@ -904,7 +904,6 @@
       \field{booktitle}{International Conference on Learning Representations}
       \field{title}{Sequence Level Training with Recurrent Neural Networks}
       \field{year}{2016}
-      \true{nocite}
       \verb{urlraw}
       \verb https://arxiv.org/abs/1511.06732
       \endverb
@@ -950,8 +949,8 @@
       }
       \strng{namehash}{ed709a4956cbacd4da95f21c47ad694f}
       \strng{fullhash}{ecec96eeb966f1b34d868aa039b68817}
-      \strng{bibnamehash}{ecec96eeb966f1b34d868aa039b68817}
-      \strng{authorbibnamehash}{ecec96eeb966f1b34d868aa039b68817}
+      \strng{bibnamehash}{ed709a4956cbacd4da95f21c47ad694f}
+      \strng{authorbibnamehash}{ed709a4956cbacd4da95f21c47ad694f}
       \strng{authornamehash}{ed709a4956cbacd4da95f21c47ad694f}
       \strng{authorfullhash}{ecec96eeb966f1b34d868aa039b68817}
       \field{sortinit}{S}
@@ -986,11 +985,11 @@
            giveni={H\bibinitperiod},
            givenun=0}}%
       }
-      \strng{namehash}{40322da929f290a9af8c79926308e128}
+      \strng{namehash}{1c7bad5da70178a9b108151a83138342}
       \strng{fullhash}{40322da929f290a9af8c79926308e128}
-      \strng{bibnamehash}{40322da929f290a9af8c79926308e128}
-      \strng{authorbibnamehash}{40322da929f290a9af8c79926308e128}
-      \strng{authornamehash}{40322da929f290a9af8c79926308e128}
+      \strng{bibnamehash}{1c7bad5da70178a9b108151a83138342}
+      \strng{authorbibnamehash}{1c7bad5da70178a9b108151a83138342}
+      \strng{authornamehash}{1c7bad5da70178a9b108151a83138342}
       \strng{authorfullhash}{40322da929f290a9af8c79926308e128}
       \field{sortinit}{S}
       \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
@@ -1081,8 +1080,8 @@
       }
       \strng{namehash}{0d201940e8b71e947c4696435d80e14d}
       \strng{fullhash}{373aa94ea484fb1da50ed6538c153550}
-      \strng{bibnamehash}{373aa94ea484fb1da50ed6538c153550}
-      \strng{authorbibnamehash}{373aa94ea484fb1da50ed6538c153550}
+      \strng{bibnamehash}{0d201940e8b71e947c4696435d80e14d}
+      \strng{authorbibnamehash}{0d201940e8b71e947c4696435d80e14d}
       \strng{authornamehash}{0d201940e8b71e947c4696435d80e14d}
       \strng{authorfullhash}{373aa94ea484fb1da50ed6538c153550}
       \field{sortinit}{T}
@@ -1189,8 +1188,8 @@
       }
       \strng{namehash}{ee273ab30cfb889666f8c4d806eb9ce7}
       \strng{fullhash}{f82970bbd2bdd7a002d2af62b743d5cc}
-      \strng{bibnamehash}{f82970bbd2bdd7a002d2af62b743d5cc}
-      \strng{authorbibnamehash}{f82970bbd2bdd7a002d2af62b743d5cc}
+      \strng{bibnamehash}{ee273ab30cfb889666f8c4d806eb9ce7}
+      \strng{authorbibnamehash}{ee273ab30cfb889666f8c4d806eb9ce7}
       \strng{authornamehash}{ee273ab30cfb889666f8c4d806eb9ce7}
       \strng{authorfullhash}{f82970bbd2bdd7a002d2af62b743d5cc}
       \field{sortinit}{V}
@@ -1297,8 +1296,8 @@
       }
       \strng{namehash}{060cf3138bac0eb6f0b615dde95936fc}
       \strng{fullhash}{b967e049e70faef5bc40d26a99cd09db}
-      \strng{bibnamehash}{b967e049e70faef5bc40d26a99cd09db}
-      \strng{authorbibnamehash}{b967e049e70faef5bc40d26a99cd09db}
+      \strng{bibnamehash}{060cf3138bac0eb6f0b615dde95936fc}
+      \strng{authorbibnamehash}{060cf3138bac0eb6f0b615dde95936fc}
       \strng{authornamehash}{060cf3138bac0eb6f0b615dde95936fc}
       \strng{authorfullhash}{b967e049e70faef5bc40d26a99cd09db}
       \field{sortinit}{W}
@@ -1352,8 +1351,8 @@
       }
       \strng{namehash}{ee4d831a1df05098c1864d67ce7b94cc}
       \strng{fullhash}{5c7579975a12655f4e21921bd80fc433}
-      \strng{bibnamehash}{5c7579975a12655f4e21921bd80fc433}
-      \strng{authorbibnamehash}{5c7579975a12655f4e21921bd80fc433}
+      \strng{bibnamehash}{ee4d831a1df05098c1864d67ce7b94cc}
+      \strng{authorbibnamehash}{ee4d831a1df05098c1864d67ce7b94cc}
       \strng{authornamehash}{ee4d831a1df05098c1864d67ce7b94cc}
       \strng{authorfullhash}{5c7579975a12655f4e21921bd80fc433}
       \field{sortinit}{Z}

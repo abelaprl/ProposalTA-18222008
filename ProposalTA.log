@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2025.11.12)  5 DEC 2025 18:43
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2025.11.12)  5 DEC 2025 23:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1264,14 +1264,14 @@ Package biblatex Info: ... and expl3
 (/usr/share/texlive/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty
 Package: blx-case-expl3 2023/03/05 v3.19 expl3 case changing code for biblatex
 )))
-Package hyperref Info: Option `colorlinks' set `true' on input line 173.
+Package hyperref Info: Option `colorlinks' set `true' on input line 172.
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 
 
 Package csquotes Warning: No style for language 'indonesian'.
-(csquotes)                Using fallback style on input line 214.
+(csquotes)                Using fallback style on input line 213.
 
 Package csquotes Info: Redefining alias 'default' -> 'fallback'.
 (./ProposalTA.aux
@@ -1281,96 +1281,96 @@ Package babel Info: Importing basic data for english
 ))
 \openout1 = `ProposalTA.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 214.
-LaTeX Font Info:    ... okay on input line 214.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 214.
-LaTeX Font Info:    ... okay on input line 214.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 214.
-LaTeX Font Info:    ... okay on input line 214.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 214.
-LaTeX Font Info:    ... okay on input line 214.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 214.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 213.
+LaTeX Font Info:    ... okay on input line 213.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 213.
+LaTeX Font Info:    ... okay on input line 213.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 213.
+LaTeX Font Info:    ... okay on input line 213.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 213.
+LaTeX Font Info:    ... okay on input line 213.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 213.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 2
-14.
+13.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 214.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 214.
-LaTeX Font Info:    ... okay on input line 214.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 214.
-LaTeX Font Info:    ... okay on input line 214.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 214.
-LaTeX Font Info:    ... okay on input line 214.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 214.
-LaTeX Font Info:    ... okay on input line 214.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 214.
-LaTeX Font Info:    ... okay on input line 214.
+LaTeX Font Info:    ... okay on input line 213.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 213.
+LaTeX Font Info:    ... okay on input line 213.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 213.
+LaTeX Font Info:    ... okay on input line 213.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 213.
+LaTeX Font Info:    ... okay on input line 213.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 213.
+LaTeX Font Info:    ... okay on input line 213.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 213.
+LaTeX Font Info:    ... okay on input line 213.
 
 Package fontspec Info: Adjusting the maths setup (use [no-math] to avoid
 (fontspec)             this).
 
 \symlegacymaths=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 214.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 214.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 214.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 214.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 214.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 214.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 214.
-LaTeX Font Info:    Redeclaring math accent \check on input line 214.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 214.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 214.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 214.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 214.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 214.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 214.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 214.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 214.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 214.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 214.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 214.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 214.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 214.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 214.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 214.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 214.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 213.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 213.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 213.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 213.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 213.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 213.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 213.
+LaTeX Font Info:    Redeclaring math accent \check on input line 213.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 213.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 213.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 213.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 213.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 213.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 213.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 213.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 213.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 213.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 213.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 213.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 213.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 213.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 213.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 213.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 213.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 214.
+(Font)              `operators' in the math version `normal' on input line 213.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> TU/TimesNewRoman(0)/m/n on input line 2
-14.
+13.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 214.
+(Font)              `operators' in the math version `bold' on input line 213.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  OT1/cmr/bx/n --> TU/TimesNewRoman(0)/m/n on input line 
-214.
+213.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  TU/TimesNewRoman(0)/m/n --> TU/TimesNewRoman(0)/m/n on 
-input line 214.
+input line 213.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
 (Font)                  OT1/cmr/m/it --> TU/TimesNewRoman(0)/m/it on input line
- 214.
+ 213.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
 (Font)                  OT1/cmr/bx/n --> TU/TimesNewRoman(0)/b/n on input line 
-214.
+213.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 214.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 213.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 214.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 213.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  TU/TimesNewRoman(0)/m/n --> TU/TimesNewRoman(0)/b/n on 
-input line 214.
+input line 213.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> TU/TimesNewRoman(0)/b/it on input lin
-e 214.
+e 213.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 214.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 213.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 214.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 213.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -1415,7 +1415,7 @@ Package caption Info: longtable package is loaded.
 Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
 )
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring ON on input line 214.
+Package hyperref Info: Link coloring ON on input line 213.
 
 (./ProposalTA.out) (./ProposalTA.out)
 \@outlinefile=\write5
@@ -1427,7 +1427,7 @@ Package biblatex Info: ... file 'indonesian.lbx' not found.
 
 
 Package biblatex Warning: Language 'indonesian' not supported.
-(biblatex)                Using dummy definitions on input line 214.
+(biblatex)                Using dummy definitions on input line 213.
 
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
@@ -1444,8 +1444,8 @@ Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'ProposalTA.bbl' found.
 
 (./ProposalTA.bbl)
-Package biblatex Info: Reference section=0 on input line 214.
-Package biblatex Info: Reference segment=0 on input line 214.
+Package biblatex Info: Reference section=0 on input line 213.
+Package biblatex Info: Reference segment=0 on input line 213.
 File: image/ganesha.jpg Graphic file (type bmp)
 <image/ganesha.jpg>
 
@@ -1453,40 +1453,40 @@ File: image/ganesha.jpg Graphic file (type bmp)
 Package datetime2 Warning: Region `bahasai' has ignored 
 (datetime2)                the following settings:
 (datetime2)                showmonthname=true
- on input line 256.
+ on input line 255.
 
 [1
 
 
 ]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 309
+LaTeX Font Info:    Trying to load font information for U+msa on input line 308
 .
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 309
+LaTeX Font Info:    Trying to load font information for U+msb on input line 308
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Overfull \hbox (23.99997pt too wide) in paragraph at lines 309--314
+Overfull \hbox (23.99997pt too wide) in paragraph at lines 308--313
  [][] 
  []
 
 [1] (./ProposalTA.toc
-Underfull \hbox (badness 10000) in paragraph at lines 79--79
+Underfull \hbox (badness 10000) in paragraph at lines 75--75
  [] [][][]\TU/TimesNewRoman(0)/m/n/12 Feed-Forward Networks, Residual Connectio
 n, dan Layer 
  []
 
 [2
 
-] [3])
+] [3] [4])
 \tf@toc=\write6
 \openout6 = `ProposalTA.toc'.
 
- [4] [5] (./ProposalTA.lof)
+ [5] (./ProposalTA.lof)
 \tf@lof=\write7
 \openout7 = `ProposalTA.lof'.
 
@@ -1508,431 +1508,437 @@ k GSM8K dan
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<let>-command' on input line 363.
+(hyperref)                removing `\<let>-command' on input line 362.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\\' on input line 363.
+(hyperref)                removing `\\' on input line 362.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@centercr' on input line 363.
+(hyperref)                removing `\@centercr' on input line 362.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\rightskip' on input line 363.
+(hyperref)                removing `\rightskip' on input line 362.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@flushglue' on input line 363.
+(hyperref)                removing `\@flushglue' on input line 362.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\leftskip' on input line 363.
+(hyperref)                removing `\leftskip' on input line 362.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@flushglue' on input line 363.
+(hyperref)                removing `\@flushglue' on input line 362.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\finalhyphendemerits' on input line 363.
+(hyperref)                removing `\finalhyphendemerits' on input line 362.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\z@' on input line 363.
+(hyperref)                removing `\z@' on input line 362.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\parindent' on input line 363.
+(hyperref)                removing `\parindent' on input line 362.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\z@' on input line 363.
+(hyperref)                removing `\z@' on input line 362.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\parfillskip' on input line 363.
+(hyperref)                removing `\parfillskip' on input line 362.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\z@skip' on input line 363.
+(hyperref)                removing `\z@skip' on input line 362.
 
 [8
 
 ]
-Overfull \hbox (35.99997pt too wide) in alignment at lines 371--375
+Overfull \hbox (35.99997pt too wide) in alignment at lines 370--374
  [] [] [] 
  []
 
 
-Overfull \hbox (35.99997pt too wide) in alignment at lines 375--380
+Overfull \hbox (35.99997pt too wide) in alignment at lines 374--379
  [] [] [] 
  []
 
 
-Overfull \hbox (35.99997pt too wide) in alignment at lines 380--384
+Overfull \hbox (35.99997pt too wide) in alignment at lines 379--383
  [] [] [] 
  []
 
 
-Overfull \hbox (35.99997pt too wide) in alignment at lines 384--387
+Overfull \hbox (35.99997pt too wide) in alignment at lines 383--386
  [] [] [] 
  []
 
 
-Underfull \hbox (badness 5475) in paragraph at lines 389--389
+Underfull \hbox (badness 5475) in paragraph at lines 388--388
 []|\TU/TimesNewRoman(0)/m/n/12 Antarmuka pemrograman yang digunakan untuk
  []
 
 
-Underfull \hbox (badness 3471) in paragraph at lines 389--389
+Underfull \hbox (badness 3471) in paragraph at lines 388--388
 \TU/TimesNewRoman(0)/m/n/12 mengakses dan memanggil model bahasa secara
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 391--391
+Underfull \hbox (badness 10000) in paragraph at lines 390--390
 \TU/TimesNewRoman(0)/m/n/12 secara autoregresif, yaitu memprediksi token
  []
 
 
-Underfull \hbox (badness 3088) in paragraph at lines 395--395
+Underfull \hbox (badness 3088) in paragraph at lines 394--394
 []|\TU/TimesNewRoman(0)/m/n/12 Kecenderungan atau penyimpangan tertentu pada
  []
 
 
-Underfull \hbox (badness 1990) in paragraph at lines 395--395
+Underfull \hbox (badness 1990) in paragraph at lines 394--394
 \TU/TimesNewRoman(0)/m/n/12 oleh isi pertanyaan, tetapi juga oleh cara model
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 397--397
+Underfull \hbox (badness 10000) in paragraph at lines 396--396
 []|\TU/TimesNewRoman(0)/m/n/12 Rangkaian penjelasan langkah penalaran yang
  []
 
 
-Underfull \hbox (badness 7064) in paragraph at lines 397--397
+Underfull \hbox (badness 7064) in paragraph at lines 396--396
 \TU/TimesNewRoman(0)/m/n/12 dihasilkan model sebelum memberikan jawaban
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 399--399
+Underfull \hbox (badness 10000) in paragraph at lines 398--398
 []|\TU/TimesNewRoman(0)/m/n/12 Rangkaian proses terotomatisasi yang mengatur
  []
 
 
-Underfull \hbox (badness 1939) in paragraph at lines 399--399
+Underfull \hbox (badness 1939) in paragraph at lines 398--398
 \TU/TimesNewRoman(0)/m/n/12 pemanggilan model, penerapan persona, eksekusi
  []
 
 
-Underfull \hbox (badness 3302) in paragraph at lines 399--399
+Underfull \hbox (badness 3302) in paragraph at lines 398--398
 \TU/TimesNewRoman(0)/m/n/12 tugas, pencatatan respons, dan pengolahan hasil
  []
 
 
-Underfull \hbox (badness 5105) in paragraph at lines 401--401
+Underfull \hbox (badness 5105) in paragraph at lines 400--400
 []|\TU/TimesNewRoman(0)/m/n/12 Benchmark penalaran numerik yang terdiri atas
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 403--403
+Underfull \hbox (badness 10000) in paragraph at lines 402--402
 []|\TU/TimesNewRoman(0)/m/n/12 Bias yang berkaitan dengan identitas atau
  []
 
 
-Underfull \hbox (badness 3168) in paragraph at lines 403--403
+Underfull \hbox (badness 3168) in paragraph at lines 402--402
 \TU/TimesNewRoman(0)/m/n/12 karakteristik manusia, seperti gender, usia, latar
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 403--403
+Underfull \hbox (badness 10000) in paragraph at lines 402--402
 \TU/TimesNewRoman(0)/m/n/12 belakang sosial, atau stereotip tertentu, yang
  []
 
 
-Underfull \hbox (badness 1337) in paragraph at lines 407--407
+Underfull \hbox (badness 1337) in paragraph at lines 406--406
 []|\TU/TimesNewRoman(0)/m/n/12 Versi terkurasi dari benchmark \TU/TimesNewRoman
 (0)/m/it/12 Massive Multitask
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 407--407
+Underfull \hbox (badness 10000) in paragraph at lines 406--406
 \TU/TimesNewRoman(0)/m/n/12 topik pengetahuan umum dan tugas penalaran
  []
 
 
-Underfull \hbox (badness 1509) in paragraph at lines 411--411
+Underfull \hbox (badness 1509) in paragraph at lines 410--410
 []|\TU/TimesNewRoman(0)/m/n/12 Pengaturan eksperimen yang melibatkan beberapa
  []
 
 
-Underfull \hbox (badness 1661) in paragraph at lines 411--411
+Underfull \hbox (badness 1661) in paragraph at lines 410--410
 \TU/TimesNewRoman(0)/m/n/12 persona untuk melihat bagaimana variasi persona
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 417--417
+Underfull \hbox (badness 10000) in paragraph at lines 416--416
 \TU/TimesNewRoman(0)/m/n/12 prompt, misalnya dengan menyebutkan latar
  []
 
 
-Underfull \hbox (badness 2027) in paragraph at lines 417--417
+Underfull \hbox (badness 2027) in paragraph at lines 416--416
 \TU/TimesNewRoman(0)/m/n/12 belakang, profesi, atau karakter pengguna secara
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 419--419
+Underfull \hbox (badness 10000) in paragraph at lines 418--418
 \TU/TimesNewRoman(0)/m/n/12 pertanyaan tanpa penyebutan identitas secara
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 423--423
+Underfull \hbox (badness 10000) in paragraph at lines 422--422
 []|\TU/TimesNewRoman(0)/m/n/12 Pendekatan evaluasi yang menggunakan variasi
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 423--423
+Underfull \hbox (badness 10000) in paragraph at lines 422--422
 \TU/TimesNewRoman(0)/m/n/12 prompt untuk menguji perilaku model tanpa
  []
 
 
-Underfull \hbox (badness 4886) in paragraph at lines 429--429
+Underfull \hbox (badness 4886) in paragraph at lines 428--428
 \TU/TimesNewRoman(0)/m/n/12 prompt, dan benchmark yang dieksekusi secara
  []
 
 
-Underfull \hbox (badness 1342) in paragraph at lines 429--429
+Underfull \hbox (badness 1342) in paragraph at lines 428--428
 \TU/TimesNewRoman(0)/m/n/12 dilakukan secara konsisten, terstruktur, dan dapat
  []
 
 
-Overfull \hbox (35.99997pt too wide) in alignment at lines 387--431
+Overfull \hbox (35.99997pt too wide) in alignment at lines 386--430
  [] [] [] 
  []
 
 [9] [10] [11] (./Bab I - Pendahuluan.tex
 Bab I.
 
-Underfull \hbox (badness 1436) in paragraph at lines 9--10
-\TU/TimesNewRoman(0)/m/n/12 dan Martin [][]2023[][][][]). Pada sejumlah benchma
-rk[] terstandardisasi, model-model
+Underfull \hbox (badness 3128) in paragraph at lines 12--13
+[]\TU/TimesNewRoman(0)/m/n/12 Kemajuan dalam pengembangan LLM dalam beberapa ta
+hun terakhir telah
  []
 
 
-Underfull \hbox (badness 2050) in paragraph at lines 13--14
-\TU/TimesNewRoman(0)/m/n/12 bahwa model dapat mengasosiasikan isyarat linguisti
-k halus[]—seperti pilihan
+Underfull \hbox (badness 1910) in paragraph at lines 12--13
+\TU/TimesNewRoman(0)/m/n/12 korpus berskala besar dan mampu menyelesaikan berba
+gai tugas mulai dari
+ []
+
+
+Underfull \hbox (badness 5802) in paragraph at lines 14--15
+[]\TU/TimesNewRoman(0)/m/n/12 Fenomena lain yang menjadi perhatian penelitian m
+utakhir adalah bahwa
  []
 
 [1
 
 
 ]
-Underfull \hbox (badness 6741) in paragraph at lines 15--16
+Underfull \hbox (badness 1436) in paragraph at lines 16--17
+\TU/TimesNewRoman(0)/m/n/12 tingkat formalitas, atau gaya pertanyaan—dengan kar
+akteristik sosial tertentu
+ []
+
+
+Underfull \hbox (badness 6741) in paragraph at lines 18--19
 []\TU/TimesNewRoman(0)/m/n/12 Penelitian dalam pemodelan pengguna juga menunjuk
 kan bahwa identitas
  []
 
 
-Underfull \hbox (badness 7486) in paragraph at lines 15--16
+Underfull \hbox (badness 7486) in paragraph at lines 18--19
 \TU/TimesNewRoman(0)/m/n/12 pengguna—meliputi usia, latar belakang profesional,
  maupun pengalaman
  []
 
 
-Underfull \hbox (badness 2772) in paragraph at lines 15--16
-\TU/TimesNewRoman(0)/m/n/12 tertentu—dapat memberikan pengaruh terhadap pola re
-spons model ([][][]Naous,
- []
-
-
-Underfull \hbox (badness 3260) in paragraph at lines 21--22
-\TU/TimesNewRoman(0)/m/n/12 penelitian ini, GSM8K[] digunakan untuk menguji pen
-alaran numerik dasar,
- []
-
-[2]
-Underfull \hbox (badness 2213) in paragraph at lines 25--26
+Underfull \hbox (badness 2213) in paragraph at lines 22--23
 []\TU/TimesNewRoman(0)/m/n/12 Untuk memenuhi kebutuhan evaluasi yang konsisten 
 tersebut, penelitian ini
  []
 
 
-Underfull \hbox (badness 6300) in paragraph at lines 25--26
-\TU/TimesNewRoman(0)/m/n/12 kombinasi persona, model, dan benchmark secara eksp
-lisit. Spesifikasi
+Underfull \hbox (badness 2042) in paragraph at lines 22--23
+\TU/TimesNewRoman(0)/m/n/12 dalam suatu spesifikasi formal, kemudian mengekseku
+sinya melalui pipeline[]
  []
 
-
-Underfull \hbox (badness 3417) in paragraph at lines 25--26
-\TU/TimesNewRoman(0)/m/n/12 tersebut kemudian dijalankan melalui pipeline[] yan
-g terotomatisasi sehingga
- []
-
-
-Underfull \hbox (badness 3942) in paragraph at lines 25--26
-\TU/TimesNewRoman(0)/m/n/12 setiap konfigurasi pengujian dieksekusi dengan alur
- yang sama. Dengan
- []
-
-
-Underfull \hbox (badness 1009) in paragraph at lines 25--26
-\TU/TimesNewRoman(0)/m/n/12 cara ini, penelitian dapat mengurangi variasi yang 
-tidak diperlukan, menjaga
- []
-
-
-Underfull \hbox (badness 2359) in paragraph at lines 27--28
+[2]
+Underfull \hbox (badness 2359) in paragraph at lines 24--25
 \TU/TimesNewRoman(0)/m/n/12 pengaruh persona eksplisit dan implisit melalui eks
 perimen terstruktur pada
  []
 
 
-Underfull \hbox (badness 7081) in paragraph at lines 27--28
-\TU/TimesNewRoman(0)/m/n/12 model menafsirkan identitas pengguna dan bagaimana 
-penafsiran tersebut
+Underfull \hbox (badness 1107) in paragraph at lines 24--25
+\TU/TimesNewRoman(0)/m/n/12 berbagai model dan jenis tugas penalaran. Pendekata
+n ini diharapkan dapat
+ []
+
+
+Underfull \hbox (badness 3229) in paragraph at lines 24--25
+\TU/TimesNewRoman(0)/m/n/12 memberikan pemahaman yang lebih mendalam mengenai b
+agaimana model
+ []
+
+
+Underfull \hbox (badness 3919) in paragraph at lines 31--32
+\TU/TimesNewRoman(0)/m/n/12 eksplisit maupun yang tersirat dari gaya bahasa, da
+pat memengaruhi cara
  []
 
 [3]
-Underfull \hbox (badness 1259) in paragraph at lines 67--68
+Underfull \hbox (badness 1259) in paragraph at lines 64--65
 []\TU/TimesNewRoman(0)/m/n/12 Model yang digunakan pada penelitian ini terbatas
  pada model bahasa
  []
 
 
-Underfull \hbox (badness 1688) in paragraph at lines 67--68
+Underfull \hbox (badness 1688) in paragraph at lines 64--65
 \TU/TimesNewRoman(0)/m/n/12 API[]. Model encoder–decoder, model multimodal, mau
 pun model yang
  []
 
-[4]
-Underfull \hbox (badness 2818) in paragraph at lines 69--70
+
+Underfull \hbox (badness 2818) in paragraph at lines 66--67
 []\TU/TimesNewRoman(0)/m/n/12 Evaluasi dilakukan pada tugas-tugas berbasis teks
 , meliputi penalaran
  []
 
-
-Underfull \hbox (badness 1286) in paragraph at lines 82--83
+[4]
+Underfull \hbox (badness 1286) in paragraph at lines 79--80
 \TU/TimesNewRoman(0)/m/n/12 dijalankan kembali apabila diperlukan. Tahapan pene
 litian disajikan sebagai
  []
 
 
-Underfull \hbox (badness 1521) in paragraph at lines 91--92
+Underfull \hbox (badness 1521) in paragraph at lines 88--89
 \TU/TimesNewRoman(0)/m/n/12 persona implisit dibangun melalui variasi gaya baha
 sa pengguna tanpa
  []
 
-[5]
-Underfull \hbox (badness 2608) in paragraph at lines 99--100
+
+Underfull \hbox (badness 2608) in paragraph at lines 96--97
 []\TU/TimesNewRoman(0)/m/n/12 Setiap kombinasi persona, model, dan tugas diekse
 kusi menggunakan
  []
 
 
-Underfull \hbox (badness 1122) in paragraph at lines 99--100
+Underfull \hbox (badness 1122) in paragraph at lines 96--97
 \TU/TimesNewRoman(0)/m/n/12 pendekatan \TU/TimesNewRoman(0)/m/it/12 prompt-base
 d evaluation\TU/TimesNewRoman(0)/m/n/12 . Seluruh proses dijalankan secara
  []
 
 
-Underfull \hbox (badness 4779) in paragraph at lines 103--104
+Underfull \hbox (badness 4779) in paragraph at lines 100--101
 []\TU/TimesNewRoman(0)/m/n/12 Respons model dicatat dan dianalisis berdasarkan 
 ketepatan jawaban
  []
 
 
-Underfull \hbox (badness 2726) in paragraph at lines 103--104
+Underfull \hbox (badness 2726) in paragraph at lines 100--101
 \TU/TimesNewRoman(0)/m/n/12 serta pola perubahan respons yang muncul akibat per
 bedaan persona.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 103--104
+Underfull \hbox (badness 10000) in paragraph at lines 100--101
 \TU/TimesNewRoman(0)/m/n/12 Perbandingan antar model dilakukan untuk melihat se
 jauh mana
  []
 
-) (./Bab II - Studi-Literatur.tex [6]
+[5]) (./Bab II - Studi-Literatur.tex [6]
 Bab II.
 
-Underfull \hbox (badness 3635) in paragraph at lines 10--11
+Underfull \hbox (badness 2837) in paragraph at lines 7--8
+\TU/TimesNewRoman(0)/m/n/12 penelitian. Pembahasan diawali dengan tinjauan meng
+enai \TU/TimesNewRoman(0)/m/it/12 large language
+ []
+
+
+Underfull \hbox (badness 2932) in paragraph at lines 7--8
+\TU/TimesNewRoman(0)/m/it/12 modeling\TU/TimesNewRoman(0)/m/n/12 , arsitektur T
+ransformer, serta proses pelatihan dan inferensi yang
+ []
+
+
+Underfull \hbox (badness 3635) in paragraph at lines 11--12
 \TU/TimesNewRoman(0)/m/n/12 kapasitas model dan jumlah data pelatihan secara si
 gnifikan meningkatkan
  []
 
 
-Underfull \hbox (badness 2626) in paragraph at lines 12--13
+Underfull \hbox (badness 2626) in paragraph at lines 13--14
 \TU/TimesNewRoman(0)/m/n/12 dalam konteks penelitian ini karena perilaku person
 a dan variasi penalaran
  []
 
 
-Underfull \hbox (badness 2073) in paragraph at lines 12--13
+Underfull \hbox (badness 2073) in paragraph at lines 13--14
 \TU/TimesNewRoman(0)/m/n/12 keluaran melalui estimasi probabilitas token beriku
 tnya. Dengan demikian,
- []
-
-
-Underfull \hbox (badness 1009) in paragraph at lines 14--15
-\TU/TimesNewRoman(0)/m/n/12 dan mereproduksi bias tersebut. Pemahaman mengenai 
-dasar matematis dan
- []
-
-
-Underfull \hbox (badness 3291) in paragraph at lines 16--17
-[]\TU/TimesNewRoman(0)/m/n/12 Subbagian berikut membahas dasar matematis dari \
-TU/TimesNewRoman(0)/m/it/12 autoregressive language
- []
-
-
-Underfull \hbox (badness 1173) in paragraph at lines 16--17
-\TU/TimesNewRoman(0)/m/it/12 modeling \TU/TimesNewRoman(0)/m/n/12 sebagai kompo
-nen fundamental dari sebagian besar \TU/TimesNewRoman(0)/m/it/12 large language
-
  []
 
 [7
 
 ]
-Underfull \hbox (badness 2486) in paragraph at lines 20--21
+Underfull \hbox (badness 1009) in paragraph at lines 15--16
+\TU/TimesNewRoman(0)/m/n/12 dan mereproduksi bias tersebut. Pemahaman mengenai 
+dasar matematis dan
+ []
+
+
+Underfull \hbox (badness 3291) in paragraph at lines 17--18
+[]\TU/TimesNewRoman(0)/m/n/12 Subbagian berikut membahas dasar matematis dari \
+TU/TimesNewRoman(0)/m/it/12 autoregressive language
+ []
+
+
+Underfull \hbox (badness 1173) in paragraph at lines 17--18
+\TU/TimesNewRoman(0)/m/it/12 modeling \TU/TimesNewRoman(0)/m/n/12 sebagai kompo
+nen fundamental dari sebagian besar \TU/TimesNewRoman(0)/m/it/12 large language
+
+ []
+
+
+Underfull \hbox (badness 2486) in paragraph at lines 21--22
 \TU/TimesNewRoman(0)/m/n/12 token berikutnya berdasarkan seluruh konteks sebelu
 mnya. Pendekatan ini
  []
 
 
-Underfull \hbox (badness 6316) in paragraph at lines 36--37
-[][][][][][]\TU/TimesNewRoman(0)/m/n/12 Brown dkk. ([][]2020[][])[] []menunjukk
-an bahwa model berskala besar mampu
+Underfull \hbox (badness 1430) in paragraph at lines 33--34
+\TU/TimesNewRoman(0)/m/n/12 model bahasa berbasis jaringan saraf. Model menghas
+ilkan distribusi token
  []
 
 [8]
-Underfull \hbox (badness 2799) in paragraph at lines 38--39
+Underfull \hbox (badness 2799) in paragraph at lines 39--40
 []\TU/TimesNewRoman(0)/m/n/12 Model juga menghasilkan rangkaian token yang tamp
 ak sebagai penjelasan
  []
 
 
-Underfull \hbox (badness 1009) in paragraph at lines 40--41
+Underfull \hbox (badness 1009) in paragraph at lines 41--42
 \TU/TimesNewRoman(0)/m/n/12 Pergeseran ini terjadi pada level representasi, buk
 an pada perubahan struktur
  []
 
-
-Underfull \hbox (badness 1142) in paragraph at lines 54--55
-\TU/TimesNewRoman(0)/m/n/12 terhadap \TU/TimesNewRoman(0)/m/it/12 cross-entropy
- loss \TU/TimesNewRoman(0)/m/n/12 mendorong model untuk menyesuaikan parameter
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 55--56
+[]\TU/TimesNewRoman(0)/m/n/12 Sebagaimana dijelaskan oleh [][][][][]Goodfellow 
+dkk. ([][]2016[][])[][], optimasi terhadap
  []
 
-[9]
-Underfull \hbox (badness 10000) in paragraph at lines 56--57
+
+Underfull \hbox (badness 10000) in paragraph at lines 57--58
 []\TU/TimesNewRoman(0)/m/n/12 Konsekuensi penting dari pendekatan ini adalah te
 rinternalisasinya bias
  []
 
 
-Underfull \hbox (badness 1057) in paragraph at lines 58--59
+Underfull \hbox (badness 1057) in paragraph at lines 59--60
 \TU/TimesNewRoman(0)/m/n/12 perbedaan konsisten dalam gaya argumentasi, tingkat
  ketegasan, dan struktur
  []
@@ -1940,1565 +1946,86 @@ Underfull \hbox (badness 1057) in paragraph at lines 58--59
 File: image/arsitektur-transformer.png Graphic file (type bmp)
 <image/arsitektur-transformer.png>
 [10]
-Underfull \hbox (badness 10000) in paragraph at lines 71--72
+Underfull \hbox (badness 10000) in paragraph at lines 72--73
 []\TU/TimesNewRoman(0)/m/n/12 Gambar [][]II.1[][] menunjukkan aliran informasi 
 melalui mekanisme \TU/TimesNewRoman(0)/m/it/12 attention\TU/TimesNewRoman(0)/m/
 n/12 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 71--72
+Underfull \hbox (badness 10000) in paragraph at lines 72--73
 \TU/TimesNewRoman(0)/m/it/12 multi-head integration\TU/TimesNewRoman(0)/m/n/12 
 , \TU/TimesNewRoman(0)/m/it/12 positional encoding\TU/TimesNewRoman(0)/m/n/12 ,
  \TU/TimesNewRoman(0)/m/it/12 feed-forward block\TU/TimesNewRoman(0)/m/n/12 , \
 TU/TimesNewRoman(0)/m/it/12 residual
  []
 
-
-Underfull \hbox (badness 2134) in paragraph at lines 83--85
+[11]
+Underfull \hbox (badness 2134) in paragraph at lines 84--86
 \TU/TimesNewRoman(0)/m/n/12 di mana $\OML/cmm/m/it/12 d[]$ \TU/TimesNewRoman(0)
 /m/n/12 adalah dimensi key. Operasi ini memberikan bobot perhatian
  []
 
 
-Underfull \hbox (badness 1609) in paragraph at lines 83--85
+Underfull \hbox (badness 1609) in paragraph at lines 84--86
 \TU/TimesNewRoman(0)/m/n/12 berdasarkan kecocokan distribusional antara query d
 an key. Bobot tersebut
  []
 
-[11]
-Underfull \hbox (badness 10000) in paragraph at lines 90--91
+
+Underfull \hbox (badness 10000) in paragraph at lines 91--92
 \TU/TimesNewRoman(0)/m/n/12 Komponen \TU/TimesNewRoman(0)/m/it/12 multi-head at
 tention \TU/TimesNewRoman(0)/m/n/12 memperluas mekanisme perhatian dengan
  []
 
 
-Underfull \hbox (badness 1968) in paragraph at lines 92--93
+Underfull \hbox (badness 1968) in paragraph at lines 93--94
 []\TU/TimesNewRoman(0)/m/n/12 Representasi yang dihasilkan oleh setiap head kem
 udian digabungkan untuk
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 98--99
+Underfull \hbox (badness 10000) in paragraph at lines 99--100
 \TU/TimesNewRoman(0)/m/n/12 Karena \TU/TimesNewRoman(0)/m/it/12 self-attention 
 \TU/TimesNewRoman(0)/m/n/12 tidak mengandung informasi posisi secara inheren,
  []
 
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 112--112
+Underfull \hbox (badness 3471) in paragraph at lines 110--111
+\TU/TimesNewRoman(0)/m/n/12 representasi awal yang mengandung persona tetap mem
+beri kerangka gaya
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 115--115
 |[]\TU/TimesNewRoman(0)/b/n/12 Feed-Forward Networks, Residual Connection, dan 
 Layer
  []
 
 
-Underfull \hbox (badness 3168) in paragraph at lines 114--115
-\TU/TimesNewRoman(0)/m/n/12 Setiap lapisan Transformer mencakup feed-forward bl
-ock yang menerapkan
+Underfull \hbox (badness 3333) in paragraph at lines 117--118
+\TU/TimesNewRoman(0)/m/n/12 Setiap lapisan Transformer mencakup \TU/TimesNewRom
+an(0)/m/it/12 feed-forward block \TU/TimesNewRoman(0)/m/n/12 yang menerapkan
  []
 
 
-Underfull \hbox (badness 2050) in paragraph at lines 116--117
-[]\TU/TimesNewRoman(0)/m/n/12 Residual connection memungkinkan informasi dari l
-apisan sebelumnya tetap
+Underfull \hbox (badness 2050) in paragraph at lines 119--120
+[]\TU/TimesNewRoman(0)/m/it/12 Residual connection \TU/TimesNewRoman(0)/m/n/12 
+memungkinkan informasi dari lapisan sebelumnya tetap
  []
 
 
-Underfull \hbox (badness 1194) in paragraph at lines 116--117
-\TU/TimesNewRoman(0)/m/n/12 Layer normalization menjaga distribusi aktivasi tet
-ap stabil selama pelatihan,
+Underfull \hbox (badness 1852) in paragraph at lines 119--120
+\TU/TimesNewRoman(0)/m/n/12 pelatihan, sehingga setiap lapisan dapat membentuk 
+representasi token yang
  []
 
 
-Underfull \hbox (badness 2707) in paragraph at lines 122--123
-\TU/TimesNewRoman(0)/m/n/12 serta konsistensi struktur respons. Memahami dinami
-ka ini penting untuk
+Underfull \hbox (badness 2809) in paragraph at lines 119--120
+\TU/TimesNewRoman(0)/m/it/12 connection\TU/TimesNewRoman(0)/m/n/12 , dan \TU/Ti
+mesNewRoman(0)/m/it/12 layer normalization \TU/TimesNewRoman(0)/m/n/12 membentu
+k representasi hierarkis yang
  []
 
-[13] [14]
-Underfull \hbox (badness 10000) in paragraph at lines 148--149
-[]\TU/TimesNewRoman(0)/m/n/12 Pendekatan deterministik seperti \TU/TimesNewRoma
-n(0)/m/it/12 greedy decoding \TU/TimesNewRoman(0)/m/n/12 memilih token dengan
- []
-
-
-Underfull \hbox (badness 1852) in paragraph at lines 148--149
-\TU/TimesNewRoman(0)/m/n/12 probabilitas tertinggi pada setiap langkah, menghas
-ilkan respons yang stabil
- []
-
-
-Underfull \hbox (badness 1688) in paragraph at lines 148--149
-\TU/TimesNewRoman(0)/m/n/12 seperti \TU/TimesNewRoman(0)/m/it/12 top-$\OML/cmm/
-m/it/12 k$ \TU/TimesNewRoman(0)/m/it/12 sampling \TU/TimesNewRoman(0)/m/n/12 at
-au \TU/TimesNewRoman(0)/m/it/12 nucleus sampling\TU/TimesNewRoman(0)/m/n/12 , m
-emilih token dari distribusi
- []
-
-
-Underfull \hbox (badness 4013) in paragraph at lines 150--151
-[]\TU/TimesNewRoman(0)/m/n/12 Perbedaan strategi ini memengaruhi struktur kelua
-ran yang tampak seperti
- []
-
-
-Underfull \hbox (badness 1527) in paragraph at lines 154--155
-\TU/TimesNewRoman(0)/m/n/12 Dinamika pelatihan dan inferensi serta variasi stra
-tegi decoding menjelaskan
- []
-
-
-Underfull \hbox (badness 1132) in paragraph at lines 154--155
-\TU/TimesNewRoman(0)/m/n/12 Strategi decoding berbasis sampling memperbesar var
-iasi tersebut, sedangkan
- []
-
-
-Underfull \hbox (badness 1314) in paragraph at lines 154--155
-\TU/TimesNewRoman(0)/m/n/12 pendekatan deterministik memperkuat konsistensi gay
-a persona tetapi dengan
- []
-
-[15]
-Underfull \hbox (badness 6188) in paragraph at lines 162--163
-\TU/TimesNewRoman(0)/m/n/12 Corpus pelatihan untuk LLM sering kali mencakup mil
-iaran token yang
- []
-
-
-Underfull \hbox (badness 1173) in paragraph at lines 164--165
-\TU/TimesNewRoman(0)/m/n/12 persona diperkenalkan, persona tersebut berinteraks
-i dengan bias data karena
- []
-
-
-Underfull \hbox (badness 1540) in paragraph at lines 164--165
-\TU/TimesNewRoman(0)/m/n/12 representasi awalnya memodulasi kecenderungan yang 
-sudah tertanam dalam
- []
-
-
-Underfull \hbox (badness 6412) in paragraph at lines 174--175
-\TU/TimesNewRoman(0)/m/n/12 Tujuan optimasi ini tidak mempertimbangkan kebenara
-n faktual, keadilan
- []
-
-
-Underfull \hbox (badness 1648) in paragraph at lines 174--175
-\TU/TimesNewRoman(0)/m/n/12 distribusi membuat model mereplikasi pola teks yang
- paling sering muncul,
- []
-
-[16]
-Underfull \hbox (badness 1163) in paragraph at lines 180--181
-\TU/TimesNewRoman(0)/m/n/12 Prosedur penyelarasan model dengan instruksi manusi
-a, seperti \TU/TimesNewRoman(0)/m/it/12 reinforcement
- []
-
-[17]
-Underfull \hbox (badness 1152) in paragraph at lines 192--193
-\TU/TimesNewRoman(0)/m/n/12 pola instruksi berdasarkan distribusi representasi 
-yang telah dipelajari selama
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 198--199
-\TU/TimesNewRoman(0)/m/n/12 Persona dalam model bahasa dipahami sebagai instruk
-si linguistik yang
- []
-
-
-Underfull \hbox (badness 2478) in paragraph at lines 198--199
-\TU/TimesNewRoman(0)/m/n/12 membingkai cara model menghasilkan respons. Instruk
-si ini dapat berupa
- []
-
-
-Underfull \hbox (badness 1072) in paragraph at lines 198--199
-\TU/TimesNewRoman(0)/m/n/12 memengaruhi representasi awal yang terbentuk melalu
-i embedding token dan
- []
-
-
-Underfull \hbox (badness 2213) in paragraph at lines 198--199
-\TU/TimesNewRoman(0)/m/n/12 hidden state pertama, sehingga mengubah distribusi 
-probabilitas token pada
- []
-
-
-Underfull \hbox (badness 1237) in paragraph at lines 200--201
-[]\TU/TimesNewRoman(0)/m/n/12 Literatur mengenai \TU/TimesNewRoman(0)/m/it/12 p
-rompt-based learning \TU/TimesNewRoman(0)/m/n/12 menunjukkan bahwa model sangat
-
- []
-
-
-Underfull \hbox (badness 1178) in paragraph at lines 200--201
-\TU/TimesNewRoman(0)/m/n/12 sensitif terhadap struktur dan formulasi instruksi 
-yang diberikan ([][][]Schick dan
- []
-
-
-Underfull \hbox (badness 4193) in paragraph at lines 200--201
-\TU/TimesNewRoman(0)/m/n/12 dan representasi yang dipelajari selama pra-pelatih
-an. Dengan kata lain,
- []
-
-[18]
-Underfull \hbox (badness 1521) in paragraph at lines 206--207
-\TU/TimesNewRoman(0)/m/n/12 Efek persona dalam model autoregresif muncul dari c
-ara model membentuk
- []
-
-
-Underfull \hbox (badness 2762) in paragraph at lines 206--207
-\TU/TimesNewRoman(0)/m/n/12 menghitung distribusi probabilitas token pertama, d
-an hidden state tersebut
- []
-
-
-Underfull \hbox (badness 4156) in paragraph at lines 210--211
-\TU/TimesNewRoman(0)/m/n/12 dihasilkan pada langkah awal menjadi bagian dari ko
-nteks untuk langkah
- []
-
-
-Underfull \hbox (badness 1394) in paragraph at lines 212--213
-\TU/TimesNewRoman(0)/m/n/12 ([][][]Wei dkk. [][]2022[][][][]), menunjukkan bahw
-a modifikasi konteks awal berdampak
- []
-
-[19]
-Underfull \hbox (badness 4060) in paragraph at lines 224--225
-\TU/TimesNewRoman(0)/m/n/12 pengguna. Survei [][][][][]Tseng dkk. ([][]2024[][]
-)[] []menunjukkan bahwa LLM dapat
- []
-
-[20]
-Underfull \hbox (badness 1259) in paragraph at lines 230--231
-\TU/TimesNewRoman(0)/m/n/12 yang melibatkan penyimpanan profil pengguna. Survei
- [][][][][]Tseng dkk. ([][]2024[][])[]
- []
-
-[21]
-Underfull \hbox (badness 1424) in paragraph at lines 242--243
-\TU/TimesNewRoman(0)/m/n/12 digunakan untuk memastikan bahwa model mengikuti ga
-ya persona sebelum
- []
-
-
-Underfull \hbox (badness 1038) in paragraph at lines 244--245
-\TU/TimesNewRoman(0)/m/n/12 terlebih dahulu di dalam berkas spesifikasi formal 
-sebelum dijalankan secara
- []
-
-
-Underfull \hbox (badness 1199) in paragraph at lines 244--245
-\TU/TimesNewRoman(0)/m/n/12 otomatis oleh \TU/TimesNewRoman(0)/m/it/12 pipeline
-\TU/TimesNewRoman(0)/m/n/12 . Penelitian ini menggunakan GSM8K untuk menguji
- []
-
-
-Underfull \hbox (badness 1072) in paragraph at lines 248--249
-\TU/TimesNewRoman(0)/m/n/12 hanya system message untuk persona eksplisit dan ga
-ya tutur pada masukan
- []
-
-
-Underfull \hbox (badness 2119) in paragraph at lines 254--255
-\TU/TimesNewRoman(0)/m/n/12 pada hidden state, sehingga memodulasi jalur predik
-si token selama proses
- []
-
-[22]
-Underfull \hbox (badness 7397) in paragraph at lines 264--265
-\TU/TimesNewRoman(0)/m/n/12 Persona juga dapat memodulasi kecenderungan model u
-ntuk memberikan
- []
-
-
-Underfull \hbox (badness 2653) in paragraph at lines 264--265
-\TU/TimesNewRoman(0)/m/n/12 struktur penjelasan sejalan dengan temuan bahwa mod
-el dapat memberikan
- []
-
-
-Underfull \hbox (badness 3646) in paragraph at lines 264--265
-\TU/TimesNewRoman(0)/m/n/12 penjelasan yang terdengar rasional tetapi tidak sel
-alu merefleksikan proses
- []
-
-[23]
-Underfull \hbox (badness 1590) in paragraph at lines 268--269
-\TU/TimesNewRoman(0)/m/n/12 jawaban. Dalam konteks penelitian ini, tugas penala
-ran pada GSM8K dan
- []
-
-
-Underfull \hbox (badness 1043) in paragraph at lines 268--269
-\TU/TimesNewRoman(0)/m/n/12 sebelum memulai reasoning, sebagaimana ditunjukkan 
-oleh temuan mengenai
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 272--273
-\TU/TimesNewRoman(0)/m/n/12 Efek persona harus diperlakukan sebagai variabel ek
-sperimental yang
- []
-
-
-Underfull \hbox (badness 2359) in paragraph at lines 272--273
-\TU/TimesNewRoman(0)/m/n/12 harus diuji pada berbagai kondisi untuk memahami se
-nsitivitasnya terhadap
- []
-
-
-Underfull \hbox (badness 2856) in paragraph at lines 279--280
-\TU/TimesNewRoman(0)/m/n/12 Benchmark digunakan sebagai instrumen evaluasi yang
- memberikan ukuran
- []
-
-[24]
-Underfull \hbox (badness 4429) in paragraph at lines 283--284
-\TU/TimesNewRoman(0)/m/n/12 berbeda: penalaran numerik prosedural dan penalaran
- konseptual berbasis
- []
-
-
-Underfull \hbox (badness 2213) in paragraph at lines 287--288
-\TU/TimesNewRoman(0)/m/n/12 soal cerita matematika tingkat sekolah dasar ([][][
-]Cobbe dkk. [][]2021[][][][]). Setiap
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 293--294
-\TU/TimesNewRoman(0)/m/n/12 MMLU-Redux adalah versi kurasi ulang dari benchmark
- MMLU yang
- []
-
-
-Underfull \hbox (badness 3724) in paragraph at lines 293--294
-\TU/TimesNewRoman(0)/m/n/12 Berbeda dari GSM8K, tugas dalam MMLU-Redux disajika
-n dalam format
- []
-
-
-Underfull \hbox (badness 3746) in paragraph at lines 293--294
-\TU/TimesNewRoman(0)/m/it/12 multiple-choice\TU/TimesNewRoman(0)/m/n/12 , sehin
-gga model harus memilih jawaban yang paling tepat
- []
-
-[25]
-Underfull \hbox (badness 1960) in paragraph at lines 295--296
-\TU/TimesNewRoman(0)/m/n/12 terhadap pergeseran preferensi jawaban yang muncul 
-akibat variasi persona.
- []
-
-
-Underfull \hbox (badness 3460) in paragraph at lines 295--296
-\TU/TimesNewRoman(0)/m/n/12 sehingga perubahan gaya linguistik pada konteks awa
-l dapat memengaruhi
- []
-
-
-Underfull \hbox (badness 3557) in paragraph at lines 303--304
-\TU/TimesNewRoman(0)/m/n/12 efek persona pada struktur reasoning prosedural, se
-dangkan MMLU-Redux
- []
-
-
-Underfull \hbox (badness 1430) in paragraph at lines 303--304
-\TU/TimesNewRoman(0)/m/n/12 jawaban dalam tugas konseptual. Kombinasi keduanya 
-memberikan fondasi
- []
-
-
-Underfull \hbox (badness 1430) in paragraph at lines 307--308
-\TU/TimesNewRoman(0)/m/n/12 yang ada masih menyisakan sejumlah pertanyaan menda
-sar mengenai sejauh
- []
-
-[26]
-Underfull \hbox (badness 1237) in paragraph at lines 315--316
-\TU/TimesNewRoman(0)/m/n/12 Penelitian ini memperkuat pemahaman bahwa penalaran
- model bukan proses
- []
-
-
-Underfull \hbox (badness 1910) in paragraph at lines 317--318
-[]\TU/TimesNewRoman(0)/m/n/12 Selain itu, penelitian mengenai risiko bias menun
-jukkan bahwa LLM dapat
- []
-
-
-Underfull \hbox (badness 1454) in paragraph at lines 319--320
-\TU/TimesNewRoman(0)/m/n/12 bahwa persona, sebagai bentuk framing, dapat memeng
-aruhi reasoning yang
- []
-
-[27]
-Underfull \hbox (badness 1540) in paragraph at lines 333--334
-[]\TU/TimesNewRoman(0)/m/n/12 Kelima, stabilitas reasoning jarang dievaluasi pa
-da benchmark yang berbeda
- []
-
-
-Underfull \hbox (badness 6510) in paragraph at lines 335--336
-[]\TU/TimesNewRoman(0)/m/n/12 Keenam, kerangka evaluasi LLM yang umum digunakan
-—seperti HELM
- []
-
-
-Underfull \hbox (badness 4429) in paragraph at lines 335--336
-\TU/TimesNewRoman(0)/m/n/12 ([][][]Liang, Bommasani, dkk. [][]2023[][][][]), LM
- Evaluation Harness, dan OpenAI
- []
-
-
-Underfull \hbox (badness 1424) in paragraph at lines 335--336
-\TU/TimesNewRoman(0)/m/n/12 eksperimen. Framework-framework tersebut berfokus p
-ada pengujian model
- []
-
-
-Underfull \hbox (badness 4673) in paragraph at lines 335--336
-\TU/TimesNewRoman(0)/m/it/12 benchmark \TU/TimesNewRoman(0)/m/n/12 secara otoma
-tis serta tidak menyimpan keluaran lengkap yang
- []
-
-
-Underfull \hbox (badness 3861) in paragraph at lines 341--342
-\TU/TimesNewRoman(0)/m/n/12 memungkinkan analisis komparatif mengenai perbedaan
- sensitivitas persona
- []
-
-[28]
-Underfull \hbox (badness 1168) in paragraph at lines 345--346
-[]\TU/TimesNewRoman(0)/m/n/12 Ketiga, penelitian ini menggunakan dua benchmark 
-reasoning yang memiliki
- []
-
-
-Underfull \hbox (badness 1152) in paragraph at lines 347--348
-\TU/TimesNewRoman(0)/m/it/12 orchestration\TU/TimesNewRoman(0)/m/n/12 , mengiku
-ti rekomendasi penelitian mengenai sensitivitas prompt
- []
-
-) (./Bab III - Analisis-Masalah.tex [29]
-Bab III.
-
-Underfull \hbox (badness 2269) in paragraph at lines 13--14
-\TU/TimesNewRoman(0)/m/n/12 Perkembangan \TU/TimesNewRoman(0)/m/it/12 large lan
-guage model \TU/TimesNewRoman(0)/m/n/12 (LLM) dalam beberapa tahun terakhir
- []
-
-
-Underfull \hbox (badness 3078) in paragraph at lines 13--14
-\TU/TimesNewRoman(0)/m/n/12 mendorong pemanfaatan model bahasa dalam berbagai a
-plikasi, mulai dari
- []
-
-
-Underfull \hbox (badness 3229) in paragraph at lines 17--18
-\TU/TimesNewRoman(0)/m/n/12 persona eksplisit dapat memengaruhi penalaran model
-, termasuk pada soal
- []
-
-[30
-
-]
-Underfull \hbox (badness 4341) in paragraph at lines 23--24
-\TU/TimesNewRoman(0)/m/n/12 terbatas. Pendekatan pemodelan pengguna, seperti \T
-U/TimesNewRoman(0)/m/it/12 user language model\TU/TimesNewRoman(0)/m/n/12 ,
- []
-
-
-Underfull \hbox (badness 8170) in paragraph at lines 23--24
-\TU/TimesNewRoman(0)/m/n/12 menilai pengaruh \TU/TimesNewRoman(0)/m/it/12 user 
-persona\TU/TimesNewRoman(0)/m/n/12 —baik eksplisit maupun implisit—terhadap
- []
-
-
-Package biblatex-chicago Warning: Empty Ibidem citation on input line 25.
-
-
-Package biblatex-chicago Warning: Empty Ibidem citation on input line 25.
-
-
-Underfull \hbox (badness 1194) in paragraph at lines 25--26
-[]\TU/TimesNewRoman(0)/m/n/12 Dari sisi teknis, banyak studi persona masih meng
-andalkan eksekusi manual
- []
-
-
-Underfull \hbox (badness 1910) in paragraph at lines 25--26
-\TU/TimesNewRoman(0)/m/n/12 atau semiotomatis ketika menjalankan eksperimen. Na
-ous et al. menyoroti
- []
-
-
-Underfull \hbox (badness 1112) in paragraph at lines 25--26
-\TU/TimesNewRoman(0)/m/n/12 Tanpa kerangka evaluasi yang terdokumentasi dengan 
-baik, eksperimen yang
- []
-
-
-Underfull \hbox (badness 2165) in paragraph at lines 28--29
-[]\TU/TimesNewRoman(0)/m/n/12 Berdasarkan kondisi tersebut, masalah-masalah uta
-ma yang melatarbelakangi
- []
-
-[31]
-Underfull \hbox (badness 1331) in paragraph at lines 41--41
-[]|\TU/TimesNewRoman(0)/m/n/10 Persona pada LLM umumnya
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 41--41
-\TU/TimesNewRoman(0)/m/n/10 diterapkan pada sisi model,
- []
-
-
-Underfull \hbox (badness 3679) in paragraph at lines 42--42
-\TU/TimesNewRoman(0)/m/n/10 bagaimana \TU/TimesNewRoman(0)/m/it/10 user persona
- \TU/TimesNewRoman(0)/m/n/10 eksplisit maupun
- []
-
-
-Underfull \hbox (badness 1895) in paragraph at lines 45--45
-[]|\TU/TimesNewRoman(0)/m/n/10 Efek persona sulit dipisahkan
- []
-
-
-Underfull \hbox (badness 6691) in paragraph at lines 45--45
-\TU/TimesNewRoman(0)/m/n/10 dari efek framing dan gaya
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 46--46
-[]|\TU/TimesNewRoman(0)/m/n/10 Perubahan performa atau pola penalaran
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 49--49
-[]|\TU/TimesNewRoman(0)/m/n/10 LLM membawa bias sosial
- []
-
-
-Underfull \hbox (badness 1910) in paragraph at lines 49--49
-\TU/TimesNewRoman(0)/m/n/10 yang terinternalisasi dari data
- []
-
-
-Underfull \hbox (badness 4072) in paragraph at lines 50--50
-[]|\TU/TimesNewRoman(0)/m/n/10 Ketika identitas pengguna memuat atribut
- []
-
-
-Underfull \hbox (badness 7012) in paragraph at lines 50--50
-\TU/TimesNewRoman(0)/m/n/10 sosial tertentu, respons model berpotensi
- []
-
-
-Underfull \hbox (badness 3229) in paragraph at lines 50--50
-\TU/TimesNewRoman(0)/m/n/10 terkait dengan bias yang sudah ada pada
- []
-
-
-Underfull \hbox (badness 1163) in paragraph at lines 54--55
-\TU/TimesNewRoman(0)/m/n/10 yang cukup luas mengenai variasi perilaku
- []
-
-[32]
-Underfull \hbox (badness 1043) in paragraph at lines 66--67
-\TU/TimesNewRoman(0)/m/n/12 persona sebelumnya. Banyak studi hanya menguji sedi
-kit model atau fokus
- []
-
-
-Underfull \hbox (badness 1067) in paragraph at lines 66--67
-\TU/TimesNewRoman(0)/m/n/12 mengenai bagaimana variasi \TU/TimesNewRoman(0)/m/i
-t/12 user persona \TU/TimesNewRoman(0)/m/n/12 memengaruhi perilaku model pada
- []
-
-
-Underfull \hbox (badness 2088) in paragraph at lines 75--76
-[]\TU/TimesNewRoman(0)/m/n/12 Belum tersedia cara yang terstruktur untuk merumu
-skan \TU/TimesNewRoman(0)/m/it/12 user persona
- []
-
-
-Underfull \hbox (badness 1308) in paragraph at lines 79--80
-\TU/TimesNewRoman(0)/m/n/12 tugas membutuhkan prosedur yang memungkinkan skenar
-io yang sama
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 79--80
-\TU/TimesNewRoman(0)/m/n/12 dijalankan kembali dan hasilnya dicatat secara kons
-isten, sehingga
- []
-
-
-Underfull \hbox (badness 4846) in paragraph at lines 86--87
-\TU/TimesNewRoman(0)/m/n/12 Kebutuhan fungsional merujuk pada kemampuan yang pe
-rlu tersedia agar
- []
-
-
-Underfull \hbox (badness 1895) in paragraph at lines 97--97
-\TU/TimesNewRoman(0)/m/n/12 teks yang seragam, sehingga persona dapat
- []
-
-
-Underfull \hbox (badness 7832) in paragraph at lines 97--97
-\TU/TimesNewRoman(0)/m/n/12 dirancang secara konsisten dan digunakan
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 101--101
-[]|\TU/TimesNewRoman(0)/m/n/12 Mekanisme untuk menjalankan pertanyaan
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 105--105
-[]|\TU/TimesNewRoman(0)/m/n/12 Format pencatatan hasil yang mendukung
- []
-
-
-Underfull \hbox (badness 2293) in paragraph at lines 105--105
-\TU/TimesNewRoman(0)/m/n/12 penilaian sederhana seperti benar–salah dan
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 109--113
-[]|\TU/TimesNewRoman(0)/m/n/12 Mendukung eksekusi eksperimen berbasis
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 109--113
-\TU/TimesNewRoman(0)/m/n/12 daftar model, persona, benchmark, serta
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 109--113
-\TU/TimesNewRoman(0)/m/n/12 parameter eksekusi disusun dalam satu
- []
-
-
-Underfull \hbox (badness 2503) in paragraph at lines 109--113
-\TU/TimesNewRoman(0)/m/n/12 oleh \TU/TimesNewRoman(0)/m/it/12 pipeline\TU/Times
-NewRoman(0)/m/n/12 . Pendekatan ini memastikan
- []
-
-
-Underfull \hbox (badness 1371) in paragraph at lines 109--113
-\TU/TimesNewRoman(0)/m/n/12 bahwa perubahan skenario eksperimen tidak
- []
-
-
-Overfull \hbox (7.54721pt too wide) in paragraph at lines 92--118
- [][] 
- []
-
-[33]
-Underfull \hbox (badness 1067) in paragraph at lines 134--138
-\TU/TimesNewRoman(0)/m/n/12 model, persona, dan benchmark dikendalikan melalui 
-satu berkas spesifikasi,
- []
-
-[34]
-Underfull \hbox (badness 5189) in paragraph at lines 153--153
-\TU/TimesNewRoman(0)/m/n/12 ulang melalui skrip atau konfigurasi yang
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 157--157
-[]|\TU/TimesNewRoman(0)/m/n/12 Pelaksanaan eksperimen dapat dilakukan
- []
-
-
-Underfull \hbox (badness 2277) in paragraph at lines 157--157
-\TU/TimesNewRoman(0)/m/n/12 dengan langkah-langkah yang langsung dan
- []
-
-
-Underfull \hbox (badness 1783) in paragraph at lines 157--157
-\TU/TimesNewRoman(0)/m/n/12 tidak memerlukan infrastruktur tambahan di
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 161--162
-[]|\TU/TimesNewRoman(0)/m/n/12 Struktur eksperimen memungkinkan
- []
-
-
-Underfull \hbox (badness 1242) in paragraph at lines 161--162
-\TU/TimesNewRoman(0)/m/n/12 penambahan model atau persona baru tanpa
- []
-
-
-Underfull \hbox (badness 1721) in paragraph at lines 161--162
-\TU/TimesNewRoman(0)/m/n/12 perubahan besar pada kerangka yang sudah
- []
-
-
-Overfull \hbox (2.39192pt too wide) in paragraph at lines 164--164
-[]|\TU/TimesNewRoman(0)/m/n/12 Configuration-driven
- []
-
-
-Underfull \hbox (badness 3019) in paragraph at lines 165--170
-\TU/TimesNewRoman(0)/m/n/12 berkas spesifikasi (\TU/TimesNewRoman(0)/m/it/12 ex
-periment specification\TU/TimesNewRoman(0)/m/n/12 )
- []
-
-
-Underfull \hbox (badness 1694) in paragraph at lines 165--170
-\TU/TimesNewRoman(0)/m/n/12 yang mengatur model, persona, benchmark,
- []
-
-
-Underfull \hbox (badness 6526) in paragraph at lines 165--170
-\TU/TimesNewRoman(0)/m/n/12 parameter eksekusi, serta struktur prompt.
- []
-
-
-Underfull \hbox (badness 7667) in paragraph at lines 165--170
-\TU/TimesNewRoman(0)/m/n/12 Pendekatan ini memastikan reproducibility,
- []
-
-
-Underfull \hbox (badness 2277) in paragraph at lines 165--170
-\TU/TimesNewRoman(0)/m/n/12 dalam mengubah atau memperluas skenario
- []
-
-
-Overfull \hbox (7.54721pt too wide) in paragraph at lines 147--174
- [][] 
- []
-
-
-Underfull \hbox (badness 5548) in paragraph at lines 182--185
-[]\TU/TimesNewRoman(0)/m/n/12 KNF-02 (Simplicity) menjaga agar proses eksekusi 
-tetap sederhana tanpa
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 186--189
-[]\TU/TimesNewRoman(0)/m/n/12 KNF-03 (Extensibility) memungkinkan penambahan mo
-del, persona, atau
- []
-
-
-Underfull \hbox (badness 1057) in paragraph at lines 186--189
-\TU/TimesNewRoman(0)/m/n/12 benchmark baru tanpa perubahan besar pada kode, seh
-ingga penelitian dapat
- []
-
-[35]
-Underfull \hbox (badness 10000) in paragraph at lines 190--194
-[]\TU/TimesNewRoman(0)/m/n/12 KNF-04 (Configuration-driven) memastikan bahwa se
-luruh eksperimen
- []
-
-
-Underfull \hbox (badness 2213) in paragraph at lines 190--194
-\TU/TimesNewRoman(0)/m/n/12 dikendalikan melalui satu berkas spesifikasi, sehin
-gga skenario \TU/TimesNewRoman(0)/m/it/12 multi model
- []
-
-
-Underfull \hbox (badness 1292) in paragraph at lines 190--194
-\OMS/cmsy/m/n/12 ^^B$ \TU/TimesNewRoman(0)/m/it/12 multi persona $\OMS/cmsy/m/n
-/12 ^^B$ \TU/TimesNewRoman(0)/m/it/12 multi benchmark \TU/TimesNewRoman(0)/m/n/
-12 dapat dikelola dan direproduksi secara
- []
-
-
-Underfull \hbox (badness 8019) in paragraph at lines 197--198
-\TU/TimesNewRoman(0)/m/n/12 Bagian ini membahas alternatif pendekatan yang dapa
-t digunakan untuk
- []
-
-
-Underfull \hbox (badness 1215) in paragraph at lines 197--198
-\TU/TimesNewRoman(0)/m/n/12 lintas model dan tugas, kemudahan pencatatan hasil,
- serta tingkat kerumitan
- []
-
-
-Underfull \hbox (badness 7832) in paragraph at lines 206--207
-[]\TU/TimesNewRoman(0)/m/n/12 Interaksi dengan \TU/TimesNewRoman(0)/m/it/12 lar
-ge language model \TU/TimesNewRoman(0)/m/n/12 dilakukan langsung melalui
- []
-
-
-Underfull \hbox (badness 2343) in paragraph at lines 210--211
-\TU/TimesNewRoman(0)/m/n/12 GSM8K dan MMLU-Redux) disimpan dalam berkas konfigu
-rasi yang
- []
-
-[36]
-Underfull \hbox (badness 10000) in paragraph at lines 214--215
-[]\TU/TimesNewRoman(0)/m/n/12 Alternatif ini merupakan perluasan dari pendekata
-n kedua dengan
- []
-
-
-Underfull \hbox (badness 5133) in paragraph at lines 214--215
-\TU/TimesNewRoman(0)/m/n/12 membangun kerangka evaluasi yang lebih lengkap, mis
-alnya berupa
- []
-
-
-Underfull \hbox (badness 1859) in paragraph at lines 214--215
-\TU/TimesNewRoman(0)/m/n/12 pustaka atau layanan khusus. Fitur yang disediakan 
-dapat mencakup
- []
-
-
-Underfull \hbox (badness 1137) in paragraph at lines 214--215
-\TU/TimesNewRoman(0)/m/n/12 penggunaan jangka panjang, tetapi memerlukan usaha 
-perancangan dan
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 237--237
-[]|\TU/TimesNewRoman(0)/m/n/10 Konsistensi eksekusi lintas
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 246--246
-[]|\TU/TimesNewRoman(0)/m/n/10 Kerumitan implementasi dan
- []
-
-
-Underfull \hbox (badness 1859) in paragraph at lines 260--261
-\TU/TimesNewRoman(0)/m/n/12 keseimbangan yang paling sesuai. Representasi model
-, persona, dan tugas
- []
-
-[37]) (./Bab IV - Desain-Konsep-Solusi.tex
-Underfull \hbox (badness 5403) in paragraph at lines 262--4
-\TU/TimesNewRoman(0)/m/n/12 ini, pendekatan tersebut diimplementasikan sebagai 
-\TU/TimesNewRoman(0)/m/it/12 spec-driven experiment
- []
-
-[38]
-Bab IV.
-
-Underfull \hbox (badness 2221) in paragraph at lines 7--13
-\TU/TimesNewRoman(0)/m/n/12 Bab ini menguraikan rancangan solusi yang digunakan
- untuk melaksanakan
- []
-
-
-Underfull \hbox (badness 2119) in paragraph at lines 7--13
-\TU/TimesNewRoman(0)/m/n/12 dimulai dari desain konseptual eksperimen, diikuti 
-arsitektur dan alur kerja
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--21
-\TU/TimesNewRoman(0)/m/n/12 Perancangan eksperimen dilakukan untuk menyediakan 
-kerangka yang
- []
-
-
-Underfull \hbox (badness 3179) in paragraph at lines 20--21
-\TU/TimesNewRoman(0)/m/n/12 memungkinkan perbandingan persona secara terarah. D
-ua bentuk persona
- []
-
-
-Underfull \hbox (badness 1629) in paragraph at lines 20--21
-\TU/TimesNewRoman(0)/m/n/12 identitas pengguna dinyatakan secara langsung serta
- ketika identitas tersebut
- []
-
-[39
-
-] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2023/02/27 1.9 listings language file
-)
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang2.sty
-File: lstlang2.sty 2023/02/27 1.9 listings language file
-)
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang3.sty
-File: lstlang3.sty 2023/02/27 1.9 listings language file
-)
-
-! Package Listings Error: Couldn't load requested language.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.58 ...kasi eksperimen},label={lst:spec-example}]
-                                                  
-The following languages weren't loadable:
-    ,yaml$
-This may cause errors in the sequel.
-
-
-! Package Listings Error: language yaml undefined.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.58 ...kasi eksperimen},label={lst:spec-example}]
-                                                  
-The language is not loadable. Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 58.
-[40] [41]
-Underfull \hbox (badness 2591) in paragraph at lines 121--123
-[]\TU/TimesNewRoman(0)/m/n/12 Dengan demikian, spec berfungsi sebagai unit kont
-rol utama dalam desain
- []
-
-
-Underfull \hbox (badness 1910) in paragraph at lines 142--143
-\TU/TimesNewRoman(0)/m/it/12 specification \TU/TimesNewRoman(0)/m/n/12 hingga d
-iperolehnya keluaran akhir. Pendekatan ini dirancang
- []
-
-[42]
-Underfull \hbox (badness 4872) in paragraph at lines 152--154
-\TU/TimesNewRoman(0)/m/n/12 Tahap ini memuat seluruh konfigurasi sistem, defini
-si persona, dan
- []
-
-
-Underfull \hbox (badness 1845) in paragraph at lines 155--157
-\TU/TimesNewRoman(0)/m/n/12 Sistem membentuk \TU/TimesNewRoman(0)/m/it/12 syste
-m message \TU/TimesNewRoman(0)/m/n/12 yang berisi identitas persona serta
- []
-
-
-Underfull \hbox (badness 1259) in paragraph at lines 170--171
-\TU/TimesNewRoman(0)/m/n/12 Eksperimen melibatkan ribuan kombinasi persona–mode
-l–pertanyaan sehingga
- []
-
-
-Underfull \hbox (badness 3646) in paragraph at lines 170--171
-\TU/TimesNewRoman(0)/m/n/12 volume permintaan API menjadi sangat besar. Eksekus
-i sekuensial tidak
- []
-
-[43]
-Underfull \hbox (badness 1365) in paragraph at lines 208--211
-\TU/TimesNewRoman(0)/m/n/12 prosedur generik bernama \TU/lmtt/m/n/12 RunBenchma
-rkBatch\TU/TimesNewRoman(0)/m/n/12 . Berbeda dari implementasi
- []
-
-
-Underfull \hbox (badness 1609) in paragraph at lines 208--211
-\TU/TimesNewRoman(0)/m/n/12 ini menggabungkan keduanya ke dalam satu algoritma 
-yang menangani dua
- []
-
-[44]
-Underfull \hbox (badness 4846) in paragraph at lines 212--213
-[]\TU/TimesNewRoman(0)/m/n/12 Pseudocode berikut merangkum alur lengkap yang di
-terapkan pada kedua
- []
-
-
-Overfull \hbox (3.6655pt too wide) in paragraph at lines 229--230
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]  
- []
-
-[45]
-Overfull \hbox (51.66599pt too wide) in paragraph at lines 258--259
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-]  
- []
-
-
-Overfull \hbox (27.66574pt too wide) in paragraph at lines 291--292
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]  
- []
-
-
-Overfull \hbox (33.6658pt too wide) in paragraph at lines 292--293
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]  
- []
-
-
-Overfull \hbox (57.66605pt too wide) in paragraph at lines 293--294
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]  
- []
-
-[46]
-Underfull \hbox (badness 1442) in paragraph at lines 314--315
-\TU/TimesNewRoman(0)/m/it/12 benchmark \TU/TimesNewRoman(0)/m/n/12 dengan struk
-tur instruksi dan mekanisme ekstraksi jawaban yang
- []
-
-
-Underfull \hbox (badness 1132) in paragraph at lines 322--323
-[]\TU/TimesNewRoman(0)/m/n/12 Tahap pertama adalah \TU/TimesNewRoman(0)/m/it/12
- persona context initialization\TU/TimesNewRoman(0)/m/n/12 . Pada tahap ini, si
-stem
- []
-
-
-Underfull \hbox (badness 1371) in paragraph at lines 324--325
-[]\TU/TimesNewRoman(0)/m/n/12 Tahap kedua adalah \TU/TimesNewRoman(0)/m/it/12 p
-ersona warm-up message\TU/TimesNewRoman(0)/m/n/12 . Pipeline mengirimkan satu
- []
-
-[47]
-Underfull \hbox (badness 4193) in paragraph at lines 332--333
-\TU/TimesNewRoman(0)/m/n/12 Secara operasional, pelaksanaan eksperimen mengikut
-i alur yang diringkas
- []
-
-File: image/diagram-hierarki.png Graphic file (type bmp)
-<image/diagram-hierarki.png>
-
-Underfull \hbox (badness 2644) in paragraph at lines 344--346
-\TU/TimesNewRoman(0)/m/n/12 eksekusi. Informasi ini menjadi \TU/TimesNewRoman(0
-)/m/it/12 single source of truth \TU/TimesNewRoman(0)/m/n/12 bagi seluruh
- []
-
-[48]
-Underfull \hbox (badness 1331) in paragraph at lines 353--355
-\TU/TimesNewRoman(0)/m/n/12 pada benchmark, kemudian disimpan bersama metadata 
-penting seperti
- []
-
-
-Underfull \hbox (badness 2005) in paragraph at lines 365--366
-\TU/TimesNewRoman(0)/m/it/12 configuration\TU/TimesNewRoman(0)/m/n/12 , serta c
-ontoh mekanisme injeksi persona. Seluruh komponen
- []
-
-
-Underfull \hbox (badness 3977) in paragraph at lines 373--374
-[]\TU/TimesNewRoman(0)/m/it/12 Benchmark \TU/TimesNewRoman(0)/m/n/12 kedua adal
-ah \TU/TimesNewRoman(0)/m/it/12 MMLU-Redux\TU/TimesNewRoman(0)/m/n/12 , versi t
-erkurasi dari MMLU yang
- []
-
-[49]
-Underfull \hbox (badness 1859) in paragraph at lines 375--376
-\TU/TimesNewRoman(0)/m/n/12 yang berbeda, yaitu penalaran numerik prosedural da
-n penalaran konseptual
- []
-
-[50]
-Underfull \hbox (badness 3780) in paragraph at lines 450--451
-\TU/TimesNewRoman(0)/m/it/12 engineer. He is analytical, prefers concise explan
-ations, and
- []
-
-
-Underfull \hbox (badness 1019) in paragraph at lines 455--456
-\TU/TimesNewRoman(0)/m/n/12 melalui narasi pengalaman, ekspresi emosi, atau gay
-a tutur tertentu. Model
- []
-
-[51]
-Underfull \hbox (badness 2057) in paragraph at lines 471--472
-\TU/TimesNewRoman(0)/m/n/12 Perubahan terhadap ruang eksperimen dapat dilakukan
- dengan memodifikasi
- []
-
-
-Underfull \hbox (badness 1077) in paragraph at lines 475--476
-\TU/TimesNewRoman(0)/m/n/12 menjaga agar data asli dan data turunan tidak terca
-mpur, serta memudahkan
- []
-
-[52]
-Underfull \hbox (badness 1728) in paragraph at lines 487--492
-\TU/TimesNewRoman(0)/m/n/12 Persiapan data \TU/TimesNewRoman(0)/m/it/12 benchma
-rk \TU/TimesNewRoman(0)/m/n/12 dilakukan melalui skrip \TU/lmtt/m/n/12 gsm8k_do
-wnload.py \TU/TimesNewRoman(0)/m/n/12 dan
- []
-
-
-Underfull \hbox (badness 1092) in paragraph at lines 493--495
-[]\TU/TimesNewRoman(0)/m/n/12 Kode [][]IV.4[][] merangkum alur utama yang diimp
-lementasikan pada kedua skrip
- []
-
-[53]
-Underfull \hbox (badness 1137) in paragraph at lines 549--550
-\TU/TimesNewRoman(0)/m/n/12 kondisi jaringan. Bagian ini menjelaskan mekanisme 
-yang digunakan untuk
- []
-
-[54]
-Underfull \hbox (badness 1430) in paragraph at lines 561--562
-[]\TU/TimesNewRoman(0)/m/n/12 Kedua mekanisme tersebut menjaga stabilitas eksek
-usi pada skala besar dan
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 565--568
-\TU/TimesNewRoman(0)/m/n/12 Penanganan gangguan pada pipeline didukung oleh dua
- skrip utama,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 565--568
-\TU/TimesNewRoman(0)/m/n/12 yaitu \TU/lmtt/m/n/12 checkpoint_monitor.py \TU/Tim
-esNewRoman(0)/m/n/12 dan \TU/lmtt/m/n/12 wait_and_report.py\TU/TimesNewRoman(0)
-/m/n/12 . Skrip
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 565--568
-\TU/lmtt/m/n/12 checkpoint_monitor.py \TU/TimesNewRoman(0)/m/n/12 memantau prog
-res eksekusi dan mencatat
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 565--568
-\TU/TimesNewRoman(0)/m/n/12 daftar \TU/TimesNewRoman(0)/m/it/12 configuration \
-TU/TimesNewRoman(0)/m/n/12 yang telah menghasilkan keluaran lengkap. Skrip
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 565--568
-\TU/lmtt/m/n/12 wait_and_report.py \TU/TimesNewRoman(0)/m/n/12 digunakan untuk 
-memantau progres secara berkala
- []
-
-[55] [56]
-Underfull \hbox (badness 3746) in paragraph at lines 630--631
-[]\TU/TimesNewRoman(0)/m/n/12 Dengan mekanisme ini, eksekusi yang terhenti seca
-ra tidak terduga dapat
- []
-
-
-Underfull \hbox (badness 3635) in paragraph at lines 630--631
-\TU/TimesNewRoman(0)/m/n/12 dilanjutkan berdasarkan \TU/TimesNewRoman(0)/m/it/1
-2 checkpoint \TU/TimesNewRoman(0)/m/n/12 terakhir, dan progres keseluruhan dapa
-t
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 645--652
-\TU/TimesNewRoman(0)/m/n/12 Tahap pasca-proses hasil eksperimen direalisasikan 
-melalui sejumlah
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 645--652
-\TU/TimesNewRoman(0)/m/n/12 skrip, antara lain \TU/lmtt/m/n/12 parse_gsm8k_resu
-lts.py\TU/TimesNewRoman(0)/m/n/12 , \TU/lmtt/m/n/12 analyze_results.py\TU/Times
-NewRoman(0)/m/n/12 ,
- []
-
-
-Underfull \hbox (badness 1852) in paragraph at lines 645--652
-\TU/TimesNewRoman(0)/m/n/12 menghitung metrik performa (misalnya akurasi dan pe
-nggunaan token), lalu
- []
-
-[57]
-Overfull \hbox (81.66629pt too wide) in paragraph at lines 682--683
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][]  
- []
-
-[58] [59] [60]
-Underfull \hbox (badness 10000) in paragraph at lines 814--818
-\TU/TimesNewRoman(0)/m/n/12 Pipeline menghasilkan ringkasan performa dalam bent
-uk tabel yang
- []
-
-
-Underfull \hbox (badness 1152) in paragraph at lines 814--818
-\TU/TimesNewRoman(0)/m/n/12 menggabungkan metrik akurasi dan penggunaan token u
-ntuk setiap pasangan
- []
-
-) (./Bab V - Rencana-Selanjutnya.tex [61]
-Bab V.
-
-Underfull \hbox (badness 5578) in paragraph at lines 11--18
-\TU/TimesNewRoman(0)/m/n/12 Rencana implementasi pada tahap berikutnya adalah m
-enjalankan kembali
- []
-
-
-Underfull \hbox (badness 2717) in paragraph at lines 44--49
-\TU/TimesNewRoman(0)/m/n/12 MMLU-Redux menggunakan mekanisme injeksi pesan berb
-asis peran:
- []
-
-[62
-
-]
-Underfull \hbox (badness 1448) in paragraph at lines 61--66
-\TU/TimesNewRoman(0)/m/n/12 Kegagalan akibat \TU/TimesNewRoman(0)/m/it/12 timeo
-ut \TU/TimesNewRoman(0)/m/n/12 atau batas \TU/TimesNewRoman(0)/m/it/12 rate lim
-it \TU/TimesNewRoman(0)/m/n/12 ditangani menggunakan
- []
-
-
-Underfull \hbox (badness 4441) in paragraph at lines 61--66
-\TU/TimesNewRoman(0)/m/n/12 mekanisme \TU/TimesNewRoman(0)/m/it/12 retry \TU/Ti
-mesNewRoman(0)/m/n/12 dengan \TU/TimesNewRoman(0)/m/it/12 exponential backoff\T
-U/TimesNewRoman(0)/m/n/12 , sebagaimana dijelaskan
- []
-
-[63] [64]
-Underfull \hbox (badness 10000) in paragraph at lines 208--213
-[]\TU/TimesNewRoman(0)/m/n/12 Tiga model lain yang tersedia sebagai \TU/TimesNe
-wRoman(0)/m/it/12 free-tier \TU/TimesNewRoman(0)/m/n/12 (grok-4.1-fast,
- []
-
-
-Underfull \hbox (badness 2547) in paragraph at lines 208--213
-\TU/TimesNewRoman(0)/m/n/12 nemotron-nano-12b-v2-vl, dan bert-nebulon-alpha) di
-perkirakan mengonsumsi
- []
-
-
-Underfull \hbox (badness 2762) in paragraph at lines 214--222
-[]\TU/TimesNewRoman(0)/m/n/12 Dengan demikian, estimasi total biaya finansial u
-ntuk menjalankan seluruh
- []
-
-
-Underfull \hbox (badness 1490) in paragraph at lines 227--235
-\TU/TimesNewRoman(0)/m/n/12 Pelaksanaan Tugas Akhir ini dirancang dalam beberap
-a tahapan yang saling
- []
-
-
-Underfull \hbox (badness 1478) in paragraph at lines 227--235
-\TU/TimesNewRoman(0)/m/n/12 stabil dan menghasilkan keluaran yang dapat dianali
-sis secara komprehensif.
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 244--244
-[]|\TU/TimesNewRoman(0)/m/n/12 Studi literatur lanjutan
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 244--244
-\TU/TimesNewRoman(0)/m/n/12 dan perumusan kerangka
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 246--248
-[]|\TU/TimesNewRoman(0)/m/n/12 Pemutakhiran tinjauan pustaka,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 246--248
-\TU/TimesNewRoman(0)/m/n/12 definisi metodologi, pemetaan
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 246--248
-\TU/TimesNewRoman(0)/m/n/12 risiko bias persona, serta
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 246--248
-\TU/TimesNewRoman(0)/m/n/12 penyusunan struktur awal
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 249--249
-[]|\TU/TimesNewRoman(0)/m/n/12 Pengembangan dan
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 249--249
-\TU/TimesNewRoman(0)/m/n/12 implementasi \TU/TimesNewRoman(0)/m/it/12 evaluatio
-n
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 251--253
-[]|\TU/TimesNewRoman(0)/m/n/12 Modul pemanggilan model,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 251--253
-\TU/TimesNewRoman(0)/m/n/12 integrasi API, modul persona,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 251--253
-\TU/TimesNewRoman(0)/m/n/12 modul benchmark, mekanisme
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 251--253
-\TU/TimesNewRoman(0)/m/it/12 logging\TU/TimesNewRoman(0)/m/n/12 , serta verifik
-asi format
- []
-
-
-Underfull \hbox (badness 1867) in paragraph at lines 254--254
-[]|\TU/TimesNewRoman(0)/m/n/12 Pengujian internal, \TU/TimesNewRoman(0)/m/it/12
- dry-run\TU/TimesNewRoman(0)/m/n/12 ,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 256--258
-[]|\TU/TimesNewRoman(0)/m/n/12 Pipeline stabil dan konsisten,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 256--258
-\TU/TimesNewRoman(0)/m/n/12 validasi batas token, pengujian
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 259--259
-[]|\TU/TimesNewRoman(0)/m/n/12 Pelaksanaan eksperimen
- []
-
-
-Underfull \hbox (badness 1924) in paragraph at lines 259--259
-\TU/TimesNewRoman(0)/m/n/12 penuh (persona × model ×
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 261--263
-[]|\TU/TimesNewRoman(0)/m/n/12 Dataset hasil eksperimen yang
- []
-
-
-Underfull \hbox (badness 3746) in paragraph at lines 261--263
-\TU/TimesNewRoman(0)/m/n/12 lengkap: keluaran GSM8K dan
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 261--263
-\TU/TimesNewRoman(0)/m/n/12 MMLU-Redux, statistik token,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 261--263
-\TU/TimesNewRoman(0)/m/n/12 latensi, tingkat keberhasilan
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 264--264
-[]|\TU/TimesNewRoman(0)/m/n/12 Replikasi eksperimen dan
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 266--268
-[]|\TU/TimesNewRoman(0)/m/n/12 Eksperimen ulang untuk
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 266--268
-\TU/TimesNewRoman(0)/m/n/12 meningkatkan reliabilitas,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 269--269
-[]|\TU/TimesNewRoman(0)/m/n/12 Analisis hasil dan
- []
-
-
-Overfull \hbox (35.99997pt too wide) in paragraph at lines 239--278
- [][] 
- []
-
-[65]
-Underfull \hbox (badness 1005) in paragraph at lines 283--287
-\TU/TimesNewRoman(0)/m/n/12 diverifikasi, divalidasi, dan direplikasi. Pengujia
-n memanfaatkan artefak log
- []
-
-[66]
-Underfull \hbox (badness 2418) in paragraph at lines 311--313
-\TU/TimesNewRoman(0)/m/n/12 sudah terserap dengan benar. Kegagalan dianggap ano
-mali dan
- []
-
-
-Underfull \hbox (badness 6876) in paragraph at lines 323--325
-[]\TU/TimesNewRoman(0)/m/n/12 Model harus menghasilkan jawaban numerik akhir ya
-ng dapat
- []
-
-
-Underfull \hbox (badness 4316) in paragraph at lines 333--335
-[]\TU/TimesNewRoman(0)/m/n/12 Pemeriksaan mencakup panjang teks, struktur, kete
-rbacaan, dan
- []
-
-
-Underfull \hbox (badness 2237) in paragraph at lines 345--347
-[]\TU/TimesNewRoman(0)/m/n/12 Akurasi dihitung dengan membandingkan jawaban akh
-ir terhadap
- []
-
-[67]
-Underfull \hbox (badness 10000) in paragraph at lines 365--369
-\TU/TimesNewRoman(0)/m/n/12 Pelaksanaan eksperimen pada lingkungan multi-model 
-dan multi-persona
- []
-
-
-Underfull \hbox (badness 4832) in paragraph at lines 365--369
-\TU/TimesNewRoman(0)/m/n/12 menimbulkan sejumlah risiko yang perlu dikelola unt
-uk menjaga integrist
- []
-
-
-Underfull \hbox (badness 1616) in paragraph at lines 374--376
-[]\TU/TimesNewRoman(0)/m/n/12 Risiko meliputi timeout, gangguan koneksi, dan ra
-te limit yang dapat
- []
-
-
-Underfull \hbox (badness 5954) in paragraph at lines 383--385
-[]\TU/TimesNewRoman(0)/m/n/12 Penurunan tingkat konkurensi secara otomatis keti
-ka laju galat
- []
-
-
-Underfull \hbox (badness 1342) in paragraph at lines 389--392
-[]\TU/TimesNewRoman(0)/m/n/12 Respons model dapat menjadi terlalu panjang, teru
-tama ketika diminta
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 404--406
-[]\TU/TimesNewRoman(0)/m/n/12 Volume log yang besar meningkatkan risiko korupsi
- berkas dan
- []
-
-) [68]
-Underfull \hbox (badness 1571) in paragraph at lines 477--477
-[][]\TU/TimesNewRoman(0)/m/n/12 Brown, Tom, Benjamin Mann, Nick Ryder, Melanie 
-Subbiah, Jared Kaplan,
- []
-
-
-Underfull \hbox (badness 2351) in paragraph at lines 477--477
-\TU/TimesNewRoman(0)/m/n/12 2020. “  Language Models are Few-Shot Learners”. \T
-U/TimesNewRoman(0)/m/it/12 Advances in Neural
- []
-
-[69
-
-
-]
-Underfull \hbox (badness 1577) in paragraph at lines 477--477
-[][]\TU/TimesNewRoman(0)/m/n/12 Gupta, Shashank, Vaishnavi Shrivastava, Ameet D
-eshpande, Ashwin Kalyan,
- []
-
-
-Underfull \hbox (badness 5189) in paragraph at lines 477--477
-\TU/TimesNewRoman(0)/m/n/12 Peter Clark, Ashish Sabharwal, dan Tushar Khot. 202
-4. “  Bias Runs
- []
-
-[70]
-Underfull \hbox (badness 1205) in paragraph at lines 477--477
-[][]\TU/TimesNewRoman(0)/m/n/12 Ouyang, Long, Jeffrey Wu, Xu Jiang, Diogo Almei
-da, dkk. 2022. “  Training
- []
-
-
-Underfull \hbox (badness 1466) in paragraph at lines 477--477
-\TU/TimesNewRoman(0)/m/n/12 Language Models to Follow Instructions with Human F
-eedback”. \TU/TimesNewRoman(0)/m/it/12 arXiv
- []
-
-
-Underfull \hbox (badness 1337) in paragraph at lines 477--477
-\TU/TimesNewRoman(0)/m/n/12 “  SocialIQA: Commonsense Reasoning about Social In
-teractions”. Dalam
- []
-
-
-Underfull \hbox (badness 2042) in paragraph at lines 477--477
-\TU/TimesNewRoman(0)/m/it/12 Proceedings of the 2019 Conference on Empirical Me
-thods in Natural
- []
-
-
-Underfull \hbox (badness 2418) in paragraph at lines 477--477
-[][]\TU/TimesNewRoman(0)/m/n/12 Schick, Timo, dan Hinrich Schütze. 2021. “  Exp
-loiting Cloze Questions for
- []
-
-
-Underfull \hbox (badness 1466) in paragraph at lines 477--477
-\TU/TimesNewRoman(0)/m/n/12 A Survey of Role-Playing and Personalization”. Dala
-m \TU/TimesNewRoman(0)/m/it/12 Findings of the
- []
-
-
-Underfull \hbox (badness 1515) in paragraph at lines 477--477
-\TU/TimesNewRoman(0)/m/it/12 Association for Computational Linguistics: EMNLP 2
-024, \TU/TimesNewRoman(0)/m/n/12 16612–16631.
- []
-
-
-Underfull \hbox (badness 1558) in paragraph at lines 477--477
-\TU/TimesNewRoman(0)/m/n/12 Unfaithful Explanations in Chain-of-Thought Reasoni
-ng”. \TU/TimesNewRoman(0)/m/it/12 arXiv preprint
- []
-
-
-Underfull \hbox (badness 1057) in paragraph at lines 477--477
-[][]\TU/TimesNewRoman(0)/m/n/12 Vaswani, Ashish, Noam Shazeer, Niki Parmar, Jak
-ob Uszkoreit, Llion Jones,
- []
-
-[71]
-Underfull \hbox (badness 3219) in paragraph at lines 477--477
-\TU/TimesNewRoman(0)/m/n/12 “  Calibrate Before Use: Improving Few-Shot Perform
-ance of Language
- []
-
-
-Underfull \hbox (badness 3780) in paragraph at lines 477--477
-[][]\TU/TimesNewRoman(0)/m/n/12 Zhao, Zhengxuan, dkk. 2021. “  Calibrate Before
- Use: Improving Few-Shot
- []
-
-[72] (./ProposalTA.aux)
- ***********
-LaTeX2e <2023-11-01> patch level 1
-L3 programming layer <2024-01-22>
- ***********
-
-
-LaTeX Warning: There were undefined references.
-
-Package rerunfilecheck Info: File `ProposalTA.out' has not changed.
-(rerunfilecheck)             Checksum: A79582A768D465753B8C1E4FFFCEEBFE;22609.
-
-Package biblatex Warning: Please rerun LaTeX.
-
-Package logreq Info: Writing requests to 'ProposalTA.run.xml'.
-\openout1 = `ProposalTA.run.xml'.
-
- ) 
-Here is how much of TeX's memory you used:
- 45872 strings out of 474878
- 957060 string characters out of 5762515
- 2439185 words of memory out of 5000000
- 67243 multiletter control sequences out of 15000+600000
- 565045 words of font info for 97 fonts, out of 8000000 for 9000
- 1348 hyphenation exceptions out of 8191
- 83i,14n,93p,1199b,7865s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-Output written on ProposalTA.xdv (84 pages, 1697696 bytes).
+[13]
+Underfull \hbox (badness 1430) in paragraph at lin

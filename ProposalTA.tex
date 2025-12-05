@@ -134,7 +134,7 @@
 % ==========================================
 \DefineBibliographyStrings{english}{
   and          = {dan},
-  andothers    = {dkk.},
+  andothers    = {dkk\adddot},
   editor       = {penyunting},
   editors      = {penyunting},
   translator   = {penerjemah},
@@ -150,17 +150,16 @@
   url          = {tautan},
 }
 
+% ==========================================  
+% PENGATURAN NAMA: Hanya 1 nama + "dkk" untuk multiple authors
+% ==========================================
+\ExecuteBibliographyOptions{maxcitenames=1,mincitenames=1,maxbibnames=1,minbibnames=1}
+
 % ==========================================
 % Pastikan \cite() menampilkan (Penulis Tahun)
 % ==========================================
 \let\oldcite\cite
 \renewcommand{\cite}{\parencite}
-
-% ==========================================
-% Atur pemisah nama penulis agar lebih natural dalam Bahasa Indonesia
-% ==========================================
-\renewcommand*{\finalandcomma}{} % hilangkan koma sebelum 'dan'
-
 
 % ==========================================
 % TAMPILAN

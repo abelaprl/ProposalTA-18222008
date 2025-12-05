@@ -7,7 +7,18 @@
 \chapter{ANALISIS MASALAH}
 \label{chap:analisis-masalah}
 
+Bab ini menyusun analisis sistematis terhadap permasalahan yang muncul dari penggunaan
+\textit{large language model} di bawah variasi \textit{user persona}, dengan menjembatani
+temuan konseptual pada studi literatur dan kebutuhan praktis perancangan eksperimen. Analisis
+difokuskan pada pemetaan kondisi saat ini, identifikasi kesenjangan antara kebutuhan evaluasi
+dan dukungan metodologis yang tersedia, serta perumusan kebutuhan fungsional dan
+nonfungsional yang harus dipenuhi oleh kerangka eksperimen yang diusulkan.
 
+Secara khusus, bab ini menguraikan bagaimana karakteristik teknis LLM, sensitivitas terhadap
+\textit{prompt}, serta keberadaan bias distribusional dan struktural berinteraksi dengan
+persona pengguna dalam konteks evaluasi. Hasil analisis kemudian digunakan untuk
+mengevaluasi beberapa alternatif pendekatan solusi dan memilih strategi implementasi yang
+paling sesuai, yang selanjutnya menjadi dasar perancangan pada Bab~\ref{chap:desain-konsep-solusi}.
 \section{Analisis Kondisi Saat Ini}
 
 Perkembangan \textit{large language model} (LLM) dalam beberapa tahun terakhir mendorong pemanfaatan model bahasa dalam berbagai aplikasi, mulai dari penjawab pertanyaan, agen percakapan, hingga sistem pendukung pengambilan keputusan \parencite{bommasani2021opportunities}. Dengan penggunaan yang semakin luas, muncul kebutuhan untuk memahami bagaimana model merespons variasi identitas dan karakteristik pengguna, bukan hanya variasi instruksi tugas. Hal ini penting karena pada praktiknya, interaksi dengan LLM selalu membawa konteks mengenai siapa penggunanya dan dari gaya komunikasi seperti apa instruksi tersebut disampaikan.
